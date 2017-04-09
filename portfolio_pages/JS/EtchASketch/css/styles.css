@@ -1,0 +1,60 @@
+.header{
+  width:720px;
+  height: 40px;
+  margin: 0px auto 0px auto;
+  display: block;
+  padding:0px;
+}
+.wrapper{
+  padding:0px;
+  width: 720px;
+  height: 720px;
+  margin: 20px auto;
+}
+.small{
+  width: 30px;
+  height:30px;
+  margin: 0px;
+
+  color:grey;
+  border: 0;
+}
+.large{
+  width: 220px;
+  height:30px;
+  margin: 0px;
+  background-color: #E1CE7A;
+  color:grey;
+  border: 0;
+}
+#clear{
+  margin-right: 50px;
+
+}
+
+#size{
+  margin-left: 50px;
+
+}
+#one{
+  background-color: #424B54;
+}
+#two{
+  background-color: #E1CE7A;
+}
+#three{
+  background-color: #EBCFB2;
+}
+#four{
+  background-color: #C5BAAF;
+}
+#five{
+  background-color: #CFD4C5;
+}
+
+.untouched{
+  display: inline-block;
+  background:  white;
+  width: 45px;
+  height: 45px;
+}
