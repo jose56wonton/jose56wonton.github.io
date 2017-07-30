@@ -1,12 +1,4 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Feb 26, 2017, 7:08:04 PM
-    Author     : jose5
-*/
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,17 +12,49 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin:0;
-    padding:0;
-    font-family: 'Raleway',sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    vertical-align: baseline;
+     
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 header{
     position:relative;
     padding:20px 0px 20px 0px;
-    
-    z-index: 100;
-    
+     font-family: 'Raleway',sans-serif;
 }
+
+
+
+
 ul  {
     list-style-type: none;
     margin: 0;
@@ -48,7 +72,7 @@ h1{
 }
 h2{
     color:#6E7276;
-    font-size: 30px;
+    font-size: 40px;
     font-family: 'Raleway', cursive;
 }
 h3{
@@ -64,6 +88,7 @@ h3{
 
 p{
     color:#EEE8EC;
+    line-height: 20px;
 }
 li{
     display: inline;
@@ -83,42 +108,10 @@ p{
     
     color:#9B9698;
 }
-.left{
-    text-align: left;
-}
-.right{
-    text-align: right;
-}
 
 
-.portfolio-tiles{
-    position:relative;
-    float:left;
-    width:100%;
-    padding:0 0 55px 0;
-    margin: 0;
-    z-index: 100;
-   
-}
-.wrapper{
-    float:none;
-    
-    
-    
-    width: 960px;
-    margin: 0 auto;
-    text-align: center;
-}
-.tiles{
-    
-    width:392px;
-    height: 394px;
-    
-    padding:5px;
-    padding-bottom: 2px;
-    margin:45px;
-    vertical-align: baseline;
-}
+
+
 .tiles .image{
     position:relative;
     
@@ -126,7 +119,6 @@ p{
 .tiles h2{
     
     position:relative;
-    text-align:left;
     
     width: 100%;
     display: block;
@@ -136,10 +128,84 @@ p{
 
 
 
+@media screen and (min-width: 0px){
+    .wrapper{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+
+        width: 90%;
+        margin: 0 auto;
+    }
+    .tiles{
+
+        flex: 3;
+        padding: 10px;
+        margin:10px auto;
+        max-width: 410px;
+        max-height: 410px;
+        position: relative;
+        background: #A0CED9;
+        vertical-align: middle;
+        
+    }
+    .text{
+        background: #ffffff;
+    }
+    .about{   
+        transition: opacity 1s ease;
+    }
+    .about:hover{
+        opacity: .99;
+    }
+
+    .left{
+        text-align: center;
+    }
+    .right{
+        text-align: center;
+    }
+
+   
+
+
+   
+    
+}
+
+
+@media screen and (min-width: 1200px){
+
+    .wrapper{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+
+        width: 960px;
+        margin: 0 auto;
+    }
+    .tiles{
+
+        flex: 2;
+        padding: 10px;
+        margin:10px;
+        position: relative;
+        background: #A0CED9;
+        vertical-align: middle;
+        
+    }
+    .text{
+        background: #ffffff;
+    }
+    .left{
+        text-align: left;
+    }
+    .right{
+        text-align: right;
+    }
+
+}
 
 .social{
-    
-    padding:20px 0px 20px 0px;
-    
-    z-index: 100;
+    padding:20px 0px 20px 0px;    
 }

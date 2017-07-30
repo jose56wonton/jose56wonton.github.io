@@ -1,12 +1,4 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Feb 24, 2017, 7:35:11 PM
-    Author     : jose5
-*/
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,15 +12,44 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin:0;
-    padding:0;
-    font-family: 'Raleway',sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    vertical-align: baseline;
 }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 header{
     position:relative;
     padding:20px 0px 20px 0px;
-    
-    z-index: 100;
+    font-family: 'Raleway',sans-serif;
     
 }
 
@@ -89,68 +110,118 @@ p{
     color:#9B9698;
 }
 
-
-
-.portfolio-tiles{
-    position:relative;
-    float:left;
-    width:100%;
-    padding:0 0 55px 0;
-    margin: 0;
-    z-index: 100;
-   
+h4.coming{
+    color:#6E7276;
+    font-size: 60px;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;padding:100px;
 }
-.wrapper{
-    float:none;
-    
-    
-    
-    width: 960px;
-    margin: 0 auto;
-    text-align: center;
-}
-.tiles{
-    width:392px;
-    height: 394px;
-    
-    background: #A0CED9;
-    padding:5px;
-    padding-bottom: 2px;
-    margin:45px;
-    vertical-align: baseline;
-}
-.tiles .image{
-    position:relative;
-    
-}
-.tiles h2{
-    left: 0;
-    position:absolute;
-    text-align:center;
-    top: 42%;
-    width: 100%;
-    display: none;
+h4.coming a{
     text-decoration: none;
-    
 }
 
 
-.tiles:hover img{
-    filter: opacity(20%);
 
-    
-}
-.tiles:hover h2{
-    display:block;
-    font-size: 40px;
+@media screen and (min-width: 0px){
+    .wrapper{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+
+        width: 90%;
+        margin: 0 auto;
+    }
+    .tiles{
+
+        flex: 3;
+        padding: 10px;
+        margin:10px auto;
+        max-width: 410px;
+        max-height: 410px;
+        position: relative;
+        background: #A0CED9;
+        
+    }
+    .about{   
+        transition: opacity 1s ease;
+    }
+    .about:hover{
+        opacity: .99;
+    }
+
+
+
+    .tiles h2{
+        left: 50%;
+        position:absolute;
+        text-align:center;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        display: none;
+        text-decoration: none;     
+    }
+
+
+    .tiles img{
+        transition: opacity .5s ease;
+    }
+     .tiles:hover img{        
+        opacity: .3;
+    } 
+    .tiles:hover h2{
+        display:block;
+        font-size: 40px;
+    }
 }
 
+
+@media screen and (min-width: 1200px){
+
+    .wrapper{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+
+        width: 960px;
+        margin: 0 auto;
+    }
+    .tiles{
+
+        flex: 3;
+        padding: 10px;
+        margin:10px;
+        position: relative;
+        background: #A0CED9;
+        
+    }
+
+
+    .tiles h2{
+        left: 50%;
+        position:absolute;
+        text-align:center;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        display: none;
+        text-decoration: none;     
+    }
+
+    .tiles img{
+        transition: opacity .5s ease;
+    }
+     .tiles:hover img{        
+        opacity: .3;
+    } 
+    .tiles:hover h2{
+        display:block;
+        font-size: 40px;
+    }
+}
 
 .social{
     
     padding:20px 0px 20px 0px;
     
-    z-index: 100;
 }
 
 
