@@ -1,0 +1,418 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+*,*::before,*::after{
+	box-sizing: border-box;
+}
+
+// General colors being used
+
+$copper: #e29466;
+$white: #ffffff;
+$grey: #DEE3E9;
+$light-green:#72bf9d;
+$med-green:#1b6d67;
+$dark-green:#4C5A5F;
+
+// General site-wide styles
+
+body{
+	padding:0;
+	margin:0;
+	color: $grey;
+	overflow-x:  hidden;
+}
+
+h1{
+	font-size:3rem;
+	color:$grey;
+	font-family: 'Josefin Slab', serif;
+}
+h2{
+	font-size:2rem;
+	color:$med-green;
+	font-family: 'Josefin Slab', serif;
+}
+h3{
+	font-size:1.75rem;
+	color:$med-green;
+	font-family: 'Josefin Slab', serif;
+}
+p{
+	font-size:1.5rem;
+	color:$grey;
+	font-family: 'Josefin Sans', sans-serif;
+}
+// This class is being used to vertically center elements within a div
+.vert-center-div{
+	position: relative;
+	top: 50%;
+	width:100%;
+	-webkit-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+.parallax-window {
+    min-height: 400px;
+    background: transparent;
+}
+.container-fluid{
+	padding:0;
+}
+.row{
+	padding: 100px 0 ;
+}
+
+// Intro tab
+
+.overlay{
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: auto;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.5); /*can be anything, of course*/
+	margin:0;	
+}
+.row-1{
+	height:100vh;
+	text-align: center;
+	
+}
+
+.row-2{
+	color:$copper;
+	color:$grey;
+	background-color:$med-green;
+	div{
+	  text-align: center;
+    h1,p{
+    	color:$grey;
+    }    
+	}
+}
+
+// Work.
+
+.row-3{
+	width: 80%;
+	max-width: 960px;
+	margin: 0 auto;
+	h1{
+
+		color:$med-green;
+	}
+}
+.grid div{
+	margin: 0;
+	padding:20px;
+	text-align: center;
+	figure {
+		margin: 0;
+		padding:20px;
+		height: 20rem;
+		position: relative;		 
+		background-color:$grey;		
+		img {				
+			width: 5rem;
+			margin: 1rem auto;
+			display: block;
+			position: relative;
+
+		}
+		figcaption {
+			position: absolute;
+			top: 0;
+			left: 0;	
+			padding: 20px;
+			background: $dark-green;
+			color: $light-green;		
+			padding: 7.5rem 0;				
+			h3 {
+				margin: 0;
+				padding: 0;
+				color: $white;
+			}
+			p{
+				color:$white;
+			}
+			a {
+				text-align: center;
+				padding: 5px 10px;
+				margin: 1rem 0;
+				border-radius: 2px;
+				display: inline-block;
+				text-decoration: none;
+				background: $light-green;
+				color: #fff;
+				-webkit-transition: color 0.3s, background-color 0.3s;
+				-moz-transition: color 0.3s, background-color 0.3s;
+				transition: color 0.3s, background-color 0.3s;			
+			}		
+			a:hover{
+				background-color: $white;
+				color:$light-green;
+			}
+		}		
+	 }	
+}
+.cs-style-1 figcaption {
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	text-align: center;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	span {
+		display: block;
+	}
+}
+// .no-touch .cs-style-1 figure:hover figcaption,
+// .cs-style-1 figure.cs-hover figcaption {
+// 	opacity: 1;
+// 	-webkit-transform: translate(15px, 15px);
+// 	-moz-transform: translate(15px, 15px);
+// 	-ms-transform: translate(15px, 15px);
+// 	transform: translate(15px, 15px);
+// }
+ figure:hover figcaption{
+	opacity: 1;
+	-webkit-transform: translate(15px, 15px);
+	-moz-transform: translate(15px, 15px);
+	-ms-transform: translate(15px, 15px);
+	transform: translate(15px, 15px);
+} 
+
+
+
+// Contact.
+.row-4{	
+	position:relative;
+	color:$med-green;
+	background-color:$light-green;	
+	div{
+	  text-align: center;
+		h1,p{
+			color:$grey;
+		}
+		ul{
+			li{
+				display: inline-block;	
+				a{
+					display: inline-block;
+					height: 50px;
+					width: 50px;
+					border-radius: 50%;
+					background-color: $white;
+					-webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+					-moz-transition: -moz-transform 0.3s, background-color 0.3s;
+					transition: transform 0.3s, background-color 0.3s;
+				}
+				a:hover{
+					background-color: $grey;
+				}
+				img{
+					margin-top: 20%;
+					height: 60%;
+					width: 60%;
+				}
+			}
+		}
+	}
+}
+
+// Footer.
+.row-5{
+	height:10vh;	
+	position:relative;
+	color:$grey;
+	background-color:$med-green;	
+	div{
+	  text-align: center;
+    h1,p{
+    	color:$grey;
+		}
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// a {
+// 	font-size:1rem;
+// 	text-decoration: none;
+// 	color:white;
+// 	padding: .5rem;
+//   display: inline-block;
+//   vertical-align: middle;
+//   -webkit-transform: perspective(1px) translateZ(0);
+//   transform: perspective(1px) translateZ(0);
+//   box-shadow: 0 0 1px transparent;
+//   position: relative;
+//   -webkit-transition-property: color;
+//   transition-property: color;
+//   -webkit-transition-duration: 0.5s;
+//   transition-duration: 0.5s;
+// }
+// a::before{
+//   content: "";
+//   position: absolute;
+//   z-index: -1;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   background: #fff;
+//   -webkit-transform: scaleX(0);
+//   transform: scaleX(0);
+//   -webkit-transform-origin: 0 50%;
+//   transform-origin: 0 50%;
+//   -webkit-transition-property: transform;
+//   transition-property: transform;
+//   -webkit-transition-duration: 0.5s;
+//   transition-duration: 0.5s;
+//   -webkit-transition-timing-function: ease-out;
+//   transition-timing-function: ease-out;
+// }
+// a:hover, a:focus, a:active {
+//   color: $med-green;
+// }
+// a:hover:before, a:focus:before, a:active:before {
+//   -webkit-transform: scaleX(1);
+//   transform: scaleX(1);
+//   -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+//   transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+// }
