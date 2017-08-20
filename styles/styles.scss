@@ -65,7 +65,7 @@ body{
 
 h1{
 	font-size:3rem;
-	color:$med-green;
+	color:$grey;
 	font-family: 'Josefin Slab', serif;
 }
 h2{
@@ -80,7 +80,7 @@ h3{
 }
 p{
 	font-size:1.5rem;
-	color:$copper;
+	color:$grey;
 	font-family: 'Josefin Sans', sans-serif;
 }
 // This class is being used to vertically center elements within a div
@@ -118,26 +118,8 @@ p{
 }
 .row-1{
 	height:100vh;
-	.logo-lg{		
-		width:100%;
-		text-align: center;
-		color:$grey;
-		h1,p{
-			color:$grey;
-		}
-	}
-	span{
-		line-height:80vh;
-	}
-	.cover{
-		width:100%;
-	  text-align: center;
-	  vertical-align:middle; 
-		display:inline-block; 
-		h1,p{
-			color:$grey;
-		}
-	}
+	text-align: center;
+	
 }
 
 .row-2{
@@ -155,31 +137,26 @@ p{
 // Work.
 
 .row-3{
-	position:relative;	
-	.cover{
-		width:100%;
-		text-align: center;
-		.row{
-			padding:0;
-		}
+	width: 80%;
+	max-width: 960px;
+	margin: 0 auto;
+	h1{
+
+		color:$med-green;
 	}
 }
 .grid div{
-	display: inline-block;
 	margin: 0;
 	padding:20px;
-	text-align: left;
-	position: relative;
 	text-align: center;
 	figure {
 		margin: 0;
 		padding:20px;
 		height: 20rem;
-		width: 100%;
 		position: relative;		 
 		background-color:$grey;		
 		img {				
-			height: 4rem;
+			width: 5rem;
 			margin: 1rem auto;
 			display: block;
 			position: relative;
@@ -219,7 +196,7 @@ p{
 				color:$light-green;
 			}
 		}		
-	}	
+	 }	
 }
 .cs-style-1 figcaption {
 	height: 100%;
