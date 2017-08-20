@@ -52,7 +52,7 @@ $white: #ffffff;
 $grey: #DEE3E9;
 $light-green:#72bf9d;
 $med-green:#1b6d67;
-$dark-green:#091d24;
+$dark-green:#4C5A5F;
 
 // General site-wide styles
 
@@ -73,10 +73,24 @@ h2{
 	color:$med-green;
 	font-family: 'Josefin Slab', serif;
 }
+h3{
+	font-size:1.75rem;
+	color:$med-green;
+	font-family: 'Josefin Slab', serif;
+}
 p{
 	font-size:1.5rem;
 	color:$copper;
 	font-family: 'Josefin Sans', sans-serif;
+}
+// This class is being used to vertically center elements within a div
+.vert-center-div{
+	position: relative;
+	top: 50%;
+	width:100%;
+	-webkit-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
 }
 .parallax-window {
     min-height: 400px;
@@ -138,11 +152,10 @@ p{
 	}
 }
 
+// Work.
+
 .row-3{
-	
-	
-	position:relative;
-	
+	position:relative;	
 	.cover{
 		width:100%;
 		text-align: center;
@@ -151,28 +164,97 @@ p{
 		}
 	}
 }
-#project-time-track{
-	background-color: $grey;
-	padding: 2rem;
-	img{
-		height: 100px;
-	}
-}
-#project-ebs{
-	background-color: $grey;
-	padding: 2rem;
-	img{
-		height: 100px;
-	}
-}
-#project-the-odin-project{
-	background-color: $grey;	
-	padding: 2rem;
-	img{
-		height: 100px;
-	}
-}
+.grid div{
+	display: inline-block;
+	margin: 0;
+	padding:20px;
+	text-align: left;
+	position: relative;
+	text-align: center;
+	figure {
+		margin: 0;
+		padding:20px;
+		height: 20rem;
+		width: 100%;
+		position: relative;		 
+		background-color:$grey;		
+		img {				
+			height: 4rem;
+			margin: 1rem auto;
+			display: block;
+			position: relative;
 
+		}
+		figcaption {
+			position: absolute;
+			top: 0;
+			left: 0;	
+			padding: 20px;
+			background: $dark-green;
+			color: $light-green;		
+			padding: 7.5rem 0;				
+			h3 {
+				margin: 0;
+				padding: 0;
+				color: $white;
+			}
+			p{
+				color:$white;
+			}
+			a {
+				text-align: center;
+				padding: 5px 10px;
+				margin: 1rem 0;
+				border-radius: 2px;
+				display: inline-block;
+				text-decoration: none;
+				background: $light-green;
+				color: #fff;
+				-webkit-transition: color 0.3s, background-color 0.3s;
+				-moz-transition: color 0.3s, background-color 0.3s;
+				transition: color 0.3s, background-color 0.3s;			
+			}		
+			a:hover{
+				background-color: $white;
+				color:$light-green;
+			}
+		}		
+	}	
+}
+.cs-style-1 figcaption {
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	text-align: center;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	span {
+		display: block;
+	}
+}
+// .no-touch .cs-style-1 figure:hover figcaption,
+// .cs-style-1 figure.cs-hover figcaption {
+// 	opacity: 1;
+// 	-webkit-transform: translate(15px, 15px);
+// 	-moz-transform: translate(15px, 15px);
+// 	-ms-transform: translate(15px, 15px);
+// 	transform: translate(15px, 15px);
+// }
+ figure:hover figcaption{
+	opacity: 1;
+	-webkit-transform: translate(15px, 15px);
+	-moz-transform: translate(15px, 15px);
+	-ms-transform: translate(15px, 15px);
+	transform: translate(15px, 15px);
+} 
+
+
+
+// Contact.
 .row-4{	
 	position:relative;
 	color:$med-green;
@@ -182,12 +264,35 @@ p{
 		h1,p{
 			color:$grey;
 		}
+		ul{
+			li{
+				display: inline-block;	
+				a{
+					display: inline-block;
+					height: 50px;
+					width: 50px;
+					border-radius: 50%;
+					background-color: $white;
+					-webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+					-moz-transition: -moz-transform 0.3s, background-color 0.3s;
+					transition: transform 0.3s, background-color 0.3s;
+				}
+				a:hover{
+					background-color: $grey;
+				}
+				img{
+					margin-top: 20%;
+					height: 60%;
+					width: 60%;
+				}
+			}
+		}
 	}
 }
 
-
+// Footer.
 .row-5{
-	height:20vh;	
+	height:10vh;	
 	position:relative;
 	color:$grey;
 	background-color:$med-green;	
@@ -195,7 +300,8 @@ p{
 	  text-align: center;
     h1,p{
     	color:$grey;
-    }
+		}
+		
 	}
 }
 
