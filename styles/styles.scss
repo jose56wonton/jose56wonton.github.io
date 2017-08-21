@@ -105,7 +105,7 @@ p{
 
 // Intro tab
 
-.overlay{
+.background-tint {
   z-index: 1;
   height: 100%;
   width: 100%;
@@ -169,7 +169,7 @@ p{
 			padding: 20px;
 			background: $dark-green;
 			color: $light-green;		
-			padding: 7.5rem 0;				
+			padding: 7.5rem 0;		 		
 			h3 {
 				margin: 0;
 				padding: 0;
@@ -186,12 +186,13 @@ p{
 				display: inline-block;
 				text-decoration: none;
 				background: $light-green;
+				border: none;
 				color: #fff;
 				-webkit-transition: color 0.3s, background-color 0.3s;
 				-moz-transition: color 0.3s, background-color 0.3s;
 				transition: color 0.3s, background-color 0.3s;			
 			}		
-			a:hover{
+			button:hover{
 				background-color: $white;
 				color:$light-green;
 			}
@@ -255,7 +256,7 @@ p{
 					transition: transform 0.3s, background-color 0.3s;
 				}
 				a:hover{
-					background-color: $grey;
+					background: $grey;
 				}
 				img{
 					margin-top: 20%;
