@@ -88,7 +88,7 @@ p {
 .row {
   padding: 100px 0; }
 
-.overlay {
+.background-tint {
   z-index: 1;
   height: 100%;
   width: 100%;
@@ -157,11 +157,12 @@ p {
         display: inline-block;
         text-decoration: none;
         background: #72bf9d;
+        border: none;
         color: #fff;
         -webkit-transition: color 0.3s, background-color 0.3s;
         -moz-transition: color 0.3s, background-color 0.3s;
         transition: color 0.3s, background-color 0.3s; }
-      .grid div figure figcaption a:hover {
+      .grid div figure figcaption button:hover {
         background-color: #ffffff;
         color: #72bf9d; }
 
@@ -206,7 +207,7 @@ figure:hover figcaption {
         -moz-transition: -moz-transform 0.3s, background-color 0.3s;
         transition: transform 0.3s, background-color 0.3s; }
       .row-4 div ul li a:hover {
-        background-color: #DEE3E9; }
+        background: #DEE3E9; }
       .row-4 div ul li img {
         margin-top: 20%;
         height: 60%;
