@@ -91,10 +91,18 @@ p{
 	-webkit-transform: translateY(-50%);
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
+	
+}
+.without-tint{
+	z-index: 1;
 }
 .parallax-window {
     min-height: 400px;
-    background: transparent;
+		background: url("../images/IMG_3610.JPG");
+		background-attachment: fixed;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: auto 100vh;
 }
 .container-fluid{
 	padding:0;
@@ -104,22 +112,24 @@ p{
 }
 
 // Intro tab
-
-.background-tint {
-  z-index: 1;
-  height: 100%;
+.background-tint{
+	position: relative;
+}
+.background-tint::after {
+	content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
-  position: relative;
-  overflow: auto;
-  top: 0px;
-  left: 0px;
-  background: rgba(0, 0, 0, 0.5); /*can be anything, of course*/
-	margin:0;	
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
 }
 .row-1{
 	height:100vh;
 	text-align: center;
-	
+	position: relative;
 }
 
 .row-2{
