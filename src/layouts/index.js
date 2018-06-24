@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 
 import './index.css'
 
+
 const Layout = ({ children, data }) => (
   <div>
     <Helmet
@@ -32,5 +33,6 @@ export const query = graphql`
         title
       }
     }
+    
   }
 `

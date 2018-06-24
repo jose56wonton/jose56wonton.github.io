@@ -4,13 +4,10 @@ import {Button } from './atoms/navigation';
 import {breakpoints} from './atoms/globals';
 class Intro extends Component {
   render() {
-    console.log(breakpoints)
+    const {data} = this.props;
     return (
       <Hero>
-        <HeroContent>
-          <p>asdf</p>
-          <h1>hi there</h1>
-          <Button>More!</Button>
+        <HeroContent dangerouslySetInnerHTML={{__html: data.introHTML}} >
         </HeroContent>
       </Hero>
     )
