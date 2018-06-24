@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import {colors} from './variables';
+
 
 export const Button = styled.button`
 margin: 0;
@@ -15,7 +17,7 @@ z-index: 0;
 border: none;
 border-radius: 0;
 background: transparent;
-color: #1d89ff;
+color: ${colors.white};
 -webkit-transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1),
   -webkit-transform 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
 transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1),
@@ -27,7 +29,7 @@ transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1),
   -webkit-transform 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
   &:before {
     width: 100%;
-    background: #fafafa;
+    background: ${colors.regular};
     -webkit-transition: box-shadow 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
     transition: box-shadow 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
   };
@@ -59,12 +61,9 @@ transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1),
     opacity: 1;
   }
   &:focus:before,&:hover:before{
-    box-shadow: inset 0 -1px 0 #a7c3ff, inset 0 1px 0 #a7c3ff,
-    inset -1px 0 0 #a7c3ff;
+    box-shadow: inset 0 -1px 0 ${colors.regular}, inset 0 1px 0 ${colors.regular},
+    inset -1px 0 0 ${colors.regular};
   }
 
 `
-export const HeroContent = styled.div`
-  height: 200px;
-  width: 360px;  
-`
+
