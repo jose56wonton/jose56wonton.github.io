@@ -1,61 +1,151 @@
 import { injectGlobal } from 'styled-components';
 import { colors, breakpoints } from './variables';
 
+
+const base = 1;
+
+
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Inconsolata|Quicksand');
 
   html {
     height: 100%;
     width: 100%;
+    margin: 0;
   }
   h1{
-    ${breakpoints.xs(`font-size: 32px;`)}
-    ${breakpoints.sm(`font-size: 32px;`)}
-    ${breakpoints.md(`font-size: 40px;`)}
-    ${breakpoints.lg(`font-size: 48px;`)}
-    ${breakpoints.xl(`font-size: 56px;`)}
+    ${breakpoints.xs(`
+      font-size: 32px;
+      margin-bottom: 6px;
+    `)}
+    ${breakpoints.sm(`
+      font-size: 32px;
+      margin-bottom: 6px;
+    `)}
+    ${breakpoints.md(`
+      font-size: 40px;
+      margin-bottom: 8px;  
+    `)}
+    ${breakpoints.lg(`
+      font-size: 48px;
+      margin-bottom: 10px
+    `)}
+    ${breakpoints.xl(`
+      font-size: 56px;
+      margin-bottom: 12px;
+    `)}
     font-family: 'Inconsolata', monospace;
+    margin:0;
   }
   h2{
-    ${breakpoints.xs(`font-size: 28px;`)}
-    ${breakpoints.sm(`font-size: 28px;`)}
-    ${breakpoints.md(`font-size: 36px;`)}
-    ${breakpoints.lg(`font-size: 44px;`)}
-    ${breakpoints.xl(`font-size: 52px;`)}
-    font-family: 'Inconsolata', monospace;
+    ${breakpoints.xs(`
+    font-size: 28px;
+    margin-bottom: 6px;
+    `)}
+
+    ${breakpoints.sm(`
+      font-size: 28px;
+      margin-bottom: 6px;
+    `)}
+    ${breakpoints.md(`
+      font-size: 36px;
+      margin-bottom: 8px;  
+    `)}
+    ${breakpoints.lg(`
+      font-size: 44px;
+      margin-bottom: 10px
+    `)}
+    ${breakpoints.xl(`
+      font-size: 52px;
+      margin-bottom: 12px;
+    `)}
+    font-family: 'Quicksand', sans-serif;
+    margin:0;
   }
   h3{
-    ${breakpoints.xs(`font-size: 24px;`)}
-    ${breakpoints.sm(`font-size: 24px;`)}
-    ${breakpoints.md(`font-size: 32px;`)}
-    ${breakpoints.lg(`font-size: 40px;`)}
-    ${breakpoints.xl(`font-size: 48px;`)}
-    font-family: 'Inconsolata', monospace;
+    ${breakpoints.xs(`
+      font-size: 24px;
+      margin-bottom: 6px;
+    `)}
+    ${breakpoints.sm(`
+      font-size: 24px;
+      margin-bottom: 6px;
+    `)}
+    ${breakpoints.md(`
+      font-size: 32px;
+      margin-bottom: 8px;  
+    `)}
+    ${breakpoints.lg(`
+      font-size: 40px;
+      margin-bottom: 10px
+    `)}
+    ${breakpoints.xl(`
+      font-size: 48px;
+      margin-bottom: 12px;
+    `)}
+      font-family: 'Inconsolata', monospace;
+      margin:0;
   }
   p{
-    ${breakpoints.xs(`font-size: 12px;`)}
-    ${breakpoints.sm(`font-size: 12px;`)}
-    ${breakpoints.md(`font-size: 16px;`)}
-    ${breakpoints.lg(`font-size: 20px;`)}
-    ${breakpoints.xl(`font-size: 24px;`)}
+    ${breakpoints.xs(`
+      font-size: 20px;
+      margin-bottom: 6px;
+    `)}
+    ${breakpoints.sm(`
+      font-size: 20px;
+      margin-bottom: 6px;
+    `)}
+    ${breakpoints.md(`
+      font-size: 22px;
+      margin-bottom: 8px;  
+    `)}
+    ${breakpoints.lg(`
+      font-size: 22px;
+      margin-bottom: 10px
+    `)}
+    ${breakpoints.xl(`
+      font-size: 24px;
+      margin-bottom: 12px;
+    `)}
     font-family: 'Quicksand', sans-serif;
+    margin:0;
   }
-  a{
-    font-family: 'Quicksand', sans-serif;
+  a,button{
+    font-family: 'Inconsolata', monospace;
     margin: 0;
+    display:inline-block;
   padding: 0;
   border-width: 0;
   border-color: transparent;
   font-weight: 400;
   cursor: pointer;
   position: relative;
-  ${breakpoints.xs(`font-size: 12px;`)}
-  ${breakpoints.sm(`font-size: 12px;`)}
-  ${breakpoints.md(`font-size: 16px;`)}
-  ${breakpoints.lg(`font-size: 20px;`)}
-  ${breakpoints.xl(`font-size: 24px;`)}
-  font-family: inherit;
-  padding: 5px 12px;
+  text-decoration: none;
+  ${breakpoints.xs(`
+    font-size: 20px;
+    margin-bottom: 6px;
+    padding: 3px 8px;
+  `)}
+  ${breakpoints.sm(`
+    font-size: 20px;
+    margin-bottom: 6px;
+    padding: 3px 8px;
+  `)}
+  ${breakpoints.md(`
+    font-size: 22px;
+    margin-bottom: 8px;  
+    padding: 4px 10px;
+  `)}
+  ${breakpoints.lg(`
+    font-size: 22px;
+    margin-bottom: 10px;
+    padding: 5px 12px;
+  `)}
+  ${breakpoints.xl(`
+    font-size: 24px;
+    margin-bottom: 12px;
+    padding: 5px 12px;
+  `)}
   z-index: 0;
   border: none;
   border-radius: 0;

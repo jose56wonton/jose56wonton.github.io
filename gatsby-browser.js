@@ -5,3 +5,16 @@
  */
 
  // You can delete this file if you're not using it
+// import { anchorate } from 'anchorate'
+
+// exports.onRouteUpdate = () => {
+//   anchorate()
+// }
+
+exports.onRouteUpdate = (location) => {
+  if (location.hash) {
+    setTimeout(() => {
+      document.querySelector(`${location.hash}`).scrollIntoView();
+    }, 0);
+  }
+};

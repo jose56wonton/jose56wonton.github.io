@@ -8,6 +8,6 @@ export const Hero  = styled.div`
   align-items: center;
 `
 export const HeroContent = styled.div`
-  height: 200px;
+  height: auto;
   width: 360px;  
 `

@@ -7,7 +7,10 @@ class Intro extends Component {
     const {data} = this.props;
     return (
       <Hero>
-        <HeroContent dangerouslySetInnerHTML={{__html: data.introHTML}} >
+        <HeroContent>
+          <div dangerouslySetInnerHTML={{__html: data.introHTML}} />
+          <a href="#about">More</a>
+          
         </HeroContent>
       </Hero>
     )
