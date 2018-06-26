@@ -9,10 +9,16 @@ class IndexPage extends Component {
     const introData ={
       introHTML: data.contentfulIntro.intro.childMarkdownRemark.html
     }
+    const aboutData = {
+      titleHTML: data.contentfulAbout.title.childMarkdownRemark.html,
+      bodyHTML: data.contentfulAbout.body.childMarkdownRemark.html,
+      images: data.contentfulAbout.images
+    }
+    console.log(this.props.data);
     return (
       <div>
       <Intro data={introData} /> 
-      <About/>
+      <About data={aboutData}/>
       <Experience/>
       
       </div>
@@ -31,6 +37,23 @@ export const query = graphql`
           html
         }
       }   
+    }
+    contentfulAbout {
+      title{
+        childMarkdownRemark{
+          html
+        }
+      }
+      body{
+        childMarkdownRemark{
+          html
+        }
+      }
+      images{
+        sizes(maxWidth: 500, quality: 90) {
+          ...GatsbyContentfulSizes
+        }
+      }
     }
   }
 `;
