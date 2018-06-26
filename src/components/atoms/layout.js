@@ -14,7 +14,6 @@ export const HeroContent = styled.div`
 export const HeroContainer = styled.div`
   position: relative;
   width: 1140px;
-  background-color: black;
   margin: 0 auto;
   ${breakpoints.xs(`
     width: 95%;
