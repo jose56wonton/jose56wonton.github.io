@@ -7,12 +7,14 @@ const base = 1;
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Inconsolata|Quicksand');
-
+  *{
+    box-sizing: border-box;
+  }
   html {
     height: 100%;
     width: 100%;
     margin: 0;
-    box-sizing: border-box;
+    
   }
   h1{
     ${breakpoints.xs(`
