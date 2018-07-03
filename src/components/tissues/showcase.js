@@ -39,7 +39,7 @@ export const ShowCaseImage = styled.div`
   height: auto;   
   width:100%;  
   
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   ${breakpoints.lg(`
     position: absolute ;
     width: 58%
@@ -61,7 +61,7 @@ export const ShowCaseBody= styled.div`
   padding: 20px;   
   height: auto;   
   width:100%;  
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   ${breakpoints.lg(`
     position: absolute ;
     width: 58%

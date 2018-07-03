@@ -64,7 +64,7 @@ injectGlobal`
     `)}
     font-family: 'Quicksand', sans-serif;
     margin:0;
-  }
+  }  
   h3{
     ${breakpoints.xs(`
       font-size: 24px;

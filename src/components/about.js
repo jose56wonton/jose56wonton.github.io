@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { HeroContent, Hero, HeroContainer } from './atoms/layout';
 import { Anchor } from './atoms/navigation';
 import { ShowCase, ShowCaseImage, ShowCaseBody, ShowCaseGroup, ShowCaseTitle, ShowCaseLink } from './tissues/showcase';
+import {Underline} from './atoms/typography';
 import { ImageWrapper } from './atoms/images';
 import Image from 'gatsby-image';
 class About extends Component {
@@ -15,7 +16,7 @@ class About extends Component {
           <HeroContainer>
             <ShowCase>
               <ShowCaseTitle>
-                <div dangerouslySetInnerHTML={{ __html: titleHTML }} />
+                <Underline><div dangerouslySetInnerHTML={{ __html: titleHTML }} /></Underline>
               </ShowCaseTitle>
               <ShowCaseGroup>
                 <ShowCaseImage>
