@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import Intro from '../components/intro';
 import About from '../components/about';
-import Experience from '../components/experience';
+import Experiences from '../components/experiences';
 
 class IndexPage extends Component {
   render () {
@@ -14,12 +14,12 @@ class IndexPage extends Component {
       bodyHTML: data.contentfulAbout.body.childMarkdownRemark.html,
       images: data.contentfulAbout.images
     }
-    console.log(this.props.data);
+    const experienceData= data.allContentfulExperience;
     return (
       <div>
       <Intro data={introData} /> 
-      <About data={aboutData}/>
-      <Experience/>
+      <About data={aboutData}/>      
+      <Experiences data={experienceData} />
       
       </div>
     )
@@ -52,6 +52,29 @@ export const query = graphql`
       images{
         sizes(maxWidth: 1240, quality: 90 ) {
           ...GatsbyContentfulSizes
+        }
+      }
+    }
+    allContentfulExperience{
+      edges{
+        node
+        {
+          title
+          location
+          date
+          dateForSorting
+          tools {
+            id
+            childMarkdownRemark{
+              html
+            }
+          }
+          childContentfulExperienceBodyTextNode {
+            id
+            childMarkdownRemark{
+              html
+            }
+          }
         }
       }
     }

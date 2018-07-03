@@ -51,15 +51,15 @@ injectGlobal`
       margin-bottom: 6px;
     `)}
     ${breakpoints.md(`
-      font-size: 36px;
+      font-size: 32px;
       margin-bottom: 8px;  
     `)}
     ${breakpoints.lg(`
-      font-size: 44px;
+      font-size: 34px;
       margin-bottom: 10px
     `)}
     ${breakpoints.xl(`
-      font-size: 52px;
+      font-size: 36px;
       margin-bottom: 12px;
     `)}
     font-family: 'Quicksand', sans-serif;

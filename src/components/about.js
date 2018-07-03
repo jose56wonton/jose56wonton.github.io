@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { HeroContent, Hero, HeroContainer } from './atoms/layout';
 import { Anchor } from './atoms/navigation';
-import { ShowCase, ShowCaseImage, ShowCaseBody, ShowCaseGroup, ShowCaseTitle, ShowCaseLink } from './tissues/showcase';
+import { ShowCase, ShowCaseImage, ShowCaseBody, ShowCaseGroup, ShowCaseTitle, ShowCaseLink } from './atoms/showcase';
 import {Underline} from './atoms/typography';
 import { ImageWrapper } from './atoms/images';
 import Image from 'gatsby-image';
 class About extends Component {
   render() {
-    console.log(this.props.data);
     const { titleHTML, bodyHTML, images } = this.props.data;
     return (
       <div>
