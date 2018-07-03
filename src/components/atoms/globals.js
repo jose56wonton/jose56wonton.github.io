@@ -12,6 +12,7 @@ injectGlobal`
     height: 100%;
     width: 100%;
     margin: 0;
+    box-sizing: border-box;
   }
   h1{
     ${breakpoints.xs(`

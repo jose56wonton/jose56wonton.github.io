@@ -50,7 +50,7 @@ export const query = graphql`
         }
       }
       images{
-        sizes(maxWidth: 500, quality: 90) {
+        sizes(maxWidth: 1240, quality: 90 ) {
           ...GatsbyContentfulSizes
         }
       }
