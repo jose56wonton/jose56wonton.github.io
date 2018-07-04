@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Intro from '../components/intro'
 import About from '../components/about'
+import Footer from '../components/footer';
 import Experiences from '../components/experiences'
 
 class IndexPage extends Component {
@@ -20,6 +21,7 @@ class IndexPage extends Component {
         <Intro data={introData} />
         <About data={aboutData} />
         <Experiences data={experienceData} />
+        <Footer />
       </div>
     )
   }

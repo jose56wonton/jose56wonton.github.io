@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import {Ending} from './specific/ending';
+import {Container} from './atoms/layout';
 
 class Footer extends Component {
   render() {
     return (
-      <div>
-        
-      </div>
+      <Ending>
+        <Container>
+          dasjkldflkjfdsa
+        </Container>
+      </Ending>
     );
   }
 }
