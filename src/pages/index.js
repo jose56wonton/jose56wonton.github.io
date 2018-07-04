@@ -59,6 +59,11 @@ export const query = graphql`
       edges{
         node
         {
+          icon{
+            sizes(maxWidth: 100, quality: 90 ) {
+              ...GatsbyContentfulSizes
+            }
+          }
           title
           location
           date

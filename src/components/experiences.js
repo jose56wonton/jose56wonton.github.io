@@ -6,8 +6,11 @@ import { TimeLine, TimeLineElementLeft, TimeLineElementRight } from './atoms/tim
 class Experiences extends Component {
   render() {
     const { data } = this.props;
+    console.log(data);
     const experience = data.edges.map((exp, i) => {
+      console.log(exp.node);
       const asdf = {
+        icon: exp.node.icon,
         title: exp.node.title,
         location: exp.node.location,
         date: exp.node.date,

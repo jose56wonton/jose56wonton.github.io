@@ -91,23 +91,23 @@ injectGlobal`
   }
   p{
     ${breakpoints.xs(`
-      font-size: 20px;
+      font-size: 14px;
       margin-bottom: 6px;
     `)}
     ${breakpoints.sm(`
-      font-size: 20px;
+      font-size: 16px;
       margin-bottom: 6px;
     `)}
     ${breakpoints.md(`
-      font-size: 22px;
+      font-size: 16px;
       margin-bottom: 8px;  
     `)}
     ${breakpoints.lg(`
-      font-size: 22px;
+      font-size: 16px;
       margin-bottom: 10px
     `)}
     ${breakpoints.xl(`
-      font-size: 24px;
+      font-size: 18px;
       margin-bottom: 12px;
     `)}
     font-family: 'Quicksand', sans-serif;
@@ -124,28 +124,29 @@ injectGlobal`
   cursor: pointer;
   position: relative;
   text-decoration: none;
+  
   ${breakpoints.xs(`
-    font-size: 20px;
+    font-size: 14px;
     margin-bottom: 6px;
     padding: 3px 8px;
   `)}
   ${breakpoints.sm(`
-    font-size: 20px;
+    font-size: 16px;
     margin-bottom: 6px;
     padding: 3px 8px;
   `)}
   ${breakpoints.md(`
-    font-size: 22px;
+    font-size: 16px;
     margin-bottom: 8px;  
     padding: 4px 10px;
   `)}
   ${breakpoints.lg(`
-    font-size: 22px;
+    font-size: 16px;
     margin-bottom: 10px;
     padding: 5px 12px;
   `)}
   ${breakpoints.xl(`
-    font-size: 24px;
+    font-size: 18px;
     margin-bottom: 12px;
     padding: 5px 12px;
   `)}

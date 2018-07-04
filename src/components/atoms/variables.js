@@ -9,6 +9,7 @@ export const colors = {
 
 
 const sizes = {
+  touch: [0,991.98],
   xs: [0,575.98],
   sm: [575,767.98],
   md: [768,991.98],

@@ -86,5 +86,3 @@ export const ShowCaseLink= styled.div`
   padding: 0 8px;
 `
 
-
-

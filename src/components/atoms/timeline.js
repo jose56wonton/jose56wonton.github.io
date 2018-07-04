@@ -7,17 +7,18 @@ export const TimeLine = styled.ul`
   position: relative;
   width:100%;
   margin: 0 auto;
+  padding: 0;
   ${breakpoints.xs(`
     width: 90%;
   `)}
   ${breakpoints.sm(`
-    width: 80%;
+    width: 90%;
   `)}
   ${breakpoints.md(`
-    width: 80%;
+    width: 90%;
  `)}
  ${breakpoints.lg(`
-    width: 80%;
+    width: 90%;
  `)}
  ${breakpoints.xl(`
     width: 80%;
@@ -30,6 +31,7 @@ export const TimeLineElementLeft = styled.li`
   text-decoration:none;
   position: relative;
   width:50%;  
+  margin-bottom: 40px;
   &:before {
     background-color: ${colors.dark};
     content: '';
@@ -37,14 +39,25 @@ export const TimeLineElementLeft = styled.li`
     top: 0;
     right: -2px;
     width: 4px;
-    height: 90%;
+    height: 100%;
   }
+  ${breakpoints.touch(`
+    
+    width: 80%;
+    left: 10%;
+    &:before{
+      left: -2px;
+    }
+ `)}
+
+
 `
 export const TimeLineElementRight = styled.li`
   text-decoration:none;
   position: relative;
   width:50%;
   left:50%;
+  margin-bottom: 40px;
   &:before {
     background-color: ${colors.dark};
     content: '';
@@ -52,15 +65,25 @@ export const TimeLineElementRight = styled.li`
     left:-2px;
     top: 0;
     width: 4px;
-    height: 90%;
+    height: 100%;
   }
+  
+  
+  ${breakpoints.touch(`
+    width: 80%;
+    left: 10%;
+    &:before{
+      right: -2px;
+    }
+ `)}
+
 `
 export const TimeLineContent = styled.div`
-  padding: 2em;
+
   position: relative;
-  top: -1.875em;
-  left: 4em;
-  width: 80%;
+ 
+  left: 30px;
+  width: 90%;
   
   h3 {
     font-size: 1.75em;
@@ -75,7 +98,20 @@ export const TimeLineContent = styled.div`
     font-weight: 700;
   }
   
-  p:not(.timeline-event-thumbnail) {
-    padding-bottom: 1.2em;
+`
+export const TimelineTools = styled.div`
+
+  ul {
+    list-style:none;
+    padding: 0;
+    li{
+      display:inline-block;
+      color: ${colors.dark};
+      border: 2px solid  ${colors.dark};
+      padding: 4px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      margin-right: 8px;
+    }
   }
 `
