@@ -16,6 +16,7 @@ export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   padding: 0 16px;
+  max-width: 1140px;
   ${breakpoints.xs(`
     width: 90%;
   `)}
@@ -27,8 +28,3 @@ export const Container = styled.div`
  `)}
 `
 
-export const Wrapper = styled.div`
-  width: 100%;
-  max-width: 1140px;
-  margin: 0 auto;
-`

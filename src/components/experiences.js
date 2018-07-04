@@ -4,7 +4,7 @@ import {
   TimeLine,
   TimeLineElementLeft,
   TimeLineElementRight,
-} from './atoms/timeline'
+} from './specific/timeline'
 import { Anchor } from './atoms/navigation'
 import { Container } from './atoms/layout'
 import {SectionTitle} from './atoms/typography';

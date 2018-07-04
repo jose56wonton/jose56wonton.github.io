@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { TimeLineContent,TimelineTools } from '../atoms/timeline';
+import { TimeLineContent,TimelineTools } from '../specific/timeline';
 import Image from 'gatsby-image';
 
 
