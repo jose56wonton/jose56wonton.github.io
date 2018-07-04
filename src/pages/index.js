@@ -3,6 +3,7 @@ import Intro from '../components/intro'
 import About from '../components/about'
 import Footer from '../components/footer';
 import Experiences from '../components/experiences'
+import Projects from '../components/projects';
 
 class IndexPage extends Component {
   render() {
@@ -16,12 +17,14 @@ class IndexPage extends Component {
       images: data.contentfulAbout.images,
     }
     const experienceData = data.allContentfulExperience;
+    const projectData = data.allContentfulProject;
     const footerdata = data.contentfulLinks;
     return (
       <div>
         <Intro data={introData} />
         <About data={aboutData} />
         <Experiences data={experienceData} />
+        <Projects data={projectData} />
         <Footer data={footerdata}/>
       </div>
     )
@@ -77,6 +80,31 @@ export const query = graphql`
           childContentfulExperienceBodyTextNode {
             id
             childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    }
+    allContentfulProject {
+      edges {
+        node {
+          title
+          dateForSorting
+          date
+          link
+          images{
+            sizes {
+              src
+            }
+          }        
+          childContentfulProjectBodyTextNode{
+            childMarkdownRemark{
+              html
+            }
+          }
+          childContentfulProjectToolsTextNode{
+            childMarkdownRemark{
               html
             }
           }

@@ -8,7 +8,7 @@ export const TimeLine = styled.ul`
   width:100%;
   margin: 0 auto;
   padding: 0;
-
+  margin-bottom:200px;
  list-style:none;
   
 `
@@ -91,8 +91,8 @@ export const TimelineTools = styled.div`
     padding: 0;
     li{
       display:inline-block;
-      color: ${colors.dark};
-      border: 2px solid  ${colors.dark};
+      color: ${colors.regular};
+      border: 2px solid  ${colors.regular};
       padding: 4px;
       border-radius: 4px;
       margin-bottom: 8px;
