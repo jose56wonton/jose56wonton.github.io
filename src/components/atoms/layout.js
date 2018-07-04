@@ -11,23 +11,24 @@ export const HeroContent = styled.div`
   height: auto;
   width: 360px;  
 `
-export const HeroContainer = styled.div`
+export const Container = styled.div`
   position: relative;
-  width: 1140px;
+  width: 100%;
   margin: 0 auto;
+  padding: 0 16px;
   ${breakpoints.xs(`
-    width: 95%;
+    width: 90%;
   `)}
   ${breakpoints.sm(`
-    width: 95%;
+    width: 80%;
   `)}
   ${breakpoints.md(`
-    width: 95%;
-  `)}
-  ${breakpoints.lg(`
-    width: 1000px
-  `)}
-  ${breakpoints.xl(`
-  width: 1140px;
-  `)}
+    width: 80%;
+ `)}
+`
+
+export const Wrapper = styled.div`
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
 `

@@ -9,7 +9,7 @@ class Experience extends Component {
     console.log(this.props);
     return (
         <TimeLineContent>
-          <Image sizes={icon.sizes} style={{  height: 'auto', width: '60px' }} />
+          <Image sizes={icon.sizes} style={{  height: 'auto', width: '90px' }} />
           <p>{date}</p>
           <h3>{location}</h3>
           <h2>{title}</h2>

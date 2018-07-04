@@ -8,21 +8,6 @@ export const TimeLine = styled.ul`
   width:100%;
   margin: 0 auto;
   padding: 0;
-  ${breakpoints.xs(`
-    width: 90%;
-  `)}
-  ${breakpoints.sm(`
-    width: 90%;
-  `)}
-  ${breakpoints.md(`
-    width: 90%;
- `)}
- ${breakpoints.lg(`
-    width: 90%;
- `)}
- ${breakpoints.xl(`
-    width: 80%;
- `)}
 
  list-style:none;
   

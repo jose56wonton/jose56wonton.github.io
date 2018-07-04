@@ -10,3 +10,9 @@ export const Underline =  styled.span`
   left: 10%;
   bottom: 0;
 `
+export const SectionTitle = styled.h2` 
+  width: 100%;
+  position: relative;
+  padding: 0 8px;  
+  margin-bottom: 20px;
+`

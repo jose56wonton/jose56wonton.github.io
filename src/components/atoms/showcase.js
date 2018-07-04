@@ -5,16 +5,7 @@ import { breakpoints,colors } from '../atoms/variables';
 export const ShowCase = styled.div`
   height: auto;
   width:100%;
-  margin: 0 auto;
-  ${breakpoints.xs(`
-    width: 90%;
-  `)}
-  ${breakpoints.sm(`
-    width: 80%;
-  `)}
-  ${breakpoints.md(`
-    width: 80%;
- `)}
+  margin: 0 auto;  
 `
 export const ShowCaseTitle= styled.div`
   margin: 0 auto;
@@ -28,10 +19,10 @@ export const ShowCaseGroup = styled.div`
   position: relative;
   height: auto;
   ${breakpoints.lg(`
-    height: 500px;
+    height: 450px;
   `)}
   ${breakpoints.xl(`
-    height: 550px;
+    height: 500px;
   `)}
 `
 export const ShowCaseImage = styled.div`

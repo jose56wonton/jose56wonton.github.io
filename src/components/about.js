@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { HeroContent, Hero, HeroContainer } from './atoms/layout';
+import { Hero, Container } from './atoms/layout';
 import { Anchor } from './atoms/navigation';
 import { ShowCase, ShowCaseImage, ShowCaseBody, ShowCaseGroup, ShowCaseTitle, ShowCaseLink } from './atoms/showcase';
-import {Underline} from './atoms/typography';
+import {Underline, SectionTitle} from './atoms/typography';
 import { ImageWrapper } from './atoms/images';
 import Image from 'gatsby-image';
 class About extends Component {
@@ -12,11 +12,11 @@ class About extends Component {
       <div>
         <Anchor name="about"></Anchor>
         <Hero>
-          <HeroContainer>
+          <Container>
             <ShowCase>
-              <ShowCaseTitle>
-                <Underline><div dangerouslySetInnerHTML={{ __html: titleHTML }} /></Underline>
-              </ShowCaseTitle>
+              <SectionTitle>
+                About Me
+              </SectionTitle>
               <ShowCaseGroup>
                 <ShowCaseImage>
                   <ImageWrapper>
@@ -31,7 +31,7 @@ class About extends Component {
                 <a>Resume</a>
               </ShowCaseLink>
             </ShowCase>
-          </HeroContainer>
+          </Container>
         </Hero>
       </div>
     )

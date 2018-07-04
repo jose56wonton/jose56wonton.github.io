@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import Intro from '../components/intro';
 import About from '../components/about';
 import Experiences from '../components/experiences';
+import {Wrapper} from '../components/atoms/layout';
 
 class IndexPage extends Component {
   render () {
@@ -16,12 +17,14 @@ class IndexPage extends Component {
     }
     const experienceData= data.allContentfulExperience;
     return (
-      <div>
+      <Wrapper>
+
+    
       <Intro data={introData} /> 
       <About data={aboutData}/>      
       <Experiences data={experienceData} />
       
-      </div>
+      </Wrapper>
     )
   }
 }
