@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
-import { Hero, HeroContent, Container } from './atoms/layout'
-
+import { Hero, HeroContent, Container, Four } from './atoms/layout'
+import asdf from './atoms/globals';
 class Intro extends Component {
   render() {
     const { data } = this.props
     return (
       <Container>
-        <Hero>
-          <HeroContent>
-            <div dangerouslySetInnerHTML={{ __html: data.introHTML }} />
-            <a href="#about">More</a>
-          </HeroContent>
-        </Hero>
+        <Four>
+          <Hero>
+            <HeroContent>
+              <div dangerouslySetInnerHTML={{ __html: data.introHTML }} />
+              <a href="#about">More</a>
+            </HeroContent>
+          </Hero>
+        </Four>
       </Container>
     )
   }
