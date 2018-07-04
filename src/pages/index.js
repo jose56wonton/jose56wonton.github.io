@@ -15,13 +15,14 @@ class IndexPage extends Component {
       bodyHTML: data.contentfulAbout.body.childMarkdownRemark.html,
       images: data.contentfulAbout.images,
     }
-    const experienceData = data.allContentfulExperience
+    const experienceData = data.allContentfulExperience;
+    const footerdata = data.contentfulLinks;
     return (
       <div>
         <Intro data={introData} />
         <About data={aboutData} />
         <Experiences data={experienceData} />
-        <Footer />
+        <Footer data={footerdata}/>
       </div>
     )
   }
@@ -82,5 +83,10 @@ export const query = graphql`
         }
       }
     }
+    contentfulLinks {
+      github
+      linkedIn
+      medium
+    } 
   }
 `

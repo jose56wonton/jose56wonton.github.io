@@ -12,9 +12,9 @@ import {SectionTitle} from './atoms/typography';
 class Experiences extends Component {
   render() {
     const { data } = this.props
-    console.log(data)
+    
     const experience = data.edges.map((exp, i) => {
-      console.log(exp.node)
+      
       const asdf = {
         icon: exp.node.icon,
         title: exp.node.title,
