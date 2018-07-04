@@ -94,6 +94,7 @@ injectGlobal`
       font-family: 'Inconsolata', monospace;
       margin:0;
   }
+  
   p{
     ${breakpoints.xs(`
       font-size: 14px;

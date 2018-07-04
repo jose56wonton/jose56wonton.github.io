@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { breakpoints,colors } from '../atoms/variables';
+import { breakpoints,colors } from '../variables';
 
 export const ShowCase = styled.div`
   height: auto;

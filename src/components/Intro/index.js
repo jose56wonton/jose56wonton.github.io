@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Hero, HeroContent, Container, Four } from './atoms/layout'
-import asdf from './atoms/globals';
+import { Hero, HeroContent, Container, Four } from '../layout'
+
 class Intro extends Component {
   render() {
     const { data } = this.props

@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import Experience from './tissues/experience'
+import Experience from './experience'
 import {
   TimeLine,
   TimeLineElementLeft,
   TimeLineElementRight,
-} from './specific/timeline'
-import { Anchor } from './atoms/navigation'
-import { Container } from './atoms/layout'
-import {SectionTitle} from './atoms/typography';
+} from './timeline'
+import { Anchor } from '../navigation'
+import { Container } from '../layout'
+import {SectionTitle} from '../typography';
 
 class Experiences extends Component {
   render() {

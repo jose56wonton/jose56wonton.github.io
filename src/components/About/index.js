@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
-import { Hero, Container, Four } from './atoms/layout'
-import { Anchor } from './atoms/navigation'
+import { Hero, Container, Four } from '../layout'
+import { Anchor } from '../navigation'
 import {
   ShowCase,
   ShowCaseImage,
   ShowCaseBody,
   ShowCaseGroup,
-  ShowCaseTitle,
   ShowCaseLink,
-} from './specific/showcase'
-import { Underline, SectionTitle } from './atoms/typography'
-import { ImageWrapper } from './atoms/images'
+} from './showcase'
+import { SectionTitle } from '../typography'
+import { ImageWrapper } from '../images'
 import Image from 'gatsby-image'
+
 class About extends Component {
   render() {
     const { titleHTML, bodyHTML, images } = this.props.data

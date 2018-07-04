@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { breakpoints,colors } from '../atoms/variables';
+import { breakpoints,colors } from '../variables';
 
 export const Project = styled.div`
   display:flex;

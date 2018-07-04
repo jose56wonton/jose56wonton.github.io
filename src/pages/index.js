@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import Intro from '../components/intro'
-import About from '../components/about'
-import Footer from '../components/footer';
-import Experiences from '../components/experiences'
-import Projects from '../components/projects';
-import Articles from '../components/articles';
+import Intro from '../components/Intro'
+import About from '../components/About'
+import Footer from '../components/Footer';
+import Experiences from '../components/Experience'
+import Projects from '../components/Project';
+import Articles from '../components/Article';
+
+import '../components/globals';
 
 class IndexPage extends Component {
   render() {
@@ -29,7 +31,7 @@ class IndexPage extends Component {
         <Experiences data={experienceData} />
         <Projects data={projectData} />
         <Articles data={articleData} />
-        <Footer data={footerdata}/>
+        <Footer data={footerdata}/> 
       </div>
     )
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Ending, EndingContent, EndingLink, EndingText } from './specific/ending';
-import { Container, Hero } from './atoms/layout';
+import { Ending, EndingContent, EndingLink, EndingText } from './ending';
+import { Container, Hero } from '../layout';
 
 class Footer extends Component {
   render() {

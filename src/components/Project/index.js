@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { ProjectSidebar, ProjectList, Project } from './specific/projects';
-import ProjectElement from './tissues/project';
-import { SectionTitle } from './atoms/typography';
-import { Container } from './atoms/layout'
+import { ProjectSidebar, ProjectList, Project } from './projects';
+import ProjectElement from './project';
+import { SectionTitle } from '../typography';
+import { Container } from '../layout'
 
 class Projects extends Component {
   render() {
-    const ProjectItems = this.props.data.edges.map((ele) => {
+    const ProjectItems = this.props.data.edges.map((ele,i) => {
    
       const data = {
         date: ele.node.date,
@@ -17,11 +17,11 @@ class Projects extends Component {
         bodyHTML: ele.node.childContentfulProjectBodyTextNode.childMarkdownRemark.html,
         dateForSorting: ele.node.dateForSorting
       }
-      return <ProjectElement data={data} />
+      return <ProjectElement key={i} data={data} />
     })
-    const ProjectLinks = this.props.data.edges.map((link) => {
+    const ProjectLinks = this.props.data.edges.map((link,i) => {
       const {title} = link.node;
-      return <a href={`#${title}`}>{title}</a>
+      return <a key={i*1000} href={`#${title}`}>{title}</a>
     })
     return (
       <div>

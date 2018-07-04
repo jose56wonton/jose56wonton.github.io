@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {ProjectItem} from '../specific/projects';
-import {TimelineTools} from '../specific/timeline';
+import {ProjectItem} from './projects';
+import {TimelineTools} from '../Experience/timeline';
 import Image from 'gatsby-image';
-import { Anchor } from '../atoms/navigation';
+import { Anchor } from '../navigation';
 
 class Project extends Component {
   render () {

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { SectionTitle } from './atoms/typography';
-import { Container } from './atoms/layout'
-import {ArticleWrapper} from './specific/articles';
-import Article from './tissues/article';
+import { SectionTitle } from '../typography';
+import { Container } from '../layout'
+import {ArticleWrapper} from './articles';
+import Article from './article';
 class Articles extends Component {
   render () {
-    const articles = this.props.data.edges.map((article)=> {
+    const articles = this.props.data.edges.map((article, i)=> {
       console.log(article.node);
       const data = {
         id: article.node.id,
@@ -15,7 +15,7 @@ class Articles extends Component {
         subtitle: article.node.previewContent.bodyModel.paragraphs[1].text,
         body: article.node.previewContent.bodyModel.paragraphs[2].text
       }
-      return <Article data={data} />
+      return <Article key={i} data={data} />
     })
 
     return (
