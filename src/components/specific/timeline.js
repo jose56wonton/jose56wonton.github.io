@@ -69,19 +69,8 @@ export const TimeLineContent = styled.div`
  
   left: 30px;
   width: 90%;
+
   
-  h3 {
-    font-size: 1.75em;
-  }
-  
-  h4 {
-    font-size: 1.2em;
-    margin-bottom: 1.2em;
-  }
-  
-  strong {
-    font-weight: 700;
-  }
   
 `
 export const TimelineTools = styled.div`

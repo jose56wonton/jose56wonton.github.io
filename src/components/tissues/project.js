@@ -7,7 +7,7 @@ import { Anchor } from '../atoms/navigation';
 class Project extends Component {
   render () {
     const {title,date,link,toolsHTML,bodyHTML,images} = this.props.data;
-    console.log(images);
+    
     return (
       <ProjectItem>
         <Anchor name={title} />

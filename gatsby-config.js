@@ -11,6 +11,12 @@ module.exports = {
         accessToken: `${process.env.CONTENTFUL_ACCESS_TOKEN}`,
       },
     },
+    {
+      resolve: `gatsby-source-medium`,
+      options: {
+        username: `@joshuawootonn`,
+      },
+    },
     
     'gatsby-plugin-react-helmet',
     `gatsby-transformer-remark`,

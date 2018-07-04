@@ -4,6 +4,7 @@ import About from '../components/about'
 import Footer from '../components/footer';
 import Experiences from '../components/experiences'
 import Projects from '../components/projects';
+import Articles from '../components/articles';
 
 class IndexPage extends Component {
   render() {
@@ -18,13 +19,16 @@ class IndexPage extends Component {
     }
     const experienceData = data.allContentfulExperience;
     const projectData = data.allContentfulProject;
+    const articleData = data.allMediumPost;    
     const footerdata = data.contentfulLinks;
+
     return (
       <div>
         <Intro data={introData} />
         <About data={aboutData} />
         <Experiences data={experienceData} />
         <Projects data={projectData} />
+        <Articles data={articleData} />
         <Footer data={footerdata}/>
       </div>
     )
@@ -116,5 +120,23 @@ export const query = graphql`
       linkedIn
       medium
     } 
+    allMediumPost(sort: { fields: [createdAt], order: DESC }, limit: 5) {
+      edges {
+        node {        
+          firstPublishedAt
+          id
+          previewContent {
+            bodyModel{
+              paragraphs{
+                text
+              }
+            }
+          }
+          author {
+            name
+          }
+        }
+      }
+    }
   }
 `

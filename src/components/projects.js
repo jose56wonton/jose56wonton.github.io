@@ -7,7 +7,7 @@ import { Container } from './atoms/layout'
 class Projects extends Component {
   render() {
     const ProjectItems = this.props.data.edges.map((ele) => {
-      console.log(ele.node)
+   
       const data = {
         date: ele.node.date,
         title: ele.node.title,

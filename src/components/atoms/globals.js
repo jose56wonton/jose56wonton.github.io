@@ -72,23 +72,23 @@ injectGlobal`
   }  
   h3{
     ${breakpoints.xs(`
-      font-size: 24px;
+      font-size: 20px;
       margin-bottom: 6px;
     `)}
     ${breakpoints.sm(`
-      font-size: 24px;
+      font-size: 20px;
       margin-bottom: 6px;
     `)}
     ${breakpoints.md(`
-      font-size: 32px;
+      font-size: 22px;
       margin-bottom: 8px;  
     `)}
     ${breakpoints.lg(`
-      font-size: 40px;
+      font-size: 25px;
       margin-bottom: 10px
     `)}
     ${breakpoints.xl(`
-      font-size: 48px;
+      font-size: 28px;
       margin-bottom: 12px;
     `)}
       font-family: 'Inconsolata', monospace;
