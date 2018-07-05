@@ -4,7 +4,7 @@ import { Tools, UnderLay } from '../layout';
 import Image from 'gatsby-image';
 import { Anchor } from '../navigation';
 import { SVGLink, Line } from '../typography';
-import Anime from 'react-anime';
+
 
 import Arrow from '../Arrow.svg';
 class Project extends Component {
@@ -37,7 +37,6 @@ class Project extends Component {
     this.setState({ isHovered: false })
   }
   onMouseEnter = () => {
-
     var intervalId = setInterval(this.checkHovered, 1000);
     this.setState({ intervalId: intervalId });
     this.setState({ isHovered: true })
@@ -49,14 +48,14 @@ class Project extends Component {
     return (
       <ProjectItem onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
         <Anchor name={title} />
-        <Anime >
+   
           <ProjectImageWrapper>
 
             <Image sizes={images[this.state.currentImage].sizes} style={{ height: '280px', width: '100%', margin: "0 auto" }} />
 
           </ProjectImageWrapper>
 
-        </Anime>
+       
 
         <Line>
           <h2>{title}</h2>
