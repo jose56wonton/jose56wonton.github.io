@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Ending, EndingContent, EndingLink, EndingText } from './ending';
+import { Ending, EndingContent, Spacing, EndingText } from './ending';
 import { Container, Hero } from '../layout';
+import { TextLink } from '../typography';
 
 class Footer extends Component {
   render() {
@@ -10,11 +11,11 @@ class Footer extends Component {
         <Container>
           <Hero>
             <EndingContent>
-              <div>
-                <EndingLink href={data.github}>Github</EndingLink>
-                <EndingLink href={data.medium}>Medium</EndingLink>
-                <EndingLink href={data.linkedIn}>Linked In</EndingLink>
-              </div>
+              <Spacing>
+                <TextLink href={data.github}>Github</TextLink>
+                <TextLink href={data.medium}>Medium</TextLink>
+                <TextLink href={data.linkedIn}>Linked In</TextLink>
+              </Spacing>
               <EndingText>JoshuaWootonn@gmail.com</EndingText>
               <EndingText>Made by me!</EndingText>
             </EndingContent>

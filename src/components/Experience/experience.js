@@ -11,9 +11,10 @@ class Experience extends Component {
     return (
         <ExperienceContent>
           <Image sizes={icon.sizes} style={{  height: 'auto', width: '90px' }} />
+          <h3>{title}</h3>
           <p>{date}</p>
-          <h3>{location}</h3>
-          <h2>{title}</h2>
+          <p><strong>{location}</strong></p>
+          
           <div dangerouslySetInnerHTML={{ __html: bodyHTML }} />
           <Tools dangerouslySetInnerHTML={{ __html: toolsHTML }} />
         </ExperienceContent>

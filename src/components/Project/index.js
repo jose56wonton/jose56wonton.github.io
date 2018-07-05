@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import { ProjectSidebar, ProjectList, Project } from './projects';
+import { ProjectSidebar, ProjectList, ProjectWrapper, ClearFloats, ProjectSidebarLinks } from './style';
 import ProjectElement from './project';
-import { SectionTitle } from '../typography';
+import { SectionTitle,TextLink } from '../typography';
 import { Container } from '../layout'
 
 class Projects extends Component {
   render() {
-    const ProjectItems = this.props.data.edges.map((ele,i) => {
-   
+    const ProjectItems = this.props.data.edges.map((ele, i) => {
+
       const data = {
         date: ele.node.date,
         title: ele.node.title,
@@ -19,23 +19,31 @@ class Projects extends Component {
       }
       return <ProjectElement key={i} data={data} />
     })
-    const ProjectLinks = this.props.data.edges.map((link,i) => {
-      const {title} = link.node;
-      return <a key={i*1000} href={`#${title}`}>{title}</a>
+    const ProjectLinks = this.props.data.edges.map((link, i) => {
+      const { title } = link.node;
+      return <div>
+        <TextLink key={i * 1000} href={`#${title}`}>{title}</TextLink>
+        <br />
+      </div>
     })
     return (
       <div>
         <Container>
-          <SectionTitle>Projects<span/></SectionTitle>
+          <SectionTitle>Projects<span /></SectionTitle>
         </Container>
-        <Project>
-          <ProjectSidebar>    
-            {ProjectLinks}
+        <ProjectWrapper>
+          <ProjectSidebar>
+
+            <ProjectSidebarLinks>
+              {ProjectLinks}
+            </ProjectSidebarLinks>
+
           </ProjectSidebar>
           <ProjectList>
             {ProjectItems}
           </ProjectList>
-        </Project>
+        </ProjectWrapper>
+        <ClearFloats />
       </div>
 
     )

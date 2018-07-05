@@ -9,7 +9,7 @@ import {
   AboutLink,
 } from './style'
 
-import { SectionTitle } from '../typography'
+import { SectionTitle,TextLink } from '../typography'
 import { ImageWrapper } from '../images'
 import Image from 'gatsby-image'
 
@@ -40,7 +40,7 @@ class About extends Component {
                 </AboutBody>
               </AboutGroup>
               <AboutLink>
-                <a>Resume</a>
+                <TextLink>Resume</TextLink>
               </AboutLink>
             </AboutWrapper>
           </Hero>

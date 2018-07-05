@@ -16,11 +16,14 @@ export const EndingContent = styled.div`
   width: 60%;
 `
 
-export const EndingLink = styled.a`
-  margin-right: 20px;
-  &::last-child{
-    margin-right: 0px;
+export const Spacing = styled.div`
+  a{
+    margin-right: 20px;
+    &::last-child{
+      margin-right: 0px;
+    }
   }
+  
 `
 export const EndingText = styled.p`
   color: ${colors.white};

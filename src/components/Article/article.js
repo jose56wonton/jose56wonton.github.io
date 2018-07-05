@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { BoxSmallText, UnderLay } from '../layout'
 import { ArticleElement } from './style';
-
+import { SVGLink, Line } from '../typography';
+import Arrow from '../Arrow.svg';
 import emojiStrip from 'emoji-strip'
 
 function getLink(title, id) {
@@ -17,8 +18,11 @@ class Article extends Component {
       <ArticleElement>
         <BoxSmallText>
           <UnderLay />
-          <h2>{title}</h2>
-          <a href={"https://medium.com/@joshuawootonn/" + url}>Link</a>
+          <Line>
+            <h2>{title}</h2>
+            <SVGLink href={"https://medium.com/@joshuawootonn/" + url}><img src={Arrow} /></SVGLink>
+
+          </Line>
           <h3>{subtitle}</h3>
           <p>{body}</p>
         </BoxSmallText>
