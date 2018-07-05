@@ -18,6 +18,7 @@ class IndexPage extends Component {
       titleHTML: data.contentfulAbout.title.childMarkdownRemark.html,
       bodyHTML: data.contentfulAbout.body.childMarkdownRemark.html,
       images: data.contentfulAbout.images,
+      resumeURL: data.contentfulAbout.resume.file.url
     }
     const experienceData = data.allContentfulExperience;
     const projectData = data.allContentfulProject;
@@ -53,6 +54,13 @@ export const query = graphql`
         childMarkdownRemark {
           html
         }
+      }
+      resume {
+        file {
+          url
+          fileName
+          contentType
+        }        
       }
       body {
         childMarkdownRemark {

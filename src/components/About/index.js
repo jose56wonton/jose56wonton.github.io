@@ -15,7 +15,7 @@ import Image from 'gatsby-image'
 
 class About extends Component {
   render() {
-    const {bodyHTML, images } = this.props.data
+    const {bodyHTML, images,resumeURL} = this.props.data
     return (
       <Container>
         <Anchor name="about" />
@@ -40,7 +40,7 @@ class About extends Component {
                 </AboutBody>
               </AboutGroup>
               <AboutLink>
-                <TextLink>Resume</TextLink>
+                <TextLink href={resumeURL} >Resume</TextLink>
               </AboutLink>
             </AboutWrapper>
           </Hero>
