@@ -68,3 +68,15 @@ export const ExperienceContent = styled.div`
   left: 30px;
   width: 90%;
 `
+export const ExperienceLine = styled.div`
+  flex-direction:row;
+  display:flex;
+  justify-content:start;
+  align-items: center;
+  p{
+    margin-bottom:0;
+  }
+  div,p{
+    margin-right: 8px;
+  }
+`

@@ -73,11 +73,11 @@ export const query = graphql`
         }
       }
     }
-    allContentfulExperience {
+    allContentfulExperience(sort:{fields:[dateForSorting],order:DESC}) {
       edges {
         node {
           icon {
-            sizes(maxWidth: 100, quality: 90) {
+            sizes(maxWidth: 200, quality: 90) {
               ...GatsbyContentfulSizes
             }
           }
@@ -100,7 +100,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulProject {
+    allContentfulProject(sort:{fields:[dateForSorting],order:DESC}) {
       edges {
         node {
           title
