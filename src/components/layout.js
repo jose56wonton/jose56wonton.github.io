@@ -67,3 +67,20 @@ export const UnderLay = styled.span`
   background-color: ${colors.light};
   
 `
+
+
+export const Tools = styled.div`
+  ul {
+    list-style:none;
+    padding: 0;
+    li{
+      display:inline-block;
+      color: ${colors.regular};
+      border: 2px solid  ${colors.regular};
+      padding: 4px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      margin-right: 8px;
+    }
+  }
+`

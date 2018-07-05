@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Hero, Container, Four, BoxBigText, BoxSmallText,UnderLay } from '../layout'
+import { Hero, Container, Four, BoxSmallText,UnderLay } from '../layout'
 import { Anchor } from '../navigation'
 import {
   AboutWrapper,
@@ -22,7 +22,7 @@ class About extends Component {
         <Four>
           <Hero>
             <AboutWrapper>
-              <h2>About</h2>
+              <SectionTitle>About<span/></SectionTitle>
               <AboutGroup>
                 <AboutImage>
                   <ImageWrapper>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {ProjectItem} from './projects';
-import {TimelineTools} from '../Experience/timeline';
+import {Tools} from '../layout';
 import Image from 'gatsby-image';
 import { Anchor } from '../navigation';
 
@@ -14,7 +14,7 @@ class Project extends Component {
         <Image sizes={images[1].sizes} style={{  height: '280px', width: '80%', margin: "0 auto" }} />
         <h3>{title}</h3> <p>{date}</p> <a href={link}>Link</a>
         <div dangerouslySetInnerHTML={{ __html: bodyHTML }} />
-          <TimelineTools dangerouslySetInnerHTML={{ __html: toolsHTML }} />
+          <Tools dangerouslySetInnerHTML={{ __html: toolsHTML }} />
       </ProjectItem>
     )
   }

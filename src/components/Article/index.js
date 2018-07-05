@@ -20,7 +20,7 @@ class Articles extends Component {
 
     return (
       <Container>
-        <SectionTitle>Articles</SectionTitle>
+        <SectionTitle>Articles<span/></SectionTitle>
         <ArticleWrapper> 
           {articles}
         </ArticleWrapper>

@@ -26,7 +26,7 @@ class Projects extends Component {
     return (
       <div>
         <Container>
-          <SectionTitle>Projects</SectionTitle>
+          <SectionTitle>Projects<span/></SectionTitle>
         </Container>
         <Project>
           <ProjectSidebar>    

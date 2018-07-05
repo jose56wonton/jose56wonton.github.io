@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { breakpoints,colors } from '../variables';
 
 
-export const TimeLine = styled.ul`
+export const ExperienceWrapper = styled.ul`
   position: relative;
   width:100%;
   margin: 0 auto;
@@ -12,7 +12,7 @@ export const TimeLine = styled.ul`
  list-style:none;
   
 `
-export const TimeLineElementLeft = styled.li`
+export const ExperienceElementLeft = styled.li`
   text-decoration:none;
   position: relative;
   width:50%;  
@@ -37,7 +37,7 @@ export const TimeLineElementLeft = styled.li`
 
 
 `
-export const TimeLineElementRight = styled.li`
+export const ExperienceElementRight = styled.li`
   text-decoration:none;
   position: relative;
   width:50%;
@@ -63,29 +63,8 @@ export const TimeLineElementRight = styled.li`
  `)}
 
 `
-export const TimeLineContent = styled.div`
-
-  position: relative;
- 
+export const ExperienceContent = styled.div`
+  position: relative; 
   left: 30px;
   width: 90%;
-
-  
-  
-`
-export const TimelineTools = styled.div`
-
-  ul {
-    list-style:none;
-    padding: 0;
-    li{
-      display:inline-block;
-      color: ${colors.regular};
-      border: 2px solid  ${colors.regular};
-      padding: 4px;
-      border-radius: 4px;
-      margin-bottom: 8px;
-      margin-right: 8px;
-    }
-  }
 `

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Experience from './experience'
 import {
-  TimeLine,
-  TimeLineElementLeft,
-  TimeLineElementRight,
-} from './timeline'
+  ExperienceWrapper,
+  ExperienceElementLeft,
+  ExperienceElementRight,
+} from './style'
 import { Anchor } from '../navigation'
 import { Container } from '../layout'
 import {SectionTitle} from '../typography';
@@ -28,24 +28,25 @@ class Experiences extends Component {
       }
       if (i % 2 === 1)
         return (
-          <TimeLineElementRight>
+          <ExperienceElementRight>
             <Experience key={i} data={asdf} />
-          </TimeLineElementRight>
+          </ExperienceElementRight>
         )
       else
         return (
-          <TimeLineElementLeft>
+          <ExperienceElementLeft>
             <Experience key={i} data={asdf} />
-          </TimeLineElementLeft>
+          </ExperienceElementLeft>
         )
     })
     return (
       <Container>
         <Anchor name="experience" />
-        <TimeLine>          
-          <SectionTitle>My Experience</SectionTitle>
+        <SectionTitle>Experience<span/></SectionTitle>
+        <ExperienceWrapper>         
+          
           {experience}
-        </TimeLine>
+        </ExperienceWrapper>
       </Container>
     )
   }
