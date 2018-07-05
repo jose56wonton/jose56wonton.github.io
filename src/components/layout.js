@@ -62,7 +62,8 @@ export const BoxSmallText = styled.div`
 export const UnderLay = styled.span`
   position: absolute;
   width: 100%;
-  z-index: -1;
+  z-index: -1; 
+
   height: 100%;
   background-color: ${colors.light};
   

@@ -17,6 +17,7 @@
     "gatsby-source-medium": "^1.0.14",
     "gatsby-transformer-remark": "^1.7.44",
     "gatsby-transformer-sharp": "^1.6.27",
+    "react-anime": "^2.1.0",
     "react-helmet": "^5.2.0",
     "styled-components": "^3.3.3"
   },

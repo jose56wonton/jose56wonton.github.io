@@ -51,3 +51,13 @@ export const ProjectItem = styled.div`
 export const ClearFloats = styled.div`
   clear: both;
 `
+
+export const ProjectImageWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  //background-color: ${colors.white};
+  position: relative;
+  padding: 20px;
+  margin-bottom: 8px;
+ 
+`
