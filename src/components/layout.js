@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {  breakpoints } from './variables';
+import {  colors, breakpoints, transitions} from './variables';
 
 export const Four = styled.div`
   height: 100vh;
@@ -13,6 +13,7 @@ export const Hero  = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `
@@ -38,3 +39,31 @@ export const Container = styled.div`
  `)}
 `
 
+export const BoxBigText = styled.div`
+  padding: 30px;
+  background-color: ${colors.light};
+  color: ${colors.black};
+`
+export const BoxSmallText = styled.div`
+  padding: 20px; 
+  background: ${colors.regular};
+  color: ${colors.black};
+  position: relative;
+  span{
+    transition: ${transitions.fast};
+  }  
+  &:hover{
+    span{
+      transition: ${transitions.fast};
+      transform: translate(5px,5px);
+    }
+  }
+`
+export const UnderLay = styled.span`
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  background-color: ${colors.light};
+  
+`

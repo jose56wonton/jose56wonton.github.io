@@ -1,8 +1,8 @@
 export const colors = {
-  black: "#15120F",
+  black: "#231f24",
   dark: "#002456",
   regular: "#64B9EE",
-  light: "#EDCF2E",
+  light: "#fce373",
   white: "#F6EEE6"
 }
 
@@ -25,3 +25,10 @@ export const breakpoints = Object.keys(sizes).reduce((acc, label) => {
   `
   return acc
 }, {})
+
+
+export const transitions = {
+  slow: "all .6s cubic-bezier(0.39, 0.575, 0.565, 1) 0s",
+  medium: "all .45s cubic-bezier(0.39, 0.575, 0.565, 1) 0s",
+  fast: "all .3s cubic-bezier(0.39, 0.575, 0.565, 1) 0s"
+}

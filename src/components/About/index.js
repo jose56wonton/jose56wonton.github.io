@@ -1,44 +1,48 @@
 import React, { Component } from 'react'
-import { Hero, Container, Four } from '../layout'
+import { Hero, Container, Four, BoxBigText, BoxSmallText,UnderLay } from '../layout'
 import { Anchor } from '../navigation'
 import {
-  ShowCase,
-  ShowCaseImage,
-  ShowCaseBody,
-  ShowCaseGroup,
-  ShowCaseLink,
-} from './showcase'
+  AboutWrapper,
+  AboutImage,
+  AboutBody,
+  AboutGroup,
+  AboutLink,
+} from './style'
+
 import { SectionTitle } from '../typography'
 import { ImageWrapper } from '../images'
 import Image from 'gatsby-image'
 
 class About extends Component {
   render() {
-    const { titleHTML, bodyHTML, images } = this.props.data
+    const {bodyHTML, images } = this.props.data
     return (
       <Container>
         <Anchor name="about" />
         <Four>
           <Hero>
-            <ShowCase>
-              <SectionTitle>About Me</SectionTitle>
-              <ShowCaseGroup>
-                <ShowCaseImage>
+            <AboutWrapper>
+              <h2>About</h2>
+              <AboutGroup>
+                <AboutImage>
                   <ImageWrapper>
                     <Image
                       style={{ width: '100%', height: '100%' }}
                       sizes={images[0].sizes}
                     />
                   </ImageWrapper>
-                </ShowCaseImage>
-                <ShowCaseBody>
-                  <div dangerouslySetInnerHTML={{ __html: bodyHTML }} />
-                </ShowCaseBody>
-              </ShowCaseGroup>
-              <ShowCaseLink>
+                </AboutImage>
+                <AboutBody>
+                  <BoxSmallText>
+                    <UnderLay />
+                    <div dangerouslySetInnerHTML={{ __html: bodyHTML }} />
+                  </BoxSmallText>
+                </AboutBody>
+              </AboutGroup>
+              <AboutLink>
                 <a>Resume</a>
-              </ShowCaseLink>
-            </ShowCase>
+              </AboutLink>
+            </AboutWrapper>
           </Hero>
         </Four>
       </Container>

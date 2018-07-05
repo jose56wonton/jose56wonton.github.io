@@ -2,19 +2,13 @@ import styled from 'styled-components';
 
 import { breakpoints,colors } from '../variables';
 
-export const ShowCase = styled.div`
+export const AboutWrapper = styled.div`
   height: auto;
   width:100%;
   margin: 0 auto;  
 `
-export const ShowCaseTitle= styled.div`
-  margin: 0 auto;
-  width: 100%;
-  position: relative;
-  padding: 0 8px;
-`
 
-export const ShowCaseGroup = styled.div`
+export const AboutGroup = styled.div`
   width: 100%;
   position: relative;
   height: auto;
@@ -25,7 +19,7 @@ export const ShowCaseGroup = styled.div`
     height: 500px;
   `)}
 `
-export const ShowCaseImage = styled.div`
+export const AboutImage = styled.div`
   z-index: 100;
   height: auto;   
   width:100%;  
@@ -44,12 +38,9 @@ export const ShowCaseImage = styled.div`
     transform: translateY(-50%);
   `)}
 `
-export const ShowCaseBody= styled.div`
-  
-  z-index: 100;
-  background-color: ${colors.light};
-  color: ${colors.white};
-  padding: 20px;   
+export const AboutBody= styled.div`  
+  z-index: 100;  
+    
   height: auto;   
   width:100%;  
   margin-bottom: 16px;
@@ -69,8 +60,8 @@ export const ShowCaseBody= styled.div`
   `)}
 `
 
-export const ShowCaseLink= styled.div`
-  margin: 0 auto;
+export const AboutLink= styled.div`
+  margin: 16px auto;
   text-align:center;
   width: 100%;
   position: relative;

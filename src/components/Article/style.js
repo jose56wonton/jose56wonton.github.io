@@ -6,3 +6,8 @@ export const ArticleWrapper = styled.div`
   
   margin-bottom:200px;
 `
+
+export const ArticleElement = styled.div`
+  margin-bottom: 40px;
+
+`

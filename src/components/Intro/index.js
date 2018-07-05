@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Hero, HeroContent, Container, Four } from '../layout'
+import { IntroWrapper } from './style';
 
 class Intro extends Component {
   render() {
@@ -9,8 +10,12 @@ class Intro extends Component {
         <Four>
           <Hero>
             <HeroContent>
-              <div dangerouslySetInnerHTML={{ __html: data.introHTML }} />
-              <a href="#about">More</a>
+              <IntroWrapper>
+
+                <div dangerouslySetInnerHTML={{ __html: data.introHTML }} />
+                <a href="#about">More</a>
+
+              </IntroWrapper>
             </HeroContent>
           </Hero>
         </Four>

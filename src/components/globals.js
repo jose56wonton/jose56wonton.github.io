@@ -172,7 +172,7 @@ injectGlobal`
     -webkit-transform 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
     &:before {
       width: 100%;
-      background: ${colors.regular};
+      background: ${colors.dark};
       -webkit-transition: box-shadow 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
       transition: box-shadow 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
     };
@@ -204,8 +204,8 @@ injectGlobal`
       opacity: 1;
     }
     &:focus:before,&:hover:before{
-      box-shadow: inset 0 -1px 0 ${colors.regular}, inset 0 1px 0 ${colors.regular},
-      inset -1px 0 0 ${colors.regular};
+      box-shadow: inset 0 -1px 0 ${colors.dark}, inset 0 1px 0 ${colors.dark},
+      inset -1px 0 0 ${colors.dark};
     }
 
   }

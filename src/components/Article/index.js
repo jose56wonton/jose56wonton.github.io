@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { SectionTitle } from '../typography';
 import { Container } from '../layout'
-import {ArticleWrapper} from './articles';
+import {ArticleWrapper} from './style';
 import Article from './article';
 class Articles extends Component {
   render () {
