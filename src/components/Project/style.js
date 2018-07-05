@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors } from '../variables';
+import { colors,breakpoints } from '../variables';
 
 export const ProjectWrapper = styled.div`
   display:flex;
@@ -11,6 +11,9 @@ export const ProjectWrapper = styled.div`
 export const ProjectSidebar = styled.div`  
   background: linear-gradient(180deg,${colors.regular},${colors.regular});
   width:35%;
+  ${breakpoints.touch(`
+    width: 0;
+  `)}
 `
 export const ProjectSidebarLinks = styled.div`
   padding:40px;
@@ -18,13 +21,24 @@ export const ProjectSidebarLinks = styled.div`
   position: sticky;
   position: -webkit-sticky;
   top: 40px;
-
+  ${breakpoints.touch(`
+    display: none;
+  `)}
 `
 export const ProjectList = styled.div`
   float: right;
   max-width: 600px;
   margin: 0 auto; 
   width: 65%;
+  ${breakpoints.xs(`
+    width: 90%;
+  `)}
+  ${breakpoints.sm(`
+    width: 80%;
+  `)}
+  ${breakpoints.md(`
+    width: 80%;
+ `)}
 `
 
 

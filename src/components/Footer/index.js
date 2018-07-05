@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Ending, EndingContent, Spacing, EndingText } from './ending';
+import { FooterWrapper, FooterContent, FooterLinkSpacing, FooterText } from './style';
 import { Container, Hero } from '../layout';
 import { TextLink } from '../typography';
 
@@ -7,21 +7,21 @@ class Footer extends Component {
   render() {
     const { data } = this.props;
     return (
-      <Ending>
+      <FooterWrapper>
         <Container>
           <Hero>
-            <EndingContent>
-              <Spacing>
+            <FooterContent>
+              <FooterLinkSpacing>
                 <TextLink href={data.github}>Github</TextLink>
                 <TextLink href={data.medium}>Medium</TextLink>
                 <TextLink href={data.linkedIn}>Linked In</TextLink>
-              </Spacing>
-              <EndingText>JoshuaWootonn@gmail.com</EndingText>
-              <EndingText>Made by me!</EndingText>
-            </EndingContent>
+              </FooterLinkSpacing>
+              <FooterText><p>JoshuaWootonn@gmail.com</p></FooterText>
+              <FooterText><p>Made by me!</p></FooterText>
+            </FooterContent>
           </Hero>
         </Container>
-      </Ending>
+      </FooterWrapper>
     );
   }
 }

@@ -13,7 +13,7 @@ class Project extends Component {
     return (
       <ProjectItem>
         <Anchor name={title} />
-        <Image sizes={images[1].sizes} style={{ height: '280px', width: '80%', margin: "0 auto" }} />
+        <Image sizes={images[1].sizes} style={{ height: '280px', width: '96%', margin: "0 auto" }} />
         <Line>
           <h2>{title}</h2>
           <SVGLink href={link}><img src={Arrow} /> </SVGLink>

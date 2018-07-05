@@ -26,7 +26,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 32px;
   max-width: 1140px;
   ${breakpoints.xs(`
     width: 90%;

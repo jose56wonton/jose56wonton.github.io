@@ -27,7 +27,7 @@ export const AboutImage = styled.div`
   margin-bottom: 16px;
   ${breakpoints.lg(`
     position: absolute ;
-    width: 58%
+    width: 54%
     top: 50%;
     transform: translateY(-50%);
   `)}
@@ -43,10 +43,10 @@ export const AboutBody= styled.div`
     
   height: auto;   
   width:100%;  
-  margin-bottom: 16px;
+  margin-bottom: 32px;
   ${breakpoints.lg(`
     position: absolute ;
-    width: 58%
+    width: 54%
     top: 50%;
     right: 0;
     transform: translateY(-50%);

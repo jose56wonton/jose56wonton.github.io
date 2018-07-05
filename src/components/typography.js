@@ -107,7 +107,7 @@ export const Line = styled.div`
 export const SVGLink = styled.a`
   float: right;
   height: 100%;
-  width:20px;
+  width:46px;
    
   img{
     width: 36px;
