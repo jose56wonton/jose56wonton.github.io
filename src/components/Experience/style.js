@@ -79,4 +79,13 @@ export const ExperienceLine = styled.div`
   div,p{
     margin-right: 8px;
   }
+  ${breakpoints.touch(`
+    flex-direction: column;    
+    align-items: flex-start
+ `)}
+`
+
+export const ExperienceBody = styled.div`
+  margin-bottom: 10px;
+
 `

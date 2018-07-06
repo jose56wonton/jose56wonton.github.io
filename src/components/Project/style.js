@@ -5,7 +5,8 @@ import { colors,breakpoints } from '../variables';
 export const ProjectWrapper = styled.div`
   display:flex;
   flex-direction:row;
-  margin-bottom:200px;
+  margin-bottom:150px;
+  
 `
 
 export const ProjectSidebar = styled.div`  
@@ -30,6 +31,9 @@ export const ProjectList = styled.div`
   max-width: 600px;
   margin: 0 auto; 
   width: 65%;
+  :last-child{
+    margin-bottom: 0;
+  }
   ${breakpoints.xs(`
     width: 90%;
   `)}
@@ -39,6 +43,7 @@ export const ProjectList = styled.div`
   ${breakpoints.md(`
     width: 80%;
  `)}
+ 
 `
 
 
@@ -57,7 +62,6 @@ export const ProjectImageWrapper = styled.div`
   height: 100%;
   //background-color: ${colors.white};
   position: relative;
-  padding: 20px;
   margin-bottom: 8px;
  
 `
