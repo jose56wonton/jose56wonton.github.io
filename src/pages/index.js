@@ -68,7 +68,7 @@ export const query = graphql`
         }
       }
       images {
-        sizes(maxWidth: 1240, quality: 90) {
+        sizes(maxWidth: 700, quality: 60) {
           ...GatsbyContentfulSizes
         }
       }
@@ -77,7 +77,7 @@ export const query = graphql`
       edges {
         node {
           icon {
-            sizes(maxWidth: 200, quality: 90) {
+            sizes(maxWidth: 200, quality: 40) {
               ...GatsbyContentfulSizes
             }
           }
