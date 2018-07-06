@@ -6,7 +6,7 @@ import Experiences from '../components/Experience'
 import Projects from '../components/Project';
 import Articles from '../components/Article';
 
-import '../components/globals';
+
 
 class IndexPage extends Component {
   render() {
