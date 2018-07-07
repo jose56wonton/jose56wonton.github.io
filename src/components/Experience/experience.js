@@ -9,6 +9,7 @@ class Experience extends Component {
     const { title, location, date, dateForSorting, bodyHTML, toolsHTML, icon } = this.props.data;
 
     return (
+    
       <ExperienceContent>
         <Image sizes={icon.sizes} style={{ height: 'auto', width: '159px',marginBottom: '10px' }} />
         <h3>{title}</h3>
@@ -17,6 +18,7 @@ class Experience extends Component {
         <ExperienceBody dangerouslySetInnerHTML={{ __html: bodyHTML }} />
         <Tools dangerouslySetInnerHTML={{ __html: toolsHTML }} />
       </ExperienceContent>
+     
     )
   }
 }
