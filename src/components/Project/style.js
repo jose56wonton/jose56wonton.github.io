@@ -14,26 +14,23 @@ export const ProjectSidebar = styled.div`
   ${breakpoints.touch(`
     width: 0;
   `)}
+  position:relative;
 `
 export const ProjectSidebarLinks = styled.div`
-  padding:40px;
+  padding: 40px;
   float: left;
   position: sticky;
-  position: -webkit-sticky;
-  a{
-    &:before{
-      background-color: ${colors.regular};     
-    }
-    color: ${colors.dark};
-    margin-right: 20px;
-    &::last-child{
-      margin-right: 0px;
-    }
-  }
-  top: 40px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateZ(0);
+  height: 400px;
+   top: 40px;  
+  top: 0;
+  
   ${breakpoints.touch(`
     display: none;
-  `)}
+  `)} 
 `
 export const ProjectList = styled.div`
   float: right;
@@ -60,7 +57,7 @@ export const Light = styled.p`
 
 export const ProjectItem = styled.div`
   width:100%;
-  margin-top: 30px;
+  margin-bottom: 30px;
   padding :35px;
 `
 
@@ -71,8 +68,6 @@ export const ClearFloats = styled.div`
 export const ProjectImageWrapper = styled.div`
   width: 100%;
   height: 100%;
-  //background-color: ${colors.white};
   position: relative;
-  margin-bottom: 8px;
- 
+  margin-bottom: 8px; 
 `

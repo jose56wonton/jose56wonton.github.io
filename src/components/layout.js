@@ -125,6 +125,6 @@ export const Tools = styled.div`
   }
 `
 export const SiteWrapper = styled.div`
-  width: 100vw;
-  overflow: hidden;
+  width: 100%;
+ 
 `

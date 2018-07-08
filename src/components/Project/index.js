@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { ProjectSidebar, ProjectList, ProjectWrapper, ClearFloats, Light, ProjectSidebarLinks } from './style';
+import { ProjectSidebar, ProjectList, ProjectWrapper, ClearFloats, Light,ProjectSidebarLinks } from './style';
 import ProjectElement from './project';
-import { SectionTitle, LightLinkWrapper } from '../typography';
+import { SectionTitle, LightLinkWrapper, TextLink } from '../typography';
 import { Container } from '../layout'
-import {Link} from 'react-scroll';
+import { Link } from 'react-scroll';
 
 class Projects extends Component {
   render() {
@@ -22,10 +22,11 @@ class Projects extends Component {
     })
     const ProjectLinks = this.props.data.edges.map((link, i) => {
       const { title, date } = link.node;
-      return <div key={i * 4355342}>
-        <LightLinkWrapper>
-          <Link to={title} smooth={true} offset={-50} duration={500}>{title}</Link> <Light>{date}</Light>
-        </LightLinkWrapper>
+      return <div key={i * 4355342} >
+         <LightLinkWrapper >
+          <Link to={title} smooth={true} offset={-50} duration={500}>{title}<span /></Link>
+        </LightLinkWrapper> 
+        <Light>{date}</Light>
         <br />
       </div>
     })

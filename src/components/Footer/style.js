@@ -28,7 +28,7 @@ export const FooterContent = styled.div`
   `)}
 `
 
-export const FooterLinkSpacing = styled.div`
+export const FooterLinkSpacing = styled.div` 
   a{
     &:before{
       background-color: ${colors.regular};     

@@ -84,10 +84,10 @@ export const TextLink = styled.a`
     -webkit-transform: skewX(20deg);
     transform: skewX(20deg);
     }
-    &:focus,&:hover{
+    /* &:focus,&:hover{
       -webkit-transform: translateX(5px);
     transform: translateX(5px);
-    }
+    } */
     &:focus:after,&:hover:after{
       width: 5px;
       opacity: 1;
@@ -101,7 +101,7 @@ export const TextLink = styled.a`
 
 export const LightLinkWrapper = styled.div`
   a{
-    font-family: 'Inconsolata', monospace;
+      font-family: 'Inconsolata', monospace;
   
   display:inline-block;
   
@@ -155,15 +155,16 @@ export const LightLinkWrapper = styled.div`
       -webkit-transform: translateX(5px);
     transform: translateX(5px);
     }
-    &:focus:after,&:hover:after{
+    /* &:focus:after,&:hover:after{
       width: 5px;
       opacity: 1;
-    }
+    } */
     &:focus:before,&:hover:before{
       box-shadow: inset 0 -1px 0 ${colors.regular}, inset 0 1px 0 ${colors.regular},
       inset -1px 0 0 ${colors.regular};
     }
-  }
+    }
+  
 `
 
 
@@ -223,10 +224,10 @@ export const DarkLinkWrapper = styled.div`
       -webkit-transform: translateX(5px);
     transform: translateX(5px);
     }
-    &:focus:after,&:hover:after{
+    /* &:focus:after,&:hover:after{
       width: 5px;
       opacity: 1;
-    }
+    } */
     &:focus:before,&:hover:before{
       box-shadow: inset 0 -1px 0 ${colors.dark}, inset 0 1px 0 ${colors.dark},
       inset -1px 0 0 ${colors.dark};
@@ -255,3 +256,4 @@ export const SVGLink = styled.a`
     } 
   }
 `
+

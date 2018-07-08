@@ -31,9 +31,9 @@ export const Relative = styled.div`
 export const Absolute = styled.div`
   position: absolute;
   z-index: -1;
-  margin: 0 20px;
-  width: calc(100% - 40px);
-  height: calc(100% - 40px);
+  margin: 0 auto;
+  width: calc(100% - 50px);
+  height: calc(100% - 50px);
 `
 
 export const IntroPage = styled.div`
