@@ -10,7 +10,7 @@ export const ProjectWrapper = styled.div`
 `
 
 export const ProjectSidebar = styled.div`  
-  background: linear-gradient(180deg,${colors.regular},${colors.regular});
+  background: linear-gradient(180deg,${colors.dark},${colors.dark});
   width:35%;
   ${breakpoints.touch(`
     width: 0;
@@ -21,6 +21,16 @@ export const ProjectSidebarLinks = styled.div`
   float: left;
   position: sticky;
   position: -webkit-sticky;
+  a{
+    &:before{
+      background-color: ${colors.regular};     
+    }
+    color: ${colors.dark};
+    margin-right: 20px;
+    &::last-child{
+      margin-right: 0px;
+    }
+  }
   top: 40px;
   ${breakpoints.touch(`
     display: none;

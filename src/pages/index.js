@@ -6,9 +6,10 @@ import Experiences from '../components/Experience'
 import Projects from '../components/Project';
 import Articles from '../components/Article';
 
-
-
 class IndexPage extends Component {
+  random = (num) => {
+    return Math.floor(Math.random() * num) + 1;
+  }
   render() {
     const { data } = this.props
     const introData = {
@@ -22,17 +23,23 @@ class IndexPage extends Component {
     }
     const experienceData = data.allContentfulExperience;
     const projectData = data.allContentfulProject;
-    const articleData = data.allMediumPost;    
+    const articleData = data.allMediumPost;
     const footerdata = data.contentfulLinks;
+
+    const swirls = [], squiggles = [];
+    for (let index = 0; index < 24; index++) {
+      swirls.push({ top: `${this.random(99)}%`, left: `${this.random(96)}%`, transform: `rotate(${this.random(360)}deg)` })
+      squiggles.push({ top: `${this.random(99)}%`, left: `${this.random(96)}%`, transform: `rotate(${this.random(360)}deg)` })
+    }
 
     return (
       <div>
-        <Intro data={introData} />
+        <Intro data={introData} squiggles={squiggles} swirls={swirls} />
         <About data={aboutData} />
         <Experiences data={experienceData} />
         <Projects data={projectData} />
         <Articles data={articleData} />
-        <Footer data={footerdata}/> 
+        <Footer data={footerdata} />
       </div>
     )
   }

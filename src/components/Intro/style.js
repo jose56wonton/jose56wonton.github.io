@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { breakpoints,colors } from '../variables';
+import { breakpoints, colors } from '../variables';
 
 export const IntroWrapper = styled.div`
   p{
@@ -18,7 +18,48 @@ export const IntroWrapper = styled.div`
     `)}
     ${breakpoints.xl(`
       font-size: 22px;
-    `)}
+    `)}    
   }
+`
 
+export const Relative = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`
+export const Absolute = styled.div`
+  position: absolute;
+  z-index: -1;
+  margin: 0 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+`
+
+export const IntroPage = styled.div`
+ // background-color: ${colors.regular};
+ overflow: hidden;
+`
+export const SVG = styled.img`
+  position: absolute;
+  z-index: -1;
+  ${breakpoints.xs(`
+  width: 16px;
+  width: 16px;
+  `)}
+  ${breakpoints.sm(`
+  width: 18px;
+  width: 18px;
+  `)}
+  ${breakpoints.md(`
+  width: 22px; 
+  width: 22px; 
+  `)}
+  ${breakpoints.lg(`
+  width: 25px;
+  width: 25px;
+  `)}
+  ${breakpoints.xl(`
+  width: 32px;
+  width: 32px;
+  `)}  
 `

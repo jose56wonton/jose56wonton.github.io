@@ -19,7 +19,8 @@ export const Hero  = styled.div`
 `
 export const HeroContent = styled.div`
   height: auto;
-  width: 360px;  
+  width: 100%;
+  max-width: 500px;  
 `
 export const Container = styled.div`
   position: relative;
@@ -40,15 +41,26 @@ export const Container = styled.div`
 `
 
 export const BoxBigText = styled.div`
-  padding: 30px;
-  background-color: ${colors.light};
-  color: ${colors.black};
+  padding: 30px; 
+  background: ${colors.white};
+  color: ${colors.dark};
+  position: relative;
+  span{
+    transition: ${transitions.fast};
+  }  
+  &:hover{
+    span{
+      transition: ${transitions.fast};
+      transform: translate(5px,5px);
+    }
+  }
 `
 export const BoxSmallText = styled.div`
   padding: 20px; 
   background: ${colors.regular};
   color: ${colors.black};
   position: relative;
+ 
   span{
     transition: ${transitions.fast};
   }  
@@ -63,8 +75,9 @@ export const UnderLay = styled.span`
   position: absolute;
   width: 100%;
   z-index: -1; 
-
   height: 100%;
+  top: 20px;
+  
   background-color: ${colors.light};
   
 `

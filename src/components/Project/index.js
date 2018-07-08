@@ -33,11 +33,9 @@ class Projects extends Component {
         </Container>
         <ProjectWrapper>
           <ProjectSidebar>
-
             <ProjectSidebarLinks>
               {ProjectLinks}
             </ProjectSidebarLinks>
-
           </ProjectSidebar>
           <ProjectList>
             {ProjectItems}
