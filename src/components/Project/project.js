@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { ProjectItem, ProjectImageWrapper } from './style';
+import { ProjectItem, ProjectImageWrapper,Spacer } from './style';
 import { Tools, UnderLay } from '../layout';
 import Image from 'gatsby-image';
-import { Anchor } from '../navigation';
 import { SVGLink, Line } from '../typography';
 import Arrow from '../Arrow.svg';
+import {Element} from 'react-scroll';
 
 class Project extends Component {
   constructor(props) {
@@ -45,7 +45,8 @@ class Project extends Component {
 
     return (
       <ProjectItem >
-        <Anchor name={title} />   
+        <Element name={title}/>
+        
         <ProjectImageWrapper onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
           <Image sizes={images[this.state.currentImage].sizes} style={{ height: '280px', width: '100%', margin: "0 auto" }} />
         </ProjectImageWrapper>      

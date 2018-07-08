@@ -17,7 +17,6 @@ class Footer extends Component {
                 <TextLink href={data.linkedIn}>Linked In</TextLink>
               </FooterLinkSpacing>
               <FooterText><p>JoshuaWootonn@gmail.com</p></FooterText>
-              <FooterText><p>Made by me!</p></FooterText>
             </FooterContent>
           </Hero>
         </Container>

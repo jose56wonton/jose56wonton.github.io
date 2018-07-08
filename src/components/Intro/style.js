@@ -20,6 +20,7 @@ export const IntroWrapper = styled.div`
       font-size: 22px;
     `)}    
   }
+
 `
 
 export const Relative = styled.div`
@@ -36,8 +37,7 @@ export const Absolute = styled.div`
 `
 
 export const IntroPage = styled.div`
- // background-color: ${colors.regular};
- overflow: hidden;
+  margin-bottom: 100px;
 `
 export const SVG = styled.img`
   position: absolute;
@@ -59,7 +59,7 @@ export const SVG = styled.img`
   width: 25px;
   `)}
   ${breakpoints.xl(`
-  width: 32px;
-  width: 32px;
+  width: 60px;
+  width: 60px;
   `)}  
 `

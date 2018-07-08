@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Hero, Container, Four, BoxSmallText,UnderLay } from '../layout'
-import { Anchor } from '../navigation'
+import { Hero, Container,  BoxSmallText, UnderLay, Three } from '../layout'
 import {  AboutWrapper,  AboutImage,  AboutBody,  AboutGroup,  AboutLink} from './style'
 import { SectionTitle,TextLink } from '../typography'
 import { ImageWrapper } from '../images'
 import Image from 'gatsby-image'
+import {Element} from 'react-scroll';
 
 class About extends Component {
   constructor(props) {
@@ -45,8 +45,8 @@ class About extends Component {
     const {bodyHTML, images,resumeURL} = this.props.data
     return (
       <Container>
-        <Anchor name="about" />
-        <Four>
+        <Element name="about"/>
+        <Three>
           <Hero>
             <AboutWrapper>
               <SectionTitle>About<span/></SectionTitle>
@@ -71,7 +71,7 @@ class About extends Component {
               </AboutLink>
             </AboutWrapper>
           </Hero>
-        </Four>
+        </Three>
       </Container>
     )
   }

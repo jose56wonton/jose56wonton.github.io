@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Hero, HeroContent, Container, Four, BoxSmallText, UnderLay } from '../layout'
-import { IntroWrapper, IntroPage, SVG, Absolute,Relative } from './style';
-import { TextLink } from '../typography'
+import { Hero, HeroContent, Container, Four, DarkBox, UnderLayRegular } from '../layout'
+import { IntroWrapper, IntroPage, SVG, Absolute,Relative,IntroLinkWrapper } from './style';
+import { LightLinkWrapper } from '../typography'
 import circle from './circle.svg';
 import squiggle from './squiggle.svg';
 import white from './white.svg';
+import {Link} from 'react-scroll';
 
 class Intro extends Component {
   constructor(props)  {
@@ -48,19 +49,20 @@ render() {
         <Relative>          
           {squiggleSVG}
         </Relative>
-      </Absolute>
-      
+      </Absolute>      
       <Container>
         <Four>
           <Hero>
             <HeroContent>
-              <BoxSmallText>
+              <DarkBox>
                 <IntroWrapper>
                   <div dangerouslySetInnerHTML={{ __html: data.introHTML }} />
-                  <TextLink href="#about">More</TextLink>
+                  <LightLinkWrapper>                  
+                    <Link to="about" smooth={true} offset={-50} duration={500}>More</Link>
+                  </LightLinkWrapper>
                 </IntroWrapper>
-                <UnderLay />
-              </BoxSmallText>
+                <UnderLayRegular />
+              </DarkBox>
             </HeroContent>
           </Hero>
         </Four>

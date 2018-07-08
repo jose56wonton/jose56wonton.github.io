@@ -5,7 +5,6 @@ import {
   ExperienceElementLeft,
   ExperienceElementRight,
 } from './style'
-import { Anchor } from '../navigation'
 import { Container } from '../layout'
 import {SectionTitle} from '../typography';
 
@@ -41,7 +40,6 @@ class Experiences extends Component {
     })
     return (
       <Container>
-        <Anchor name="experience" />
         <SectionTitle>Experience<span/></SectionTitle>
         <ExperienceWrapper>         
           

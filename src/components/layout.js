@@ -40,6 +40,24 @@ export const Container = styled.div`
  `)}
 `
 
+export const DarkBox = styled.div`
+  padding: 20px; 
+  background: ${colors.dark};
+  color: ${colors.white};
+  position: relative;
+ 
+  span{
+    transition: ${transitions.fast};
+  }  
+  &:hover{
+    span{
+      transition: ${transitions.fast};
+      transform: translate(5px,5px);
+    }
+  }
+`
+
+
 export const BoxBigText = styled.div`
   padding: 30px; 
   background: ${colors.white};
@@ -78,8 +96,16 @@ export const UnderLay = styled.span`
   height: 100%;
   top: 20px;
   
-  background-color: ${colors.light};
-  
+  background-color: ${colors.light};  
+`
+
+export const UnderLayRegular = styled.span` 
+   position: absolute;
+  width: 100%;
+  z-index: -1; 
+  height: 100%;
+  top: 20px;
+  background-color: ${colors.regular};  
 `
 
 
@@ -97,4 +123,8 @@ export const Tools = styled.div`
       margin-right: 8px;
     }
   }
+`
+export const SiteWrapper = styled.div`
+  width: 100vw;
+  overflow: hidden;
 `

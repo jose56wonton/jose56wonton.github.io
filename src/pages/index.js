@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import Experiences from '../components/Experience'
 import Projects from '../components/Project';
 import Articles from '../components/Article';
+import {SiteWrapper} from '../components/layout'
 
 class IndexPage extends Component {
   random = (num) => {
@@ -26,20 +27,20 @@ class IndexPage extends Component {
     const footerdata = data.contentfulLinks;
 
     const swirls = [], squiggles = [];
-    for (let index = 0; index < 24; index++) {
-      swirls.push({ top: `${this.random(99)}%`, left: `${this.random(96)}%`, transform: `rotate(${this.random(360)}deg)` })
-      squiggles.push({ top: `${this.random(99)}%`, left: `${this.random(96)}%`, transform: `rotate(${this.random(360)}deg)` })
+    for (let index = 0; index < 18; index++) {
+      swirls.push({ top: `${this.random(99)}%`, left: `${this.random(93)}%`, transform: `rotate(${this.random(360)}deg)` })
+      squiggles.push({ top: `${this.random(99)}%`, left: `${this.random(93)}%`, transform: `rotate(${this.random(360)}deg)` })
     }
 
     return (
-      <div>
+      <SiteWrapper>
         <Intro data={introData} squiggles={squiggles} swirls={swirls} />
         <About data={aboutData} />
         <Experiences data={experienceData} />
         <Projects data={projectData} />
         <Articles data={articleData} />
         <Footer data={footerdata} />
-      </div>
+      </SiteWrapper>
     )
   }
 }

@@ -5,8 +5,7 @@ import { colors,breakpoints } from '../variables';
 export const ProjectWrapper = styled.div`
   display:flex;
   flex-direction:row;
-  margin-bottom:150px;
-  
+  margin-bottom:150px;  
 `
 
 export const ProjectSidebar = styled.div`  
@@ -61,8 +60,8 @@ export const Light = styled.p`
 
 export const ProjectItem = styled.div`
   width:100%;
+  margin-top: 30px;
   padding :35px;
-  margin-bottom: 30px;
 `
 
 export const ClearFloats = styled.div`

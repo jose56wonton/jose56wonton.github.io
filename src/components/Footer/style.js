@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { breakpoints,colors } from '../variables';
+import { breakpoints, colors } from '../variables';
 
 export const FooterWrapper = styled.div`
   height: 250px;
@@ -43,4 +43,7 @@ export const FooterLinkSpacing = styled.div`
 `
 export const FooterText = styled.div`
   color: ${colors.white};
+  p{
+    margin-bottom: 0;
+  }
 `
