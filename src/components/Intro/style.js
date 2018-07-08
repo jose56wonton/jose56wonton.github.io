@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { breakpoints, colors } from '../variables';
+import { breakpoints } from '../variables'
 
 export const IntroWrapper = styled.div`
   p{
@@ -20,7 +20,6 @@ export const IntroWrapper = styled.div`
       font-size: 22px;
     `)}    
   }
-
 `
 
 export const Relative = styled.div`

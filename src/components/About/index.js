@@ -1,57 +1,66 @@
 import React, { Component } from 'react'
-import { Hero, Container,  BoxSmallText, UnderLay, Three } from '../layout'
-import {  AboutWrapper,  AboutImage,  AboutBody,  AboutGroup,  AboutLink} from './style'
-import { SectionTitle,TextLink } from '../typography'
+import { Hero, Container, Box, UnderLay, Three } from '../layout'
+import {
+  AboutWrapper,
+  AboutImage,
+  AboutBody,
+  AboutGroup,
+  AboutLink,
+} from './style'
+import { SectionTitle, TextLink } from '../typography'
 import { ImageWrapper } from '../images'
 import Image from 'gatsby-image'
-import {Element} from 'react-scroll';
+import { Element } from 'react-scroll'
 
 class About extends Component {
   constructor(props) {
     super(props)
     this.state = {
       currentImage: 0,
-      isHovered: false
+      isHovered: false,
     }
   }
 
   checkHovered = () => {
     if (this.state.isHovered) {
-      this.changeImage();
+      this.changeImage()
     }
   }
   changeImage = () => {
-    const { currentImage } = this.state, { length } = this.props.data.images;
+    const { currentImage } = this.state,
+      { length } = this.props.data.images
     if (currentImage < length - 1) {
       this.setState({ currentImage: currentImage + 1 })
-    }
-    else {
+    } else {
       this.setState({ currentImage: 0 })
     }
-
   }
   onMouseLeave = () => {
-    
-    clearInterval(this.state.intervalId);
+    clearInterval(this.state.intervalId)
     this.setState({ isHovered: false })
   }
   onMouseEnter = () => {
-    this.changeImage();
-    var intervalId = setInterval(this.checkHovered, 1000);
-    this.setState({ intervalId: intervalId });
-    this.setState({ isHovered: true })    
+    this.changeImage()
+    var intervalId = setInterval(this.checkHovered, 1000)
+    this.setState({ intervalId: intervalId })
+    this.setState({ isHovered: true })
   }
   render() {
-    const {bodyHTML, images,resumeURL} = this.props.data
+    const { bodyHTML, images, resumeURL } = this.props.data
     return (
       <Container>
-        <Element name="about"/>
+        <Element name="about" />
         <Three>
           <Hero>
             <AboutWrapper>
-              <SectionTitle>About<span/></SectionTitle>
+              <SectionTitle>
+                About<span />
+              </SectionTitle>
               <AboutGroup>
-                <AboutImage onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
+                <AboutImage
+                  onMouseEnter={this.onMouseEnter}
+                  onMouseLeave={this.onMouseLeave}
+                >
                   <ImageWrapper>
                     <Image
                       style={{ width: '100%', height: '100%' }}
@@ -60,14 +69,16 @@ class About extends Component {
                   </ImageWrapper>
                 </AboutImage>
                 <AboutBody>
-                  <BoxSmallText>
-                    <UnderLay />
+                  <Box regular>
+                    <UnderLay light />
                     <div dangerouslySetInnerHTML={{ __html: bodyHTML }} />
-                  </BoxSmallText>
+                  </Box>
                 </AboutBody>
               </AboutGroup>
               <AboutLink>
-                <TextLink href={resumeURL} >Resume</TextLink>
+                <TextLink dark href={resumeURL}>
+                  Resume
+                </TextLink>
               </AboutLink>
             </AboutWrapper>
           </Hero>

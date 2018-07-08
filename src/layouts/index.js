@@ -2,13 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import '../components/globals';
-
+import '../components/globals'
 
 const Layout = ({ children, data }) => (
   <div>
-    <Helmet title={data.site.siteMetadata.title} />    
-      {children()}    
+    <Helmet title={data.site.siteMetadata.title} />
+    {children()}
   </div>
 )
 
@@ -25,6 +24,5 @@ export const query = graphql`
         title
       }
     }
-    
   }
 `

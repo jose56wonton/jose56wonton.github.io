@@ -1,36 +1,35 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { colors,breakpoints } from '../variables';
+import { colors, breakpoints } from '../variables'
 
 export const ProjectWrapper = styled.div`
-  display:flex;
-  flex-direction:row;
-  margin-bottom:150px;  
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 100px;
 `
 
-export const ProjectSidebar = styled.div`  
-  background: linear-gradient(180deg,${colors.dark},${colors.dark});
-  width:35%;
+export const ProjectSidebar = styled.div`
+  background: linear-gradient(180deg, ${colors.dark}, ${colors.dark});
+  width: 35%;
   ${breakpoints.touch(`
     width: 0;
-  `)}
-  position:relative;
+  `)} position:relative;
 `
 export const ProjectSidebarLinks = styled.div`
   padding: 40px;
   float: left;
   position: sticky;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   transform: translateZ(0);
-  height: 400px;
-   top: 40px;  
+
+  top: 40px;
   top: 0;
-  
+
   ${breakpoints.touch(`
     display: none;
-  `)} 
+  `)};
 `
 export const ProjectList = styled.div`
   float: right;
@@ -56,9 +55,9 @@ export const Light = styled.p`
 `
 
 export const ProjectItem = styled.div`
-  width:100%;
+  width: 100%;
   margin-bottom: 30px;
-  padding :35px;
+  padding: 35px;
 `
 
 export const ClearFloats = styled.div`
@@ -69,5 +68,5 @@ export const ProjectImageWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-  margin-bottom: 8px; 
+  margin-bottom: 8px;
 `

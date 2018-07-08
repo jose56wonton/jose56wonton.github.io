@@ -6,14 +6,13 @@ import {
   ExperienceElementRight,
 } from './style'
 import { Container } from '../layout'
-import {SectionTitle} from '../typography';
+import { SectionTitle } from '../typography'
 
 class Experiences extends Component {
   render() {
     const { data } = this.props
-    
+
     const experience = data.edges.map((exp, i) => {
-      
       const asdf = {
         icon: exp.node.icon,
         title: exp.node.title,
@@ -27,24 +26,23 @@ class Experiences extends Component {
       }
       if (i % 2 === 1)
         return (
-          <ExperienceElementRight  key={i* 88}>
+          <ExperienceElementRight key={i * 88}>
             <Experience data={asdf} />
           </ExperienceElementRight>
         )
       else
         return (
-          <ExperienceElementLeft key={i*443}>
+          <ExperienceElementLeft key={i * 443}>
             <Experience data={asdf} />
           </ExperienceElementLeft>
         )
     })
     return (
       <Container>
-        <SectionTitle>Experience<span/></SectionTitle>
-        <ExperienceWrapper>         
-          
-          {experience}
-        </ExperienceWrapper>
+        <SectionTitle>
+          Experience<span />
+        </SectionTitle>
+        <ExperienceWrapper>{experience}</ExperienceWrapper>
       </Container>
     )
   }

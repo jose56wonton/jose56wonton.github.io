@@ -1,11 +1,11 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { breakpoints, colors } from '../variables';
+import { breakpoints, colors } from '../variables'
 
 export const FooterWrapper = styled.div`
   height: 250px;
-  width:100%;
-  margin: 0 auto;  
+  width: 100%;
+  margin: 0 auto;
   background-color: ${colors.dark};
 `
 export const FooterContent = styled.div`
@@ -28,22 +28,21 @@ export const FooterContent = styled.div`
   `)}
 `
 
-export const FooterLinkSpacing = styled.div` 
-  a{
-    &:before{
-      background-color: ${colors.regular};     
+export const FooterLinkSpacing = styled.div`
+  a {
+    &:before {
+      background-color: ${colors.regular};
     }
     color: ${colors.dark};
     margin-right: 20px;
-    &::last-child{
+    &::last-child {
       margin-right: 0px;
     }
   }
-  
 `
 export const FooterText = styled.div`
   color: ${colors.white};
-  p{
+  p {
     margin-bottom: 0;
   }
 `

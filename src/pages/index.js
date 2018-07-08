@@ -1,46 +1,54 @@
 import React, { Component } from 'react'
 import Intro from '../components/Intro'
 import About from '../components/About'
-import Footer from '../components/Footer';
+import Footer from '../components/Footer'
 import Experiences from '../components/Experience'
-import Projects from '../components/Project';
-import Articles from '../components/Article';
-import {SiteWrapper} from '../components/layout'
+import Projects from '../components/Project'
+import Articles from '../components/Article'
 
 class IndexPage extends Component {
-  random = (num) => {
-    return Math.floor(Math.random() * num) + 1;
+  random = num => {
+    return Math.floor(Math.random() * num) + 1
   }
   render() {
     const { data } = this.props
     const introData = {
       introHTML: data.contentfulIntro.intro.childMarkdownRemark.html,
     }
-    const aboutData = {     
+    const aboutData = {
       bodyHTML: data.contentfulAbout.body.childMarkdownRemark.html,
       images: data.contentfulAbout.images,
-      resumeURL: data.contentfulAbout.resume.file.url
+      resumeURL: data.contentfulAbout.resume.file.url,
     }
-    const experienceData = data.allContentfulExperience;
-    const projectData = data.allContentfulProject;
-    const articleData = data.allMediumPost;
-    const footerdata = data.contentfulLinks;
+    const experienceData = data.allContentfulExperience
+    const projectData = data.allContentfulProject
+    const articleData = data.allMediumPost
+    const footerdata = data.contentfulLinks
 
-    const swirls = [], squiggles = [];
+    const swirls = [],
+      squiggles = []
     for (let index = 0; index < 18; index++) {
-      swirls.push({ top: `${this.random(99)}%`, left: `${this.random(93)}%`, transform: `rotate(${this.random(360)}deg)` })
-      squiggles.push({ top: `${this.random(99)}%`, left: `${this.random(93)}%`, transform: `rotate(${this.random(360)}deg)` })
+      swirls.push({
+        top: `${this.random(99)}%`,
+        left: `${this.random(93)}%`,
+        transform: `rotate(${this.random(360)}deg)`,
+      })
+      squiggles.push({
+        top: `${this.random(99)}%`,
+        left: `${this.random(93)}%`,
+        transform: `rotate(${this.random(360)}deg)`,
+      })
     }
 
     return (
-      <SiteWrapper>
+      <div>
         <Intro data={introData} squiggles={squiggles} swirls={swirls} />
         <About data={aboutData} />
         <Experiences data={experienceData} />
         <Projects data={projectData} />
         <Articles data={articleData} />
         <Footer data={footerdata} />
-      </SiteWrapper>
+      </div>
     )
   }
 }
@@ -57,12 +65,12 @@ export const query = graphql`
       }
     }
     contentfulAbout {
-     resume {
+      resume {
         file {
           url
           fileName
           contentType
-        }        
+        }
       }
       body {
         childMarkdownRemark {
@@ -75,7 +83,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulExperience(sort:{fields:[dateForSorting],order:DESC}) {
+    allContentfulExperience(sort: { fields: [dateForSorting], order: DESC }) {
       edges {
         node {
           icon {
@@ -102,25 +110,25 @@ export const query = graphql`
         }
       }
     }
-    allContentfulProject(sort:{fields:[dateForSorting],order:DESC}) {
+    allContentfulProject(sort: { fields: [dateForSorting], order: DESC }) {
       edges {
         node {
           title
           dateForSorting
           date
           link
-          images{
+          images {
             sizes {
               src
             }
-          }        
-          childContentfulProjectBodyTextNode{
-            childMarkdownRemark{
+          }
+          childContentfulProjectBodyTextNode {
+            childMarkdownRemark {
               html
             }
           }
-          childContentfulProjectToolsTextNode{
-            childMarkdownRemark{
+          childContentfulProjectToolsTextNode {
+            childMarkdownRemark {
               html
             }
           }
@@ -131,15 +139,15 @@ export const query = graphql`
       github
       linkedIn
       medium
-    } 
+    }
     allMediumPost(sort: { fields: [createdAt], order: DESC }, limit: 5) {
       edges {
-        node {        
+        node {
           firstPublishedAt
           id
           previewContent {
-            bodyModel{
-              paragraphs{
+            bodyModel {
+              paragraphs {
                 text
               }
             }

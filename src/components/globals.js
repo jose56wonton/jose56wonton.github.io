@@ -1,9 +1,5 @@
-import { injectGlobal } from 'styled-components';
-import { colors, breakpoints } from './variables';
-
-
-const base = 1;
-
+import { injectGlobal } from 'styled-components'
+import { breakpoints } from './variables'
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Inconsolata|Quicksand');
@@ -144,6 +140,6 @@ injectGlobal`
     font-size: 18px;
     margin-bottom: 12px;
     padding: 5px 12px;
-  `)}
+  `)} 
  }
 `
