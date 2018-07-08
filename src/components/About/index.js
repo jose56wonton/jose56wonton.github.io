@@ -1,14 +1,7 @@
 import React, { Component } from 'react'
 import { Hero, Container, Four, BoxSmallText,UnderLay } from '../layout'
 import { Anchor } from '../navigation'
-import {
-  AboutWrapper,
-  AboutImage,
-  AboutBody,
-  AboutGroup,
-  AboutLink,
-} from './style'
-
+import {  AboutWrapper,  AboutImage,  AboutBody,  AboutGroup,  AboutLink} from './style'
 import { SectionTitle,TextLink } from '../typography'
 import { ImageWrapper } from '../images'
 import Image from 'gatsby-image'

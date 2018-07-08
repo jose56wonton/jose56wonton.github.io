@@ -6,10 +6,9 @@ import Image from 'gatsby-image';
 
 class Experience extends Component {
   render() {
-    const { title, location, date, dateForSorting, bodyHTML, toolsHTML, icon } = this.props.data;
+    const { title, location, date, bodyHTML, toolsHTML, icon } = this.props.data;
 
-    return (
-    
+    return (    
       <ExperienceContent>
         <Image sizes={icon.sizes} style={{ height: 'auto', width: '159px',marginBottom: '10px' }} />
         <h3>{title}</h3>

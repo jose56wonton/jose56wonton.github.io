@@ -17,12 +17,12 @@ class Projects extends Component {
         bodyHTML: ele.node.childContentfulProjectBodyTextNode.childMarkdownRemark.html,
         dateForSorting: ele.node.dateForSorting
       }
-      return <ProjectElement key={i} data={data} />
+      return <ProjectElement key={123432*i} data={data} />
     })
     const ProjectLinks = this.props.data.edges.map((link, i) => {
       const { title } = link.node;
-      return <div>
-        <TextLink key={i * 1000} href={`#${title}`}>{title}</TextLink>
+      return <div key={i * 4355342}>
+        <TextLink  href={`#${title}`}>{title}</TextLink>
         <br />
       </div>
     })

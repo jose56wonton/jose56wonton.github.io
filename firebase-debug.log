@@ -1,0 +1,26 @@
+[debug] [2018-07-08T01:59:37.061Z] ----------------------------------------------------------------------
+[debug] [2018-07-08T01:59:37.062Z] Command:       C:\Program Files\nodejs\node.exe C:\Git\jose56wonton.github.io\node_modules\firebase-tools\bin\firebase deploy
+[debug] [2018-07-08T01:59:37.063Z] CLI Version:   3.19.3
+[debug] [2018-07-08T01:59:37.063Z] Platform:      win32
+[debug] [2018-07-08T01:59:37.063Z] Node Version:  v10.2.1
+[debug] [2018-07-08T01:59:37.063Z] Time:          Sat Jul 07 2018 20:59:37 GMT-0500 (Central Daylight Time)
+[debug] [2018-07-08T01:59:37.063Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-07-08T01:59:37.069Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-07-08T01:59:37.070Z] > authorizing via signed-in user
+[debug] [2018-07-08T01:59:37.071Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/portfolio-ba0c5  
+  
+ Sat Jul 07 2018 20:59:37 GMT-0500 (Central Daylight Time)
+[debug] [2018-07-08T01:59:37.365Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-08T01:59:37.366Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/portfolio-ba0c5/tokens  
+  
+ Sat Jul 07 2018 20:59:37 GMT-0500 (Central Daylight Time)
+[debug] [2018-07-08T01:59:37.681Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'portfolio-ba0c5'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing public directory for upload...
+[debug] [2018-07-08T01:59:38.237Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/portfolio-ba0c5/uploads/-LGrbPQDVN5ZPpmp7u1X?fileCount=85&message=  
+  
+ Sat Jul 07 2018 20:59:38 GMT-0500 (Central Daylight Time)

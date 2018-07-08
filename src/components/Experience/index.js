@@ -28,14 +28,14 @@ class Experiences extends Component {
       }
       if (i % 2 === 1)
         return (
-          <ExperienceElementRight>
-            <Experience key={i} data={asdf} />
+          <ExperienceElementRight  key={i* 88}>
+            <Experience data={asdf} />
           </ExperienceElementRight>
         )
       else
         return (
-          <ExperienceElementLeft>
-            <Experience key={i} data={asdf} />
+          <ExperienceElementLeft key={i*443}>
+            <Experience data={asdf} />
           </ExperienceElementLeft>
         )
     })

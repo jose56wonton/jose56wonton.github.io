@@ -4,13 +4,11 @@ import { IntroWrapper, IntroPage, SVG, Absolute,Relative } from './style';
 import { TextLink } from '../typography'
 import circle from './circle.svg';
 import squiggle from './squiggle.svg';
-
-
+import white from './white.svg';
 
 class Intro extends Component {
   constructor(props)  {
     super(props);
-
     this.state={
       x : 0,
       y : 0
@@ -23,17 +21,24 @@ onMouseMove = (e) => {
 render() {
   const { data } = this.props
 
-  const swirlSVG = this.props.swirls.map((swirlprops) => {
-    return <SVG src={circle} style={swirlprops} />
+  const swirlSVG = this.props.swirls.map((swirlprops,i) => {
+    return <SVG key={i} src={circle} style={swirlprops} />
   })
 
-  const squiggleSVG = this.props.squiggles.map((squiggleprops) => {
-    return <SVG src={squiggle} style={squiggleprops} />
+  const squiggleSVG = this.props.squiggles.map((squiggleprops,i) => {
+    return <SVG key={i} src={squiggle} style={squiggleprops} />
   })
 
   return (
 
     <IntroPage onMouseMove={this.onMouseMove}>
+    <Absolute style={{transform: `translate(${this.state.x * 20}px,${this.state.y * 20}px)`}}>
+        <Relative>
+        <SVG src={white} style={this.props.swirls[0]} />
+        <SVG src={white} style={this.props.swirls[1]} />
+        <SVG src={white} style={this.props.swirls[2]} />
+        </Relative>
+      </Absolute>
     <Absolute style={{transform: `translate(${this.state.x * 20}px,${this.state.y * 20}px)`}}>
         <Relative>
           {swirlSVG}

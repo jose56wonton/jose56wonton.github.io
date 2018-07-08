@@ -7,12 +7,8 @@ import '../components/globals';
 
 const Layout = ({ children, data }) => (
   <div>
-    <Helmet
-      title={data.site.siteMetadata.title}      
-    />
-    
-      {children()}
-    
+    <Helmet title={data.site.siteMetadata.title} />    
+      {children()}    
   </div>
 )
 

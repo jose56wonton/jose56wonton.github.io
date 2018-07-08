@@ -5,8 +5,7 @@ import {ArticleWrapper} from './style';
 import Article from './article';
 class Articles extends Component {
   render () {
-    const articles = this.props.data.edges.map((article, i)=> {
-      console.log(article.node);
+    const articles = this.props.data.edges.map((article, i)=> {    
       const data = {
         id: article.node.id,
         author: article.node.author.name,
