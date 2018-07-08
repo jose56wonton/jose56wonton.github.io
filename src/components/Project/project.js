@@ -10,13 +10,33 @@ class Project extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      currentImage: 0,
       isHovered: false
     }
-  }  
-  onMouseLeave = () => {
+  }
+
+  checkHovered = () => {
+    if (this.state.isHovered) {
+      this.changeImage();
+    }
+  }
+  changeImage = () => {
+    const { currentImage } = this.state, { length } = this.props.data.images;
+    if (currentImage < length - 1) {
+      this.setState({ currentImage: currentImage + 1 })
+    }
+    else {
+      this.setState({ currentImage: 0 })
+    }
+  }
+  onMouseLeave = () => {    
+    clearInterval(this.state.intervalId);
     this.setState({ isHovered: false })
   }
   onMouseEnter = () => {
+    this.changeImage();
+    var intervalId = setInterval(this.checkHovered, 1000);
+    this.setState({ intervalId: intervalId });
     this.setState({ isHovered: true })
   }
 
@@ -27,7 +47,7 @@ class Project extends Component {
       <ProjectItem >
         <Anchor name={title} />   
         <ProjectImageWrapper onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
-          <Image sizes={images[this.state.isHovered ? 1 : 0].sizes} style={{ height: '280px', width: '100%', margin: "0 auto" }} />
+          <Image sizes={images[this.state.currentImage].sizes} style={{ height: '280px', width: '100%', margin: "0 auto" }} />
         </ProjectImageWrapper>      
         <Line>
           <h2>{title}</h2>

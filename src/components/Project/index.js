@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ProjectSidebar, ProjectList, ProjectWrapper, ClearFloats, ProjectSidebarLinks } from './style';
+import { ProjectSidebar, ProjectList, ProjectWrapper, ClearFloats,Light, ProjectSidebarLinks } from './style';
 import ProjectElement from './project';
 import { SectionTitle,TextLink } from '../typography';
 import { Container } from '../layout'
@@ -20,9 +20,9 @@ class Projects extends Component {
       return <ProjectElement key={123432*i} data={data} />
     })
     const ProjectLinks = this.props.data.edges.map((link, i) => {
-      const { title } = link.node;
+      const { title,date } = link.node;
       return <div key={i * 4355342}>
-        <TextLink  href={`#${title}`}>{title}</TextLink>
+        <TextLink  href={`#${title}`}>{title}</TextLink><Light>{date}</Light>
         <br />
       </div>
     })

@@ -10,14 +10,36 @@ class About extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      currentImage: 0,
       isHovered: false
     }
-  }  
+  }
+
+  checkHovered = () => {
+    if (this.state.isHovered) {
+      this.changeImage();
+    }
+  }
+  changeImage = () => {
+    const { currentImage } = this.state, { length } = this.props.data.images;
+    if (currentImage < length - 1) {
+      this.setState({ currentImage: currentImage + 1 })
+    }
+    else {
+      this.setState({ currentImage: 0 })
+    }
+
+  }
   onMouseLeave = () => {
+    
+    clearInterval(this.state.intervalId);
     this.setState({ isHovered: false })
   }
   onMouseEnter = () => {
-    this.setState({ isHovered: true })
+    this.changeImage();
+    var intervalId = setInterval(this.checkHovered, 1000);
+    this.setState({ intervalId: intervalId });
+    this.setState({ isHovered: true })    
   }
   render() {
     const {bodyHTML, images,resumeURL} = this.props.data
@@ -33,7 +55,7 @@ class About extends Component {
                   <ImageWrapper>
                     <Image
                       style={{ width: '100%', height: '100%' }}
-                      sizes={images[this.state.isHovered ? 1 : 0].sizes}
+                      sizes={images[this.state.currentImage].sizes}
                     />
                   </ImageWrapper>
                 </AboutImage>

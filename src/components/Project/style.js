@@ -55,7 +55,9 @@ export const ProjectList = styled.div`
  `)}
  
 `
-
+export const Light = styled.p`
+  color: ${colors.white};
+`
 
 export const ProjectItem = styled.div`
   width:100%;
