@@ -143,18 +143,12 @@ export const query = graphql`
     allMediumPost(sort: { fields: [createdAt], order: DESC }, limit: 5) {
       edges {
         node {
+          title
+          virtuals{
+            subtitle
+          }
           firstPublishedAt
-          id
-          previewContent {
-            bodyModel {
-              paragraphs {
-                text
-              }
-            }
-          }
-          author {
-            name
-          }
+          id        
         }
       }
     }

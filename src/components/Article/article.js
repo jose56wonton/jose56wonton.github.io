@@ -18,7 +18,8 @@ function getLink(title, id) {
 
 class Article extends Component {
   render() {
-    const { title, id, subtitle, body } = this.props.data
+    const { title,subtitle, id} = this.props.data   
+    
     const url = getLink(title, id)
     return (
       <ArticleElement>
@@ -31,7 +32,6 @@ class Article extends Component {
             </SVGLink>
           </Line>
           <h3>{subtitle}</h3>
-          <p>{body}</p>
         </Box>
       </ArticleElement>
     )

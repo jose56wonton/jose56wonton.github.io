@@ -6,13 +6,12 @@ import Article from './article'
 class Articles extends Component {
   render() {
     const articles = this.props.data.edges.map((article, i) => {
+
       const data = {
         id: article.node.id,
-        author: article.node.author.name,
         datePublish: article.node.firstPublishedAt,
-        title: article.node.previewContent.bodyModel.paragraphs[0].text,
-        subtitle: article.node.previewContent.bodyModel.paragraphs[1].text,
-        body: article.node.previewContent.bodyModel.paragraphs[2].text,
+        title: article.node.title,
+        subtitle: article.node.virtuals.subtitle
       }
       return <Article key={i} data={data} />
     })
