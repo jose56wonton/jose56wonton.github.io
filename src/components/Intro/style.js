@@ -42,20 +42,20 @@ export const SVG = styled.img`
   position: absolute;
   z-index: -1;
   ${breakpoints.xs(`
-  width: 16px;
-  width: 16px;
+  width: 23px;
+  width: 23px;
   `)}
   ${breakpoints.sm(`
-  width: 18px;
-  width: 18px;
+  width: 28px;
+  width: 28px;
   `)}
   ${breakpoints.md(`
-  width: 22px; 
-  width: 22px; 
+  width: 32px; 
+  width: 32px; 
   `)}
   ${breakpoints.lg(`
-  width: 25px;
-  width: 25px;
+  width: 45px;
+  width: 45px;
   `)}
   ${breakpoints.xl(`
   width: 60px;
