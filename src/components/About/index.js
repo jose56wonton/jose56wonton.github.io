@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Hero, Container, Box, UnderLay, Three } from '../layout'
+import { Hero, Container, UnderLay, Three, DarkBox } from '../layout'
 import {
   AboutWrapper,
   AboutImage,
@@ -69,10 +69,10 @@ class About extends Component {
                   </ImageWrapper>
                 </AboutImage>
                 <AboutBody>
-                  <Box regular>
-                    <UnderLay light />
+                  <DarkBox>
+                    <UnderLay regular />
                     <div dangerouslySetInnerHTML={{ __html: bodyHTML }} />
-                  </Box>
+                  </DarkBox>
                 </AboutBody>
               </AboutGroup>
               <AboutLink>

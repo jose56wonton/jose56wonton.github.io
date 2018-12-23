@@ -1,5 +1,5 @@
 import { injectGlobal } from 'styled-components'
-import { breakpoints } from './variables'
+import { breakpoints, colors } from './variables'
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Inconsolata|Quicksand');
@@ -86,11 +86,12 @@ injectGlobal`
     ${breakpoints.xl(`
       font-size: 28px;
       margin-bottom: 12px;
-    `)}
+    `)},
+      ${`color: ${colors.light};`}
       font-family: 'Inconsolata', monospace;
       margin:0;
   }
-  
+ 
   p{
     ${breakpoints.xs(`
       font-size: 14px;

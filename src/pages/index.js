@@ -144,11 +144,11 @@ export const query = graphql`
       edges {
         node {
           title
-          virtuals{
+          virtuals {
             subtitle
           }
           firstPublishedAt
-          id        
+          id
         }
       }
     }

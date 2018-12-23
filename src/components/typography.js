@@ -100,7 +100,7 @@ export const TextLink = styled.a`
   ${props =>
     props.light &&
     css`
-      color: ${colors.white};
+      color: ${colors.white} !important;
       &:before {
         background: ${colors.regular};
       }
@@ -112,7 +112,7 @@ export const TextLink = styled.a`
     `} ${props =>
     props.dark &&
     css`
-      color: ${colors.white};
+      color: ${colors.white} !important;
       &:before {
         background: ${colors.dark};
       }
@@ -127,16 +127,13 @@ export const TextLink = styled.a`
 export const LinkWrapper = styled.div`
   a {
     font-family: 'Inconsolata', monospace;
-
     display: inline-block;
-
     border-width: 0;
     border-color: transparent;
     font-weight: 400;
     cursor: pointer;
     position: relative;
     text-decoration: none;
-
     z-index: 0;
     border: none;
     border-radius: 0;
@@ -153,7 +150,7 @@ export const LinkWrapper = styled.div`
       -webkit-transform 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
     &:before {
       width: 100%;
-      background: ${colors.regular};
+      background: ${colors.dark};
       -webkit-transition: box-shadow 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
       transition: box-shadow 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
     }
@@ -189,13 +186,14 @@ export const LinkWrapper = styled.div`
     }
     &:focus:before,
     &:hover:before {
-      box-shadow: inset 0 -1px 0 ${colors.regular},
-        inset 0 1px 0 ${colors.regular}, inset -1px 0 0 ${colors.regular};
+      box-shadow: inset 0 -1px 0 ${colors.dark}, inset 0 1px 0 ${colors.dark},
+        inset -1px 0 0 ${colors.dark};
     }
+
     ${props =>
       props.light &&
       css`
-        color: ${colors.white};
+        color: ${colors.white} !important;
         &:before {
           background: ${colors.regular};
         }
@@ -209,7 +207,7 @@ export const LinkWrapper = styled.div`
       css`
         color: ${colors.white};
         &:before {
-          background: ${colors.dark};
+          background: ${colors.dark} !important;
         }
         &:focus:before,
         &:hover:before {
