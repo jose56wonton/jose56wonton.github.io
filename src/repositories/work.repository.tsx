@@ -1,40 +1,25 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { Fluid } from 'helpers/types';
 
-interface ArtQuery {
-  allContentfulArt: {
-    nodes: {
-      id;
-      file: {
-        id: string;
-        title: string;
-        description: string;
-        fluid: Fluid;
-      };
-    };
-  };
-}
+import { WorkQuery, Work, WorkNode } from 'models/work.model';
 
-export interface Art {
-  id: string;
-  description: string;
-  title: string;
-  fluid: Fluid;
-}
-
-export const fetchArt = (): Art => {
+export const fetchWork = (): Work[] => {
   const {
-    allContentfulArt: {
-      nodes: {
-        file: { id, title, description, fluid },
-      },
-    },
-  }: ArtQuery = useStaticQuery(
+    allContentfulWork: { nodes },
+  }: WorkQuery = useStaticQuery(
     graphql`
       {
-        allContentfulArt(limit: 10) {
+        allContentfulWork {
           nodes {
-            file {
+            title
+            start
+            end
+            repository
+            link
+            description {
+              description
+            }
+            technologies
+            images {
               id
               title
               description
@@ -53,10 +38,10 @@ export const fetchArt = (): Art => {
       }
     `
   );
-  return {
-    id,
-    title,
-    description,
-    fluid,
-  };
+  return nodes.map(
+    (node: WorkNode): Work => ({
+      ...node,
+      description: node.description.description,
+    })
+  );
 };

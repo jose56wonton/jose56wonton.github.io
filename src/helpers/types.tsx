@@ -16,3 +16,10 @@ export interface Location {
 export interface Description {
   description: string;
 }
+
+export interface Image {
+  id: string;
+  title: string;
+  desciption: string;
+  fluid: Fluid;
+}

@@ -1,18 +1,19 @@
 import { graphql, useStaticQuery } from 'gatsby';
+import { Thought, ThoughtQuery, ThoughtNode } from 'models/thought.model';
 
-import { Art, ArtQuery } from 'models/art.model';
-
-export const fetchArt = (): Art[] => {
+export const fetchthoughts = (): Thought[] => {
   const {
-    allContentfulArt: { nodes },
-  }: ArtQuery = useStaticQuery(
+    allContentfulThought: { nodes },
+  }: ThoughtQuery = useStaticQuery(
     graphql`
       {
-        allContentfulArt(limit: 10) {
+        allContentfulThought(limit: 10) {
           nodes {
             id
             title
-            date
+            description {
+              description
+            }
             images {
               id
               title
@@ -32,5 +33,10 @@ export const fetchArt = (): Art[] => {
       }
     `
   );
-  return nodes;
+  return nodes.map(
+    (node: ThoughtNode): Thought => ({
+      ...node,
+      description: node.description.description,
+    })
+  );
 };

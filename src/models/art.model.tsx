@@ -1,21 +1,21 @@
-import { Fluid } from 'helpers/types';
+import { Image } from 'helpers/types';
 
 export interface ArtQuery {
   allContentfulArt: {
-    nodes: {
-      file: {
-        id: string;
-        title: string;
-        description: string;
-        fluid: Fluid;
-      };
-    };
+    nodes: ArtNode[];
   };
+}
+
+export interface ArtNode {
+  id: string;
+  title: string;
+  date: string;
+  images: Image[];
 }
 
 export interface Art {
   id: string;
-  description: string;
   title: string;
-  fluid: Fluid;
+  date: string;
+  images: Image[];
 }

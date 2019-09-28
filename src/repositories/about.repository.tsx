@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import { About, AboutQuery } from 'models/about.model';
 
-export const fetchAboutSection = (): About => {
+export const fetchAbout = (): About => {
   const {
     contentfulAbout: {
       description: { description },

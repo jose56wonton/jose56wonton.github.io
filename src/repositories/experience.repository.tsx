@@ -1,21 +1,13 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import { Experience, ExperienceQuery } from 'models/experience.model';
+import {
+  Experience,
+  ExperienceQuery,
+  ExperienceNode,
+} from 'models/experience.model';
 
-export const fetchArt = (): Experience => {
+export const fetchExperiences = (): Experience[] => {
   const {
-    allContentfulExperience: {
-      nodes: {
-        id,
-        title,
-        stack,
-        start,
-        end,
-        location,
-        isCurrentlyWorking,
-        description: { description },
-        company,
-      },
-    },
+    allContentfulExperience: { nodes },
   }: ExperienceQuery = useStaticQuery(
     graphql`
       {
@@ -40,15 +32,10 @@ export const fetchArt = (): Experience => {
       }
     `
   );
-  return {
-    id,
-    title,
-    description,
-    start,
-    end,
-    stack,
-    location,
-    isCurrentlyWorking,
-    company,
-  };
+  return nodes.map(
+    (node: ExperienceNode): Experience => ({
+      ...node,
+      description: node.description.description,
+    })
+  );
 };
