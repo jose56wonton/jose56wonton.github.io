@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Layout from 'components/layout';
 import Image from 'components/image';
 import SEO from 'components/seo';
-import { fetchAboutSection } from 'Models/About';
+import { fetchAboutSection } from 'repositories/about.repository';
 
 const IndexPage = () => {
   const about = fetchAboutSection();
