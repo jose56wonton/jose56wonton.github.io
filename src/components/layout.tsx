@@ -1,8 +1,7 @@
 import React, { ReactElement } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
-import { theme, Theme } from 'theme';
+import { theme } from 'theme';
 
 interface LayoutProps {
   children: ReactElement | ReactElement[];
@@ -25,38 +24,15 @@ const Content = styled.div`
   max-width: 1680px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 200px;
 `;
 
-const ColorBlock = styled.div`
-  background-color: ${(props: { theme: Theme }) => props.theme.color.accent};
-  position: relative;
-  height: 100%;
-  width: 100%;
-  padding: 50px;
-`;
-
-const Layout = ({ children }: LayoutProps) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `);
-
-  return (
-    <>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Content>
-          <ColorBlock>{children}</ColorBlock>
-        </Content>
-      </ThemeProvider>
-    </>
-  );
-};
+const Layout = ({ children }: LayoutProps) => (
+  <>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <Content>{children}</Content>
+    </ThemeProvider>
+  </>
+);
 
 export default Layout;

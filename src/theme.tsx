@@ -28,3 +28,7 @@ export const theme: Theme = {
     padding: 200,
   },
 };
+
+export interface ThemeProp {
+  theme: Theme;
+}

@@ -1,7 +1,8 @@
-import styled, { CSSProp } from 'styled-components';
+import styled from 'styled-components';
 import { Theme } from 'theme';
 
 type Color = 'accent' | 'light' | 'medium' | 'dark';
+
 export interface TypographyProps {
   theme: Theme;
   color?: Color;
@@ -23,15 +24,6 @@ export const H1 = styled.h1`
   color: ${(props: TypographyProps) => getColor(props)};
   text-align: ${(props: TypographyProps) =>
     props.align === 'right' ? 'right' : 'left'};
-  transform: translateX(
-    ${(props: TypographyProps) => {
-      const { innerBox, outerBox } = props.theme;
-      const distanceFromEdge = innerBox.padding + outerBox.padding;
-      return props.align === 'right'
-        ? `${distanceFromEdge}px`
-        : `-${distanceFromEdge}px`;
-    }}
-  );
   margin-top: 0px;
 `;
 

@@ -2,16 +2,26 @@ import React from 'react';
 import { fetchAbout } from 'repositories/about.repository';
 import styled from 'styled-components';
 import { About } from 'models/about.model';
-import { H1, H3, A, P, Li } from 'typography';
+import { H1, H3, A, P, Li } from 'components/typography';
 import { fetchExperiences } from 'repositories/experience.repository';
 import { Experience } from 'models/experience.model';
 import ReactMarkdown from 'react-markdown';
 import { Flex, SectionWrapper } from 'littleGuys/a';
 import { format, parse } from 'date-fns';
+import { Theme } from 'theme';
 
 // TODO: this naming is garbage
 const ExperienceBlock = styled.div`
   margin-bottom: 105px;
+`;
+
+// TODO: add resume to this section
+const ColorBlock = styled.div`
+  background-color: ${(props: { theme: Theme }) => props.theme.color.accent};
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 50px;
 `;
 
 const ExperienceSection = () => {
