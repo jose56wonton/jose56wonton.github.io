@@ -25,12 +25,12 @@ const Wrapper = styled(SectionWrapper)`
 
 const ColorBlock = styled.div`
   position: absolute;
-  top: 200px;
   z-index: -1;
-  bottom: 200px;
-  left: 200px;
-  right: 200px;
-  background-color: ${(props: { theme: Theme }) => props.theme.color.accent};
+  top: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
+  bottom: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
+  left: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
+  right: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
+  background-color: ${(props: ThemeProp) => props.theme.color.accent};
 `;
 
 const AboutSection = () => {

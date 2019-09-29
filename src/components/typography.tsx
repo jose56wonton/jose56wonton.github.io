@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Theme } from 'theme';
+import { Theme, deviceSize, typographyProportions } from 'theme';
 
 type Color = 'accent' | 'light' | 'medium' | 'dark';
 
@@ -20,11 +20,27 @@ const getColor = (
 
 export const H1 = styled.h1`
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 200px;
+
   color: ${(props: TypographyProps) => getColor(props)};
   text-align: ${(props: TypographyProps) =>
     props.align === 'right' ? 'right' : 'left'};
   margin-top: 0px;
+
+  @media ${deviceSize.mobile} {
+    font-size: ${0.5 * typographyProportions.h1}px;
+  }
+  @media ${deviceSize.tablet} {
+    font-size: ${0.75 * typographyProportions.h1}px;
+  }
+  @media ${deviceSize.small} {
+    font-size: ${1 * typographyProportions.h1}px;
+  }
+  @media ${deviceSize.medium} {
+    font-size: ${1.5 * typographyProportions.h1}px;
+  }
+  @media ${deviceSize.large} {
+    font-size: ${2 * typographyProportions.h1}px;
+  }
 `;
 
 export const H3 = styled.h3`
