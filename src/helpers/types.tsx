@@ -1,6 +1,7 @@
-export interface Fluid {
+import { FluidObject } from 'gatsby-image';
+export interface Fluid extends FluidObject {
   tracedSVG: string;
-  aspectRatio: string;
+  aspectRatio: number;
   src: string;
   srcSet: string;
   srcWebp: string;

@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { Thought, ThoughtQuery, ThoughtNode } from 'models/thought.model';
 
-export const fetchthoughts = (): Thought[] => {
+export const fetchThoughts = (): Thought[] => {
   const {
     allContentfulThought: { nodes },
   }: ThoughtQuery = useStaticQuery(
@@ -14,6 +14,7 @@ export const fetchthoughts = (): Thought[] => {
             description {
               description
             }
+            date
             images {
               id
               title

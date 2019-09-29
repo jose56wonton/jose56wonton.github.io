@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { About } from 'models/about.model';
 import { H1, H3, A } from 'typography';
 import { Theme } from 'theme';
+import { SectionWrapper } from 'littleGuys/a';
 
 interface SocialProps {
   theme: Theme;
@@ -21,7 +22,7 @@ const AboutSection = () => {
   const about: About = fetchAbout();
 
   return (
-    <>
+    <SectionWrapper>
       <H1 align="right">
         Joshua <br />
         Wootonn
@@ -32,7 +33,7 @@ const AboutSection = () => {
         <A href="">medium</A>
         <A href="">linked in</A>
       </Social>
-    </>
+    </SectionWrapper>
   );
 };
 // TODO: Get these links from Contentful!!

@@ -9,7 +9,7 @@ import { fetchExperiences } from 'repositories/experience.repository';
 
 import { fetchWork } from 'repositories/work.repository';
 import { fetchArt } from 'repositories/art.repository';
-import { fetchthoughts } from 'repositories/thought.repository';
+import { fetchThoughts } from 'repositories/thought.repository';
 import { Work } from 'models/work.model';
 import { Art } from 'models/art.model';
 import { H1, H3, A } from 'typography';
@@ -18,11 +18,14 @@ import { Rotated } from 'littleGuys/a';
 import styled from 'styled-components';
 import AboutSection from 'containers/about';
 import ExperienceSection from 'containers/experience';
+import WorkSection from 'containers/work';
+import ThoughtSection from 'containers/thoughts';
+import ArtSection from 'containers/art';
 
 const IndexPage = () => {
   const work = fetchWork();
   const art = fetchArt();
-  const thoughts = fetchthoughts();
+  const thoughts = fetchThoughts();
 
   return (
     <>
@@ -30,6 +33,9 @@ const IndexPage = () => {
       <Layout>
         <AboutSection />
         <ExperienceSection />
+        <WorkSection />
+        <ArtSection />
+        <ThoughtSection />
       </Layout>
     </>
   );

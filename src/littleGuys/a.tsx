@@ -37,3 +37,12 @@ export const Flex = styled.div`
   align-items: ${(props: FlexProps) => props.align};
   justify-content: ${(props: FlexProps) => props.justify};
 `;
+
+interface AboutWrapperProps {
+  theme: Theme;
+}
+
+export const SectionWrapper = styled.div`
+  margin-bottom: ${(props: AboutWrapperProps) =>
+    props.theme.outerBox.padding}px;
+`;

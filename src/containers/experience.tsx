@@ -6,7 +6,7 @@ import { H1, H3, A, P, Li } from 'typography';
 import { fetchExperiences } from 'repositories/experience.repository';
 import { Experience } from 'models/experience.model';
 import ReactMarkdown from 'react-markdown';
-import { Flex } from 'littleGuys/a';
+import { Flex, SectionWrapper } from 'littleGuys/a';
 import { format, parse } from 'date-fns';
 
 // TODO: this naming is garbage
@@ -20,11 +20,11 @@ const ExperienceSection = () => {
   console.log(experiences.map((e: Experience) => e.end));
 
   const formatDate = (date: string) => {
-    return format(parse(date, 'yyyy-mm-dd', new Date()), 'MMMM yyyy');
+    return format(parse(date, 'yyyy-MM-dd', new Date()), 'MMMM yyyy');
   };
 
   return (
-    <>
+    <SectionWrapper>
       <H1 align="left">Experience</H1>
       {experiences.map((experience: Experience) => {
         return (
@@ -54,7 +54,7 @@ const ExperienceSection = () => {
           </ExperienceBlock>
         );
       })}
-    </>
+    </SectionWrapper>
   );
 };
 

@@ -9,11 +9,13 @@ export interface ThoughtNode {
   id: string;
   title: string;
   description: Description;
-  images: Image;
+  images: Image[];
+  date: string;
 }
 export interface Thought {
   id: string;
   title: string;
   description: string;
-  images: Image;
+  images: Image[];
+  date: string;
 }
