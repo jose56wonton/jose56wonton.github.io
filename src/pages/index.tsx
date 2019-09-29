@@ -17,9 +17,9 @@ import { About } from 'models/about.model';
 import { Rotated } from 'littleGuys/a';
 import styled from 'styled-components';
 import AboutSection from 'containers/about';
+import ExperienceSection from 'containers/experience';
 
 const IndexPage = () => {
-  const experiences = fetchExperiences();
   const work = fetchWork();
   const art = fetchArt();
   const thoughts = fetchthoughts();
@@ -29,6 +29,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <Layout>
         <AboutSection />
+        <ExperienceSection />
       </Layout>
     </>
   );

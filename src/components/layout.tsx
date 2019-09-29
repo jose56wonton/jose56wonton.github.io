@@ -14,6 +14,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 0px;
     box-sizing: border-box;
   }
+  div {
+    box-sizing: border-box;
+  }
   @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 `;
 
@@ -21,18 +24,16 @@ const Content = styled.div`
   position: relative;
   max-width: 1680px;
   min-height: 100vh;
-  margin: auto;
-  padding: 200px 0;
+  margin: 0 auto;
+  padding: 200px;
 `;
 
 const ColorBlock = styled.div`
   background-color: ${(props: { theme: Theme }) => props.theme.color.accent};
-  position: absolute;
-  z-index: -1;
-  top: 200px;
-  bottom: 200px;
-  right: 200px;
-  left: 200px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding: 50px;
 `;
 
 const Layout = ({ children }: LayoutProps) => {
@@ -51,9 +52,7 @@ const Layout = ({ children }: LayoutProps) => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Content>
-          {children}
-
-          <ColorBlock />
+          <ColorBlock>{children}</ColorBlock>
         </Content>
       </ThemeProvider>
     </>

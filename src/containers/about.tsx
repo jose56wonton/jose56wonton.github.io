@@ -3,11 +3,17 @@ import { fetchAbout } from 'repositories/about.repository';
 import styled from 'styled-components';
 import { About } from 'models/about.model';
 import { H1, H3, A } from 'typography';
+import { Theme } from 'theme';
+
+interface SocialProps {
+  theme: Theme;
+}
 
 const Social = styled.div`
   position: absolute;
-  display: inline-block;
-  transform: rotate(-90deg);
+  z-index: 1;
+  transform: ${(props: SocialProps) =>
+    `rotate(-90deg) translateY(${props.theme.outerBox.padding}px)`};
   right: 0px;
 `;
 
@@ -29,4 +35,6 @@ const AboutSection = () => {
     </>
   );
 };
+// TODO: Get these links from Contentful!!
+
 export default AboutSection;
