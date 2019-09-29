@@ -23,9 +23,7 @@ function SEO({ description, lang, meta, title }: SEOProps) {
       }
     `
   );
-
   const metaDescription = description || site.siteMetadata.description;
-
   return (
     <Helmet
       htmlAttributes={{

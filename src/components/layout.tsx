@@ -1,49 +1,61 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React, { ReactElement } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
-import Header from './header';
-import './layout.css';
+import { theme, Theme } from 'theme';
 
 interface LayoutProps {
   children: ReactElement | ReactElement[];
 }
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+`;
+
+const Content = styled.div`
+  position: relative;
+  max-width: 1680px;
+  min-height: 100vh;
+  margin: auto;
+  padding: 200px 0;
+`;
+
+const ColorBlock = styled.div`
+  background-color: ${(props: { theme: Theme }) => props.theme.color.accent};
+  position: absolute;
+  z-index: -1;
+  top: 200px;
+  bottom: 200px;
+  right: 200px;
+  left: 200px;
+`;
+
 const Layout = ({ children }: LayoutProps) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `);
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
+        <Content>
+          {children}
+
+          <ColorBlock />
+        </Content>
+      </ThemeProvider>
     </>
   );
 };
