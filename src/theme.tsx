@@ -69,7 +69,7 @@ interface TypographyProportions {
 export const typographyProportions: TypographyProportions = {
   h1: 100,
   h2: 80,
-  h3: 60,
+  h3: 35,
   h4: 40,
   p: 20,
   a: 20,

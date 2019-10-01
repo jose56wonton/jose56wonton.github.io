@@ -43,6 +43,31 @@ export const H1 = styled.h1`
   }
 `;
 
+export const H2 = styled.h2`
+  font-family: 'Josefin Sans', sans-serif;
+
+  color: ${(props: TypographyProps) => getColor(props)};
+  text-align: ${(props: TypographyProps) =>
+    props.align === 'right' ? 'right' : 'left'};
+  margin-top: 0px;
+
+  @media ${deviceSize.mobile} {
+    font-size: ${0.5 * typographyProportions.h2}px;
+  }
+  @media ${deviceSize.tablet} {
+    font-size: ${0.75 * typographyProportions.h2}px;
+  }
+  @media ${deviceSize.small} {
+    font-size: ${1 * typographyProportions.h2}px;
+  }
+  @media ${deviceSize.medium} {
+    font-size: ${1.5 * typographyProportions.h2}px;
+  }
+  @media ${deviceSize.large} {
+    font-size: ${2 * typographyProportions.h2}px;
+  }
+`;
+
 export const H3 = styled.h3`
   font-family: 'Josefin Sans', sans-serif;
   font-size: 40px;
@@ -50,6 +75,22 @@ export const H3 = styled.h3`
   text-align: ${(props: TypographyProps) =>
     props.align ? props.align : 'left'};
   margin-top: 0px;
+
+  @media ${deviceSize.mobile} {
+    font-size: ${0.5 * typographyProportions.h3}px;
+  }
+  @media ${deviceSize.tablet} {
+    font-size: ${0.75 * typographyProportions.h3}px;
+  }
+  @media ${deviceSize.small} {
+    font-size: ${1 * typographyProportions.h3}px;
+  }
+  @media ${deviceSize.medium} {
+    font-size: ${1.5 * typographyProportions.h3}px;
+  }
+  @media ${deviceSize.large} {
+    font-size: ${2 * typographyProportions.h3}px;
+  }
 `;
 
 export const P = styled.p`
