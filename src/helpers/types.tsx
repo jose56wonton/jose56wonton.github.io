@@ -1,5 +1,15 @@
-import { FluidObject } from 'gatsby-image';
+import { FluidObject, FixedObject } from 'gatsby-image';
 export interface Fluid extends FluidObject {
+  tracedSVG: string;
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  srcWebp: string;
+  srcSetWebp: string;
+  sizes: string;
+}
+
+export interface Fixed extends FixedObject {
   tracedSVG: string;
   aspectRatio: number;
   src: string;
@@ -23,4 +33,5 @@ export interface Image {
   title: string;
   desciption: string;
   fluid: Fluid;
+  fixed: FixedObject;
 }

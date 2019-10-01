@@ -12,6 +12,7 @@ export interface Theme {
   outerBox: {
     padding: number;
   };
+  padding: ElementProportions;
 }
 
 export const theme: Theme = {
@@ -22,10 +23,18 @@ export const theme: Theme = {
     dark: '#333333',
   },
   innerBox: {
+    // TODO: GET RID OF ALL THE USAGES OF THESE
     padding: 50,
   },
   outerBox: {
     padding: 200,
+  },
+  padding: {
+    xs: 25,
+    sm: 50,
+    md: 75,
+    lg: 100,
+    xl: 150,
   },
 };
 

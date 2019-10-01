@@ -2,7 +2,7 @@ import React from 'react';
 import { fetchAbout } from 'repositories/about.repository';
 import styled from 'styled-components';
 import { About } from 'models/about.model';
-import { H1, H3, A, P, Li } from 'components/typography';
+import { H1, H3, A, P, Li, TypographyProps } from 'components/typography';
 import { fetchExperiences } from 'repositories/experience.repository';
 import { Work } from 'models/work.model';
 import ReactMarkdown from 'react-markdown';
@@ -12,11 +12,17 @@ import { fetchWork } from 'repositories/work.repository';
 
 import { Image } from 'helpers/types';
 import Img from 'gatsby-image';
-import { Theme } from 'theme';
+import { Theme, ThemeProp } from 'theme';
 
 // TODO: this naming is garbage
 const ExperienceBlock = styled(Flex)`
   margin-bottom: 105px;
+`;
+
+const Wrapper = styled(SectionWrapper)`
+  position: relative;
+  width: 100%;
+  padding: 250px;
 `;
 
 const WorkP = styled(P)`
@@ -25,11 +31,24 @@ const WorkP = styled(P)`
 `;
 
 const ColorBlock = styled.div`
-  background-color: ${(props: { theme: Theme }) => props.theme.color.accent};
-  position: relative;
-  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
+  bottom: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
+  left: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
+  right: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
+  background-color: ${(props: ThemeProp) => props.theme.color.accent};
+`;
+
+const ImageWrapper = styled.div`
   width: 100%;
-  padding: 50px;
+  background-color: ${(props: ThemeProp) => props.theme.color.light};
+  padding: ${(props: ThemeProp) => props.theme.padding.sm}px;
+  transform: translateX(-${(props: ThemeProp) => 2 * props.theme.padding.lg}px);
+`;
+
+const TextWrapper = styled.div`
+  width: 50%;
 `;
 
 const WorkSection = () => {
@@ -37,13 +56,29 @@ const WorkSection = () => {
   console.log(works.map((w: Work) => w.start));
   console.log(works.map((w: Work) => w.end));
 
+  // TODO: break this out into helper class
   const formatDate = (date: string) => {
     return format(parse(date, 'yyyy-MM-dd', new Date()), 'MMMM yyyy');
   };
 
+  const transformTypography = (props: TypographyProps) => {
+    const { innerBox, outerBox } = props.theme;
+    const distanceFromEdge = innerBox.padding + outerBox.padding;
+    return `transform: translateX(${
+      props.align === 'right'
+        ? `${distanceFromEdge}px`
+        : `-${distanceFromEdge}px`
+    });`;
+  };
+
+  const SectionTitle = styled(H1)`
+    ${(props: TypographyProps) => transformTypography(props)}
+  `;
+
   return (
-    <SectionWrapper>
-      <H1 align="left">Work</H1>
+    <Wrapper>
+      <ColorBlock />
+      <SectionTitle align="left">Work</SectionTitle>
       {works.map((work: Work) => {
         return (
           <ExperienceBlock
@@ -52,12 +87,15 @@ const WorkSection = () => {
             direction="row"
             key={work.id}
           >
-            {work.images.map((image: Image) => (
+            <ImageWrapper>
+              <Img fadeIn fluid={work.images[0].fluid} />
+            </ImageWrapper>
+            {/* {work.images.map((image: Image) => (
               <div key={image.id} style={{ width: '200px', height: '200px' }}>
                 <Img key={image.id} fluid={image.fluid} />
               </div>
-            ))}
-            <div>
+            ))} */}
+            <TextWrapper>
               <H3 align="right">{work.title}</H3>
               <P color="medium" align="right">
                 {`${formatDate(work.start)} - ${formatDate(work.end)}`}
@@ -74,11 +112,11 @@ const WorkSection = () => {
                   <P key={technology + work.id}>{technology}</P>
                 ))}
               </Flex>
-            </div>
+            </TextWrapper>
           </ExperienceBlock>
         );
       })}
-    </SectionWrapper>
+    </Wrapper>
   );
 };
 
