@@ -32,15 +32,6 @@ export const fetchWork = (): Work[] => {
                 srcSetWebp
                 sizes
               }
-              fixed(width: 640, height: 360) {
-                tracedSVG
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                width
-                height
-              }
             }
           }
         }

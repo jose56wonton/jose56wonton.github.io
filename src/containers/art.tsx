@@ -19,6 +19,7 @@ import { Theme } from 'theme';
 // TODO: this naming is garbage
 const ArtBlock = styled(Flex)`
   margin-bottom: 105px;
+  position: relative;
 `;
 
 const WorkP = styled(P)`
@@ -32,6 +33,18 @@ const ColorBlock = styled.div`
   height: 100%;
   width: 100%;
   padding: 50px;
+`;
+
+const Aaa = styled(Img)`
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Text = styled.div`
+  position: absolute;
+  top: 50%;
+  right: 15%;
 `;
 
 const ArtSection = () => {
@@ -50,22 +63,20 @@ const ArtSection = () => {
       {arts.map((art: Art) => {
         return (
           <ArtBlock
-            justify="space-between"
+            justify="center"
             align="center"
             direction="row"
             key={art.id}
           >
-            {art.images.map((image: Image) => (
-              <div key={image.id} style={{ width: '200px', height: '200px' }}>
-                <Img key={image.id} fluid={image.fluid} />
-              </div>
-            ))}
-            <div>
-              <H3 align="right">{art.title}</H3>
-              <P color="medium" align="right">
+            <Aaa key={art.images[0].id} fluid={art.images[0].fluid}></Aaa>
+            <Text>
+              <H3 color="light" align="right">
+                {art.title}
+              </H3>
+              <P color="light" align="right">
                 {formatDate(art.date)}
               </P>
-            </div>
+            </Text>
           </ArtBlock>
         );
       })}

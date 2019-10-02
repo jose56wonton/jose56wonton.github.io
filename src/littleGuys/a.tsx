@@ -16,9 +16,9 @@ export const Rotated = styled.div`
 `;
 
 export interface FlexProps {
-  direction: 'column' | 'row';
+  direction?: 'column' | 'row';
 
-  justify:
+  justify?:
     | 'start'
     | 'end'
     | 'center'
@@ -29,11 +29,12 @@ export interface FlexProps {
     | 'space-evenly'
     | 'inherit';
 
-  align: 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'inherit';
+  align?: 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'inherit';
 }
 
 export const Flex = styled.div`
   display: flex;
+  flex-direction: ${(props: FlexProps) => props.direction};
   align-items: ${(props: FlexProps) => props.align};
   justify-content: ${(props: FlexProps) => props.justify};
 `;
