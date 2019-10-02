@@ -2,7 +2,7 @@ import React from 'react';
 import { fetchAbout } from 'repositories/about.repository';
 import styled from 'styled-components';
 import { About } from 'models/about.model';
-import { H1, H3, A, P, Li } from 'components/typography';
+import { H1, H3, H4, A, P, Li } from 'components/typography';
 import { fetchExperiences } from 'repositories/experience.repository';
 import { Work } from 'models/work.model';
 import ReactMarkdown from 'react-markdown';
@@ -22,7 +22,14 @@ const ExperienceBlock = styled(Flex)`
 
 const ThoughtP = styled(P)`
   margin-bottom: 16px;
-  text-align: right;
+`;
+
+const ThoughtH4 = styled(H4)`
+  margin-bottom: 16px;
+`;
+const ThoughtH3 = styled(H3)`
+  margin-bottom: 16px;
+  margin-right: 16px;
 `;
 
 const ColorBlock = styled.div`
@@ -52,19 +59,18 @@ const ThoughtSection = () => {
             direction="row"
             key={thought.id}
           >
-            {thought.images.map((image: Image) => (
-              <div key={image.id} style={{ width: '200px', height: '200px' }}>
-                <Img key={image.id} fluid={image.fluid} />
-              </div>
-            ))}
             <div>
-              <H3 align="right">{thought.title}</H3>
-              <P color="medium" align="right">
-                {formatDate(thought.date)}
-              </P>
+              <Flex direction="row" align="center">
+                <ThoughtH3 align="left">{thought.title}</ThoughtH3>
+                <P color="medium" align="left">
+                  {formatDate(thought.date)}
+                </P>
+              </Flex>
+
               <ReactMarkdown
                 renderers={{
                   paragraph: ThoughtP,
+                  heading: ThoughtH4,
                 }}
                 source={thought.description}
               />

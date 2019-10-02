@@ -79,7 +79,7 @@ export const typographyProportions: TypographyProportions = {
   h1: 100,
   h2: 80,
   h3: 35,
-  h4: 40,
+  h4: 20,
   p: 20,
   a: 20,
 };
