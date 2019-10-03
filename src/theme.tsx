@@ -30,6 +30,7 @@ export const theme: Theme = {
     padding: 200,
   },
   padding: {
+    na: 0,
     xs: 25,
     sm: 50,
     md: 75,
@@ -50,15 +51,12 @@ export const deviceSize = {
   large: `(min-width: 2000px)`,
 };
 
-interface ElementProportions {
-  xs: number;
-  sm: number;
-  md: number;
-  lg: number;
-  xl: number;
-}
-
+export type Proportions = 'na' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type ElementProportions = {
+  [key in Proportions]: number;
+};
 export const elementProportions: ElementProportions = {
+  na: 0,
   xs: 25,
   sm: 50,
   md: 75,
@@ -66,20 +64,29 @@ export const elementProportions: ElementProportions = {
   xl: 150,
 };
 
-interface TypographyProportions {
-  h1: number;
-  h2: number;
-  h3: number;
-  h4: number;
-  p: number;
-  a: number;
-}
+export type MarginProportions = {
+  [key in Proportions]: number;
+};
 
+export const marginProportions: MarginProportions = {
+  na: 0,
+  xs: 4,
+  sm: 8,
+  md: 16,
+  lg: 24,
+  xl: 48,
+};
+
+export type TypographyTypes = 'h1' | 'h2' | 'h3' | 'h4' | 'p' | 'a' | 'li';
+export type TypographyProportions = {
+  [key in TypographyTypes]: number;
+};
 export const typographyProportions: TypographyProportions = {
   h1: 100,
   h2: 80,
   h3: 35,
   h4: 20,
-  p: 20,
-  a: 20,
+  p: 12,
+  a: 12,
+  li: 12,
 };

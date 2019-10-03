@@ -31,37 +31,26 @@ const ColorBlock = styled.div`
 const FooterSection = () => {
   const links = fetchLinks();
 
-  // TODO: break this out into helper class
-
-  const transformTypography = (props: TypographyProps) => {
-    const { innerBox, outerBox } = props.theme;
-    const distanceFromEdge = (innerBox.padding + outerBox.padding) / 2;
-    return `transform: translateX(${
-      props.align === 'right'
-        ? `${distanceFromEdge}px`
-        : `-${distanceFromEdge}px`
-    });`;
-  };
-  const B = styled(H4)`
-    ${(props: TypographyProps) => transformTypography(props)}
-  `;
-
-  const LinkerBoys = styled.div`
-    ${(props: TypographyProps) => transformTypography(props)}
-  `;
-
   return (
     <FooterBlock>
       <ColorBlock />
       <Flex style={{ width: '100%' }} justify="space-between" direction="row">
-        <B>Joshua Wootonn - {new Date().getFullYear()}</B>
-        <LinkerBoys align="right">
+        <H4 horizontalTransform="xl">
+          Joshua Wootonn - {new Date().getFullYear()}
+        </H4>
+        <div>
           {Object.keys(links).map(key => (
-            <A key={links[key]} href={links[key]}>
+            <A
+              marginRight="md"
+              horizontalTransform="xl"
+              textAlign="right"
+              key={links[key]}
+              href={links[key]}
+            >
               {key}
             </A>
           ))}
-        </LinkerBoys>
+        </div>
       </Flex>
     </FooterBlock>
   );

@@ -41,7 +41,7 @@ const AboutSection = () => {
     const { innerBox, outerBox } = props.theme;
     const distanceFromEdge = innerBox.padding + outerBox.padding;
     return `transform: translateX(${
-      props.align === 'right'
+      props.textAlign === 'right'
         ? `${distanceFromEdge}px`
         : `-${distanceFromEdge}px`
     });`;
