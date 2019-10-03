@@ -3,18 +3,17 @@ import { fetchAbout } from 'repositories/about.repository';
 import styled from 'styled-components';
 import { About } from 'models/about.model';
 import { H1, H3, A, TypographyProps } from 'components/typography';
-import { Theme, ThemeProp } from 'theme';
+import { ThemeProp } from 'theme';
 import { SectionWrapper } from 'littleGuys/a';
 import { fetchLinks } from 'repositories/link.repository';
 import { Link } from 'models/link.model';
-import { mapLinkObjectToLinks } from 'utils/link.extensions';
 
 const Social = styled.div`
   position: absolute;
   z-index: 1;
   transform: rotate(-90deg)
     translateY(${(props: ThemeProp) => props.theme.innerBox.padding}px);
-  right: 0px;
+  right: 0;
 `;
 
 const Wrapper = styled(SectionWrapper)`
@@ -27,10 +26,10 @@ const Wrapper = styled(SectionWrapper)`
 const ColorBlock = styled.div`
   position: absolute;
   z-index: -1;
-  top: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
-  bottom: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
-  left: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
-  right: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
+  top: ${(props: ThemeProp) => props.theme.outerBox.padding};
+  bottom: ${(props: ThemeProp) => props.theme.outerBox.padding};
+  left: ${(props: ThemeProp) => props.theme.outerBox.padding};
+  right: ${(props: ThemeProp) => props.theme.outerBox.padding};
   background-color: ${(props: ThemeProp) => props.theme.color.accent};
 `;
 

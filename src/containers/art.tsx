@@ -1,38 +1,17 @@
 import React from 'react';
-import { fetchAbout } from 'repositories/about.repository';
 import styled from 'styled-components';
-import { About } from 'models/about.model';
-import { H1, H3, A, P, Li } from 'components/typography';
-import { fetchExperiences } from 'repositories/experience.repository';
-import { Work } from 'models/work.model';
-import ReactMarkdown from 'react-markdown';
+import { H1, H3, P } from 'components/typography';
 import { Flex, SectionWrapper } from 'littleGuys/a';
 import { format, parse } from 'date-fns';
-import { fetchWork } from 'repositories/work.repository';
 import { fetchArt } from 'repositories/art.repository';
 
-import { Image } from 'utils/types';
 import Img from 'gatsby-image';
 import { Art } from 'models/art.model';
-import { Theme } from 'theme';
 
 // TODO: this naming is garbage
 const ArtBlock = styled(Flex)`
   margin-bottom: 105px;
   position: relative;
-`;
-
-const WorkP = styled(P)`
-  margin-bottom: 16px;
-  text-align: right;
-`;
-
-const ColorBlock = styled.div`
-  background-color: ${(props: { theme: Theme }) => props.theme.color.accent};
-  position: relative;
-  height: 100%;
-  width: 100%;
-  padding: 50px;
 `;
 
 const Aaa = styled(Img)`
@@ -68,7 +47,7 @@ const ArtSection = () => {
             direction="row"
             key={art.id}
           >
-            <Aaa key={art.images[0].id} fluid={art.images[0].fluid}></Aaa>
+            <Aaa key={art.images[0].id} fluid={art.images[0].fluid} />
             <Text>
               <H3 color="light" align="right">
                 {art.title}

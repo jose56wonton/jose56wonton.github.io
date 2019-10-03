@@ -12,7 +12,12 @@ import FooterSection from 'containers/footer'; /// TODO: MAYBE MOVE THIS to the 
 
 const IndexPage = () => (
   <>
-    <SEO title="Home" />
+    <SEO
+      title="Home"
+      description="Joshua Wootonn home page"
+      lang="en"
+      meta={{}}
+    />
     <Layout>
       <AboutSection />
       <ExperienceSection />

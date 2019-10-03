@@ -1,18 +1,14 @@
 import React from 'react';
-import { fetchAbout } from 'repositories/about.repository';
 import styled from 'styled-components';
-import { About } from 'models/about.model';
-import { H1, H3, A, P, Li, TypographyProps } from 'components/typography';
-import { fetchExperiences } from 'repositories/experience.repository';
+import { H1, H3, P, TypographyProps } from 'components/typography';
 import { Work } from 'models/work.model';
 import ReactMarkdown from 'react-markdown';
 import { Flex, SectionWrapper } from 'littleGuys/a';
 import { format, parse } from 'date-fns';
 import { fetchWork } from 'repositories/work.repository';
 
-import { Image } from 'utils/types';
 import Img from 'gatsby-image';
-import { Theme, ThemeProp } from 'theme';
+import { ThemeProp } from 'theme';
 
 // TODO: this naming is garbage
 const ExperienceBlock = styled(Flex)`
@@ -90,11 +86,6 @@ const WorkSection = () => {
             <ImageWrapper>
               <Img fadeIn fluid={work.images[0].fluid} />
             </ImageWrapper>
-            {/* {work.images.map((image: Image) => (
-              <div key={image.id} style={{ width: '200px', height: '200px' }}>
-                <Img key={image.id} fluid={image.fluid} />
-              </div>
-            ))} */}
             <TextWrapper>
               <H3 align="right">{work.title}</H3>
               <P color="medium" align="right">

@@ -1,19 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Flex, SectionWrapper } from 'littleGuys/a';
-import { format, parse } from 'date-fns';
 
-import { Theme, ThemeProp } from 'theme';
+import { ThemeProp } from 'theme';
 import { fetchLinks } from '../repositories/link.repository';
-import { mapLinkObjectToLinks } from '../utils/link.extensions';
 import { A, H4, TypographyProps } from 'components/typography';
 
 // TODO: this naming is garbage
-const ExperienceBlock = styled(Flex)`
-  margin-bottom: 105px;
-`;
-
-const Wrapper = styled(SectionWrapper)`
+const FooterBlock = styled(SectionWrapper)`
   position: relative;
   width: 100%;
   padding: 0 250px;
@@ -38,9 +32,7 @@ const FooterSection = () => {
   const links = fetchLinks();
 
   // TODO: break this out into helper class
-  const formatDate = (date: string) => {
-    return format(parse(date, 'yyyy-MM-dd', new Date()), 'MMMM yyyy');
-  };
+
   const transformTypography = (props: TypographyProps) => {
     const { innerBox, outerBox } = props.theme;
     const distanceFromEdge = (innerBox.padding + outerBox.padding) / 2;
@@ -59,10 +51,10 @@ const FooterSection = () => {
   `;
 
   return (
-    <Wrapper>
+    <FooterBlock>
       <ColorBlock />
       <Flex style={{ width: '100%' }} justify="space-between" direction="row">
-        <B>Joshua Wootonn - 2019</B>
+        <B>Joshua Wootonn - {new Date().getFullYear()}</B>
         <LinkerBoys align="right">
           {Object.keys(links).map(key => (
             <A key={links[key]} href={links[key]}>
@@ -71,7 +63,7 @@ const FooterSection = () => {
           ))}
         </LinkerBoys>
       </Flex>
-    </Wrapper>
+    </FooterBlock>
   );
 };
 
