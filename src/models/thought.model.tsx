@@ -1,4 +1,4 @@
-import { Description, Image } from 'helpers/types';
+import { Description, Image } from 'utils/types';
 
 export interface ThoughtQuery {
   allContentfulThought: {

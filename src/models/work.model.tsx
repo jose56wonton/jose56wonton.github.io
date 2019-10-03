@@ -1,4 +1,4 @@
-import { Image, Description } from 'helpers/types';
+import { Image, Description } from 'utils/types';
 
 export interface WorkQuery {
   allContentfulWork: {

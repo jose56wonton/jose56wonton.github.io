@@ -43,7 +43,7 @@ module.exports = {
       options: {
         src: path.join(__dirname, 'src'),
         pages: path.join(__dirname, 'src/pages'),
-        helpers: path.join(__dirname, 'src/helpers'),
+        helpers: path.join(__dirname, 'src/utils'),
         models: path.join(__dirname, 'src/models'),
         repositories: path.join(__dirname, 'src/repositories'),
         components: path.join(__dirname, 'src/components'),

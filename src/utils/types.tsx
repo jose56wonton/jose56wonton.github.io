@@ -21,6 +21,6 @@ export interface Description {
 export interface Image {
   id: string;
   title: string;
-  desciption: string;
+  description: string;
   fluid: Fluid;
 }

@@ -7,6 +7,7 @@ import { Theme, ThemeProp } from 'theme';
 import { SectionWrapper } from 'littleGuys/a';
 import { fetchLinks } from 'repositories/link.repository';
 import { Link } from 'models/link.model';
+import { mapLinkObjectToLinks } from 'utils/link.extensions';
 
 const Social = styled.div`
   position: absolute;
@@ -55,13 +56,6 @@ const AboutSection = () => {
     ${(props: TypographyProps) => transformTypography(props)}
   `;
 
-  const mapLinkObjectToLinks = (object: { [key: string]: any }) =>
-    Object.keys(object).map((key: string) => (
-      <A key={object[key]} href={object[key]}>
-        {key}
-      </A>
-    ));
-
   return (
     <Wrapper>
       <ColorBlock />
@@ -70,7 +64,13 @@ const AboutSection = () => {
         Wootonn
       </Name>
       <Description align="left">{description}</Description>
-      <Social>{mapLinkObjectToLinks(links)}</Social>
+      <Social>
+        {Object.keys(links).map(key => (
+          <A key={links[key]} href={links[key]}>
+            {key}
+          </A>
+        ))}
+      </Social>
     </Wrapper>
   );
 };

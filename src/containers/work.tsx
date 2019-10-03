@@ -10,7 +10,7 @@ import { Flex, SectionWrapper } from 'littleGuys/a';
 import { format, parse } from 'date-fns';
 import { fetchWork } from 'repositories/work.repository';
 
-import { Image } from 'helpers/types';
+import { Image } from 'utils/types';
 import Img from 'gatsby-image';
 import { Theme, ThemeProp } from 'theme';
 

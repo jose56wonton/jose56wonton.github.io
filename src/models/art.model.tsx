@@ -1,4 +1,4 @@
-import { Image } from 'helpers/types';
+import { Image } from 'utils/types';
 
 export interface ArtQuery {
   allContentfulArt: {

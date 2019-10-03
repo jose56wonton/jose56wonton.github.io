@@ -8,6 +8,7 @@ import ExperienceSection from 'containers/experience';
 import WorkSection from 'containers/work';
 import ThoughtSection from 'containers/thoughts';
 import ArtSection from 'containers/art';
+import FooterSection from 'containers/footer'; /// TODO: MAYBE MOVE THIS to the layout itself
 
 const IndexPage = () => (
   <>
@@ -18,6 +19,7 @@ const IndexPage = () => (
       <WorkSection />
       <ArtSection />
       <ThoughtSection />
+      <FooterSection />
     </Layout>
   </>
 );

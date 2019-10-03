@@ -1,4 +1,4 @@
-import { Description } from 'helpers/types';
+import { Description } from 'utils/types';
 
 export interface ExperienceQuery {
   allContentfulExperience: {

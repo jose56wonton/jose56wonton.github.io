@@ -1,10 +1,78 @@
-import { Theme } from 'theme';
+import React from 'react';
 import styled from 'styled-components';
+import { Flex, SectionWrapper } from 'littleGuys/a';
+import { format, parse } from 'date-fns';
+
+import { Theme, ThemeProp } from 'theme';
+import { fetchLinks } from '../repositories/link.repository';
+import { mapLinkObjectToLinks } from '../utils/link.extensions';
+import { A, H4, TypographyProps } from 'components/typography';
+
+// TODO: this naming is garbage
+const ExperienceBlock = styled(Flex)`
+  margin-bottom: 105px;
+`;
+
+const Wrapper = styled(SectionWrapper)`
+  position: relative;
+  width: 100%;
+  padding: 0 250px;
+  height: 200px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const ColorBlock = styled.div`
-  background-color: ${(props: { theme: Theme }) => props.theme.color.accent};
-  position: relative;
-  height: 100%;
-  width: 100%;
-  padding: 50px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
+  right: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
+  background-color: ${(props: ThemeProp) => props.theme.color.accent};
 `;
+
+const FooterSection = () => {
+  const links = fetchLinks();
+
+  // TODO: break this out into helper class
+  const formatDate = (date: string) => {
+    return format(parse(date, 'yyyy-MM-dd', new Date()), 'MMMM yyyy');
+  };
+  const transformTypography = (props: TypographyProps) => {
+    const { innerBox, outerBox } = props.theme;
+    const distanceFromEdge = (innerBox.padding + outerBox.padding) / 2;
+    return `transform: translateX(${
+      props.align === 'right'
+        ? `${distanceFromEdge}px`
+        : `-${distanceFromEdge}px`
+    });`;
+  };
+  const B = styled(H4)`
+    ${(props: TypographyProps) => transformTypography(props)}
+  `;
+
+  const LinkerBoys = styled.div`
+    ${(props: TypographyProps) => transformTypography(props)}
+  `;
+
+  return (
+    <Wrapper>
+      <ColorBlock />
+      <Flex style={{ width: '100%' }} justify="space-between" direction="row">
+        <B>Joshua Wootonn - 2019</B>
+        <LinkerBoys align="right">
+          {Object.keys(links).map(key => (
+            <A key={links[key]} href={links[key]}>
+              {key}
+            </A>
+          ))}
+        </LinkerBoys>
+      </Flex>
+    </Wrapper>
+  );
+};
+
+export default FooterSection;
