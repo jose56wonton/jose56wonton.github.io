@@ -14,6 +14,9 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     cursor: none;
   }
+  a {
+    cursor: none;
+  }
   div {
     box-sizing: border-box;
   }
