@@ -3,7 +3,7 @@ import { fetchAbout } from 'repositories/about.repository';
 import styled from 'styled-components';
 import { About } from 'models/about.model';
 import { H1, H3, A, TypographyProps } from 'components/typography';
-import { ThemeProp } from 'theme';
+import { deviceSize, ThemeProp, typographyProportions } from 'theme';
 import { SectionWrapper } from 'littleGuys/a';
 import { fetchLinks } from 'repositories/link.repository';
 import { Link } from 'models/link.model';
@@ -11,8 +11,6 @@ import { Link } from 'models/link.model';
 const Social = styled.div`
   position: absolute;
   z-index: 1;
-  transform: rotate(-90deg)
-    translateY(${(props: ThemeProp) => props.theme.innerBox.padding}px);
   right: 0;
 `;
 
@@ -20,16 +18,57 @@ const Wrapper = styled(SectionWrapper)`
   height: 100vh;
   position: relative;
   width: 100%;
-  padding: 250px;
+  @media ${deviceSize.mobile} {
+    padding: 10px;
+  }
+  @media ${deviceSize.tablet} {
+    padding: 10px;
+  }
+  @media ${deviceSize.small} {
+    padding: ${(props: ThemeProp) => props.theme.padding.xl}px;
+  }
+  @media ${deviceSize.medium} {
+    padding: ${(props: ThemeProp) => props.theme.padding.xl}px;
+  }
+  @media ${deviceSize.large} {
+    padding: ${(props: ThemeProp) => props.theme.padding.lg * 2}px;
+  }
 `;
 
 const ColorBlock = styled.div`
   position: absolute;
   z-index: -1;
-  top: ${(props: ThemeProp) => props.theme.outerBox.padding};
-  bottom: ${(props: ThemeProp) => props.theme.outerBox.padding};
-  left: ${(props: ThemeProp) => props.theme.outerBox.padding};
-  right: ${(props: ThemeProp) => props.theme.outerBox.padding};
+
+  @media ${deviceSize.mobile} {
+    top: ${(props: ThemeProp) => props.theme.padding.lg *2}px;
+    right: ${(props: ThemeProp) => props.theme.padding.xl * 2 }px;
+    bottom: ${(props: ThemeProp) => props.theme.padding.lg *2}px;
+    left: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+  }
+  @media ${deviceSize.tablet} {
+    top: ${(props: ThemeProp) => props.theme.padding.lg *2}px;
+    right: ${(props: ThemeProp) => props.theme.padding.xl * 2 }px;
+    bottom: ${(props: ThemeProp) => props.theme.padding.lg *2}px;
+    left: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+  }
+  @media ${deviceSize.small} {
+    top: ${(props: ThemeProp) => props.theme.padding.lg * 2}px;
+    right: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+    bottom: ${(props: ThemeProp) => props.theme.padding.lg * 2}px;
+    left: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+  }
+  @media ${deviceSize.medium} {
+    top: ${(props: ThemeProp) => props.theme.padding.lg *2}px;
+    right: ${(props: ThemeProp) => props.theme.padding.xl * 2 }px;
+    bottom: ${(props: ThemeProp) => props.theme.padding.lg *2}px;
+    left: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+  }
+  @media ${deviceSize.large} {
+    top: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+    right: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+    bottom: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+    left: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+  }
   background-color: ${(props: ThemeProp) => props.theme.color.accent};
 `;
 
@@ -37,32 +76,16 @@ const AboutSection = () => {
   const { description }: About = fetchAbout();
   const links: Link = fetchLinks();
 
-  const transformTypography = (props: TypographyProps) => {
-    const { innerBox, outerBox } = props.theme;
-    const distanceFromEdge = innerBox.padding + outerBox.padding;
-    return `transform: translateX(${
-      props.textAlign === 'right'
-        ? `${distanceFromEdge}px`
-        : `-${distanceFromEdge}px`
-    });`;
-  };
-
-  const Name = styled(H1)`
-    ${(props: TypographyProps) => transformTypography(props)}
-  `;
-
-  const Description = styled(H3)`
-    ${(props: TypographyProps) => transformTypography(props)}
-  `;
-
   return (
     <Wrapper>
       <ColorBlock />
-      <Name align="right">
+      <H1 horizontalTransform="xl" textAlign="right">
         Joshua <br />
         Wootonn
-      </Name>
-      <Description align="left">{description}</Description>
+      </H1>
+      <H3 horizontalTransform="xl" textAlign="left">
+        {description}
+      </H3>
       <Social>
         {Object.keys(links).map(key => (
           <A key={links[key]} href={links[key]}>

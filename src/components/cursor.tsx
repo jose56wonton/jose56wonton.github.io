@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { theme, Theme } from '../theme';
+import { theme } from '../theme';
 
-const BigLad = styled.div`
+const CursorElement = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 100%;
@@ -11,7 +11,7 @@ const BigLad = styled.div`
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 1000;
-  transition: width 0.3s, height 0.3s, opacity 0.3s, background-color 0.3s;
+  transition: width 0.15s, height 0.15s, background-color 0.15s;
 `;
 
 interface CursorStyle {
@@ -22,33 +22,33 @@ interface CursorStyle {
   height: string;
 }
 
+const defaultCursorStyle: CursorStyle = {
+  left: '0px',
+  top: '0px',
+  backgroundColor: theme.color.dark,
+  width: '20px',
+  height: '20px',
+};
+const linkCursorStyle: CursorStyle = {
+  left: '0px',
+  top: '0px',
+  backgroundColor: theme.color.accent,
+  width: '70px',
+  height: '70px',
+};
+
 const Cursor = () => {
-  const [cursorStyle, setCursorStyle] = useState<CursorStyle>({
-    left: '0px',
-    top: '0px',
-    backgroundColor: ' ',
-    width: '20px',
-    height: '20px',
-  });
+  const [cursorStyle, setCursorStyle] = useState<CursorStyle>(
+    defaultCursorStyle
+  );
 
   const handleMouseMovement = (event: MouseEvent) => {
+    const { clientX, clientY } = event;
     const target = event.target as HTMLElement;
-
-    let backgroundColor = theme.color.dark;
-    let width = '20px';
-    let height = '20px';
-    if (target.nodeName === 'A') {
-      backgroundColor = theme.color.accent;
-      width = '40px';
-      height = '40px';
-    }
-
     return setCursorStyle({
-      left: `${event.clientX}px`,
-      top: `${event.clientY}px`,
-      backgroundColor,
-      width,
-      height,
+      ...(target.nodeName === 'A' ? linkCursorStyle : defaultCursorStyle),
+      left: `${clientX}px`,
+      top: `${clientY}px`,
     });
   };
 
@@ -59,11 +59,7 @@ const Cursor = () => {
     };
   });
 
-  return (
-    <>
-      <BigLad style={{ ...cursorStyle }} />
-    </>
-  );
+  return <CursorElement style={{ ...cursorStyle }} />;
 };
 
 export default Cursor;

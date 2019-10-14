@@ -44,11 +44,11 @@ export interface ThemeProp {
 }
 
 export const deviceSize = {
-  mobile: `(min-width: 425px)`,
+  mobile: `(min-width: 300px)`,
   tablet: `(min-width: 768px)`,
   small: `(min-width: 1024px)`,
-  medium: `(min-width: 1440px)`,
-  large: `(min-width: 2000px)`,
+  medium: `(min-width: 1441px)`,
+  large: `(min-width: 1921px)`,
 };
 
 export type Proportions = 'na' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';

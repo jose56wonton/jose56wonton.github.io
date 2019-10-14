@@ -5,8 +5,10 @@ import {
   typographyProportions,
   TypographyTypes,
   Proportions,
-  elementProportions, MarginProportions, marginProportions,
-} from "theme"
+  elementProportions,
+  MarginProportions,
+  marginProportions,
+} from 'theme';
 
 type Color = 'accent' | 'light' | 'medium' | 'dark';
 type Alignment = 'right' | 'left';
@@ -47,15 +49,37 @@ const getMargin = (
     : marginProportions[defaultMargin];
 };
 
-
 const TypographyBase = css`
   font-family: 'Josefin Sans', sans-serif;
   text-align: ${(props: TypographyProps) =>
     props.textAlign === 'right' ? 'right' : 'left'};
   color: ${(props: TypographyProps) => getColor(props)};
-  transform: translateX(
-    ${(props: TypographyProps) => getHorizontalTransform(props)}
-  );
+  @media ${deviceSize.mobile} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+  }
+  @media ${deviceSize.tablet} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+  }
+  @media ${deviceSize.small} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+  }
+  @media ${deviceSize.medium} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+  }
+  @media ${deviceSize.large} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+  }
+
   margin-right: ${(props: TypographyProps) => getMargin(props)}px;
   margin-top: 0;
 `;
