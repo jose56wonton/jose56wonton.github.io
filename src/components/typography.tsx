@@ -10,6 +10,7 @@ export interface TypographyProps {
   textAlign?: Alignment;
   horizontalTransform?: ElementSizesUnion;
   marginRight?: ElementSizesUnion;
+  marginLeft?: ElementSizesUnion;
 }
 
 const getHorizontalTransform = (
@@ -31,12 +32,20 @@ const getColor = (
     : props.theme.color[defaultColor];
 };
 
-const getMargin = (
+const getMarginRight = (
   props: TypographyProps,
   defaultMargin: ElementSizesUnion = 'na'
 ): number => {
   return props.marginRight
     ? props.theme.elementSizes[props.marginRight]
+    : props.theme.elementSizes[defaultMargin];
+};
+const getMarginLeft = (
+  props: TypographyProps,
+  defaultMargin: ElementSizesUnion = 'na'
+): number => {
+  return props.marginLeft
+    ? props.theme.elementSizes[props.marginLeft]
     : props.theme.elementSizes[defaultMargin];
 };
 
@@ -46,7 +55,8 @@ const TypographyBase = css`
     props.textAlign === 'right' ? 'right' : 'left'};
   color: ${(props: TypographyProps) => getColor(props)};
 
-  margin-right: ${(props: TypographyProps) => getMargin(props)}px;
+  margin-right: ${(props: TypographyProps) => getMarginRight(props)}px;
+  margin-left: ${(props: TypographyProps) => getMarginLeft(props)}px;
   margin-top: 0;
 `;
 
@@ -69,7 +79,7 @@ export const H1 = styled.h1<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 3}px;
   };
   @media ${deviceSize.medium} {
     transform: translateX(
@@ -232,31 +242,31 @@ export const A = styled.a<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   }
   @media ${deviceSize.small} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   };
   @media ${deviceSize.medium} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   }
   @media ${deviceSize.large} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   }
-  color: ${(props: TypographyProps) => getColor(props, 'light')};
+  color: ${(props: TypographyProps) => getColor(props, 'dark')};
+  font-weight: bold;
   margin-bottom: 16px;
   display: inline-block;
   text-decoration: none;
-  background-color: ${(props: TypographyProps) => getColor(props, 'dark')};
   padding: 4px;  
 `;
 

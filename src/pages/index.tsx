@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from 'components/layout';
 import SEO from 'components/seo';
 
-import AboutSection from 'containers/about';
+import AboutSection from 'containers/about.container';
 import ExperienceSection from 'containers/experience';
 import WorkSection from 'containers/work';
 import ThoughtSection from 'containers/thoughts';

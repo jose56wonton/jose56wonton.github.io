@@ -10,7 +10,7 @@ const CursorElement = styled.div`
   position: fixed;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  z-index: 1000;
+  z-index: 100;
   transition: width 0.15s, height 0.15s, background-color 0.15s;
 `;
 
@@ -20,6 +20,7 @@ interface CursorStyle {
   backgroundColor: string;
   width: string;
   height: string;
+  zIndex: string;
 }
 
 const defaultCursorStyle: CursorStyle = {
@@ -28,6 +29,7 @@ const defaultCursorStyle: CursorStyle = {
   backgroundColor: theme.color.dark,
   width: '20px',
   height: '20px',
+  zIndex: '100',
 };
 const linkCursorStyle: CursorStyle = {
   left: '0px',
@@ -35,6 +37,7 @@ const linkCursorStyle: CursorStyle = {
   backgroundColor: theme.color.accent,
   width: '70px',
   height: '70px',
+  zIndex: '-1',
 };
 
 const Cursor = () => {
