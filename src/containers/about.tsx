@@ -3,7 +3,7 @@ import { fetchAbout } from 'repositories/about.repository';
 import styled from 'styled-components';
 import { About } from 'models/about.model';
 import { H1, H3, A, TypographyProps } from 'components/typography';
-import { deviceSize, ThemeProp, typographyProportions } from 'theme';
+import { deviceSize, ThemeProp } from 'theme';
 import { SectionWrapper } from 'littleGuys/a';
 import { fetchLinks } from 'repositories/link.repository';
 import { Link } from 'models/link.model';
@@ -18,6 +18,7 @@ const Wrapper = styled(SectionWrapper)`
   height: 100vh;
   position: relative;
   width: 100%;
+  
   @media ${deviceSize.mobile} {
     padding: 10px;
   }
@@ -25,13 +26,13 @@ const Wrapper = styled(SectionWrapper)`
     padding: 10px;
   }
   @media ${deviceSize.small} {
-    padding: ${(props: ThemeProp) => props.theme.padding.xl}px;
+    padding: ${(props: ThemeProp) => props.theme.elementSizes.xl}px;
   }
   @media ${deviceSize.medium} {
-    padding: ${(props: ThemeProp) => props.theme.padding.xl}px;
+    padding: ${(props: ThemeProp) => props.theme.elementSizes.xl}px;
   }
   @media ${deviceSize.large} {
-    padding: ${(props: ThemeProp) => props.theme.padding.lg * 2}px;
+    padding: ${(props: ThemeProp) => props.theme.elementSizes.lg * 2}px;
   }
 `;
 
@@ -40,34 +41,34 @@ const ColorBlock = styled.div`
   z-index: -1;
 
   @media ${deviceSize.mobile} {
-    top: ${(props: ThemeProp) => props.theme.padding.lg *2}px;
-    right: ${(props: ThemeProp) => props.theme.padding.xl * 2 }px;
-    bottom: ${(props: ThemeProp) => props.theme.padding.lg *2}px;
-    left: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+    top: ${(props: ThemeProp) => props.theme.elementSizes.lg *2}px;
+    right: ${(props: ThemeProp) => props.theme.elementSizes.xl * 2 }px;
+    bottom: ${(props: ThemeProp) => props.theme.elementSizes.lg *2}px;
+    left: ${(props: ThemeProp) => props.theme.elementSizes.xl * 2}px;
   }
   @media ${deviceSize.tablet} {
-    top: ${(props: ThemeProp) => props.theme.padding.lg *2}px;
-    right: ${(props: ThemeProp) => props.theme.padding.xl * 2 }px;
-    bottom: ${(props: ThemeProp) => props.theme.padding.lg *2}px;
-    left: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+    top: ${(props: ThemeProp) => props.theme.elementSizes.lg *2}px;
+    right: ${(props: ThemeProp) => props.theme.elementSizes.xl * 2 }px;
+    bottom: ${(props: ThemeProp) => props.theme.elementSizes.lg *2}px;
+    left: ${(props: ThemeProp) => props.theme.elementSizes.xl * 2}px;
   }
   @media ${deviceSize.small} {
-    top: ${(props: ThemeProp) => props.theme.padding.lg * 2}px;
-    right: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
-    bottom: ${(props: ThemeProp) => props.theme.padding.lg * 2}px;
-    left: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+    top: ${(props: ThemeProp) => props.theme.elementSizes.lg * 2}px;
+    right: ${(props: ThemeProp) => props.theme.elementSizes.xl * 2}px;
+    bottom: ${(props: ThemeProp) => props.theme.elementSizes.lg * 2}px;
+    left: ${(props: ThemeProp) => props.theme.elementSizes.xl * 2}px;
   }
   @media ${deviceSize.medium} {
-    top: ${(props: ThemeProp) => props.theme.padding.lg *2}px;
-    right: ${(props: ThemeProp) => props.theme.padding.xl * 2 }px;
-    bottom: ${(props: ThemeProp) => props.theme.padding.lg *2}px;
-    left: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+    top: ${(props: ThemeProp) => props.theme.elementSizes.lg *2}px;
+    right: ${(props: ThemeProp) => props.theme.elementSizes.xl * 2 }px;
+    bottom: ${(props: ThemeProp) => props.theme.elementSizes.lg *2}px;
+    left: ${(props: ThemeProp) => props.theme.elementSizes.xl * 2}px;
   }
   @media ${deviceSize.large} {
-    top: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
-    right: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
-    bottom: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
-    left: ${(props: ThemeProp) => props.theme.padding.xl * 2}px;
+    top: ${(props: ThemeProp) => props.theme.elementSizes.xl * 2}px;
+    right: ${(props: ThemeProp) => props.theme.elementSizes.xl * 2}px;
+    bottom: ${(props: ThemeProp) => props.theme.elementSizes.xl * 2}px;
+    left: ${(props: ThemeProp) => props.theme.elementSizes.xl * 2}px;
   }
   background-color: ${(props: ThemeProp) => props.theme.color.accent};
 `;
@@ -81,10 +82,10 @@ const AboutSection = () => {
       <ColorBlock />
       <H1 horizontalTransform="xl" textAlign="right">
         Joshua <br />
-        Wootonn
+        Wootonn!
       </H1>
       <H3 horizontalTransform="xl" textAlign="left">
-        {description}
+        {description} asdf
       </H3>
       <Social>
         {Object.keys(links).map(key => (

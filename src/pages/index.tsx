@@ -21,11 +21,6 @@ const IndexPage = () => (
     />
     <Layout>
       <AboutSection />
-      <ExperienceSection />
-      <WorkSection />
-      <ArtSection />
-      <ThoughtSection />
-      <FooterSection />
       <Cursor />
     </Layout>
   </>

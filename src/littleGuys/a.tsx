@@ -44,6 +44,5 @@ interface AboutWrapperProps {
 }
 
 export const SectionWrapper = styled.div`
-  margin-bottom: ${(props: AboutWrapperProps) =>
-    props.theme.outerBox.padding}px;
+  margin-bottom: ${(props: AboutWrapperProps) => props.theme.elementSizes.xl}px;
 `;

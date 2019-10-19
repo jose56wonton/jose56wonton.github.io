@@ -1,14 +1,5 @@
 import styled, { css } from 'styled-components';
-import {
-  Theme,
-  deviceSize,
-  typographyProportions,
-  TypographyTypes,
-  Proportions,
-  elementProportions,
-  MarginProportions,
-  marginProportions,
-} from 'theme';
+import { Theme, deviceSize, ElementSizesUnion } from 'theme';
 
 type Color = 'accent' | 'light' | 'medium' | 'dark';
 type Alignment = 'right' | 'left';
@@ -17,18 +8,18 @@ export interface TypographyProps {
   theme: Theme;
   color?: Color;
   textAlign?: Alignment;
-  horizontalTransform?: Proportions;
-  marginRight?: Proportions;
+  horizontalTransform?: ElementSizesUnion;
+  marginRight?: ElementSizesUnion;
 }
 
 const getHorizontalTransform = (
   props: TypographyProps,
-  defaultProportion: Proportions = 'na'
+  defaultProportion: ElementSizesUnion = 'na'
 ): string =>
   `${props.textAlign === 'right' ? '' : '-'}${
     props.horizontalTransform
-      ? elementProportions[props.horizontalTransform]
-      : elementProportions[defaultProportion]
+      ? props.theme.elementSizes[props.horizontalTransform]
+      : props.theme.elementSizes[defaultProportion]
   }px`;
 
 const getColor = (
@@ -42,11 +33,11 @@ const getColor = (
 
 const getMargin = (
   props: TypographyProps,
-  defaultMargin: Proportions = 'na'
+  defaultMargin: ElementSizesUnion = 'na'
 ): number => {
   return props.marginRight
-    ? marginProportions[props.marginRight]
-    : marginProportions[defaultMargin];
+    ? props.theme.elementSizes[props.marginRight]
+    : props.theme.elementSizes[defaultMargin];
 };
 
 const TypographyBase = css`
@@ -54,84 +45,213 @@ const TypographyBase = css`
   text-align: ${(props: TypographyProps) =>
     props.textAlign === 'right' ? 'right' : 'left'};
   color: ${(props: TypographyProps) => getColor(props)};
-  @media ${deviceSize.mobile} {
-    transform: translateX(
-      ${(props: TypographyProps) => getHorizontalTransform(props)}
-    );
-  }
-  @media ${deviceSize.tablet} {
-    transform: translateX(
-      ${(props: TypographyProps) => getHorizontalTransform(props)}
-    );
-  }
-  @media ${deviceSize.small} {
-    transform: translateX(
-      ${(props: TypographyProps) => getHorizontalTransform(props)}
-    );
-  }
-  @media ${deviceSize.medium} {
-    transform: translateX(
-      ${(props: TypographyProps) => getHorizontalTransform(props)}
-    );
-  }
-  @media ${deviceSize.large} {
-    transform: translateX(
-      ${(props: TypographyProps) => getHorizontalTransform(props)}
-    );
-  }
 
   margin-right: ${(props: TypographyProps) => getMargin(props)}px;
   margin-top: 0;
 `;
 
-const TypographyMediaQueryBase = (typographyType: TypographyTypes) => {
-  return css`
-    @media ${deviceSize.mobile} {
-      font-size: ${0.5 * typographyProportions[typographyType]}px;
-    }
-    @media ${deviceSize.tablet} {
-      font-size: ${0.75 * typographyProportions[typographyType]}px;
-    }
-    @media ${deviceSize.small} {
-      font-size: ${typographyProportions[typographyType]}px;
-    }
-    @media ${deviceSize.medium} {
-      font-size: ${1.5 * typographyProportions[typographyType]}px;
-    }
-    @media ${deviceSize.large} {
-      font-size: ${2 * typographyProportions[typographyType]}px;
-    }
-  `;
-};
-
 export const H1 = styled.h1<TypographyProps>`
   ${TypographyBase}
-  ${TypographyMediaQueryBase('h1')}
+  
+  @media ${deviceSize.mobile} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.tablet} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.small} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  };
+  @media ${deviceSize.medium} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.large} {
+    transform: translateX(      ${(props: TypographyProps) =>
+      getHorizontalTransform(props)}    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
 `;
 
 export const H2 = styled.h2<TypographyProps>`
   ${TypographyBase}
-  ${TypographyMediaQueryBase('h2')}
+  @media ${deviceSize.mobile} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.tablet} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.small} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  };
+  @media ${deviceSize.medium} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.large} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
 `;
 
 export const H3 = styled.h3<TypographyProps>`
   ${TypographyBase}
-  ${TypographyMediaQueryBase('h3')}
+   @media ${deviceSize.mobile} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.tablet} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.small} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  };
+  @media ${deviceSize.medium} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.large} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
 `;
 
 export const H4 = styled.h4<TypographyProps>`
   ${TypographyBase}
-  ${TypographyMediaQueryBase('h4')}
+   @media ${deviceSize.mobile} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.tablet} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.small} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  };
+  @media ${deviceSize.medium} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.large} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
 `;
 
 export const P = styled.p<TypographyProps>`
   ${TypographyBase}
-  ${TypographyMediaQueryBase('p')}
+   @media ${deviceSize.mobile} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.tablet} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.small} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  };
+  @media ${deviceSize.medium} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.large} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
 `;
 
 export const A = styled.a<TypographyProps>`  
   ${TypographyBase}
-  ${TypographyMediaQueryBase('a')}
+   @media ${deviceSize.mobile} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.tablet} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.small} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  };
+  @media ${deviceSize.medium} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.large} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
   color: ${(props: TypographyProps) => getColor(props, 'light')};
   margin-bottom: 16px;
   display: inline-block;
@@ -142,7 +262,36 @@ export const A = styled.a<TypographyProps>`
 
 export const Li = styled.li<TypographyProps>`
   ${TypographyBase}
-  ${TypographyMediaQueryBase('li')}
+   @media ${deviceSize.mobile} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.tablet} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.small} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  };
+  @media ${deviceSize.medium} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media ${deviceSize.large} {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
   list-style-type: none;
   margin-bottom: 16px;
 `;
