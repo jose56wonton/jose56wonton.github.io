@@ -1,8 +1,16 @@
 import styled, { css } from 'styled-components';
 import { Theme, deviceSize, ElementSizesUnion } from 'theme';
 
-type Color = 'accent' | 'light' | 'medium' | 'dark';
-type Alignment = 'right' | 'left';
+export type Color =
+  | 'fun1'
+  | 'fun2'
+  | 'fun3'
+  | 'fun4'
+  | 'fun5'
+  | 'light'
+  | 'medium'
+  | 'dark';
+export type Alignment = 'right' | 'left';
 
 export interface TypographyProps {
   theme: Theme;
@@ -146,7 +154,8 @@ export const H3 = styled.h3<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) =>
+      props.theme.elementSizes.xl * 1.5}px;
   };
   @media ${deviceSize.medium} {
     transform: translateX(

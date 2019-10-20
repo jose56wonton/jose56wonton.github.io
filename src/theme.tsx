@@ -1,6 +1,10 @@
 export interface Theme {
   color: {
-    accent: string;
+    fun1: string;
+    fun2: string;
+    fun3: string;
+    fun4: string;
+    fun5: string;
     light: string;
     medium: string;
     dark: string;
@@ -12,9 +16,13 @@ export interface Theme {
 
 export const theme: Theme = {
   color: {
-    accent: '#ffff4c',
-    light: '#dddddd',
-    medium: '#A7A7A7',
+    fun1: '#ffff4c',
+    fun2: '#ACECA1',
+    fun3: '#E59500',
+    fun4:  '#FFF9A5',
+    fun5: '#AFC2D5',
+    light: '#EFEFEF',
+    medium: '#CFCFCF',
     dark: '#333333',
   },
   elementSizes: {

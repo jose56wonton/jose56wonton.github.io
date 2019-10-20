@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { H1, A } from '../../components/typography';
+import { H1, A, Color } from '../../components/typography';
 import styled, { keyframes } from 'styled-components';
 import { Col, Row } from 'styled-bootstrap-grid';
 import { ThemeProp } from '../../theme';
@@ -31,17 +31,41 @@ const WiggleIn = keyframes`
   100% {    transform: rotate(40deg);  }
 `;
 
-type NameBlockProps = IsHovered;
+export interface ColorBlockProps {
+  backgroundColor: Color;
+}
 
-const NameBlock = styled.div<NameBlockProps>`
-  background-color: ${(props: ThemeProp) => props.theme.color.accent};
+type NameBlockProps = ColorBlockProps & IsHovered;
+
+export const ColorBlock = styled.div<ColorBlockProps>`
+  background-color: ${(props: ThemeProp & ColorBlockProps) =>
+    props.theme.color[props.backgroundColor]};
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`;
+
+const Wiggle = keyframes`
+  0% { transform: rotate(0)}
+  50% { transform: rotate(1deg)}
+  100% { transform: rotate(0)}
+`;
+
+const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
+  width: 80%;
+  height: 80%;
+  transform: rotate(100deg);
+  animation: ${Wiggle} 2s infinite;
+`;
+
+const NameBlock = styled(ColorBlock)<NameBlockProps>`
   width: 150%;
   height: 150%;
-  position: absolute;
-  animation: ${(props: NameBlockProps) =>
-      props.isHovered ? WiggleOut : WiggleIn}
-    0.1s ease-in;
-  transform: ${(props: NameBlockProps) =>
+  animation: ${(props: ThemeProp & NameBlockProps) =>
+        props.isHovered ? WiggleOut : WiggleIn}
+      0.1s ease-in,
+    ${Wiggle} 2s infinite;
+  transform: ${(props: ThemeProp & NameBlockProps) =>
     props.isHovered ? `rotate(60deg)` : `rotate(40deg)`};
 `;
 
@@ -68,8 +92,11 @@ const NameContainer = (props: NameContainerProps) => {
 
   return (
     <NameRow>
-      <NameCol lg={6} offset={6}>
-        <NameBlock isHovered={isHovered}>
+      <NameCol lg={6}>
+        <BlandBlock backgroundColor="light" />
+      </NameCol>
+      <NameCol lg={6}>
+        <NameBlock backgroundColor="fun1" isHovered={isHovered}>
           <AAA>
             <Social>
               {Object.keys(links).map(key => (

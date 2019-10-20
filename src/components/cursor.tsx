@@ -34,7 +34,7 @@ const defaultCursorStyle: CursorStyle = {
 const linkCursorStyle: CursorStyle = {
   left: '0px',
   top: '0px',
-  backgroundColor: theme.color.accent,
+  backgroundColor: theme.color.fun1,
   width: '70px',
   height: '70px',
   zIndex: '-1',

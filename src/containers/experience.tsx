@@ -25,7 +25,7 @@ const ExperienceInnerBlock = styled.div`
 // TODO: add resume to this section
 // TODO MAYBE ADD THIS OR SOME OTHER ELEMENT BACK INTO THE MIX?
 const ColorBlock = styled.div`
-  background-color: ${(props: { theme: Theme }) => props.theme.color.accent};
+  background-color: ${(props: { theme: Theme }) => props.theme.color.fun1};
   position: absolute;
   z-index: -1;
   height: 100%;

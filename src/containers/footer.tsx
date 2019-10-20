@@ -25,7 +25,7 @@ const ColorBlock = styled.div`
   bottom: 0;
   left: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
   right: ${(props: ThemeProp) => props.theme.outerBox.padding}px;
-  background-color: ${(props: ThemeProp) => props.theme.color.accent};
+  background-color: ${(props: ThemeProp) => props.theme.color.fun1};
 `;
 
 const FooterSection = () => {
