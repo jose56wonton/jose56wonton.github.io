@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { theme } from '../theme';
+import { randomNumberInclusive } from '../utils/random';
 
 const CursorElement = styled.div`
   width: 20px;
@@ -17,52 +18,70 @@ const CursorElement = styled.div`
 interface CursorStyle {
   left: string;
   top: string;
-  backgroundColor: string;
   width: string;
   height: string;
-  zIndex: string;
+  zIndex: number;
+  backgroundColor: string;
 }
 
 const defaultCursorStyle: CursorStyle = {
   left: '0px',
   top: '0px',
-  backgroundColor: theme.color.dark,
   width: '20px',
   height: '20px',
-  zIndex: '100',
+  zIndex: 100,
+  backgroundColor: theme.color.dark,
 };
+
 const linkCursorStyle: CursorStyle = {
   left: '0px',
   top: '0px',
-  backgroundColor: theme.color.fun1,
   width: '70px',
   height: '70px',
-  zIndex: '-1',
+  zIndex: -1,
+  backgroundColor: theme.color['fun' + randomNumberInclusive(1, 6)],
 };
 
 const Cursor = () => {
-  const [cursorStyle, setCursorStyle] = useState<CursorStyle>(
+  const [cursorLocation, setCursorLocation] = useState<CursorStyle>(
     defaultCursorStyle
   );
 
   const handleMouseMovement = (event: MouseEvent) => {
     const { clientX, clientY } = event;
     const target = event.target as HTMLElement;
-    return setCursorStyle({
+    return setCursorLocation({
       ...(target.nodeName === 'A' ? linkCursorStyle : defaultCursorStyle),
       left: `${clientX}px`,
       top: `${clientY}px`,
     });
   };
+  const handleMouseLeaveScreen = (event: MouseEvent) => {
+    return setCursorLocation({
+      ...defaultCursorStyle,
+      height: `0px`,
+      width: `0px`,
+    });
+  };
+  const handleMouseEnterScreen = (event: MouseEvent) => {
+    return setCursorLocation({ ...defaultCursorStyle });
+  };
 
+  // TODO: check when this is getting called and uncalled
   useEffect(() => {
+    const links = document.getElementsByTagName('a');
+
     document.addEventListener('mousemove', handleMouseMovement);
+    document.addEventListener('mouseenter', handleMouseEnterScreen);
+    document.addEventListener('mouseleave', handleMouseLeaveScreen);
     return () => {
       document.removeEventListener('mousemove', handleMouseMovement);
+      document.removeEventListener('mouseenter', handleMouseEnterScreen);
+      document.removeEventListener('mouseleave', handleMouseLeaveScreen);
     };
   });
 
-  return <CursorElement style={{ ...cursorStyle }} />;
+  return <CursorElement style={{ ...cursorLocation }} />;
 };
 
 export default Cursor;

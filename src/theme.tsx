@@ -18,9 +18,10 @@ export const theme: Theme = {
   color: {
     fun1: '#ffff4c',
     fun2: '#ACECA1',
-    fun3: '#E59500',
-    fun4:  '#FFF9A5',
-    fun5: '#AFC2D5',
+    fun3: '#FBB02D',
+    fun4: '#FFF9A5',
+    fun5: '#446DF6',
+    fun6: '#AB87FF',
     light: '#EFEFEF',
     medium: '#CFCFCF',
     dark: '#333333',

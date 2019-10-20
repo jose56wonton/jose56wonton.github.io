@@ -5,6 +5,7 @@ import { Col, Row } from 'styled-bootstrap-grid';
 import { ThemeProp } from '../../theme';
 import { IsHovered } from '../../utils/types';
 import { Link } from 'models/link.model';
+import { Wiggle } from "../../components/animations"
 
 const NameRow = styled(Row)`
   margin-top: 10vh;
@@ -15,20 +16,6 @@ const NameCol = styled(Col)`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-const WiggleOut = keyframes`
-  0% {    transform: rotate(40deg);  }
-  25% {    transform: rotate(45deg);  }
-  50% {    transform: rotate(50deg);  }
-  75% {    transform: rotate(55deg);  }
-  100% {    transform: rotate(60deg);  }
-`;
-const WiggleIn = keyframes`
-  0% {    transform: rotate(60deg);  }
-  25% {    transform: rotate(55deg);  }
-  50% {    transform: rotate(50deg);  }
-  75% {    transform: rotate(45deg);  }
-  100% {    transform: rotate(40deg);  }
 `;
 
 export interface ColorBlockProps {
@@ -45,28 +32,18 @@ export const ColorBlock = styled.div<ColorBlockProps>`
   height: 100%;
 `;
 
-const Wiggle = keyframes`
-  0% { transform: rotate(0)}
-  50% { transform: rotate(1deg)}
-  100% { transform: rotate(0)}
-`;
 
 const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
   width: 80%;
   height: 80%;
   transform: rotate(100deg);
-  animation: ${Wiggle} 2s infinite;
+  
 `;
 
 const NameBlock = styled(ColorBlock)<NameBlockProps>`
   width: 150%;
   height: 150%;
-  animation: ${(props: ThemeProp & NameBlockProps) =>
-        props.isHovered ? WiggleOut : WiggleIn}
-      0.1s ease-in,
-    ${Wiggle} 2s infinite;
-  transform: ${(props: ThemeProp & NameBlockProps) =>
-    props.isHovered ? `rotate(60deg)` : `rotate(40deg)`};
+  animation: ${Wiggle(60)} 4s infinite;
 `;
 
 const AAA = styled.div`
@@ -96,7 +73,7 @@ const NameContainer = (props: NameContainerProps) => {
         <BlandBlock backgroundColor="light" />
       </NameCol>
       <NameCol lg={6}>
-        <NameBlock backgroundColor="fun1" isHovered={isHovered}>
+        <NameBlock backgroundColor="fun3" isHovered={isHovered}>
           <AAA>
             <Social>
               {Object.keys(links).map(key => (
