@@ -5,7 +5,7 @@ import { Col, Row } from 'styled-bootstrap-grid';
 import { ThemeProp } from '../../theme';
 import { IsHovered } from '../../utils/types';
 import { Link } from 'models/link.model';
-import { Wiggle } from "../../components/animations"
+import { Wiggle } from '../../components/animations';
 
 const NameRow = styled(Row)`
   margin-top: 10vh;
@@ -13,6 +13,7 @@ const NameRow = styled(Row)`
 `;
 
 const NameCol = styled(Col)`
+  z-index: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +23,7 @@ export interface ColorBlockProps {
   backgroundColor: Color;
 }
 
-type NameBlockProps = ColorBlockProps & IsHovered;
+type NameBlockProps = ColorBlockProps;
 
 export const ColorBlock = styled.div<ColorBlockProps>`
   background-color: ${(props: ThemeProp & ColorBlockProps) =>
@@ -30,14 +31,14 @@ export const ColorBlock = styled.div<ColorBlockProps>`
   position: absolute;
   width: 100%;
   height: 100%;
+  z-index: -1;
 `;
-
 
 const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
   width: 80%;
   height: 80%;
   transform: rotate(100deg);
-  
+  z-index: -1;
 `;
 
 const NameBlock = styled(ColorBlock)<NameBlockProps>`
@@ -50,6 +51,9 @@ const AAA = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 `;
 const Social = styled.div`
   position: absolute;
@@ -59,12 +63,24 @@ const Social = styled.div`
   transform: translateX(65%) translateY(-50%) rotate(-90deg);
 `;
 
+interface GifProps {
+  isVisible: boolean;
+}
+
+const Gif = styled.img<GifProps>`
+  display: ${(props: GifProps) => (props.isVisible ? 'inherit' : 'none')};
+  z-index: 50;
+  transform: rotate(-90deg) translateX(150px);
+`;
+
 interface NameContainerProps {
   links: Link;
+  isDescriptionHovered: number;
+  setDescriptionHovered: (isDescriptionHovered: boolean) => void;
+  gifSrc: string;
 }
 
 const NameContainer = (props: NameContainerProps) => {
-  const [isHovered, setIsHovered] = useState(false);
   const { links } = props;
 
   return (
@@ -73,7 +89,7 @@ const NameContainer = (props: NameContainerProps) => {
         <BlandBlock backgroundColor="light" />
       </NameCol>
       <NameCol lg={6}>
-        <NameBlock backgroundColor="fun3" isHovered={isHovered}>
+        <NameBlock backgroundColor="fun3">
           <AAA>
             <Social>
               {Object.keys(links).map(key => (
@@ -87,12 +103,16 @@ const NameContainer = (props: NameContainerProps) => {
                 </A>
               ))}
             </Social>
+
+            <Gif
+              isVisible={Boolean(props.isDescriptionHovered)}
+              src={props.gifSrc}
+            />
           </AAA>
         </NameBlock>
-
         <H1
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
+          onMouseEnter={() => props.setDescriptionHovered(true)}
+          onMouseLeave={() => props.setDescriptionHovered(false)}
           textAlign="right"
         >
           Joshua <br />

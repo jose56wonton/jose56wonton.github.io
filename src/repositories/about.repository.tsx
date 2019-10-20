@@ -1,22 +1,35 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { About, AboutQuery } from 'models/about.model';
+import { About, AboutNode, AboutQuery } from 'models/about.model';
 
-export const fetchAbout = (): About => {
+export const fetchAbout = (): About[] => {
   const {
-    contentfulAbout: {
-      description: { description },
-    },
+    allContentfulAbout: { nodes },
   }: AboutQuery = useStaticQuery(
     graphql`
       {
-        contentfulAbout {
-          description {
-            description
+        allContentfulAbout {
+          nodes {
+            emoji
+            title
+            gif {
+              description
+              id
+              title
+              fluid {
+                tracedSVG
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+              }
+            }
           }
         }
       }
     `
   );
-  return { description };
+  return nodes;
 };

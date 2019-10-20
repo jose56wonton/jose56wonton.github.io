@@ -38,7 +38,7 @@ const linkCursorStyle: CursorStyle = {
   top: '0px',
   width: '70px',
   height: '70px',
-  zIndex: -1,
+  zIndex: 100,
   backgroundColor: theme.color['fun' + randomNumberInclusive(1, 6)],
 };
 

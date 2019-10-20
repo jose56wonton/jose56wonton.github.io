@@ -1,10 +1,15 @@
+import { Image } from '../utils/types';
+
 export interface AboutQuery {
-  contentfulAbout: {
-    description: {
-      description: string;
-    };
+  allContentfulAbout: {
+    nodes: AboutNode[];
   };
 }
-export interface About {
-  description: string;
+
+export interface AboutNode {
+  emoji: string;
+  title: string;
+  gif: Image;
 }
+
+export type About = AboutNode;
