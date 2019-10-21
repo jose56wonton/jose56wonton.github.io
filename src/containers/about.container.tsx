@@ -33,6 +33,11 @@ const AboutContainer = () => {
             ? ''
             : aboutVariants[isDescriptionHovered - 1].gif.fluid.src
         }
+        emoji={
+          isDescriptionHovered === 0
+            ? ''
+            : aboutVariants[isDescriptionHovered - 1].emoji
+        }
       />
       <DescriptionContainer
         isDescriptionHovered={isDescriptionHovered}

@@ -3,9 +3,9 @@ import { Col, Row } from 'styled-bootstrap-grid';
 import React, { useState } from 'react';
 import { H3 } from '../../components/typography';
 import { IsHovered } from '../../utils/types';
-import { ColorBlock, ColorBlockProps } from './name.container';
 import { Wiggle } from '../../components/animations';
 import { Link } from '../../models/link.model';
+import { ColorBlock, ColorBlockProps } from '../../components/colorBlock';
 
 const TitleCol = styled(Col)`
   display: flex;
@@ -36,7 +36,6 @@ const DescriptionRow = styled(Row)`
   height: 40vh;
 `;
 interface DescriptionContainerProps {
-  links: Link;
   isDescriptionHovered: number;
   setDescriptionHovered: (isDescriptionHovered: boolean) => void;
   title: string;
@@ -48,7 +47,7 @@ const DescriptionContainer = (props: DescriptionContainerProps) => {
       <TitleCol lg={6}>
         <TitleBlock
           backgroundColor="fun2"
-          isHovered={props.isDescriptionHovered}
+          isHovered={Boolean(props.isDescriptionHovered)}
         />
         <H3
           onMouseEnter={() => props.setDescriptionHovered(true)}
