@@ -31,7 +31,7 @@ const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
   align-items: center;
 `;
 
-const DescriptionRow = styled(Row)`
+const AboutBottomRow = styled(Row)`
   margin-bottom: 10vh;
   height: 40vh;
 `;
@@ -41,10 +41,10 @@ interface DescriptionContainerProps {
   title: string;
 }
 
-const DescriptionContainer = (props: DescriptionContainerProps) => {
+const BottomRowContainer = (props: DescriptionContainerProps) => {
   return (
-    <DescriptionRow>
-      <TitleCol lg={6}>
+    <AboutBottomRow>
+      <TitleCol lg={6} xl={6}>
         <TitleBlock
           backgroundColor="fun2"
           isHovered={Boolean(props.isDescriptionHovered)}
@@ -56,10 +56,10 @@ const DescriptionContainer = (props: DescriptionContainerProps) => {
           {props.title}
         </H3>
       </TitleCol>
-      <TitleCol lg={6}>
+      <TitleCol lg={6} xl={6}>
         <BlandBlock backgroundColor="light" />
       </TitleCol>
-    </DescriptionRow>
+    </AboutBottomRow>
   );
 };
-export default DescriptionContainer;
+export default BottomRowContainer;

@@ -75,17 +75,17 @@ interface NameContainerProps {
   emoji: string;
 }
 
-const NameContainer = (props: NameContainerProps) => {
+const TopRowContainer = (props: NameContainerProps) => {
   const { links } = props;
   console.log(props.emoji);
   return (
     <AboutTopRow>
-      <NameCol lg={6}>
+      <NameCol lg={6} xl={6}>
         <BlandBlock backgroundColor="light">
           <H1>{props.emoji}</H1>
         </BlandBlock>
       </NameCol>
-      <NameCol lg={6}>
+      <NameCol lg={6} xl={6}>
         <OrangeColorBlock backgroundColor="fun3">
           <OrangeColorBlockRelativeReset>
             <SocialMediaLinks>
@@ -118,4 +118,4 @@ const NameContainer = (props: NameContainerProps) => {
     </AboutTopRow>
   );
 };
-export default NameContainer;
+export default TopRowContainer;

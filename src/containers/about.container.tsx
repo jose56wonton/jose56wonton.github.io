@@ -4,8 +4,8 @@ import { About } from 'models/about.model';
 import { fetchLinks } from 'repositories/link.repository';
 import { Link } from 'models/link.model';
 import { Container } from 'styled-bootstrap-grid';
-import NameContainer from './about/name.container';
-import DescriptionContainer from './about/description.container';
+import TopRowContainer from './about/topRow.container';
+import BottomRowContainer from './about/bottomRow.container';
 import { randomNumberInclusive } from '../utils/random';
 
 const AboutContainer = () => {
@@ -24,7 +24,7 @@ const AboutContainer = () => {
   console.log(isDescriptionHovered, aboutVariants);
   return (
     <Container>
-      <NameContainer
+      <TopRowContainer
         links={links}
         isDescriptionHovered={isDescriptionHovered}
         setDescriptionHovered={descriptionRandomizor}
@@ -39,7 +39,7 @@ const AboutContainer = () => {
             : aboutVariants[isDescriptionHovered - 1].emoji
         }
       />
-      <DescriptionContainer
+      <BottomRowContainer
         isDescriptionHovered={isDescriptionHovered}
         setDescriptionHovered={descriptionRandomizor}
         title={

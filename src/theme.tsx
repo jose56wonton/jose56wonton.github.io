@@ -53,7 +53,7 @@ export const deviceSize = {
   mobile: `(max-width: 767px)`,
   tablet: `(min-width: 768px) and (max-width: 1024px)`,
   small: `(min-width: 1025px) and (max-width: 1920px)`,
-  medium: `(min-width: 1921) and (max-width: 2560px)`,
+  medium: `(min-width: 1921px) and (max-width: 2560px)`,
   large: `(min-width: 2561px)`,
 };
 
