@@ -23,7 +23,7 @@ export const theme: Theme = {
     fun5: '#446DF6',
     fun6: '#AB87FF',
     light: '#EFEFEF',
-    medium: '#CFCFCF',
+    lg: '#CFCFCF',
     dark: '#333333',
   },
   elementSizes: {
@@ -50,11 +50,11 @@ export interface ThemeProp {
 }
 
 export const deviceSize = {
-  mobile: `(max-width: 767px)`,
-  tablet: `(min-width: 768px) and (max-width: 1024px)`,
-  small: `(min-width: 1025px) and (max-width: 1920px)`,
-  medium: `(min-width: 1921px) and (max-width: 2560px)`,
-  large: `(min-width: 2561px)`,
+  xs: `(min-width: 767px)`,
+  sm: `(min-width: 768px) and (max-width: 1024px)`,
+  md: `(min-width: 1025px)`,
+  lg: `(min-width: 1921px)`,
+  xl: `(min-width: 2561px)`,
 };
 
 export type ElementSizesUnion = 'na' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';

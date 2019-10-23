@@ -33,12 +33,11 @@ const AboutContainer = () => {
     <AboutStyledContainer>
       <TopRowContainer
         links={links}
-        isDescriptionHovered={isDescriptionHovered}
         setDescriptionHovered={descriptionRandomizor}
-        gifSrc={
+        fluidGif={
           isDescriptionHovered === 0
-            ? ''
-            : aboutVariants[isDescriptionHovered - 1].gif.fluid.src
+            ? null
+            : aboutVariants[isDescriptionHovered - 1].gif.fluid
         }
         emoji={
           isDescriptionHovered === 0

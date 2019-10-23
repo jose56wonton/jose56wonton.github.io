@@ -72,31 +72,31 @@ const TypographyBase = css`
 export const H1 = styled.h1<TypographyProps>`
   ${TypographyBase}
   
-  @media ${deviceSize.mobile} {
+  @media ${deviceSize.xs} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   };
-  @media ${deviceSize.tablet} {
+  @media ${deviceSize.sm} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   };
-  @media ${deviceSize.small} {
+  @media ${deviceSize.md} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 3}px;
   };
-  @media ${deviceSize.medium} {
+  @media ${deviceSize.lg} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 4}px;
   };
-  @media ${deviceSize.large} {
+  @media ${deviceSize.xl} {
     transform: translateX(      ${(props: TypographyProps) =>
       getHorizontalTransform(props)}    );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 7}px;
@@ -106,31 +106,31 @@ export const H1 = styled.h1<TypographyProps>`
 
 export const H2 = styled.h2<TypographyProps>`
   ${TypographyBase}
-  @media ${deviceSize.mobile} {
+  @media ${deviceSize.xs} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.tablet} {
+  @media ${deviceSize.sm} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.small} {
+  @media ${deviceSize.md} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   };
-  @media ${deviceSize.medium} {
+  @media ${deviceSize.lg} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.large} {
+  @media ${deviceSize.xl} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
@@ -140,32 +140,32 @@ export const H2 = styled.h2<TypographyProps>`
 
 export const H3 = styled.h3<TypographyProps>`
   ${TypographyBase}
-   @media ${deviceSize.mobile} {
+   @media ${deviceSize.xs} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.tablet} {
+  @media ${deviceSize.sm} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.small} {
+  @media ${deviceSize.md} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) =>
       props.theme.elementSizes.xl * 1.5}px;
   };
-  @media ${deviceSize.medium} {
+  @media ${deviceSize.lg} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 2.5}px;
   }
-  @media ${deviceSize.large} {
+  @media ${deviceSize.xl} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
@@ -175,31 +175,31 @@ export const H3 = styled.h3<TypographyProps>`
 
 export const H4 = styled.h4<TypographyProps>`
   ${TypographyBase}
-   @media ${deviceSize.mobile} {
+   @media ${deviceSize.xs} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.tablet} {
+  @media ${deviceSize.sm} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.small} {
+  @media ${deviceSize.md} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   };
-  @media ${deviceSize.medium} {
+  @media ${deviceSize.lg} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.large} {
+  @media ${deviceSize.xl} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
@@ -209,31 +209,31 @@ export const H4 = styled.h4<TypographyProps>`
 
 export const P = styled.p<TypographyProps>`
   ${TypographyBase}
-   @media ${deviceSize.mobile} {
+   @media ${deviceSize.xs} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.tablet} {
+  @media ${deviceSize.sm} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.small} {
+  @media ${deviceSize.md} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   };
-  @media ${deviceSize.medium} {
+  @media ${deviceSize.lg} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.large} {
+  @media ${deviceSize.xl} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
@@ -243,31 +243,31 @@ export const P = styled.p<TypographyProps>`
 
 export const A = styled.a<TypographyProps>`  
   ${TypographyBase}
-   @media ${deviceSize.mobile} {
+   @media ${deviceSize.xs} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.tablet} {
+  @media ${deviceSize.sm} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   }
-  @media ${deviceSize.small} {
+  @media ${deviceSize.md} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   };
-  @media ${deviceSize.medium} {
+  @media ${deviceSize.lg} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.lg}px;
   }
-  @media ${deviceSize.large} {
+  @media ${deviceSize.xl} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
@@ -283,31 +283,31 @@ export const A = styled.a<TypographyProps>`
 
 export const Li = styled.li<TypographyProps>`
   ${TypographyBase}
-   @media ${deviceSize.mobile} {
+   @media ${deviceSize.xs} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.tablet} {
+  @media ${deviceSize.sm} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.small} {
+  @media ${deviceSize.md} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   };
-  @media ${deviceSize.medium} {
+  @media ${deviceSize.lg} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.large} {
+  @media ${deviceSize.xl} {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );

@@ -41,23 +41,23 @@ const StyledCursor = styled.div<CursorProps>`
     switch (props.cursorType) {
       case 'link':
         return `
-         @media ${deviceSize.mobile} {
+         @media ${deviceSize.xs} {
     width: 70px;
     height: 70px;
   }
-  @media ${deviceSize.tablet} {
+  @media ${deviceSize.sm} {
     width: 70px;
     height: 70px;
   }
-  @media ${deviceSize.small} {
+  @media ${deviceSize.md} {
     width: 75px;
     height: 75px;
   }
-  @media ${deviceSize.medium} {
+  @media ${deviceSize.lg} {
     width: 100px;
     height: 100px;
   }
-  @media ${deviceSize.large} {
+  @media ${deviceSize.xl} {
     width: 150px;
     height: 150px;
   }`;
@@ -68,23 +68,23 @@ const StyledCursor = styled.div<CursorProps>`
         `;
       default:
         return `
-      @media ${deviceSize.mobile} {
+      @media ${deviceSize.xs} {
     width: 20px;
     height: 20px;
   }
-  @media ${deviceSize.tablet} {
+  @media ${deviceSize.sm} {
     width: 20px;
     height: 20px;
   }
-  @media ${deviceSize.small} {
+  @media ${deviceSize.md} {
     width: 25px;
     height: 25px;
   }
-  @media ${deviceSize.medium} {
+  @media ${deviceSize.lg} {
     width: 33px;
     height: 33px;
   }
-  @media ${deviceSize.large} {
+  @media ${deviceSize.xl} {
     width: 50px;
     height: 50px;
   }`;

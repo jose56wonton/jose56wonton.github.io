@@ -26,7 +26,6 @@ const GlobalStyle = createGlobalStyle`
 
 const Content = styled.div`
   position: relative;
-  max-width: 1680px;
   min-height: 100vh;
   margin: 0 auto;
 `;
@@ -34,9 +33,9 @@ const Content = styled.div`
 const gridTheme = {
   breakpoints: {
     // defaults below
-    xl: 1200,
-    lg: 992,
-    md: 768,
+    xl: 2561,
+    lg: 1921,
+    md: 1100,
     sm: 576,
     xs: 575,
     // or you can use aliases
@@ -56,9 +55,9 @@ const gridTheme = {
     padding: 0, // default 15
     maxWidth: {
       // defaults below
-      xl: 1140,
+      xl: 1500,
       lg: 960,
-      md: 720,
+      md: 680,
       sm: 540,
       xs: 540,
       // or you can use aliases

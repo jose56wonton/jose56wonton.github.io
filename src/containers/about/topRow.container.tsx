@@ -4,25 +4,44 @@ import styled, { keyframes } from 'styled-components';
 import { Link } from 'models/link.model';
 import { Wiggle } from '../../components/animations';
 import { ColorBlock, ColorBlockProps } from '../../components/colorBlock';
+import { Col, Row } from 'styled-bootstrap-grid';
+import { deviceSize } from '../../theme';
+import Img, { FluidObject } from 'gatsby-image';
+import { Fluid } from '../../utils/types';
 
-import { Grid, Cell } from 'styled-css-grid';
-
-const AboutTopRow = styled(Grid)`
+const AboutTopRow = styled(Row)`
   margin-top: 10vh;
   height: 40vh;
 `;
 
-const NameCol = styled(Cell)`
+const NameCol = styled(Col)`
   display: flex;
-  position: relative;
   justify-content: center;
   align-items: center;
   z-index: 1;
 `;
 
 const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
-  width: 80%;
-  height: 80%;
+  @media ${deviceSize.xs} {
+    width: 80%;
+    height: 80%;
+  }
+  @media ${deviceSize.sm} {
+    width: 80%;
+    height: 80%;
+  }
+  @media ${deviceSize.md} {
+    width: 130%;
+    height: 100%;
+  }
+  @media ${deviceSize.lg} {
+    width: 130%;
+    height: 100%;
+  }
+  @media ${deviceSize.xl} {
+    width: 130%;
+    height: 100%;
+  }
   transform: rotate(100deg);
   display: flex;
   justify-content: flex-end;
@@ -36,8 +55,26 @@ const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
 `;
 
 const OrangeColorBlock = styled(ColorBlock)<ColorBlockProps>`
-  width: 150%;
-  height: 150%;
+  @media ${deviceSize.xs} {
+    width: 150%;
+    height: 150%;
+  }
+  @media ${deviceSize.sm} {
+    width: 150%;
+    height: 150%;
+  }
+  @media ${deviceSize.md} {
+    width: 300%;
+    height: 130%;
+  }
+  @media ${deviceSize.lg} {
+    width: 300%;
+    height: 130%;
+  }
+  @media ${deviceSize.xl} {
+    width: 300%;
+    height: 130%;
+  }
   animation: ${Wiggle(60)} 4s infinite;
 `;
 
@@ -57,36 +94,49 @@ const SocialMediaLinks = styled.div`
   transform: translateX(65%) translateY(-50%) rotate(-90deg);
 `;
 
-interface GifProps {
-  isVisible: boolean;
-}
-
-const GifFromHoveringDescription = styled.img<GifProps>`
-  display: ${(props: GifProps) => (props.isVisible ? 'inherit' : 'none')};
+const GifFromHoveringDescription = styled(Img)`
   transform: rotate(-90deg) translateX(50%);
-  max-height: 200px;
+  @media ${deviceSize.xs} {
+    width: 150px;
+    height: 150px;
+  }
+  @media ${deviceSize.sm} {
+    width: 150px;
+    height: 150px;
+  }
+  @media ${deviceSize.md} {
+    width: 250px;
+    height: 150px;
+  }
+  @media ${deviceSize.lg} {
+    width: 300px;
+    height: 180px;
+  }
+  @media ${deviceSize.xl} {
+    width: 500px;
+    height: 300px;
+  }
   transform-origin: center;
 `;
 
 interface NameContainerProps {
   links: Link;
-  isDescriptionHovered: number;
   setDescriptionHovered: (isDescriptionHovered: boolean) => void;
-  gifSrc: string;
-  emoji: string;
+  fluidGif: FluidObject | null;
+  emoji: string | null;
 }
 
 const TopRowContainer = (props: NameContainerProps) => {
   const { links } = props;
 
   return (
-    <AboutTopRow >
-      <NameCol width={6}>
+    <AboutTopRow>
+      <NameCol xs={6} sm={6} md={4}>
         <BlandBlock backgroundColor="light">
-          <H1>{props.emoji}</H1>
+          {props.emoji && <H1>{props.emoji}</H1>}
         </BlandBlock>
       </NameCol>
-      <NameCol width={6}>
+      <NameCol xs={6} sm={6} md={4} mdOffset={4}>
         <OrangeColorBlock backgroundColor="fun3">
           <OrangeColorBlockRelativeReset>
             <SocialMediaLinks>
@@ -101,10 +151,9 @@ const TopRowContainer = (props: NameContainerProps) => {
                 </A>
               ))}
             </SocialMediaLinks>
-            <GifFromHoveringDescription
-              isVisible={Boolean(props.isDescriptionHovered)}
-              src={props.gifSrc}
-            />
+            {props.fluidGif && (
+              <GifFromHoveringDescription fluid={props.fluidGif} />
+            )}
           </OrangeColorBlockRelativeReset>
         </OrangeColorBlock>
         <H1
