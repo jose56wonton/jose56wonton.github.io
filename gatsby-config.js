@@ -1,43 +1,57 @@
+const path = require('path');
 require('dotenv').config();
 module.exports = {
   siteMetadata: {
-    title: 'Joshua Wootonn',
+    title: `Joshua Wootonnn`,
+    description: `Cowboy Hacker`,
+    author: `@joshuawootonn`,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Joshua Wootonn`,
+        short_name: `JW`,
+        start_url: `/`,
+        background_color: `#FBB02D`,
+        theme_color: `#FBB02D`,
+        display: `minimal-ui`,
+        icon: `${__dirname}/src/images/logo.png`,
+      },
+    },
+    'gatsby-plugin-typescript',
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `${process.env.CONTENTFUL_SPACE_ID}`,
-        accessToken: `${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+        spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
       },
     },
     {
-      resolve: `gatsby-source-medium`,
+      resolve: 'gatsby-plugin-root-import',
       options: {
-        username: `@joshuawootonn`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        logo: "./src/logo.png",
-        injectHTML: true,
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          twitter: false,
-          yandex: false,
-          windows: false
-        }
+        src: path.join(__dirname, 'src'),
+        pages: path.join(__dirname, 'src/pages'),
+        helpers: path.join(__dirname, 'src/utils'),
+        models: path.join(__dirname, 'src/models'),
+        repositories: path.join(__dirname, 'src/repositories'),
+        components: path.join(__dirname, 'src/components'),
+        images: path.join(__dirname, 'src/images'),
       }
-    },    
-    'gatsby-plugin-react-helmet',
-    `gatsby-transformer-remark`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-remark`]
-}
+    }
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
+  ],
+};

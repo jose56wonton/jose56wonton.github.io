@@ -1,21 +1,44 @@
 module.exports = {
-  extends: ['last', 'prettier/react', 'plugin:react/recommended'],
-  plugins: ['prettier','react'], // activating esling-plugin-prettier (--fix stuff)
-  "env": {
-    "amd": true,
-    "node": true,
-    "browser": true,
-    "es6": true
+  parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended'
+  ],
+  settings: {
+    react: {
+      version: 'detect'
+    }
   },
+  env: {
+    browser: true,
+    node: true,
+    es6: true
+  },
+  plugins: ['@typescript-eslint', 'react'],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+    sourceType: 'module' // Allows for the use of imports
+  },
+  
   rules: {
-    'prettier/prettier': [ // customizing prettier rules (unfortunately not many of them are customizable)
-      'error',
-      {
-        singleQuote: true, 
-        trailingComma: 'all',
-      },
-    ],
-    eqeqeq: ['error', 'always'], // adding some custom ESLint rules
-    "react/prop-types": 0
+    'react/prop-types': 'off', // Disable prop-types as we use TypeScript for type checking
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unused-vars': 'off'
   },
+  overrides: [
+    // Override some TypeScript rules just for .js files
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off' //
+      }
+    }
+  ]
 };
