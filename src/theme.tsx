@@ -23,7 +23,7 @@ export const theme: Theme = {
     fun5: '#446DF6',
     fun6: '#AB87FF',
     light: '#EFEFEF',
-    lg: '#CFCFCF',
+    medium: '#CFCFCF',
     dark: '#333333',
   },
   elementSizes: {
@@ -42,7 +42,7 @@ export const theme: Theme = {
     p: 12,
     a: 12,
     li: 12,
-  },
+  }
 };
 
 export interface ThemeProp {
@@ -50,9 +50,9 @@ export interface ThemeProp {
 }
 
 export const deviceSize = {
-  xs: `(min-width: 767px)`,
-  sm: `(min-width: 768px) and (max-width: 1024px)`,
-  md: `(min-width: 1025px)`,
+  xs: `(min-width: 575px)`,
+  sm: `(min-width: 571px) and (max-width: 1100px)`,
+  md: `(min-width: 1101px)`,
   lg: `(min-width: 1921px)`,
   xl: `(min-width: 2561px)`,
 };

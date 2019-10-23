@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { H1, A, Color } from '../../components/typography';
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes, ThemeProps } from 'styled-components';
 import { Link } from 'models/link.model';
 import { Wiggle } from '../../components/animations';
 import { ColorBlock, ColorBlockProps } from '../../components/colorBlock';
 import { Col, Row } from 'styled-bootstrap-grid';
-import { deviceSize } from '../../theme';
+import { deviceSize, ThemeProp } from '../../theme';
 import Img, { FluidObject } from 'gatsby-image';
 import { Fluid } from '../../utils/types';
+import media from 'mediaQueries';
 
 const AboutTopRow = styled(Row)`
   margin-top: 10vh;
@@ -55,27 +56,21 @@ const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
 `;
 
 const OrangeColorBlock = styled(ColorBlock)<ColorBlockProps>`
-  @media ${deviceSize.xs} {
-    width: 150%;
-    height: 150%;
+  @media (max-width: 575px) {
+    width: 170%;
+    height: 120%;
+    animation: ${Wiggle(30)} 4s infinite;
   }
-  @media ${deviceSize.sm} {
-    width: 150%;
-    height: 150%;
+  @media (min-width: 571px) and (max-width: 1100px) {
+    width: 170%;
+    height: 120%;
+    animation: ${Wiggle(30)} 4s infinite;
   }
-  @media ${deviceSize.md} {
+  @media (min-width: 1101px) {
     width: 300%;
     height: 130%;
+    animation: ${Wiggle(60)} 4s infinite;
   }
-  @media ${deviceSize.lg} {
-    width: 300%;
-    height: 130%;
-  }
-  @media ${deviceSize.xl} {
-    width: 300%;
-    height: 130%;
-  }
-  animation: ${Wiggle(60)} 4s infinite;
 `;
 
 const OrangeColorBlockRelativeReset = styled.div`
@@ -96,23 +91,23 @@ const SocialMediaLinks = styled.div`
 
 const GifFromHoveringDescription = styled(Img)`
   transform: rotate(-90deg) translateX(50%);
-  @media ${deviceSize.xs} {
+  @media (max-width: 575px) {
     width: 150px;
-    height: 150px;
+    height: 90px;
   }
-  @media ${deviceSize.sm} {
+  @media (min-width: 571px) and (max-width: 1100px) {
     width: 150px;
-    height: 150px;
+    height: 90px;
   }
-  @media ${deviceSize.md} {
+  @media (min-width: 1101px) {
     width: 250px;
     height: 150px;
   }
-  @media ${deviceSize.lg} {
+  @media (min-width: 1921px) {
     width: 300px;
     height: 180px;
   }
-  @media ${deviceSize.xl} {
+  @media (min-width: 2561px) {
     width: 500px;
     height: 300px;
   }
@@ -131,12 +126,12 @@ const TopRowContainer = (props: NameContainerProps) => {
 
   return (
     <AboutTopRow>
-      <NameCol xs={6} sm={6} md={4}>
+      <NameCol hiddenMdDown md={4}>
         <BlandBlock backgroundColor="light">
           {props.emoji && <H1>{props.emoji}</H1>}
         </BlandBlock>
       </NameCol>
-      <NameCol xs={6} sm={6} md={4} mdOffset={4}>
+      <NameCol xsOffset={2} xs={9} sm={9} md={4} mdOffset={4}>
         <OrangeColorBlock backgroundColor="fun3">
           <OrangeColorBlockRelativeReset>
             <SocialMediaLinks>

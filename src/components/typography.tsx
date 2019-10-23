@@ -63,6 +63,7 @@ const TypographyBase = css`
   text-align: ${(props: TypographyProps) =>
     props.textAlign === 'right' ? 'right' : 'left'};
   color: ${(props: TypographyProps) => getColor(props)};
+  z-index: 5;
 
   margin-right: ${(props: TypographyProps) => getMarginRight(props)}px;
   margin-left: ${(props: TypographyProps) => getMarginLeft(props)}px;
@@ -70,67 +71,66 @@ const TypographyBase = css`
 `;
 
 export const H1 = styled.h1<TypographyProps>`
-  ${TypographyBase}
-  
-  @media ${deviceSize.xs} {
+  ${TypographyBase};
+  @media (max-width: 575px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
-  };
-  @media ${deviceSize.sm} {
-    transform: translateX(
-      ${(props: TypographyProps) => getHorizontalTransform(props)}
-    );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
-  };
-  @media ${deviceSize.md} {
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 1.5}px;
+  }
+  @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 3}px;
-  };
-  @media ${deviceSize.lg} {
+  }
+  @media (min-width: 1101px) {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 3}px;
+  }
+  @media (min-width: 1921px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 4}px;
-  };
-  @media ${deviceSize.xl} {
-    transform: translateX(      ${(props: TypographyProps) =>
-      getHorizontalTransform(props)}    );
+  }
+  @media (min-width: 2561px) {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 7}px;
-   
-  };
+  }
 `;
 
 export const H2 = styled.h2<TypographyProps>`
-  ${TypographyBase}
-  @media ${deviceSize.xs} {
+  ${TypographyBase};
+  @media (max-width: 575px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.sm} {
+  @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.md} {
-    transform: translateX(
-      ${(props: TypographyProps) => getHorizontalTransform(props)}
-    );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
-  };
-  @media ${deviceSize.lg} {
+  @media (min-width: 1101px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.xl} {
+  @media (min-width: 1921px) {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media (min-width: 2561px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
@@ -139,33 +139,34 @@ export const H2 = styled.h2<TypographyProps>`
 `;
 
 export const H3 = styled.h3<TypographyProps>`
-  ${TypographyBase}
-   @media ${deviceSize.xs} {
+  ${TypographyBase};
+  @media (max-width: 575px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl }px;
   }
-  @media ${deviceSize.sm} {
+  @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 1.5}px;
   }
-  @media ${deviceSize.md} {
+  @media (min-width: 1101px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) =>
       props.theme.elementSizes.xl * 1.5}px;
-  };
-  @media ${deviceSize.lg} {
+  }
+  @media (min-width: 1921px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 2.5}px;
+    font-size: ${(props: TypographyProps) =>
+      props.theme.elementSizes.xl * 2.5}px;
   }
-  @media ${deviceSize.xl} {
+  @media (min-width: 2561px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
@@ -174,32 +175,32 @@ export const H3 = styled.h3<TypographyProps>`
 `;
 
 export const H4 = styled.h4<TypographyProps>`
-  ${TypographyBase}
-   @media ${deviceSize.xs} {
+  ${TypographyBase};
+  @media (max-width: 575px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.sm} {
+  @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.md} {
-    transform: translateX(
-      ${(props: TypographyProps) => getHorizontalTransform(props)}
-    );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
-  };
-  @media ${deviceSize.lg} {
+  @media (min-width: 1101px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.xl} {
+  @media (min-width: 1921px) {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media (min-width: 2561px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
@@ -208,32 +209,32 @@ export const H4 = styled.h4<TypographyProps>`
 `;
 
 export const P = styled.p<TypographyProps>`
-  ${TypographyBase}
-   @media ${deviceSize.xs} {
+  ${TypographyBase};
+  @media (max-width: 575px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.sm} {
+  @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.md} {
-    transform: translateX(
-      ${(props: TypographyProps) => getHorizontalTransform(props)}
-    );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
-  };
-  @media ${deviceSize.lg} {
+  @media (min-width: 1101px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.xl} {
+  @media (min-width: 1921px) {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media (min-width: 2561px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
@@ -241,33 +242,34 @@ export const P = styled.p<TypographyProps>`
   }
 `;
 
-export const A = styled.a<TypographyProps>`  
-  ${TypographyBase}
-   @media ${deviceSize.xs} {
+export const A = styled.a<TypographyProps>`
+  ${TypographyBase};
+  @media (max-width: 575px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.sm * 1.5}px;
   }
-  @media ${deviceSize.sm} {
+  @media (min-width: 571px) and (max-width: 1100px) {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) =>
+      props.theme.elementSizes.sm * 1.2}px;
+  }
+  @media (min-width: 1101px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   }
-  @media ${deviceSize.md} {
-    transform: translateX(
-      ${(props: TypographyProps) => getHorizontalTransform(props)}
-    );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
-  };
-  @media ${deviceSize.lg} {
+  @media (min-width: 1921px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.lg}px;
   }
-  @media ${deviceSize.xl} {
+  @media (min-width: 2561px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
@@ -278,36 +280,36 @@ export const A = styled.a<TypographyProps>`
   margin-bottom: 16px;
   display: inline-block;
   text-decoration: none;
-  padding: 4px;  
+  padding: 4px;
 `;
 
 export const Li = styled.li<TypographyProps>`
-  ${TypographyBase}
-   @media ${deviceSize.xs} {
+  ${TypographyBase};
+  @media (max-width: 575px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.sm} {
+  @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.md} {
-    transform: translateX(
-      ${(props: TypographyProps) => getHorizontalTransform(props)}
-    );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
-  };
-  @media ${deviceSize.lg} {
+  @media (min-width: 1101px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
-  @media ${deviceSize.xl} {
+  @media (min-width: 1921px) {
+    transform: translateX(
+      ${(props: TypographyProps) => getHorizontalTransform(props)}
+    );
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+  }
+  @media (min-width: 2561px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );

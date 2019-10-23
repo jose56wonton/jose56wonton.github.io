@@ -17,23 +17,15 @@ const TitleCol = styled(Col)`
 type TitleBlockProps = IsHovered & ColorBlockProps;
 
 const TitleBlock = styled(ColorBlock)<TitleBlockProps>`
-  @media ${deviceSize.xs} {
-    width: 100%;
+  @media (max-width: 575px) {
+    width: 170%;
     height: 100%;
   }
-  @media ${deviceSize.sm} {
-    width: 100%;
-    height: 100%;
+  @media (min-width: 571px) and (max-width: 1100px) {
+    width: 170%;
+    height: 80%;
   }
-  @media ${deviceSize.md} {
-    width: 150%;
-    height: 120%;
-  }
-  @media ${deviceSize.lg} {
-    width: 150%;
-    height: 120%;
-  }
-  @media ${deviceSize.xl} {
+  @media (min-width: 1101px) {
     width: 150%;
     height: 120%;
   }
@@ -41,23 +33,15 @@ const TitleBlock = styled(ColorBlock)<TitleBlockProps>`
 `;
 
 const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
-  @media ${deviceSize.xs} {
+  @media (max-width: 575px) {
     width: 65%;
     height: 65%;
   }
-  @media ${deviceSize.sm} {
+  @media (min-width: 571px) and (max-width: 1100px) {
     width: 65%;
     height: 65%;
   }
-  @media ${deviceSize.md} {
-    width: 95%;
-    height: 65%;
-  }
-  @media ${deviceSize.lg} {
-    width: 95%;
-    height: 65%;
-  }
-  @media ${deviceSize.xl} {
+  @media (min-width: 1101px) {
     width: 95%;
     height: 65%;
   }
@@ -81,7 +65,7 @@ interface DescriptionContainerProps {
 const BottomRowContainer = (props: DescriptionContainerProps) => {
   return (
     <AboutBottomRow>
-      <TitleCol xs={6} sm={6} md={4} >
+      <TitleCol xsOffset={2} xs={7} sm={7} md={4}>
         <TitleBlock
           backgroundColor="fun2"
           isHovered={Boolean(props.isDescriptionHovered)}
@@ -93,7 +77,7 @@ const BottomRowContainer = (props: DescriptionContainerProps) => {
           {props.title}
         </H3>
       </TitleCol>
-      <TitleCol xs={6} sm={6} md={4} mdOffset={4}>
+      <TitleCol hiddenMdDown md={4} mdOffset={4}>
         <BlandBlock backgroundColor="light" />
       </TitleCol>
     </AboutBottomRow>

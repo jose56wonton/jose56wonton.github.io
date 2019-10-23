@@ -35,7 +35,7 @@ const gridTheme = {
     // defaults below
     xl: 2561,
     lg: 1921,
-    md: 1100,
+    md: 1101,
     sm: 576,
     xs: 575,
     // or you can use aliases
