@@ -169,7 +169,7 @@ export const H3 = styled.h3<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 4}px;
   }
 `;
 
@@ -271,7 +271,7 @@ export const A = styled.a<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
   color: ${(props: TypographyProps) => getColor(props, 'dark')};
   font-weight: bold;

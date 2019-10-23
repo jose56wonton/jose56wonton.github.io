@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { H1, A, Color } from '../../components/typography';
 import styled, { keyframes } from 'styled-components';
-import { Col, Row } from 'styled-bootstrap-grid';
-import { ThemeProp } from '../../theme';
 import { Link } from 'models/link.model';
 import { Wiggle } from '../../components/animations';
 import { ColorBlock, ColorBlockProps } from '../../components/colorBlock';
 
-const AboutTopRow = styled(Row)`
+import { Grid, Cell } from 'styled-css-grid';
+
+const AboutTopRow = styled(Grid)`
   margin-top: 10vh;
   height: 40vh;
 `;
 
-const NameCol = styled(Col)`
+const NameCol = styled(Cell)`
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   z-index: 1;
@@ -77,15 +78,15 @@ interface NameContainerProps {
 
 const TopRowContainer = (props: NameContainerProps) => {
   const { links } = props;
-  console.log(props.emoji);
+
   return (
-    <AboutTopRow>
-      <NameCol lg={6} xl={6}>
+    <AboutTopRow >
+      <NameCol width={6}>
         <BlandBlock backgroundColor="light">
           <H1>{props.emoji}</H1>
         </BlandBlock>
       </NameCol>
-      <NameCol lg={6} xl={6}>
+      <NameCol width={6}>
         <OrangeColorBlock backgroundColor="fun3">
           <OrangeColorBlockRelativeReset>
             <SocialMediaLinks>

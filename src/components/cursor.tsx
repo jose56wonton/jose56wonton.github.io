@@ -1,70 +1,131 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { theme } from '../theme';
-import { randomNumberInclusive } from '../utils/random';
+import styled, { keyframes } from 'styled-components';
+import { deviceSize, theme, ThemeProp } from '../theme';
 
-const CursorElement = styled.div`
-  width: 20px;
-  height: 20px;
+interface CursorProps extends ThemeProp {
+  cursorType: CursorType;
+}
+
+const StyledCursor = styled.div<CursorProps>`
   border-radius: 100%;
   opacity: 0.8;
   position: fixed;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  z-index: 100;
-  transition: width 0.15s, height 0.15s, background-color 0.15s;
+  transform-origin: center;
+
+  transition: background-color 0.2s ease, height 0.2s ease, width 0.2s ease;
+
+  z-index: ${(props: CursorProps) => {
+    switch (props.cursorType) {
+      case 'link':
+        return -1;
+      case 'none':
+        return '';
+      default:
+        return 1;
+    }
+  }};
+  background-color: ${(props: CursorProps) => {
+    switch (props.cursorType) {
+      case 'link':
+        return props.theme.color.fun5;
+      case 'none':
+        return '';
+      default:
+        return props.theme.color.dark;
+    }
+  }};
+
+  ${(props: CursorProps) => {
+    switch (props.cursorType) {
+      case 'link':
+        return `
+         @media ${deviceSize.mobile} {
+    width: 70px;
+    height: 70px;
+  }
+  @media ${deviceSize.tablet} {
+    width: 70px;
+    height: 70px;
+  }
+  @media ${deviceSize.small} {
+    width: 75px;
+    height: 75px;
+  }
+  @media ${deviceSize.medium} {
+    width: 100px;
+    height: 100px;
+  }
+  @media ${deviceSize.large} {
+    width: 150px;
+    height: 150px;
+  }`;
+      case 'none':
+        return `
+        width: 0px;
+    height: 0px;
+        `;
+      default:
+        return `
+      @media ${deviceSize.mobile} {
+    width: 20px;
+    height: 20px;
+  }
+  @media ${deviceSize.tablet} {
+    width: 20px;
+    height: 20px;
+  }
+  @media ${deviceSize.small} {
+    width: 25px;
+    height: 25px;
+  }
+  @media ${deviceSize.medium} {
+    width: 33px;
+    height: 33px;
+  }
+  @media ${deviceSize.large} {
+    width: 50px;
+    height: 50px;
+  }`;
+    }
+  }};
 `;
 
-interface CursorStyle {
-  left: string;
+interface CursorLocation {
   top: string;
-  width: string;
-  height: string;
-  zIndex: number;
-  backgroundColor: string;
+  left: string;
 }
 
-const defaultCursorStyle: CursorStyle = {
-  left: '0px',
-  top: '0px',
-  width: '20px',
-  height: '20px',
-  zIndex: 100,
-  backgroundColor: theme.color.dark,
-};
-
-const linkCursorStyle: CursorStyle = {
-  left: '0px',
-  top: '0px',
-  width: '70px',
-  height: '70px',
-  zIndex: -1,
-  backgroundColor: theme.color['fun' + randomNumberInclusive(1, 6)],
-};
+type CursorType = 'link' | 'default' | 'none';
 
 const Cursor = () => {
-  const [cursorLocation, setCursorLocation] = useState<CursorStyle>(
-    defaultCursorStyle
-  );
+  const [cursorLocation, setCursorLocation] = useState<CursorLocation>({
+    top: '0',
+    left: '0',
+  });
+  const [cursorType, setCursorType] = useState<CursorType>('default');
 
   const handleMouseMovement = (event: MouseEvent) => {
     const { clientX, clientY } = event;
     const target = event.target as HTMLElement;
-    return setCursorLocation({
-      ...(target.nodeName === 'A' ? linkCursorStyle : defaultCursorStyle),
+
+    if (target.nodeName === 'A') {
+      setCursorType('link');
+    } else if (cursorType !== 'default') {
+      setCursorType('default');
+    }
+
+    setCursorLocation({
       left: `${clientX}px`,
       top: `${clientY}px`,
     });
   };
   const handleMouseLeaveScreen = (event: MouseEvent) => {
-    return setCursorLocation({
-      ...defaultCursorStyle,
-      height: `0px`,
-      width: `0px`,
-    });
+    return setCursorType('none');
   };
   const handleMouseEnterScreen = (event: MouseEvent) => {
-    return setCursorLocation({ ...defaultCursorStyle });
+    return setCursorType('default');
   };
 
   // TODO: check when this is getting called and uncalled
@@ -81,7 +142,7 @@ const Cursor = () => {
     };
   });
 
-  return <CursorElement style={{ ...cursorLocation }} />;
+  return <StyledCursor cursorType={cursorType} style={{ ...cursorLocation }} />;
 };
 
 export default Cursor;
