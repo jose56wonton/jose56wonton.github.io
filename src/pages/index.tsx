@@ -19,6 +19,7 @@ const IndexPage = () => (
       lang="en"
       meta={{}}
     />
+
     <Layout>
       <AboutSection />
       <Cursor />

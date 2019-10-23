@@ -7,13 +7,11 @@ import { Container } from 'styled-bootstrap-grid';
 import TopRowContainer from './about/topRow.container';
 import BottomRowContainer from './about/bottomRow.container';
 import { randomNumberInclusive } from '../utils/random';
-import styled from "styled-components"
-
+import styled from 'styled-components';
 
 const AboutStyledContainer = styled(Container)`
   //overflow-x: hidden;
-
-`
+`;
 
 const AboutContainer = () => {
   const [isDescriptionHovered, setDescriptionHovered] = useState<number>(0);
@@ -28,7 +26,6 @@ const AboutContainer = () => {
       setDescriptionHovered(0);
     }
   };
-  console.log(isDescriptionHovered, aboutVariants);
   return (
     <AboutStyledContainer>
       <TopRowContainer
