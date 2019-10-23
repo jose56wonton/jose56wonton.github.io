@@ -57,18 +57,22 @@ const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
 
 const OrangeColorBlock = styled(ColorBlock)<ColorBlockProps>`
   @media (max-width: 575px) {
-    width: 170%;
-    height: 120%;
+    width: 110%;
+    height: 90%;
     animation: ${Wiggle(30)} 4s infinite;
+    transform: translateY(100px);
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     width: 170%;
     height: 120%;
-    animation: ${Wiggle(30)} 4s infinite;
+    animation: ${Wiggle(40)} 4s infinite;
   }
   @media (min-width: 1101px) {
     width: 300%;
     height: 130%;
+    animation: ${Wiggle(62)} 4s infinite;
+  }
+  @media (min-width: 1921px) {
     animation: ${Wiggle(60)} 4s infinite;
   }
 `;
@@ -84,9 +88,25 @@ const OrangeColorBlockRelativeReset = styled.div`
 const SocialMediaLinks = styled.div`
   position: absolute;
   z-index: 200;
-  right: 0;
-  top: 50%;
-  transform: translateX(65%) translateY(-50%) rotate(-90deg);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  @media (max-width: 575px) {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: rotate(0deg) translateY(55%);
+  }
+  @media (min-width: 571px) and (max-width: 1100px) {
+    right: 0;
+    bottom: 0;
+    transform: rotate(0deg) translateY(120%);
+  }
+  @media (min-width: 1101px) {
+    right: 0;
+    top: 50%;
+    transform: translateX(65%) translateY(-50%) rotate(-90deg);
+  }
 `;
 
 const GifFromHoveringDescription = styled(Img)`
