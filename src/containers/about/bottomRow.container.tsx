@@ -57,7 +57,7 @@ const AboutBottomRow = styled(Row)`
   height: 40vh;
 `;
 interface DescriptionContainerProps {
-  isDescriptionHovered: number;
+  isDescriptionHovered: boolean;
   setDescriptionHovered: (isDescriptionHovered: boolean) => void;
   title: string;
 }
@@ -68,7 +68,7 @@ const BottomRowContainer = (props: DescriptionContainerProps) => {
       <TitleCol xsOffset={2} xs={7} sm={7} md={4}>
         <TitleBlock
           backgroundColor="fun2"
-          isHovered={Boolean(props.isDescriptionHovered)}
+          isHovered={props.isDescriptionHovered}
         />
         <H3
           onMouseEnter={() => props.setDescriptionHovered(true)}

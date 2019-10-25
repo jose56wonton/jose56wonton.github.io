@@ -136,9 +136,10 @@ const GifFromHoveringDescription = styled(Img)`
 
 interface NameContainerProps {
   links: Link;
+  isDescriptionHovered: boolean;
   setDescriptionHovered: (isDescriptionHovered: boolean) => void;
-  fluidGif: FluidObject | null;
-  emoji: string | null;
+  fluidGif: FluidObject;
+  emoji: string;
 }
 
 const TopRowContainer = (props: NameContainerProps) => {
@@ -148,7 +149,7 @@ const TopRowContainer = (props: NameContainerProps) => {
     <AboutTopRow>
       <NameCol hiddenMdDown md={4}>
         <BlandBlock backgroundColor="light">
-          {props.emoji && <H1>{props.emoji}</H1>}
+          {props.isDescriptionHovered && <H1>{props.emoji}</H1>}
         </BlandBlock>
       </NameCol>
       <NameCol xsOffset={2} xs={9} sm={9} md={4} mdOffset={4}>
@@ -166,7 +167,7 @@ const TopRowContainer = (props: NameContainerProps) => {
                 </A>
               ))}
             </SocialMediaLinks>
-            {props.fluidGif && (
+            {props.isDescriptionHovered && (
               <GifFromHoveringDescription fluid={props.fluidGif} />
             )}
           </OrangeColorBlockRelativeReset>

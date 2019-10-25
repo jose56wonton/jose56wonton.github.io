@@ -6,52 +6,52 @@ import { Link } from 'models/link.model';
 import { Container } from 'styled-bootstrap-grid';
 import TopRowContainer from './about/topRow.container';
 import BottomRowContainer from './about/bottomRow.container';
-import { randomNumberInclusive } from '../utils/random';
-import styled from 'styled-components';
-
-const AboutStyledContainer = styled(Container)`
-  //overflow-x: hidden;
-`;
 
 const AboutContainer = () => {
-  const [isDescriptionHovered, setDescriptionHovered] = useState<number>(0);
+  const [isDescriptionHovered, setDescriptionHovered] = useState<boolean>(
+    false
+  );
+  const [currentJokeIndex, setCurrentJokeIndex] = useState<number>(0);
 
   const aboutVariants: About[] = fetchAbout();
   const links: Link = fetchLinks();
 
-  const descriptionRandomizor = (isHovered: boolean) => {
-    if (isHovered && aboutVariants.length > 0) {
-      setDescriptionHovered(randomNumberInclusive(1, aboutVariants.length));
+  const goToNextDescription = () => {
+    if (aboutVariants.length === 0) {
+      setCurrentJokeIndex(0);
+    } else if (currentJokeIndex === aboutVariants.length - 1) {
+      setCurrentJokeIndex(0);
     } else {
-      setDescriptionHovered(0);
+      setCurrentJokeIndex(currentJokeIndex + 1);
     }
   };
+
+  const setDescriptionHovered2 = (isHovered: boolean) => {
+    if (isHovered) {
+      goToNextDescription();
+    }
+    setDescriptionHovered(isHovered);
+  };
+
   return (
-    <AboutStyledContainer>
+    <Container>
       <TopRowContainer
         links={links}
-        setDescriptionHovered={descriptionRandomizor}
-        fluidGif={
-          isDescriptionHovered === 0
-            ? null
-            : aboutVariants[isDescriptionHovered - 1].gif.fluid
-        }
-        emoji={
-          isDescriptionHovered === 0
-            ? ''
-            : aboutVariants[isDescriptionHovered - 1].emoji
-        }
+        setDescriptionHovered={setDescriptionHovered2}
+        isDescriptionHovered={isDescriptionHovered}
+        fluidGif={aboutVariants[currentJokeIndex].gif.fluid}
+        emoji={aboutVariants[currentJokeIndex].emoji}
       />
       <BottomRowContainer
         isDescriptionHovered={isDescriptionHovered}
-        setDescriptionHovered={descriptionRandomizor}
+        setDescriptionHovered={setDescriptionHovered2}
         title={
-          isDescriptionHovered === 0
-            ? 'Software Engineer'
-            : aboutVariants[isDescriptionHovered - 1].title
+          isDescriptionHovered
+            ? aboutVariants[currentJokeIndex].title
+            : 'Software Engineer'
         }
       />
-    </AboutStyledContainer>
+    </Container>
   );
 };
 
