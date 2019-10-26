@@ -5,12 +5,12 @@ import { Flex } from '../../components/flex';
 import React from 'react';
 import { Work } from '../../models/work.model';
 import styled from 'styled-components';
-import { theme, ThemeProp } from '../../theme';
-import { format, parse } from 'date-fns';
+import { ThemeProp } from '../../theme';
 import { ColorBlock } from '../../components/colorBlock';
 import { Wiggle } from '../../components/animations';
 import { randomNumberInclusive } from '../../utils/random';
 import { formatDate } from '../../components/datetime';
+import { Col } from 'styled-bootstrap-grid';
 
 const WorkRow = styled(Flex)`
   @media (max-width: 575px) {
@@ -58,7 +58,7 @@ const WorkColorBlock = styled(ColorBlock)<WorkColorBlockProps>`
   }
 `;
 
-const ImageFrame = styled.div`
+const ImageFrame = styled(Col)`
   background-color: ${(props: ThemeProp) => props.theme.color.light};
   padding: ${(props: ThemeProp) => props.theme.elementSizes.sm}px;
   @media (max-width: 575px) {
@@ -77,7 +77,7 @@ const ImageFrame = styled.div`
   }
 `;
 
-const DescriptionFrame = styled(Flex)`
+const DescriptionFrame = styled(Col)`
   @media (max-width: 575px) {
     width: 100%;
     margin-bottom: 50px;
@@ -101,11 +101,11 @@ const WorkRowContainer = (props: Props) => {
   console.log(work);
   return (
     <WorkRow justify="space-between" align="center" key={work.id}>
-      <ImageFrame>
+      <ImageFrame xs={12} md={7}>
         <Img fadeIn fluid={work.images[0].fluid} />
       </ImageFrame>
 
-      <DescriptionFrame direction="column">
+      <DescriptionFrame xs={12} md={5}>
         <WorkColorBlock
           angle={randomNumberInclusive(-10, 10)}
           backgroundColor="pink"

@@ -6,7 +6,6 @@ import { Wiggle } from '../../components/animations';
 import { ColorBlock, ColorBlockProps } from '../../components/colorBlock';
 import { Col, Row } from 'styled-bootstrap-grid';
 import Img, { FluidObject } from 'gatsby-image';
-import { deviceSize } from '../../theme';
 
 const AboutTopRow = styled(Row)`
   margin-top: 10vh;
@@ -21,23 +20,19 @@ const NameCol = styled(Col)`
 `;
 
 const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
-  @media ${deviceSize.xs} {
+  @media (max-width: 575px) {
     width: 80%;
     height: 80%;
   }
-  @media ${deviceSize.sm} {
+  @media (min-width: 571px) and (max-width: 1100px) {
     width: 80%;
     height: 80%;
   }
-  @media ${deviceSize.md} {
+  @media (min-width: 1101px) {
     width: 130%;
     height: 100%;
   }
-  @media ${deviceSize.lg} {
-    width: 130%;
-    height: 100%;
-  }
-  @media ${deviceSize.xl} {
+  @media (min-width: 1921px) {
     width: 130%;
     height: 100%;
   }
@@ -144,7 +139,7 @@ const TopAboutRowContainer = (props: NameContainerProps) => {
 
   return (
     <AboutTopRow>
-      <NameCol hiddenMdDown mdOffSet={1} md={4}>
+      <NameCol hiddenMdDown mdOffset={1} md={4}>
         <BlandBlock backgroundColor="light">
           {props.isJokeVisible && <H1>{props.emoji}</H1>}
         </BlandBlock>

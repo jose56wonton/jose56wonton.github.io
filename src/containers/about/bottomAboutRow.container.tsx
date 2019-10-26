@@ -57,7 +57,7 @@ const AboutBottomRow = styled(Row)`
 interface DescriptionContainerProps {
   isJokeVisible: boolean;
   setJokeVisible: (isDescriptionHovered: boolean) => void;
-  title: string;
+  jokeTitle: string;
 }
 
 const BottomAboutRowContainer = (props: DescriptionContainerProps) => {
@@ -69,7 +69,7 @@ const BottomAboutRowContainer = (props: DescriptionContainerProps) => {
           onMouseEnter={() => props.setJokeVisible(true)}
           onMouseLeave={() => props.setJokeVisible(false)}
         >
-          {props.title}
+          {props.isJokeVisible ? props.jokeTitle : 'Software Engineer'}
         </H3>
       </TitleCol>
       <TitleCol hiddenMdDown md={4} mdOffset={4}>

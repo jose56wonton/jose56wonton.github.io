@@ -42,11 +42,7 @@ const AboutContainer = () => {
       <BottomAboutRowContainer
         isJokeVisible={isJokeVisible}
         setJokeVisible={setJokeVisibleWrapper}
-        title={
-          isJokeVisible
-            ? aboutVariants[currentJokeIndex].title
-            : 'Software Engineer'
-        }
+        jokeTitle={aboutVariants[currentJokeIndex].title}
       />
     </SectionWrapper>
   );
