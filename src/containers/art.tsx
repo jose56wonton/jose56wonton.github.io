@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { H1, H3, P } from 'components/typography';
-import { Flex, SectionWrapper } from 'littleGuys/a';
+import { Flex, SectionWrapper } from 'components/flex';
 import { format, parse } from 'date-fns';
 import { fetchArt } from 'repositories/art.repository';
 

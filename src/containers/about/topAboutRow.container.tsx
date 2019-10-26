@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
-import { H1, A, Color } from '../../components/typography';
-import styled, { css, keyframes, ThemeProps } from 'styled-components';
+import React from 'react';
+import { H1, A } from '../../components/typography';
+import styled from 'styled-components';
 import { Link } from 'models/link.model';
 import { Wiggle } from '../../components/animations';
 import { ColorBlock, ColorBlockProps } from '../../components/colorBlock';
 import { Col, Row } from 'styled-bootstrap-grid';
-import { deviceSize, ThemeProp } from '../../theme';
 import Img, { FluidObject } from 'gatsby-image';
-import { Fluid } from '../../utils/types';
-import media from 'mediaQueries';
+import { deviceSize } from '../../theme';
 
 const AboutTopRow = styled(Row)`
   margin-top: 10vh;

@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-import { About, AboutNode, AboutQuery } from 'models/about.model';
+import { About, AboutQuery } from 'models/about.model';
 
 export const fetchAbout = (): About[] => {
   const {

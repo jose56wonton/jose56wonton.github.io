@@ -1,7 +1,7 @@
 import Img from 'gatsby-image';
 import { H3, H4, P } from '../../components/typography';
 import ReactMarkdown from 'react-markdown';
-import { Flex } from '../../littleGuys/a';
+import { Flex } from '../../components/flex';
 import React from 'react';
 import { Work } from '../../models/work.model';
 import styled from 'styled-components';
@@ -62,11 +62,11 @@ const ImageFrame = styled.div`
   background-color: ${(props: ThemeProp) => props.theme.color.light};
   padding: ${(props: ThemeProp) => props.theme.elementSizes.sm}px;
   @media (max-width: 575px) {
-  width: 100%;
+    width: 100%;
     margin-bottom: 50px;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
-  width: 100%;
+    width: 100%;
     margin-bottom: 50px;
   }
   @media (min-width: 1101px) {
@@ -110,7 +110,9 @@ const WorkRowContainer = (props: Props) => {
           angle={randomNumberInclusive(-10, 10)}
           backgroundColor="pink"
         />
-        <H3 marginBottom="sm" textAlign="right">{work.title}</H3>
+        <H3 marginBottom="sm" textAlign="right">
+          {work.title}
+        </H3>
         <Flex
           wrap="wrap"
           direction="row"

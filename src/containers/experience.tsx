@@ -6,7 +6,7 @@ import { H1, H3, A, P, Li, H2 } from 'components/typography';
 import { fetchExperiences } from 'repositories/experience.repository';
 import { Experience } from 'models/experience.model';
 import ReactMarkdown from 'react-markdown';
-import { Flex, SectionWrapper } from 'littleGuys/a';
+import { Flex, SectionWrapper } from 'components/flex';
 import { format, parse } from 'date-fns';
 import { Theme } from 'theme';
 

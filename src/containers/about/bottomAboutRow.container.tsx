@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import { Col, Row } from 'styled-bootstrap-grid';
-import React, { useState } from 'react';
+import React from 'react';
 import { H3 } from '../../components/typography';
 import { IsHovered } from '../../utils/types';
 import { Wiggle } from '../../components/animations';
-import { Link } from '../../models/link.model';
 import { ColorBlock, ColorBlockProps } from '../../components/colorBlock';
-import { deviceSize } from '../../theme';
 
 const TitleCol = styled(Col)`
   display: flex;
@@ -66,10 +64,7 @@ const BottomAboutRowContainer = (props: DescriptionContainerProps) => {
   return (
     <AboutBottomRow>
       <TitleCol xsOffset={2} xs={7} sm={7} md={4}>
-        <TitleBlock
-          backgroundColor="green"
-          isHovered={props.isJokeVisible}
-        />
+        <TitleBlock backgroundColor="green" isHovered={props.isJokeVisible} />
         <H3
           onMouseEnter={() => props.setJokeVisible(true)}
           onMouseLeave={() => props.setJokeVisible(false)}

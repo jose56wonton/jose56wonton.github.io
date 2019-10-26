@@ -1,19 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, SectionWrapper } from 'littleGuys/a';
+import { Flex } from 'components/flex';
 
 import { ThemeProp } from 'theme';
 import { fetchLinks } from '../repositories/link.repository';
 import { A, H4, TypographyProps } from 'components/typography';
 import { randomNumberInclusive } from '../utils/random';
 import { Wiggle } from '../components/animations';
+import { SectionWrapper } from '../components/sectionWrapper';
 
 // TODO: this naming is garbage
 const FooterBlock = styled(SectionWrapper)`
   position: relative;
   width: 100%;
-  padding: 0 250px;
-  margin-bottom: 50px;
+  margin-bottom: 50px !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,17 +39,13 @@ const ColorBlock = styled.div`
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     animation: ${Wiggle(randomNumberInclusive(-5, 5))} 4s infinite;
-    left: 20vw;
-    right: 20vw;
+    left: 0;
+    right: 0;
   }
   @media (min-width: 1101px) {
     animation: ${Wiggle(randomNumberInclusive(-5, 5))} 4s infinite;
-    left: 20vw;
-    right: 20vw;
-  }
-  @media (min-width: 1921px) {
-    animation: ${Wiggle(randomNumberInclusive(-5, 5))} 4s infinite;
-    padding: 0 20vw;
+    left: 0;
+    right: 0;
   }
 `;
 
@@ -60,16 +56,9 @@ const Wrapper = styled(Flex)`
     width: 80vw;
     padding: 0 10vw;
   }
-  @media (min-width: 571px) and (max-width: 1100px) {
-  }
-  @media (min-width: 1101px) {
-  }
-  @media (min-width: 1921px) {
-    padding: 0 10vw;
-  }
 `;
 
-const Footer = () => {
+const FooterContainer = () => {
   const links = fetchLinks();
 
   return (
@@ -97,4 +86,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterContainer;

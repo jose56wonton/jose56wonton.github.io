@@ -42,7 +42,7 @@ export const theme: Theme = {
     p: 12,
     a: 12,
     li: 12,
-  }
+  },
 };
 
 export interface ThemeProp {
