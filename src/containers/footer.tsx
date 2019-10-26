@@ -31,7 +31,7 @@ const ColorBlock = styled.div`
   z-index: -1;
   top: 0;
   bottom: 0;
-  background-color: ${(props: ThemeProp) => props.theme.color.fun1};
+  background-color: ${(props: ThemeProp) => props.theme.color.yellow};
   @media (max-width: 575px) {
     animation: ${Wiggle(randomNumberInclusive(-5, 5))} 4s infinite;
     left: 0;

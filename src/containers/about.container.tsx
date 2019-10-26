@@ -4,8 +4,8 @@ import { About } from 'models/about.model';
 import { fetchLinks } from 'repositories/link.repository';
 import { Link } from 'models/link.model';
 import { Container } from 'styled-bootstrap-grid';
-import TopRowContainer from './about/topRow.container';
-import BottomRowContainer from './about/bottomRow.container';
+import TopAboutRowContainer from './about/topAboutRow.container';
+import BottomAboutRowContainer from './about/bottomAboutRow.container';
 
 const AboutContainer = () => {
   const [isDescriptionHovered, setDescriptionHovered] = useState<boolean>(
@@ -26,6 +26,7 @@ const AboutContainer = () => {
     }
   };
 
+  // TODO: debounce this button and go over naming for the entire section
   const setDescriptionHovered2 = (isHovered: boolean) => {
     if (isHovered) {
       goToNextDescription();
@@ -35,14 +36,14 @@ const AboutContainer = () => {
 
   return (
     <Container>
-      <TopRowContainer
+      <TopAboutRowContainer
         links={links}
         setDescriptionHovered={setDescriptionHovered2}
         isDescriptionHovered={isDescriptionHovered}
         fluidGif={aboutVariants[currentJokeIndex].gif.fluid}
         emoji={aboutVariants[currentJokeIndex].emoji}
       />
-      <BottomRowContainer
+      <BottomAboutRowContainer
         isDescriptionHovered={isDescriptionHovered}
         setDescriptionHovered={setDescriptionHovered2}
         title={

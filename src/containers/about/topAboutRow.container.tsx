@@ -142,7 +142,7 @@ interface NameContainerProps {
   emoji: string;
 }
 
-const TopRowContainer = (props: NameContainerProps) => {
+const TopAboutRowContainer = (props: NameContainerProps) => {
   const { links } = props;
 
   return (
@@ -153,7 +153,7 @@ const TopRowContainer = (props: NameContainerProps) => {
         </BlandBlock>
       </NameCol>
       <NameCol xsOffset={2} xs={9} sm={9} md={4} mdOffset={4}>
-        <OrangeColorBlock backgroundColor="fun3">
+        <OrangeColorBlock backgroundColor="orange">
           <OrangeColorBlockRelativeReset>
             <SocialMediaLinks>
               {Object.keys(links).map(key => (
@@ -184,4 +184,4 @@ const TopRowContainer = (props: NameContainerProps) => {
     </AboutTopRow>
   );
 };
-export default TopRowContainer;
+export default TopAboutRowContainer;

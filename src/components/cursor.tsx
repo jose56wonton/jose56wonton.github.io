@@ -29,7 +29,7 @@ const StyledCursor = styled.div<CursorProps>`
   background-color: ${(props: CursorProps) => {
     switch (props.cursorType) {
       case 'link':
-        return props.theme.color.fun5;
+        return props.theme.color.blue;
       case 'none':
         return '';
       default:

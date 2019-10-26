@@ -62,12 +62,12 @@ interface DescriptionContainerProps {
   title: string;
 }
 
-const BottomRowContainer = (props: DescriptionContainerProps) => {
+const BottomAboutRowContainer = (props: DescriptionContainerProps) => {
   return (
     <AboutBottomRow>
       <TitleCol xsOffset={2} xs={7} sm={7} md={4}>
         <TitleBlock
-          backgroundColor="fun2"
+          backgroundColor="green"
           isHovered={props.isDescriptionHovered}
         />
         <H3
@@ -83,4 +83,4 @@ const BottomRowContainer = (props: DescriptionContainerProps) => {
     </AboutBottomRow>
   );
 };
-export default BottomRowContainer;
+export default BottomAboutRowContainer;

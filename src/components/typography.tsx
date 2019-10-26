@@ -2,12 +2,12 @@ import styled, { css } from 'styled-components';
 import { Theme, deviceSize, ElementSizesUnion } from 'theme';
 
 export type Color =
-  | 'fun1'
-  | 'fun2'
-  | 'fun3'
-  | 'fun4'
-  | 'fun5'
-  | 'fun6'
+  | 'yellow'
+  | 'green'
+  | 'orange'
+  | 'pink'
+  | 'blue'
+  | 'purple'
   | 'light'
   | 'medium'
   | 'dark';
@@ -20,6 +20,7 @@ export interface TypographyProps {
   horizontalTransform?: ElementSizesUnion;
   marginRight?: ElementSizesUnion;
   marginLeft?: ElementSizesUnion;
+  marginBottom?: ElementSizesUnion;
 }
 
 const getHorizontalTransform = (
@@ -58,6 +59,16 @@ const getMarginLeft = (
     : props.theme.elementSizes[defaultMargin];
 };
 
+
+const getMarginBottom = (
+  props: TypographyProps,
+  defaultMargin: ElementSizesUnion = 'na'
+): number => {
+  return props.marginBottom
+    ? props.theme.elementSizes[props.marginBottom]
+    : 'inherit';
+};
+
 const TypographyBase = css`
   font-family: 'Josefin Sans', sans-serif;
   text-align: ${(props: TypographyProps) =>
@@ -66,6 +77,7 @@ const TypographyBase = css`
   z-index: 5;
 
   margin-right: ${(props: TypographyProps) => getMarginRight(props)}px;
+  margin-bottom: ${(props: TypographyProps) => getMarginBottom(props)}px;
   margin-left: ${(props: TypographyProps) => getMarginLeft(props)}px;
   margin-top: 0;
 `;
@@ -226,7 +238,7 @@ export const P = styled.p<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   }
   @media (min-width: 1921px) {
     transform: translateX(
@@ -238,7 +250,7 @@ export const P = styled.p<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.lg * 2}px;
   }
 `;
 
