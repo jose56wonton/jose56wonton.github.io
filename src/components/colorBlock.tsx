@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { ThemeProp } from '../theme';
-import { Color } from "./typography"
-
+import { Color } from './typography';
 
 export interface ColorBlockProps {
   backgroundColor: Color;

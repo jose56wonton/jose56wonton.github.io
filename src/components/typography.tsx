@@ -2,12 +2,12 @@ import styled, { css } from 'styled-components';
 import { Theme, deviceSize, ElementSizesUnion } from 'theme';
 
 export type Color =
-  | 'fun1'
-  | 'fun2'
-  | 'fun3'
-  | 'fun4'
-  | 'fun5'
-  | 'fun6'
+  | 'yellow'
+  | 'green'
+  | 'orange'
+  | 'pink'
+  | 'blue'
+  | 'purple'
   | 'light'
   | 'medium'
   | 'dark';
@@ -20,6 +20,7 @@ export interface TypographyProps {
   horizontalTransform?: ElementSizesUnion;
   marginRight?: ElementSizesUnion;
   marginLeft?: ElementSizesUnion;
+  marginBottom?: ElementSizesUnion;
 }
 
 const getHorizontalTransform = (
@@ -41,32 +42,21 @@ const getColor = (
     : props.theme.color[defaultColor];
 };
 
-const getMarginRight = (
-  props: TypographyProps,
-  defaultMargin: ElementSizesUnion = 'na'
-): number => {
-  return props.marginRight
-    ? props.theme.elementSizes[props.marginRight]
-    : props.theme.elementSizes[defaultMargin];
-};
-const getMarginLeft = (
-  props: TypographyProps,
-  defaultMargin: ElementSizesUnion = 'na'
-): number => {
-  return props.marginLeft
-    ? props.theme.elementSizes[props.marginLeft]
-    : props.theme.elementSizes[defaultMargin];
-};
-
 const TypographyBase = css`
   font-family: 'Josefin Sans', sans-serif;
   text-align: ${(props: TypographyProps) =>
     props.textAlign === 'right' ? 'right' : 'left'};
   color: ${(props: TypographyProps) => getColor(props)};
   z-index: 5;
-
-  margin-right: ${(props: TypographyProps) => getMarginRight(props)}px;
-  margin-left: ${(props: TypographyProps) => getMarginLeft(props)}px;
+  margin-right: ${({ marginRight, theme: { elementSizes } }: TypographyProps) =>
+    marginRight ? elementSizes[marginRight] : elementSizes.na}px;
+  margin-bottom: ${({
+    marginBottom,
+    theme: { elementSizes },
+  }: TypographyProps) =>
+    marginBottom ? elementSizes[marginBottom] : 'inherit'}px;
+  margin-left: ${({ marginLeft, theme: { elementSizes } }: TypographyProps) =>
+    marginLeft ? elementSizes[marginLeft] : elementSizes.na}px;
   margin-top: 0;
 `;
 
@@ -76,7 +66,8 @@ export const H1 = styled.h1<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 1.5}px;
+    font-size: ${(props: TypographyProps) =>
+      props.theme.elementSizes.xl * 1.5}px;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(
@@ -144,13 +135,14 @@ export const H3 = styled.h3<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl }px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl * 1.5}px;
+    font-size: ${(props: TypographyProps) =>
+      props.theme.elementSizes.xl * 1.5}px;
   }
   @media (min-width: 1101px) {
     transform: translateX(
@@ -180,7 +172,7 @@ export const H4 = styled.h4<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.lg}px;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(
@@ -214,19 +206,19 @@ export const P = styled.p<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   }
   @media (min-width: 1101px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   }
   @media (min-width: 1921px) {
     transform: translateX(
@@ -238,7 +230,7 @@ export const P = styled.p<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.lg * 2}px;
   }
 `;
 
@@ -248,7 +240,8 @@ export const A = styled.a<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.sm * 1.5}px;
+    font-size: ${(props: TypographyProps) =>
+      props.theme.elementSizes.sm * 1.5}px;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(

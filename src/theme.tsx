@@ -1,10 +1,10 @@
 export interface Theme {
   color: {
-    fun1: string;
-    fun2: string;
-    fun3: string;
-    fun4: string;
-    fun5: string;
+    yellow: string;
+    green: string;
+    orange: string;
+    pink: string;
+    blue: string;
     light: string;
     medium: string;
     dark: string;
@@ -16,12 +16,12 @@ export interface Theme {
 
 export const theme: Theme = {
   color: {
-    fun1: '#ffff4c',
-    fun2: '#ACECA1',
-    fun3: '#FBB02D',
-    fun4: '#FFF9A5',
-    fun5: '#446DF6',
-    fun6: '#AB87FF',
+    yellow: '#ffff4c',
+    green: '#ACECA1',
+    orange: '#FBB02D',
+    pink: '#fe65b7',
+    blue: '#446DF6',
+    purple: '#AB87FF',
     light: '#EFEFEF',
     medium: '#CFCFCF',
     dark: '#333333',
@@ -42,7 +42,7 @@ export const theme: Theme = {
     p: 12,
     a: 12,
     li: 12,
-  }
+  },
 };
 
 export interface ThemeProp {

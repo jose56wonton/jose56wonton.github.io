@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import { Col, Row } from 'styled-bootstrap-grid';
-import React, { useState } from 'react';
+import React from 'react';
 import { H3 } from '../../components/typography';
 import { IsHovered } from '../../utils/types';
 import { Wiggle } from '../../components/animations';
-import { Link } from '../../models/link.model';
 import { ColorBlock, ColorBlockProps } from '../../components/colorBlock';
-import { deviceSize } from '../../theme';
 
 const TitleCol = styled(Col)`
   display: flex;
@@ -57,24 +55,21 @@ const AboutBottomRow = styled(Row)`
   height: 40vh;
 `;
 interface DescriptionContainerProps {
-  isDescriptionHovered: boolean;
-  setDescriptionHovered: (isDescriptionHovered: boolean) => void;
-  title: string;
+  isJokeVisible: boolean;
+  setJokeVisible: (isDescriptionHovered: boolean) => void;
+  jokeTitle: string;
 }
 
-const BottomRowContainer = (props: DescriptionContainerProps) => {
+const BottomAboutRowContainer = (props: DescriptionContainerProps) => {
   return (
     <AboutBottomRow>
       <TitleCol xsOffset={2} xs={7} sm={7} md={4}>
-        <TitleBlock
-          backgroundColor="fun2"
-          isHovered={props.isDescriptionHovered}
-        />
+        <TitleBlock backgroundColor="green" isHovered={props.isJokeVisible} />
         <H3
-          onMouseEnter={() => props.setDescriptionHovered(true)}
-          onMouseLeave={() => props.setDescriptionHovered(false)}
+          onMouseEnter={() => props.setJokeVisible(true)}
+          onMouseLeave={() => props.setJokeVisible(false)}
         >
-          {props.title}
+          {props.isJokeVisible ? props.jokeTitle : 'Software Engineer'}
         </H3>
       </TitleCol>
       <TitleCol hiddenMdDown md={4} mdOffset={4}>
@@ -83,4 +78,4 @@ const BottomRowContainer = (props: DescriptionContainerProps) => {
     </AboutBottomRow>
   );
 };
-export default BottomRowContainer;
+export default BottomAboutRowContainer;

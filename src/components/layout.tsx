@@ -56,9 +56,9 @@ const gridTheme = {
     maxWidth: {
       // defaults below
       xl: 1500,
-      lg: 960,
-      md: 680,
-      sm: 540,
+      lg: 1200,
+      md: 900,
+      sm: 640,
       xs: 540,
       // or you can use aliases
       // giant: 1140,

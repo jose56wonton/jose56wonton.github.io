@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { H1, H3, H4, P } from 'components/typography';
 import ReactMarkdown from 'react-markdown';
-import { Flex, SectionWrapper } from 'littleGuys/a';
+import { Flex, SectionWrapper } from 'components/flex';
 import { format, parse } from 'date-fns';
 import { fetchThoughts } from 'repositories/thought.repository';
 

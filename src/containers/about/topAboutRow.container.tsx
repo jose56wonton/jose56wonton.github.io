@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-import { H1, A, Color } from '../../components/typography';
-import styled, { css, keyframes, ThemeProps } from 'styled-components';
+import React from 'react';
+import { H1, A } from '../../components/typography';
+import styled from 'styled-components';
 import { Link } from 'models/link.model';
 import { Wiggle } from '../../components/animations';
 import { ColorBlock, ColorBlockProps } from '../../components/colorBlock';
 import { Col, Row } from 'styled-bootstrap-grid';
-import { deviceSize, ThemeProp } from '../../theme';
 import Img, { FluidObject } from 'gatsby-image';
-import { Fluid } from '../../utils/types';
-import media from 'mediaQueries';
 
 const AboutTopRow = styled(Row)`
   margin-top: 10vh;
@@ -23,23 +20,19 @@ const NameCol = styled(Col)`
 `;
 
 const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
-  @media ${deviceSize.xs} {
+  @media (max-width: 575px) {
     width: 80%;
     height: 80%;
   }
-  @media ${deviceSize.sm} {
+  @media (min-width: 571px) and (max-width: 1100px) {
     width: 80%;
     height: 80%;
   }
-  @media ${deviceSize.md} {
+  @media (min-width: 1101px) {
     width: 130%;
     height: 100%;
   }
-  @media ${deviceSize.lg} {
-    width: 130%;
-    height: 100%;
-  }
-  @media ${deviceSize.xl} {
+  @media (min-width: 1921px) {
     width: 130%;
     height: 100%;
   }
@@ -136,24 +129,23 @@ const GifFromHoveringDescription = styled(Img)`
 
 interface NameContainerProps {
   links: Link;
-  isDescriptionHovered: boolean;
-  setDescriptionHovered: (isDescriptionHovered: boolean) => void;
+  isJokeVisible: boolean;
   fluidGif: FluidObject;
   emoji: string;
 }
 
-const TopRowContainer = (props: NameContainerProps) => {
+const TopAboutRowContainer = (props: NameContainerProps) => {
   const { links } = props;
 
   return (
     <AboutTopRow>
-      <NameCol hiddenMdDown md={4}>
+      <NameCol hiddenMdDown mdOffset={1} md={4}>
         <BlandBlock backgroundColor="light">
-          {props.isDescriptionHovered && <H1>{props.emoji}</H1>}
+          {props.isJokeVisible && <H1>{props.emoji}</H1>}
         </BlandBlock>
       </NameCol>
-      <NameCol xsOffset={2} xs={9} sm={9} md={4} mdOffset={4}>
-        <OrangeColorBlock backgroundColor="fun3">
+      <NameCol xsOffset={2} xs={9} sm={9} md={4} mdOffset={2}>
+        <OrangeColorBlock backgroundColor="orange">
           <OrangeColorBlockRelativeReset>
             <SocialMediaLinks>
               {Object.keys(links).map(key => (
@@ -167,16 +159,12 @@ const TopRowContainer = (props: NameContainerProps) => {
                 </A>
               ))}
             </SocialMediaLinks>
-            {props.isDescriptionHovered && (
+            {props.isJokeVisible && (
               <GifFromHoveringDescription fluid={props.fluidGif} />
             )}
           </OrangeColorBlockRelativeReset>
         </OrangeColorBlock>
-        <H1
-          onMouseEnter={() => props.setDescriptionHovered(true)}
-          onMouseLeave={() => props.setDescriptionHovered(false)}
-          textAlign="right"
-        >
+        <H1 textAlign="right">
           Joshua <br />
           Wootonn
         </H1>
@@ -184,4 +172,4 @@ const TopRowContainer = (props: NameContainerProps) => {
     </AboutTopRow>
   );
 };
-export default TopRowContainer;
+export default TopAboutRowContainer;

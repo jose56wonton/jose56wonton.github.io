@@ -2,19 +2,6 @@ import styled from 'styled-components';
 
 import { Theme } from 'theme';
 
-export interface RotatedProps {
-  theme: Theme;
-  direction: 'right' | 'left';
-}
-
-export const Rotated = styled.div`
-  display: inline-block;
-  transform: rotate(
-    ${(props: RotatedProps) =>
-      props.direction === 'right' ? '90deg' : '-90deg'}
-  );
-`;
-
 export interface FlexProps {
   direction?: 'column' | 'row';
 
@@ -30,6 +17,8 @@ export interface FlexProps {
     | 'inherit';
 
   align?: 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'inherit';
+
+  wrap?: 'wrap' | 'nowrap';
 }
 
 export const Flex = styled.div`
@@ -37,12 +26,5 @@ export const Flex = styled.div`
   flex-direction: ${(props: FlexProps) => props.direction};
   align-items: ${(props: FlexProps) => props.align};
   justify-content: ${(props: FlexProps) => props.justify};
-`;
-
-interface AboutWrapperProps {
-  theme: Theme;
-}
-
-export const SectionWrapper = styled.div`
-  margin-bottom: ${(props: AboutWrapperProps) => props.theme.elementSizes.xl}px;
+  flex-wrap: ${(props: FlexProps) => props.wrap};
 `;
