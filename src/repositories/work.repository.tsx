@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 import { WorkQuery, Work, WorkNode } from 'models/work.model';
 
+// TODO: sort these suckers
 export const fetchWork = (): Work[] => {
   const {
     allContentfulWork: { nodes },

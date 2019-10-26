@@ -11,13 +11,22 @@ import { ThemeProp } from '../theme';
 
 const Wrapper = styled(Container)`
   position: relative;
-  margin-bottom: ${(props: ThemeProp) => props.theme.elementSizes.xl * 5}px;
+  @media (max-width: 1100px) {
+    margin-bottom: ${(props: ThemeProp) => props.theme.elementSizes.xl * 5}px;
+  }
+  @media (min-width: 1101px) {
+    margin-bottom: ${(props: ThemeProp) => props.theme.elementSizes.xl * 5}px;
+  }
+  @media (min-width: 1921px) {
+    margin-bottom: ${(props: ThemeProp) => props.theme.elementSizes.xl * 10}px;
+  }
+  @media (min-width: 2561px) {
+    margin-bottom: ${(props: ThemeProp) => props.theme.elementSizes.xl * 15}px;
+  }
 `;
 
 const AboutContainer = () => {
-  const [isDescriptionHovered, setDescriptionHovered] = useState<boolean>(
-    false
-  );
+  const [isJokeVisible, setJokeVisible] = useState<boolean>(false);
   const [currentJokeIndex, setCurrentJokeIndex] = useState<number>(0);
 
   const aboutVariants: About[] = fetchAbout();
@@ -33,28 +42,26 @@ const AboutContainer = () => {
     }
   };
 
-  // TODO: debounce this button and go over naming for the entire section
-  const setDescriptionHovered2 = (isHovered: boolean) => {
+  const setJokeVisibleWrapper = (isHovered: boolean) => {
     if (isHovered) {
       goToNextDescription();
     }
-    setDescriptionHovered(isHovered);
+    setJokeVisible(isHovered);
   };
 
   return (
     <Wrapper>
       <TopAboutRowContainer
         links={links}
-        setDescriptionHovered={setDescriptionHovered2}
-        isDescriptionHovered={isDescriptionHovered}
+        isJokeVisible={isJokeVisible}
         fluidGif={aboutVariants[currentJokeIndex].gif.fluid}
         emoji={aboutVariants[currentJokeIndex].emoji}
       />
       <BottomAboutRowContainer
-        isDescriptionHovered={isDescriptionHovered}
-        setDescriptionHovered={setDescriptionHovered2}
+        isJokeVisible={isJokeVisible}
+        setJokeVisible={setJokeVisibleWrapper}
         title={
-          isDescriptionHovered
+          isJokeVisible
             ? aboutVariants[currentJokeIndex].title
             : 'Software Engineer'
         }

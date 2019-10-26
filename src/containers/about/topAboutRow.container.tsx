@@ -136,8 +136,7 @@ const GifFromHoveringDescription = styled(Img)`
 
 interface NameContainerProps {
   links: Link;
-  isDescriptionHovered: boolean;
-  setDescriptionHovered: (isDescriptionHovered: boolean) => void;
+  isJokeVisible: boolean;
   fluidGif: FluidObject;
   emoji: string;
 }
@@ -147,12 +146,12 @@ const TopAboutRowContainer = (props: NameContainerProps) => {
 
   return (
     <AboutTopRow>
-      <NameCol hiddenMdDown md={4}>
+      <NameCol hiddenMdDown mdOffSet={1} md={4}>
         <BlandBlock backgroundColor="light">
-          {props.isDescriptionHovered && <H1>{props.emoji}</H1>}
+          {props.isJokeVisible && <H1>{props.emoji}</H1>}
         </BlandBlock>
       </NameCol>
-      <NameCol xsOffset={2} xs={9} sm={9} md={4} mdOffset={4}>
+      <NameCol xsOffset={2} xs={9} sm={9} md={4} mdOffset={2}>
         <OrangeColorBlock backgroundColor="orange">
           <OrangeColorBlockRelativeReset>
             <SocialMediaLinks>
@@ -167,16 +166,12 @@ const TopAboutRowContainer = (props: NameContainerProps) => {
                 </A>
               ))}
             </SocialMediaLinks>
-            {props.isDescriptionHovered && (
+            {props.isJokeVisible && (
               <GifFromHoveringDescription fluid={props.fluidGif} />
             )}
           </OrangeColorBlockRelativeReset>
         </OrangeColorBlock>
-        <H1
-          onMouseEnter={() => props.setDescriptionHovered(true)}
-          onMouseLeave={() => props.setDescriptionHovered(false)}
-          textAlign="right"
-        >
+        <H1 textAlign="right">
           Joshua <br />
           Wootonn
         </H1>

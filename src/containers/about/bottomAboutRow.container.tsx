@@ -57,8 +57,8 @@ const AboutBottomRow = styled(Row)`
   height: 40vh;
 `;
 interface DescriptionContainerProps {
-  isDescriptionHovered: boolean;
-  setDescriptionHovered: (isDescriptionHovered: boolean) => void;
+  isJokeVisible: boolean;
+  setJokeVisible: (isDescriptionHovered: boolean) => void;
   title: string;
 }
 
@@ -68,11 +68,11 @@ const BottomAboutRowContainer = (props: DescriptionContainerProps) => {
       <TitleCol xsOffset={2} xs={7} sm={7} md={4}>
         <TitleBlock
           backgroundColor="green"
-          isHovered={props.isDescriptionHovered}
+          isHovered={props.isJokeVisible}
         />
         <H3
-          onMouseEnter={() => props.setDescriptionHovered(true)}
-          onMouseLeave={() => props.setDescriptionHovered(false)}
+          onMouseEnter={() => props.setJokeVisible(true)}
+          onMouseLeave={() => props.setJokeVisible(false)}
         >
           {props.title}
         </H3>
