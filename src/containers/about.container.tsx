@@ -6,6 +6,13 @@ import { Link } from 'models/link.model';
 import { Container } from 'styled-bootstrap-grid';
 import TopAboutRowContainer from './about/topAboutRow.container';
 import BottomAboutRowContainer from './about/bottomAboutRow.container';
+import styled from 'styled-components';
+import { ThemeProp } from '../theme';
+
+const Wrapper = styled(Container)`
+  position: relative;
+  margin-bottom: ${(props: ThemeProp) => props.theme.elementSizes.xl * 5}px;
+`;
 
 const AboutContainer = () => {
   const [isDescriptionHovered, setDescriptionHovered] = useState<boolean>(
@@ -35,7 +42,7 @@ const AboutContainer = () => {
   };
 
   return (
-    <Container>
+    <Wrapper>
       <TopAboutRowContainer
         links={links}
         setDescriptionHovered={setDescriptionHovered2}
@@ -52,7 +59,7 @@ const AboutContainer = () => {
             : 'Software Engineer'
         }
       />
-    </Container>
+    </Wrapper>
   );
 };
 

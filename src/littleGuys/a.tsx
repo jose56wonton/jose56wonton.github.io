@@ -30,6 +30,8 @@ export interface FlexProps {
     | 'inherit';
 
   align?: 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'inherit';
+
+  wrap?: 'wrap' | 'nowrap';
 }
 
 export const Flex = styled.div`
@@ -37,6 +39,7 @@ export const Flex = styled.div`
   flex-direction: ${(props: FlexProps) => props.direction};
   align-items: ${(props: FlexProps) => props.align};
   justify-content: ${(props: FlexProps) => props.justify};
+  flex-wrap: ${(props: FlexProps) => props.wrap};
 `;
 
 interface AboutWrapperProps {

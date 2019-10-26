@@ -192,7 +192,7 @@ export const H4 = styled.h4<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.lg}px;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(
@@ -226,13 +226,13 @@ export const P = styled.p<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
   }
   @media (min-width: 1101px) {
     transform: translateX(

@@ -13,7 +13,23 @@ import { randomNumberInclusive } from '../../utils/random';
 import { formatDate } from '../../components/datetime';
 
 const WorkRow = styled(Flex)`
-  margin-bottom: 105px;
+  @media (max-width: 575px) {
+    width: 100%;
+    flex-direction: column;
+
+    margin-bottom: 50px;
+  }
+  @media (min-width: 571px) and (max-width: 1100px) {
+    margin-left: 5%;
+    width: 90%;
+    flex-direction: column;
+    margin-bottom: 105px;
+  }
+  @media (min-width: 1101px) {
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 105px;
+  }
 `;
 
 const DescriptionText = styled(P)`
@@ -27,25 +43,52 @@ interface WorkColorBlockProps {
 
 const WorkColorBlock = styled(ColorBlock)<WorkColorBlockProps>`
   @media (max-width: 575px) {
+    animation: ${(props: WorkColorBlockProps) =>
+        Wiggle(Math.floor(props.angle / 2))}
+      4s infinite;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
+    animation: ${(props: WorkColorBlockProps) =>
+        Wiggle(Math.floor(props.angle / 2))}
+      4s infinite;
   }
   @media (min-width: 1101px) {
+    animation: ${(props: WorkColorBlockProps) => Wiggle(props.angle)} 4s
+      infinite;
   }
-  animation: ${(props: WorkColorBlockProps) => Wiggle(props.angle)} 4s infinite;
 `;
 
 const ImageFrame = styled.div`
-  width: 100%;
   background-color: ${(props: ThemeProp) => props.theme.color.light};
   padding: ${(props: ThemeProp) => props.theme.elementSizes.sm}px;
-  transform: translateX(
-    -${(props: ThemeProp) => 2 * props.theme.elementSizes.lg}px
-  );
+  @media (max-width: 575px) {
+  width: 100%;
+    margin-bottom: 50px;
+  }
+  @media (min-width: 571px) and (max-width: 1100px) {
+  width: 100%;
+    margin-bottom: 50px;
+  }
+  @media (min-width: 1101px) {
+    width: 60%;
+    transform: translateX(
+      -${(props: ThemeProp) => 2 * props.theme.elementSizes.lg}px
+    );
+  }
 `;
 
 const DescriptionFrame = styled(Flex)`
-  width: 50%;
+  @media (max-width: 575px) {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  @media (min-width: 571px) and (max-width: 1100px) {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  @media (min-width: 1101px) {
+    width: 40%;
+  }
   position: relative;
 `;
 
@@ -57,12 +100,7 @@ const WorkRowContainer = (props: Props) => {
   const { work } = props;
   console.log(work);
   return (
-    <WorkRow
-      justify="space-between"
-      align="center"
-      direction="row"
-      key={work.id}
-    >
+    <WorkRow justify="space-between" align="center" key={work.id}>
       <ImageFrame>
         <Img fadeIn fluid={work.images[0].fluid} />
       </ImageFrame>
@@ -72,14 +110,24 @@ const WorkRowContainer = (props: Props) => {
           angle={randomNumberInclusive(-10, 10)}
           backgroundColor="pink"
         />
-        <H3 textAlign="right">{work.title}</H3>
-        <Flex direction="row" justify="space-between" align="center">
+        <H3 marginBottom="sm" textAlign="right">{work.title}</H3>
+        <Flex
+          wrap="wrap"
+          direction="row"
+          justify="space-between"
+          align="center"
+        >
           <H4 marginBottom="sm">When: </H4>
           <P textAlign="right" marginLeft="sm" color="medium">
             {`${formatDate(work.start)} - ${formatDate(work.end)}`}
           </P>
         </Flex>
-        <Flex direction="row" justify="space-between" align="flex-start">
+        <Flex
+          wrap="wrap"
+          direction="row"
+          justify="space-between"
+          align="flex-start"
+        >
           <H4 marginBottom="sm">What: </H4>
           <ReactMarkdown
             renderers={{
@@ -88,18 +136,26 @@ const WorkRowContainer = (props: Props) => {
             source={work.description}
           />
         </Flex>
-        <Flex direction="row" justify="center" align="center">
+        <Flex
+          wrap="wrap"
+          justify="space-between"
+          direction="row"
+          align="center"
+        >
           <H4 marginBottom="sm">How: </H4>
-          {work.technologies.map((technology: string) => (
-            <P
-              marginLeft="md"
-              marginBottom="sm"
-              color="medium"
-              key={technology + work.id}
-            >
-              {technology}
-            </P>
-          ))}
+          <Flex wrap="wrap" justify="flex-end">
+            {work.technologies.map((technology: string) => (
+              <P
+                textAlign="right"
+                marginLeft="sm"
+                marginBottom="sm"
+                color="medium"
+                key={technology + work.id}
+              >
+                {technology}
+              </P>
+            ))}
+          </Flex>
         </Flex>
       </DescriptionFrame>
     </WorkRow>
