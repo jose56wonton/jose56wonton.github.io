@@ -1,73 +1,38 @@
 import Img from 'gatsby-image';
-import { H3, H4, P } from '../../components/typography';
+import { H3, H4, MarkdownP, P } from '../../components/typography';
 import ReactMarkdown from 'react-markdown';
 import { Flex } from '../../components/flex';
 import React from 'react';
 import { Work } from '../../models/work.model';
 import styled from 'styled-components';
 import { ThemeProp } from '../../theme';
-import { ColorBlock } from '../../components/colorBlock';
+import { ColorDiv } from '../../components/colorDiv';
 import { Wiggle } from '../../components/animations';
 import { randomNumberInclusive } from '../../utils/random';
 import { formatDate } from '../../components/datetime';
-import { Col } from 'styled-bootstrap-grid';
+import { Row, Col } from '../../components/layout';
 
-const WorkRow = styled(Flex)`
-  @media (max-width: 575px) {
-    width: 100%;
-    flex-direction: column;
-
-    margin-bottom: 50px;
-  }
-  @media (min-width: 571px) and (max-width: 1100px) {
-    margin-left: 5%;
-    width: 90%;
-    flex-direction: column;
-    margin-bottom: 105px;
-  }
-  @media (min-width: 1101px) {
-    flex-direction: row;
-    width: 100%;
-    margin-bottom: 105px;
-  }
-`;
-
-const DescriptionText = styled(P)`
-  margin-bottom: 16px;
-  text-align: right;
-`;
-
-interface WorkColorBlockProps {
+interface ColorBlockProps {
   angle: number;
+  animationTime: number;
 }
 
-const WorkColorBlock = styled(ColorBlock)<WorkColorBlockProps>`
-  @media (max-width: 575px) {
-    animation: ${(props: WorkColorBlockProps) =>
+const ColorBlock = styled(ColorDiv)<ColorBlockProps>`
+  @media (max-width: 1100px) {
+    animation: ${(props: ColorBlockProps) =>
         Wiggle(Math.floor(props.angle / 2))}
-      4s infinite;
-  }
-  @media (min-width: 571px) and (max-width: 1100px) {
-    animation: ${(props: WorkColorBlockProps) =>
-        Wiggle(Math.floor(props.angle / 2))}
-      4s infinite;
+      ${props => props.animationTime}s infinite;
   }
   @media (min-width: 1101px) {
-    animation: ${(props: WorkColorBlockProps) => Wiggle(props.angle)} 4s
-      infinite;
+    animation: ${(props: ColorBlockProps) => Wiggle(props.angle)} ${props => props.animationTime}s infinite;
   }
 `;
 
-const ImageFrame = styled(Col)`
+const ImageCol = styled(Col)`
   background-color: ${(props: ThemeProp) => props.theme.color.light};
   padding: ${(props: ThemeProp) => props.theme.elementSizes.sm}px;
-  @media (max-width: 575px) {
-    width: 100%;
-    margin-bottom: 50px;
-  }
-  @media (min-width: 571px) and (max-width: 1100px) {
-    width: 100%;
-    margin-bottom: 50px;
+  @media (max-width: 1100px) {
+    margin: 0px 20px 30px 20px;
   }
   @media (min-width: 1101px) {
     width: 60%;
@@ -77,37 +42,21 @@ const ImageFrame = styled(Col)`
   }
 `;
 
-const DescriptionFrame = styled(Col)`
-  @media (max-width: 575px) {
-    width: 100%;
-    margin-bottom: 50px;
-  }
-  @media (min-width: 571px) and (max-width: 1100px) {
-    width: 100%;
-    margin-bottom: 50px;
-  }
-  @media (min-width: 1101px) {
-    width: 40%;
-  }
-  position: relative;
-`;
-
 interface Props {
   work: Work;
 }
 
-const WorkRowContainer = (props: Props) => {
-  const { work } = props;
-  console.log(work);
+const WorkRow = ({ work }: Props) => {
   return (
-    <WorkRow justify="space-between" align="center" key={work.id}>
-      <ImageFrame xs={12} md={7}>
+    <Row justify="space-between" align="center" key={work.id}>
+      <ImageCol xs={12} md={7}>
         <Img fadeIn fluid={work.images[0].fluid} />
-      </ImageFrame>
+      </ImageCol>
 
-      <DescriptionFrame xs={12} md={5}>
-        <WorkColorBlock
+      <Col xs={12} md={5}>
+        <ColorBlock
           angle={randomNumberInclusive(-10, 10)}
+          animationTime={randomNumberInclusive(2, 4)}
           backgroundColor="pink"
         />
         <H3 marginBottom="sm" textAlign="right">
@@ -133,7 +82,7 @@ const WorkRowContainer = (props: Props) => {
           <H4 marginBottom="sm">What: </H4>
           <ReactMarkdown
             renderers={{
-              paragraph: DescriptionText,
+              paragraph: MarkdownP,
             }}
             source={work.description}
           />
@@ -159,9 +108,9 @@ const WorkRowContainer = (props: Props) => {
             ))}
           </Flex>
         </Flex>
-      </DescriptionFrame>
-    </WorkRow>
+      </Col>
+    </Row>
   );
 };
 
-export default WorkRowContainer;
+export default WorkRow;

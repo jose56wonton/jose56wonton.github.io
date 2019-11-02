@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
-import { Theme } from 'theme';
-
 export interface FlexProps {
   direction?: 'column' | 'row';
-
   justify?:
     | 'start'
     | 'end'
@@ -15,16 +12,16 @@ export interface FlexProps {
     | 'space-around'
     | 'space-evenly'
     | 'inherit';
-
   align?: 'start' | 'end' | 'center' | 'flex-start' | 'flex-end' | 'inherit';
-
   wrap?: 'wrap' | 'nowrap';
+  isFullWidth?: boolean;
 }
 
-export const Flex = styled.div`
+export const Flex = styled.div<FlexProps>`
   display: flex;
-  flex-direction: ${(props: FlexProps) => props.direction};
-  align-items: ${(props: FlexProps) => props.align};
-  justify-content: ${(props: FlexProps) => props.justify};
-  flex-wrap: ${(props: FlexProps) => props.wrap};
+  width: ${props => (props.isFullWidth ? '100%' : 'auto')};
+  flex-direction: ${props => props.direction};
+  align-items: ${props => props.align};
+  justify-content: ${props => props.justify};
+  flex-wrap: ${props => props.wrap};
 `;

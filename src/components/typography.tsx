@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Theme, deviceSize, ElementSizesUnion } from 'theme';
+import { Theme, ElementSizesUnion } from 'theme';
 
 export type Color =
   | 'yellow'
@@ -190,18 +190,21 @@ export const H4 = styled.h4<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) =>
+      props.theme.elementSizes.xl * 1.5}px;
   }
   @media (min-width: 2561px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) =>
+      props.theme.elementSizes.xl * 2.5}px;
   }
 `;
 
 export const P = styled.p<TypographyProps>`
   ${TypographyBase};
+  line-height: 1.2;
   @media (max-width: 575px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
@@ -232,6 +235,10 @@ export const P = styled.p<TypographyProps>`
     );
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.lg * 2}px;
   }
+`;
+export const MarkdownP = styled(P)`
+  margin-bottom: 16px;
+  text-align: right;
 `;
 
 export const A = styled.a<TypographyProps>`

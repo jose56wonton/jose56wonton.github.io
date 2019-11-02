@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
 import { Color, H1 } from './typography';
-import { ColorBlock, ColorBlockProps } from './colorBlock';
+import { ColorDiv, ColorBlockProps } from './colorDiv';
 import { Wiggle } from './animations';
 import { randomNumberInclusive } from '../utils/random';
 
@@ -14,7 +14,7 @@ const Wrapper = styled(Container)`
   align-items: center;
 `;
 
-const OrangeColorBlock = styled(ColorBlock)<ColorBlockProps>`
+const OrangeColorBlock = styled(ColorDiv)<ColorBlockProps>`
   height: 40vh;
   width: 40vw;
   position: absolute;

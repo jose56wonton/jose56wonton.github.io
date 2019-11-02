@@ -4,7 +4,7 @@ import { Flex } from 'components/flex';
 
 import { ThemeProp } from 'theme';
 import { fetchLinks } from '../repositories/link.repository';
-import { A, H4, TypographyProps } from 'components/typography';
+import { A, H4} from 'components/typography';
 import { randomNumberInclusive } from '../utils/random';
 import { Wiggle } from '../components/animations';
 import { SectionWrapper } from '../components/sectionWrapper';

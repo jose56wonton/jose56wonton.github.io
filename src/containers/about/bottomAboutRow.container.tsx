@@ -4,7 +4,7 @@ import React from 'react';
 import { H3 } from '../../components/typography';
 import { IsHovered } from '../../utils/types';
 import { Wiggle } from '../../components/animations';
-import { ColorBlock, ColorBlockProps } from '../../components/colorBlock';
+import { ColorDiv, ColorBlockProps } from '../../components/colorDiv';
 
 const TitleCol = styled(Col)`
   display: flex;
@@ -14,7 +14,7 @@ const TitleCol = styled(Col)`
 
 type TitleBlockProps = IsHovered & ColorBlockProps;
 
-const TitleBlock = styled(ColorBlock)<TitleBlockProps>`
+const TitleBlock = styled(ColorDiv)<TitleBlockProps>`
   @media (max-width: 575px) {
     width: 170%;
     height: 100%;
@@ -30,7 +30,7 @@ const TitleBlock = styled(ColorBlock)<TitleBlockProps>`
   animation: ${Wiggle(-40)} 4s infinite;
 `;
 
-const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
+const BlandBlock = styled(ColorDiv)<ColorBlockProps>`
   @media (max-width: 575px) {
     width: 65%;
     height: 65%;
