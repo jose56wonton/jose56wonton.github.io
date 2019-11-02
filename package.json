@@ -14,7 +14,6 @@
     "lint:fix": "yarn lint --fix"
   },
   "dependencies": {
-    "@types/lodash": "^4.14.144",
     "@types/node": "^12.7.8",
     "@types/react": "^16.9.3",
     "@types/react-dom": "^16.9.1",
@@ -36,7 +35,6 @@
     "gatsby-source-contentful": "^2.1.44",
     "gatsby-source-filesystem": "^2.1.26",
     "gatsby-transformer-sharp": "^2.2.17",
-    "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",

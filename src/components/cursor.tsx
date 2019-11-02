@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import styled, { css, keyframes } from 'styled-components';
-import { deviceSize, theme, ThemeProp } from '../theme';
-import { debounce } from 'lodash'; // TODO: maybe remove lodash if this is the only usage
+import styled, { css} from 'styled-components';
+import { ThemeProp } from '../theme';
 
 interface CursorProps extends ThemeProp {
   cursorType: CursorType;
   clickState: boolean;
 }
 
-// transform: ${props => {
-//     console.log(props.clickState);
-//     const aaaa = props.clickState
-//       ? 'translate(-50%, -50%) scale(1.25)'
-//       : 'translate(-50%, -50%)';
-//     console.log(aaaa);
-//     return aaaa;
-//   }}
 const StyledCursor = styled.div<CursorProps>`
   border-radius: 100%;
   opacity: 0.8;
@@ -52,7 +43,6 @@ const StyledCursor = styled.div<CursorProps>`
   }};
 
   ${(props: CursorProps) => {
-    // console.log('styled', props.cursorType);
     switch (props.cursorType) {
       case 'link':
         return css`
