@@ -190,18 +190,21 @@ export const H4 = styled.h4<TypographyProps>`
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) =>
+      props.theme.elementSizes.xl * 1.5}px;
   }
   @media (min-width: 2561px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}
     );
-    font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
+    font-size: ${(props: TypographyProps) =>
+      props.theme.elementSizes.xl * 2.5}px;
   }
 `;
 
 export const P = styled.p<TypographyProps>`
   ${TypographyBase};
+  line-height: 1.2;
   @media (max-width: 575px) {
     transform: translateX(
       ${(props: TypographyProps) => getHorizontalTransform(props)}

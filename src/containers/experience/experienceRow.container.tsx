@@ -16,14 +16,14 @@ import { Experience } from '../../models/experience.model';
 const WorkRow = styled(Flex)`
   @media (max-width: 575px) {
     width: 100%;
-    flex-direction: column;
+    flex-direction: column-reverse;
 
-    margin-bottom: 50px;
+    margin-bottom: 100px;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     margin-left: 5%;
     width: 90%;
-    flex-direction: column;
+    flex-direction: column-reverse;
     margin-bottom: 105px;
   }
   @media (min-width: 1101px) {
@@ -44,55 +44,94 @@ export interface WorkColorBlockProps {
 }
 
 const SmallCircle = styled(ColorBlock)<WorkColorBlockProps>`
-  border-radius: 50%;
-  height: 0;
-  width: 90%;
-  top: -20%;
-  left: -8%;
-  padding-bottom: 90%;
   @media (max-width: 575px) {
     animation: ${(props: WorkColorBlockProps) =>
-        Wiggle(Math.floor(props.angle / 2))}
+  Wiggle(Math.floor(props.angle / 2))}
       4s infinite;
+    z-index: 4;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     animation: ${(props: WorkColorBlockProps) =>
-        Wiggle(Math.floor(props.angle / 2))}
+  Wiggle(Math.floor(props.angle / 2))}
       4s infinite;
+    z-index: 4;
   }
   @media (min-width: 1101px) {
     animation: ${(props: WorkColorBlockProps) => Wiggle(props.angle)} 4s
       infinite;
+    border-radius: 50%;
+    height: 0;
+    width: 90%;
+    top: -20%;
+    left: -8%;
+    padding-bottom: 90%;
+  }
+  @media (min-width: 2561px) {
+    width: 110%;
+    top: 0;
+    left: -18%;
+    padding-bottom: 110%;
   }
 `;
 
 const BigCircle = styled(ColorBlock)<WorkColorBlockProps>`
   border-radius: 50%;
   height: 0;
-  width: 105%;
-  padding-bottom: 105%;
-  top: -8%;
-  right: -10%;
-  @media (max-width: 575px) {
+  z-index: -1;
+
+  @media (max-width: 400px) {
     animation: ${(props: WorkColorBlockProps) =>
         Wiggle(Math.floor(props.angle / 2))}
       4s infinite;
+    width: 190%;
+    padding-bottom: 190%;
+
+    right: -50%;
+  }
+
+  @media (min-width: 401px) and (max-width: 575px) {
+    animation: ${(props: WorkColorBlockProps) =>
+        Wiggle(Math.floor(props.angle / 2))}
+      4s infinite;
+    width: 150%;
+    padding-bottom: 150%;
+    top: -8%;
+    right: -25%;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     animation: ${(props: WorkColorBlockProps) =>
         Wiggle(Math.floor(props.angle / 2))}
       4s infinite;
+    width: 100%;
+    padding-bottom: 100%;
+    top: -8%;
+    right: -10%;
   }
   @media (min-width: 1101px) {
     animation: ${(props: WorkColorBlockProps) => Wiggle(props.angle)} 4s
       infinite;
+    width: 100%;
+    padding-bottom: 100%;
+    top: -8%;
+    right: -10%;
+  }
+  @media (min-width: 1921px) {
+    width: 120%;
+    padding-bottom: 120%;
+    right: -15%;
+    top: -5%;
+  }
+  @media (min-width: 2561px) {
+    width: 170%;
+    padding-bottom: 170%;
+    right: -35%;
   }
 `;
 
 const DescriptionFrame = styled(Col)`
   @media (max-width: 575px) {
-    width: 100%;
-    margin-bottom: 50px;
+    width: 90%;
+    margin: 0 20px 0px 20px;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     width: 100%;
@@ -123,23 +162,40 @@ const ExperienceRowContainer = (props: Props) => {
         />
         <Flex direction="column" align="center">
           <Flex
+            isFullWidth={true}
             wrap="wrap"
+            justify="flex-start"
             direction="row"
-            justify="space-between"
             align="center"
+            style={{ paddingRight: '30px' }}
           >
             <H4 marginBottom="sm">When: </H4>
-            <P
-              textAlign="right"
-              marginLeft="sm"
-              color={isVersion ? 'medium' : 'dark'}
-            >
-              {`${formatDate(experience.start)} - ${formatDate(
-                experience.end
-              )}`}
-            </P>
+            <Flex wrap="wrap" justify="flex-start">
+              <P
+                textAlign="left"
+                marginLeft="sm"
+                marginBottom="sm"
+                color={isVersion ? 'medium' : 'dark'}
+              >
+                {formatDate(experience.start)} -
+              </P>
+              <P
+                textAlign="left"
+                marginLeft="sm"
+                marginBottom="sm"
+                color={isVersion ? 'medium' : 'dark'}
+              >
+                {formatDate(experience.end)}
+              </P>
+            </Flex>
           </Flex>
-          <Flex wrap="wrap" justify="flex-start" direction="row" align="center">
+          <Flex
+            isFullWidth={true}
+            wrap="wrap"
+            justify="flex-start"
+            direction="row"
+            align="center"
+          >
             <H4 marginBottom="sm">Stack: </H4>
             <Flex wrap="wrap" justify="flex-start">
               {experience.stack.map((stack: string) => (
