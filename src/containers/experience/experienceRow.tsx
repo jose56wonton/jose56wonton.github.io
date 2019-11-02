@@ -1,13 +1,10 @@
-import Img from 'gatsby-image';
 import { H3, H4, MarkdownP, P } from '../../components/typography';
 import ReactMarkdown from 'react-markdown';
 import { Flex } from '../../components/flex';
-import React, { useState } from 'react';
-import { Work } from '../../models/work.model';
+import React from 'react';
 import styled from 'styled-components';
-import { ThemeProp } from '../../theme';
 import { ColorDiv } from '../../components/colorDiv';
-import { Jiggle, Wiggle } from '../../components/animations';
+import { Jiggle } from '../../components/animations';
 import { randomNumberInclusive } from '../../utils/random';
 import { formatDate } from '../../components/datetime';
 import { Experience } from '../../models/experience.model';
