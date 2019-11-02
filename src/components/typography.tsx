@@ -236,6 +236,10 @@ export const P = styled.p<TypographyProps>`
     font-size: ${(props: TypographyProps) => props.theme.elementSizes.lg * 2}px;
   }
 `;
+export const MarkdownP = styled(P)`
+  margin-bottom: 16px;
+  text-align: right;
+`;
 
 export const A = styled.a<TypographyProps>`
   ${TypographyBase};

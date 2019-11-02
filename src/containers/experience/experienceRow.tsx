@@ -1,13 +1,13 @@
 import Img from 'gatsby-image';
-import { H3, H4, P } from '../../components/typography';
+import { H3, H4, MarkdownP, P } from '../../components/typography';
 import ReactMarkdown from 'react-markdown';
 import { Flex } from '../../components/flex';
 import React, { useState } from 'react';
 import { Work } from '../../models/work.model';
 import styled from 'styled-components';
 import { ThemeProp } from '../../theme';
-import { ColorBlock } from '../../components/colorBlock';
-import { Wiggle } from '../../components/animations';
+import { ColorDiv } from '../../components/colorDiv';
+import { Jiggle, Wiggle } from '../../components/animations';
 import { randomNumberInclusive } from '../../utils/random';
 import { formatDate } from '../../components/datetime';
 import { Experience } from '../../models/experience.model';
@@ -19,32 +19,20 @@ const Row = styled(GenericRow)`
   }
 `;
 
-const DescriptionText = styled(P)`
-  margin-bottom: 16px;
-  text-align: right;
-  z-index: 5;
-`;
-
-export interface WorkColorBlockProps {
-  angle: number;
+export interface ColorCircleProps {
+  displacement: number;
+  animationTime: number;
 }
 
-const SmallCircle = styled(ColorBlock)<WorkColorBlockProps>`
-  @media (max-width: 575px) {
-    animation: ${(props: WorkColorBlockProps) =>
-        Wiggle(Math.floor(props.angle / 2))}
-      4s infinite;
-    z-index: 4;
-  }
-  @media (min-width: 571px) and (max-width: 1100px) {
-    animation: ${(props: WorkColorBlockProps) =>
-        Wiggle(Math.floor(props.angle / 2))}
-      4s infinite;
+const SmallCircle = styled(ColorDiv)<ColorCircleProps>`
+  animation: ${props => Jiggle(props.displacement / 2)}
+    ${props => props.animationTime}s infinite;
+  @media (max-width: 1100px) {
     z-index: 4;
   }
   @media (min-width: 1101px) {
-    animation: ${(props: WorkColorBlockProps) => Wiggle(props.angle)} 4s
-      infinite;
+    animation: ${props => Jiggle(props.displacement)}
+      ${props => props.animationTime}s infinite;
     border-radius: 50%;
     height: 0;
     width: 90%;
@@ -60,42 +48,33 @@ const SmallCircle = styled(ColorBlock)<WorkColorBlockProps>`
   }
 `;
 
-const BigCircle = styled(ColorBlock)<WorkColorBlockProps>`
+const BigCircle = styled(ColorDiv)<ColorCircleProps>`
   border-radius: 50%;
   height: 0;
   z-index: -1;
+  animation: ${props => Jiggle(props.displacement / 2)}
+    ${props => props.animationTime}s infinite;
 
   @media (max-width: 400px) {
-    animation: ${(props: WorkColorBlockProps) =>
-        Wiggle(Math.floor(props.angle / 2))}
-      4s infinite;
     width: 190%;
     padding-bottom: 190%;
-
     right: -50%;
   }
-
   @media (min-width: 401px) and (max-width: 575px) {
-    animation: ${(props: WorkColorBlockProps) =>
-        Wiggle(Math.floor(props.angle / 2))}
-      4s infinite;
     width: 150%;
     padding-bottom: 150%;
     top: -8%;
     right: -25%;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
-    animation: ${(props: WorkColorBlockProps) =>
-        Wiggle(Math.floor(props.angle / 2))}
-      4s infinite;
     width: 100%;
     padding-bottom: 100%;
     top: -8%;
     right: -10%;
   }
   @media (min-width: 1101px) {
-    animation: ${(props: WorkColorBlockProps) => Wiggle(props.angle)} 4s
-      infinite;
+    animation: ${props => Jiggle(props.displacement)}
+      ${props => props.animationTime}s infinite;
     width: 100%;
     padding-bottom: 100%;
     top: -8%;
@@ -126,7 +105,8 @@ const ExperienceRow = ({ experience, index }: Props) => {
     <Row justify="space-between" align="center" key={experience.id}>
       <Col xs={12} md={5}>
         <SmallCircle
-          angle={randomNumberInclusive(-10, 10)}
+          displacement={randomNumberInclusive(-10, 10)}
+          animationTime={randomNumberInclusive(2, 4)}
           backgroundColor={version === 1 ? 'purple' : 'green'}
         />
         <Flex direction="column" align="center">
@@ -184,7 +164,8 @@ const ExperienceRow = ({ experience, index }: Props) => {
       </Col>
       <Col xs={12} md={7}>
         <BigCircle
-          angle={randomNumberInclusive(-10, 10)}
+          displacement={randomNumberInclusive(-10, 10)}
+          animationTime={randomNumberInclusive(2, 4)}
           backgroundColor={version === 0 ? 'purple' : 'green'}
         />
         <H3 marginBottom="sm" textAlign="right">
@@ -202,7 +183,7 @@ const ExperienceRow = ({ experience, index }: Props) => {
         >
           <ReactMarkdown
             renderers={{
-              listItem: DescriptionText,
+              listItem: MarkdownP,
             }}
             source={experience.description}
           />

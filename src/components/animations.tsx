@@ -14,3 +14,17 @@ export const Wiggle = (movementOrigin: number) => keyframes`
     transform: rotate(${movementOrigin}deg);
   }
 `;
+
+export const Jiggle = (movementOrigin: number) => keyframes`
+  0% { 
+    transform:  translate(${movementOrigin}px,${movementOrigin}px) ;
+  }
+  50% { 
+    transform: translate(${
+      randomBoolean() ? movementOrigin + 5 : movementOrigin - 5
+    }px,${randomBoolean() ? movementOrigin + 5 : movementOrigin - 5}px);
+  }
+  100% { 
+    transform: translate(${movementOrigin}px,${movementOrigin}px) ;
+  }
+`;

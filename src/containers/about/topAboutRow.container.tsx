@@ -3,7 +3,7 @@ import { H1, A } from '../../components/typography';
 import styled from 'styled-components';
 import { Link } from 'models/link.model';
 import { Wiggle } from '../../components/animations';
-import { ColorBlock, ColorBlockProps } from '../../components/colorBlock';
+import { ColorDiv, ColorBlockProps } from '../../components/colorDiv';
 import { Col, Row } from 'styled-bootstrap-grid';
 import Img, { FluidObject } from 'gatsby-image';
 
@@ -19,7 +19,7 @@ const NameCol = styled(Col)`
   z-index: 1;
 `;
 
-const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
+const BlandBlock = styled(ColorDiv)<ColorBlockProps>`
   @media (max-width: 575px) {
     width: 80%;
     height: 80%;
@@ -48,7 +48,7 @@ const BlandBlock = styled(ColorBlock)<ColorBlockProps>`
   }
 `;
 
-const OrangeColorBlock = styled(ColorBlock)<ColorBlockProps>`
+const OrangeColorBlock = styled(ColorDiv)<ColorBlockProps>`
   @media (max-width: 575px) {
     width: 110%;
     height: 90%;
