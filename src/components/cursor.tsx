@@ -151,15 +151,26 @@ const Cursor = () => {
     setClickState(false);
   };
 
+  const handleMouseEnter = (event: MouseEvent) => {
+    setCursorType('default');
+  };
+  const handleMouseLeave = (event: MouseEvent) => {
+    setCursorType('none');
+  };
+
   // TODO: check when this is getting called and uncalled
   useEffect(() => {
     document.addEventListener('mousemove', handleMouseMovement);
     document.addEventListener('mousedown', handleMouseDown);
     document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('mouseenter', handleMouseEnter);
+    document.addEventListener('mouseleave', handleMouseLeave);
     return () => {
       document.removeEventListener('mousemove', handleMouseMovement);
-      document.addEventListener('mousedown', handleMouseDown);
-      document.addEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('mouseenter', handleMouseEnter);
+      document.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, []);
 
