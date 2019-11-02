@@ -6,7 +6,7 @@ import { Flex } from 'components/flex';
 import { format, parse } from 'date-fns';
 import { Theme } from 'theme';
 import { SectionTitle } from '../components/sectionTitle';
-import ExperienceRowContainer from './experience/experienceRow.container';
+import ExperienceRow from './experience/experienceRow';
 import { SectionWrapper } from "../components/sectionWrapper"
 
 
@@ -22,7 +22,7 @@ const ExperienceSection = () => {
     <SectionWrapper>
       <SectionTitle>Experience</SectionTitle>
       {experiences.map((experience: Experience, index: number) => {
-        return <ExperienceRowContainer key={index} index={index} experience={experience} />;
+        return <ExperienceRow key={index} index={index} experience={experience} />;
       })}
     </SectionWrapper>
   );

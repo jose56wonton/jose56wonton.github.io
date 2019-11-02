@@ -10,27 +10,7 @@ import { ColorBlock } from '../../components/colorBlock';
 import { Wiggle } from '../../components/animations';
 import { randomNumberInclusive } from '../../utils/random';
 import { formatDate } from '../../components/datetime';
-import { Col } from 'styled-bootstrap-grid';
-
-const WorkRow = styled(Flex)`
-  @media (max-width: 575px) {
-    width: 100%;
-    flex-direction: column;
-
-    margin-bottom: 50px;
-  }
-  @media (min-width: 571px) and (max-width: 1100px) {
-    margin-left: 5%;
-    width: 90%;
-    flex-direction: column;
-    margin-bottom: 105px;
-  }
-  @media (min-width: 1101px) {
-    flex-direction: row;
-    width: 100%;
-    margin-bottom: 105px;
-  }
-`;
+import { Row, Col } from '../../components/layout';
 
 const DescriptionText = styled(P)`
   margin-bottom: 16px;
@@ -58,16 +38,14 @@ const WorkColorBlock = styled(ColorBlock)<WorkColorBlockProps>`
   }
 `;
 
-const ImageFrame = styled(Col)`
+const ImageCol = styled(Col)`
   background-color: ${(props: ThemeProp) => props.theme.color.light};
   padding: ${(props: ThemeProp) => props.theme.elementSizes.sm}px;
   @media (max-width: 575px) {
-    width: 100%;
-    margin-bottom: 50px;
+    margin: 0 20px 30px 20px;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
-    width: 100%;
-    margin-bottom: 50px;
+    margin: 0px 20px 30px 20px;
   }
   @media (min-width: 1101px) {
     width: 60%;
@@ -77,35 +55,18 @@ const ImageFrame = styled(Col)`
   }
 `;
 
-const DescriptionFrame = styled(Col)`
-  @media (max-width: 575px) {
-    width: 100%;
-    margin-bottom: 50px;
-  }
-  @media (min-width: 571px) and (max-width: 1100px) {
-    width: 100%;
-    margin-bottom: 50px;
-  }
-  @media (min-width: 1101px) {
-    width: 40%;
-  }
-  position: relative;
-`;
-
 interface Props {
   work: Work;
 }
 
-const WorkRowContainer = (props: Props) => {
-  const { work } = props;
-  console.log(work);
+const WorkRow = ({ work }: Props) => {
   return (
-    <WorkRow justify="space-between" align="center" key={work.id}>
-      <ImageFrame xs={12} md={7}>
+    <Row justify="space-between" align="center" key={work.id}>
+      <ImageCol xs={12} md={7}>
         <Img fadeIn fluid={work.images[0].fluid} />
-      </ImageFrame>
+      </ImageCol>
 
-      <DescriptionFrame xs={12} md={5}>
+      <Col xs={12} md={5}>
         <WorkColorBlock
           angle={randomNumberInclusive(-10, 10)}
           backgroundColor="pink"
@@ -159,9 +120,9 @@ const WorkRowContainer = (props: Props) => {
             ))}
           </Flex>
         </Flex>
-      </DescriptionFrame>
-    </WorkRow>
+      </Col>
+    </Row>
   );
 };
 
-export default WorkRowContainer;
+export default WorkRow;

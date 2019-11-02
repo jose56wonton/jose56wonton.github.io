@@ -1,84 +1,37 @@
-import React, { ReactElement } from 'react';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
+import { Flex } from './flex';
+import { Col as BootstrapCol } from 'styled-bootstrap-grid';
 
-import { theme } from 'theme';
-import { GridThemeProvider } from 'styled-bootstrap-grid';
-
-interface LayoutProps {
-  children: ReactElement | ReactElement[];
-}
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    cursor: none;
+export const Row = styled(Flex)`
+  @media (max-width: 575px) {
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 50px;
   }
-  a {
-    cursor: none;
+  @media (min-width: 571px) and (max-width: 1100px) {
+    margin-left: 5%;
+    width: 90%;
+    flex-direction: column;
+    margin-bottom: 205px;
   }
-  div {
-    box-sizing: border-box;
+  @media (min-width: 1101px) {
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 205px;
   }
-  @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 `;
 
-const Content = styled.div`
+export const Col = styled(BootstrapCol)`
+  @media (max-width: 575px) {
+    width: 90%;
+    margin: 0 20px;
+  }
+  @media (min-width: 571px) and (max-width: 1100px) {
+    width: 100%;
+    margin: 0 20px;
+  }
+  @media (min-width: 1101px) {
+    width: 40%;
+  }
   position: relative;
-  min-height: 100vh;
-  margin: 0 auto;
 `;
-
-const gridTheme = {
-  breakpoints: {
-    // defaults below
-    xl: 2561,
-    lg: 1921,
-    md: 1101,
-    sm: 576,
-    xs: 575,
-    // or you can use aliases
-    // giant: 1200,
-    // desktop: 992,
-    // tablet: 768,
-    // phone: 576,
-    // smaller: 575,
-  },
-  row: {
-    padding: 10, // default 15
-  },
-  col: {
-    padding: 5, // default 15
-  },
-  container: {
-    padding: 0, // default 15
-    maxWidth: {
-      // defaults below
-      xl: 1500,
-      lg: 1200,
-      md: 900,
-      sm: 640,
-      xs: 540,
-      // or you can use aliases
-      // giant: 1140,
-      // desktop: 960,
-      // tablet: 720,
-      // phone: 540,
-      // smaller: 540,
-    },
-  },
-};
-
-const Layout = ({ children }: LayoutProps) => (
-  <>
-    <GlobalStyle />
-    <ThemeProvider theme={theme}>
-      <GridThemeProvider gridTheme={gridTheme}>
-        <Content>{children}</Content>
-      </GridThemeProvider>
-    </ThemeProvider>
-  </>
-);
-
-export default Layout;

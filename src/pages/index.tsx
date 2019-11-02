@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Layout from 'components/layout';
+import StylingProvider from 'components/stylingProvider';
 import SEO from 'components/seo';
 
 import AboutSection from 'containers/about.container';
@@ -19,14 +19,14 @@ const IndexPage = () => (
       meta={{}}
     />
 
-    <Layout>
+    <StylingProvider>
       <AboutSection />
       <WorkSection />
       <ExperienceSection />
       <Hero text="WIP" backgroundColor="purple" />
       <FooterContainer />
       <Cursor />
-    </Layout>
+    </StylingProvider>
   </>
 );
 

@@ -10,26 +10,12 @@ import { ColorBlock } from '../../components/colorBlock';
 import { Wiggle } from '../../components/animations';
 import { randomNumberInclusive } from '../../utils/random';
 import { formatDate } from '../../components/datetime';
-import { Col } from 'styled-bootstrap-grid';
 import { Experience } from '../../models/experience.model';
+import { Row as GenericRow, Col } from '../../components/layout';
 
-const WorkRow = styled(Flex)`
-  @media (max-width: 575px) {
-    width: 100%;
+const Row = styled(GenericRow)`
+  @media (max-width: 1100px) {
     flex-direction: column-reverse;
-
-    margin-bottom: 100px;
-  }
-  @media (min-width: 571px) and (max-width: 1100px) {
-    margin-left: 5%;
-    width: 90%;
-    flex-direction: column-reverse;
-    margin-bottom: 105px;
-  }
-  @media (min-width: 1101px) {
-    flex-direction: row;
-    width: 100%;
-    margin-bottom: 205px;
   }
 `;
 
@@ -46,13 +32,13 @@ export interface WorkColorBlockProps {
 const SmallCircle = styled(ColorBlock)<WorkColorBlockProps>`
   @media (max-width: 575px) {
     animation: ${(props: WorkColorBlockProps) =>
-  Wiggle(Math.floor(props.angle / 2))}
+        Wiggle(Math.floor(props.angle / 2))}
       4s infinite;
     z-index: 4;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     animation: ${(props: WorkColorBlockProps) =>
-  Wiggle(Math.floor(props.angle / 2))}
+        Wiggle(Math.floor(props.angle / 2))}
       4s infinite;
     z-index: 4;
   }
@@ -128,37 +114,20 @@ const BigCircle = styled(ColorBlock)<WorkColorBlockProps>`
   }
 `;
 
-const DescriptionFrame = styled(Col)`
-  @media (max-width: 575px) {
-    width: 90%;
-    margin: 0 20px 0px 20px;
-  }
-  @media (min-width: 571px) and (max-width: 1100px) {
-    width: 100%;
-    margin-bottom: 50px;
-  }
-  @media (min-width: 1101px) {
-    width: 40%;
-  }
-  position: relative;
-`;
-
 interface Props {
   experience: Experience;
   index: number;
 }
 
-const ExperienceRowContainer = (props: Props) => {
-  const { experience } = props;
-
-  const isVersion = props.index % 2 === 1;
+const ExperienceRow = ({ experience, index }: Props) => {
+  const version = index % 2;
 
   return (
-    <WorkRow justify="space-between" align="center" key={experience.id}>
-      <DescriptionFrame xs={12} md={5}>
+    <Row justify="space-between" align="center" key={experience.id}>
+      <Col xs={12} md={5}>
         <SmallCircle
           angle={randomNumberInclusive(-10, 10)}
-          backgroundColor={isVersion ? 'purple' : 'green'}
+          backgroundColor={version === 1 ? 'purple' : 'green'}
         />
         <Flex direction="column" align="center">
           <Flex
@@ -175,7 +144,7 @@ const ExperienceRowContainer = (props: Props) => {
                 textAlign="left"
                 marginLeft="sm"
                 marginBottom="sm"
-                color={isVersion ? 'medium' : 'dark'}
+                color={version === 1 ? 'medium' : 'dark'}
               >
                 {formatDate(experience.start)} -
               </P>
@@ -183,7 +152,7 @@ const ExperienceRowContainer = (props: Props) => {
                 textAlign="left"
                 marginLeft="sm"
                 marginBottom="sm"
-                color={isVersion ? 'medium' : 'dark'}
+                color={version === 1 ? 'medium' : 'dark'}
               >
                 {formatDate(experience.end)}
               </P>
@@ -203,7 +172,7 @@ const ExperienceRowContainer = (props: Props) => {
                   textAlign="left"
                   marginLeft="sm"
                   marginBottom="sm"
-                  color={isVersion ? 'medium' : 'dark'}
+                  color={version === 1 ? 'medium' : 'dark'}
                   key={stack + experience.id}
                 >
                   {stack}
@@ -212,11 +181,11 @@ const ExperienceRowContainer = (props: Props) => {
             </Flex>
           </Flex>
         </Flex>
-      </DescriptionFrame>
-      <DescriptionFrame xs={12} md={7}>
+      </Col>
+      <Col xs={12} md={7}>
         <BigCircle
           angle={randomNumberInclusive(-10, 10)}
-          backgroundColor={!isVersion ? 'purple' : 'green'}
+          backgroundColor={version === 0 ? 'purple' : 'green'}
         />
         <H3 marginBottom="sm" textAlign="right">
           {experience.title}
@@ -238,9 +207,9 @@ const ExperienceRowContainer = (props: Props) => {
             source={experience.description}
           />
         </Flex>
-      </DescriptionFrame>
-    </WorkRow>
+      </Col>
+    </Row>
   );
 };
 
-export default ExperienceRowContainer;
+export default ExperienceRow;
