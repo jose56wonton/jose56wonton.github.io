@@ -9,6 +9,7 @@ import FooterContainer from 'containers/footer.container';
 import Cursor from 'components/cursor';
 import Hero from '../components/hero';
 import ExperienceSection from '../containers/experience.container';
+import Navigation from '../containers/navigation.container';
 
 const IndexPage = () => (
   <>
@@ -20,6 +21,7 @@ const IndexPage = () => (
     />
 
     <StylingProvider>
+      <Navigation />
       <AboutSection />
       <WorkSection />
       <ExperienceSection />

@@ -71,6 +71,7 @@ const FooterContainer = () => {
         <div>
           {Object.keys(links).map(key => (
             <A
+              className={`shape-${randomNumberInclusive(1,3)} color-${randomNumberInclusive(1,6)}`}
               marginRight="md"
               horizontalTransform="xl"
               textAlign="right"

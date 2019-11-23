@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import styled, { css} from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ThemeProp } from '../theme';
+import { shape } from 'prop-types';
 
 interface CursorProps extends ThemeProp {
-  cursorType: CursorType;
+  cursorState: CursorState;
   clickState: boolean;
 }
 
@@ -22,19 +23,23 @@ const StyledCursor = styled.div<CursorProps>`
     width 0.2s ease;
 
   z-index: ${(props: CursorProps) => {
-    switch (props.cursorType) {
-      case 'link':
-        return -1;
+    switch (props.cursorState) {
+      case 'default':
+        return 1;
       case 'none':
         return '';
       default:
-        return 1;
+        return -1;
     }
   }};
   background-color: ${(props: CursorProps) => {
-    switch (props.cursorType) {
-      case 'link':
+    switch (props.cursorState) {
+      case "default":
+        return props.theme.color.dark;
+      case 'link-1':
         return props.theme.color.blue;
+      case 'link-2':
+        return props.theme.color.yellow;
       case 'none':
         return '';
       default:
@@ -43,36 +48,8 @@ const StyledCursor = styled.div<CursorProps>`
   }};
 
   ${(props: CursorProps) => {
-    switch (props.cursorType) {
-      case 'link':
-        return css`
-          @media (max-width: 575px) {
-            width: 70px;
-            height: 70px;
-          }
-          @media (min-width: 571px) and (max-width: 1100px) {
-            width: 70px;
-            height: 70px;
-          }
-          @media (min-width: 1101px) {
-            width: 75px;
-            height: 75px;
-          }
-          @media (min-width: 1921px) {
-            width: 100px;
-            height: 100px;
-          }
-          @media (min-width: 2561px) {
-            width: 150px;
-            height: 150px;
-          }
-        `;
-      case 'none':
-        return `
-        width: 0px;
-    height: 0px;
-        `;
-      default:
+    switch (props.cursorState) {
+      case 'default':
         return css`
           @media (max-width: 575px) {
             width: 20px;
@@ -95,6 +72,34 @@ const StyledCursor = styled.div<CursorProps>`
             height: 50px;
           }
         `;
+      case 'none':
+        return css`
+          width: 0px;
+          height: 0px;
+        `;
+      default:
+        return css`
+          @media (max-width: 575px) {
+            width: 70px;
+            height: 70px;
+          }
+          @media (min-width: 571px) and (max-width: 1100px) {
+            width: 70px;
+            height: 70px;
+          }
+          @media (min-width: 1101px) {
+            width: 75px;
+            height: 75px;
+          }
+          @media (min-width: 1921px) {
+            width: 100px;
+            height: 100px;
+          }
+          @media (min-width: 2561px) {
+            width: 150px;
+            height: 150px;
+          }
+        `;
     }
   }};
 `;
@@ -103,15 +108,28 @@ interface CursorLocation {
   top: string;
   left: string;
 }
+type ShapeType = 'shape-1' | 'shape-1' | 'shape-1';
+type ColorType =
+  | 'color-1'
+  | 'color-2'
+  | 'color-3'
+  | 'color-4'
+  | 'color-5'
+  | 'color-6';
 
-type CursorType = 'link' | 'default' | 'none';
+interface CursorType {
+  shape: 'shape-1' | 'shape-1' | 'shape-1';
+  color: 'color-1' | 'color-2' | 'color-3' | 'color-4' | 'color-5' | 'color-6';
+}
+
+type CursorState = CursorType | 'none' | 'default';
 
 const Cursor = () => {
   const [cursorLocation, setCursorLocation] = useState<CursorLocation>({
     top: '0',
     left: '0',
   });
-  const [cursorType, setCursorType] = useState<CursorType>('default');
+  const [cursorState, setCursorState] = useState<CursorState>('default');
   const [clickState, setClickState] = useState(false);
 
   const handleMouseMovement = (event: MouseEvent) => {
@@ -119,13 +137,21 @@ const Cursor = () => {
     const target = event.target as HTMLElement;
 
     /**
-     * wish the following could be more optimized. I am not sure why the component would have cursorType === 'link' while
-     * this function had cursorType === 'default'
+     * wish the following could be more optimized. I am not sure why the component would have cursorState === 'link' while
+     * this function had cursorState === 'default'
      */
-    if (target.nodeName === 'A' && cursorType === 'default') {
-      setCursorType('link');
+    if (target.nodeName === 'A') {
+      if (target.classList.length === 0) {
+        return;
+      }
+      const shapeType = target.classList[target.classList.length - 2];
+      const colorType = target.classList[target.classList.length - 1];
+      setCursorState({
+        shape: shapeType as ShapeType,
+        color: colorType as ColorType,
+      });
     } else if (target.nodeName !== 'A') {
-      setCursorType('default');
+      setCursorState('default');
     }
 
     setCursorLocation({
@@ -142,10 +168,10 @@ const Cursor = () => {
   };
 
   const handleMouseEnter = (event: MouseEvent) => {
-    setCursorType('default');
+    setCursorState('default');
   };
   const handleMouseLeave = (event: MouseEvent) => {
-    setCursorType('none');
+    setCursorState('none');
   };
 
   // TODO: check when this is getting called and uncalled
@@ -167,7 +193,7 @@ const Cursor = () => {
   return (
     <StyledCursor
       clickState={clickState}
-      cursorType={cursorType}
+      cursorState={cursorState}
       style={{ ...cursorLocation }}
     />
   );
