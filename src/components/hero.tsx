@@ -45,7 +45,7 @@ interface Props {
   backgroundColor: Color;
 }
 
-const Hero = (props: Props) => {
+const Hero: React.FC<Props> = props => {
   return (
     <Wrapper>
       <OrangeColorBlock backgroundColor={props.backgroundColor}>
