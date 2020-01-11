@@ -39,7 +39,6 @@ export const fetchWork = (): Work[] => {
       }
     `
   );
-  console.log(nodes);
   return nodes.map(
     (node: WorkNode): Work => ({
       ...node,

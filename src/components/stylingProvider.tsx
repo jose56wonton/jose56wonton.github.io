@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
+import Scrollbar from 'components/scrollbar';
 import { theme } from 'theme';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
 
@@ -24,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 `;
 
-const Content = styled.div`
+const Content = styled(Scrollbar)`
   position: relative;
   min-height: 100vh;
   margin: 0 auto;
@@ -75,7 +76,10 @@ const StylingProvider = ({ children }: LayoutProps) => (
     <GlobalStyle />
     <ThemeProvider theme={theme}>
       <GridThemeProvider gridTheme={gridTheme}>
-        <Content>{children}</Content>
+        <Content
+        >
+          {children}
+        </Content>
       </GridThemeProvider>
     </ThemeProvider>
   </>
