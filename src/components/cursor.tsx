@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { ThemeProp } from '../theme';
+import { Theme, ThemeProp } from '../theme';
 import { shape } from 'prop-types';
 
 interface CursorProps extends ThemeProp {
@@ -8,18 +8,36 @@ interface CursorProps extends ThemeProp {
   clickState: boolean;
 }
 
+function getColor(props: ColorType, theme: Theme) {
+  switch (props) {
+    case 'color-1':
+      return theme.color.blue;
+    case 'color-2':
+      return theme.color.orange;
+    case 'color-3':
+      return theme.color.green;
+    case 'color-4':
+      return theme.color.purple;
+    case 'color-5':
+      return theme.color.pink;
+    case 'color-6':
+      return theme.color.yellow;
+    default:
+      return theme.color.dark;
+  }
+}
+
 const StyledCursor = styled.div<CursorProps>`
-  border-radius: 100%;
   opacity: 0.8;
   position: fixed;
-
-  transform: translate(-50%, -50%)
-    scale(${props => (props.clickState ? 1.5 : 1)});
 
   pointer-events: none;
   transform-origin: center;
 
-  transition: transform 0.1s ease, background-color 0.2s ease, height 0.2s ease,
+  transition: transform 0.0s ease,
+    background-color 0s ease,
+    height 0.2s ease,
+    border-bottom-width 0.2s ease,
     width 0.2s ease;
 
   z-index: ${(props: CursorProps) => {
@@ -32,25 +50,45 @@ const StyledCursor = styled.div<CursorProps>`
         return -1;
     }
   }};
-  background-color: ${(props: CursorProps) => {
-    switch (props.cursorState) {
-      case "default":
-        return props.theme.color.dark;
-      case 'link-1':
-        return props.theme.color.blue;
-      case 'link-2':
-        return props.theme.color.yellow;
-      case 'none':
-        return '';
-      default:
-        return props.theme.color.dark;
-    }
-  }};
 
   ${(props: CursorProps) => {
     switch (props.cursorState) {
       case 'default':
         return css`
+          background-color: ${props.theme.color.dark};
+        `;
+      case 'none':
+        return '';
+      default:
+        switch (props.cursorState.shape) {
+          case 'shape-2':
+            return css`
+              border-bottom-color: ${getColor(
+                props.cursorState.color,
+                props.theme
+              )} !important;
+            `;
+          default:
+            return css`
+              background-color: ${getColor(
+                props.cursorState.color,
+                props.theme
+              )};
+            `;
+        }
+    }
+  }}
+
+  ${(props: CursorProps) => {
+    return css`
+      transform: translate(-50%, -50%) scale(${props.clickState ? 1.5 : 1});
+    `;
+  }}
+  ${(props: CursorProps) => {
+    switch (props.cursorState) {
+      case 'default':
+        return css`
+          border-radius: 100%;
           @media (max-width: 575px) {
             width: 20px;
             height: 20px;
@@ -78,37 +116,132 @@ const StyledCursor = styled.div<CursorProps>`
           height: 0px;
         `;
       default:
-        return css`
-          @media (max-width: 575px) {
-            width: 70px;
-            height: 70px;
-          }
-          @media (min-width: 571px) and (max-width: 1100px) {
-            width: 70px;
-            height: 70px;
-          }
-          @media (min-width: 1101px) {
-            width: 75px;
-            height: 75px;
-          }
-          @media (min-width: 1921px) {
-            width: 100px;
-            height: 100px;
-          }
-          @media (min-width: 2561px) {
-            width: 150px;
-            height: 150px;
-          }
-        `;
+        console.log(props.cursorState);
+        switch (props.cursorState.shape) {
+          case 'shape-1':
+            return css`
+              border-radius: 100%;
+              @media (max-width: 575px) {
+                width: 70px;
+                height: 70px;
+              }
+              @media (min-width: 571px) and (max-width: 1100px) {
+                width: 70px;
+                height: 70px;
+              }
+              @media (min-width: 1101px) {
+                width: 75px;
+                height: 75px;
+              }
+              @media (min-width: 1921px) {
+                width: 100px;
+                height: 100px;
+              }
+              @media (min-width: 2561px) {
+                width: 150px;
+                height: 150px;
+              }
+            `;
+          case 'shape-2':
+            return css`
+              border-radius: 0;
+              width: 0;
+              height: 0;
+              border-left: 50px solid transparent;
+              border-right: 50px solid transparent;
+              border-bottom: 100px solid;
+              @media (max-width: 575px) {
+                width: 70px;
+                height: 70px;
+              }
+              @media (min-width: 571px) and (max-width: 1100px) {
+                width: 70px;
+                height: 70px;
+              }
+              @media (min-width: 1101px) {
+                width: 75px;
+                height: 75px;
+              }
+              @media (min-width: 1921px) {
+                width: 100px;
+                height: 100px;
+              }
+              @media (min-width: 2561px) {
+                width: 150px;
+                height: 150px;
+              }
+            `;
+          case 'shape-3':
+            return css`
+              @media (max-width: 575px) {
+                width: 70px;
+                height: 70px;
+              }
+              @media (min-width: 571px) and (max-width: 1100px) {
+                width: 70px;
+                height: 70px;
+              }
+              @media (min-width: 1101px) {
+                width: 75px;
+                height: 75px;
+              }
+              @media (min-width: 1921px) {
+                width: 100px;
+                height: 100px;
+              }
+              @media (min-width: 2561px) {
+                width: 150px;
+                height: 150px;
+              }
+            `;
+        }
     }
-  }};
+  }}
+`;
+
+const CursorWrapper = styled.div<CursorProps>`
+  transition: all 0s;
+  ${props => {
+    switch (props.cursorState) {
+      case 'none':
+      case 'default':
+        return css``;
+      default:
+        switch (props.cursorState.rotate) {
+          case 'rotate-1':
+            return css`
+              transform: rotate(20deg);
+            `;
+          case 'rotate-2':
+            return css`
+              transform: rotate(45deg);
+            `;
+          case 'rotate-3':
+            return css`
+              transform: rotate(63deg);
+            `;
+          case 'rotate-4':
+            return css`
+              transform: rotate(84deg);
+            `;
+          case 'rotate-5':
+            return css`
+              transform: rotate(11deg);
+            `;
+          case 'rotate-6':
+            return css`
+              transform: rotate(70deg);
+            `;
+        }
+    }
+  }}
 `;
 
 interface CursorLocation {
   top: string;
   left: string;
 }
-type ShapeType = 'shape-1' | 'shape-1' | 'shape-1';
+type ShapeType = 'shape-1' | 'shape-2' | 'shape-3';
 type ColorType =
   | 'color-1'
   | 'color-2'
@@ -116,10 +249,18 @@ type ColorType =
   | 'color-4'
   | 'color-5'
   | 'color-6';
+type RotateType =
+  | 'rotate-1'
+  | 'rotate-2'
+  | 'rotate-3'
+  | 'rotate-4'
+  | 'rotate-5'
+  | 'rotate-6';
 
 interface CursorType {
-  shape: 'shape-1' | 'shape-1' | 'shape-1';
-  color: 'color-1' | 'color-2' | 'color-3' | 'color-4' | 'color-5' | 'color-6';
+  shape: ShapeType;
+  color: ColorType;
+  rotate: RotateType;
 }
 
 type CursorState = CursorType | 'none' | 'default';
@@ -144,11 +285,13 @@ const Cursor = () => {
       if (target.classList.length === 0) {
         return;
       }
-      const shapeType = target.classList[target.classList.length - 2];
-      const colorType = target.classList[target.classList.length - 1];
+      const shapeType = target.classList[target.classList.length - 3];
+      const colorType = target.classList[target.classList.length - 2];
+      const rotateType = target.classList[target.classList.length - 1];
       setCursorState({
         shape: shapeType as ShapeType,
         color: colorType as ColorType,
+        rotate: rotateType as RotateType,
       });
     } else if (target.nodeName !== 'A') {
       setCursorState('default');
@@ -191,11 +334,13 @@ const Cursor = () => {
   }, []);
 
   return (
-    <StyledCursor
+    <CursorWrapper
       clickState={clickState}
       cursorState={cursorState}
       style={{ ...cursorLocation }}
-    />
+    >
+      <StyledCursor clickState={clickState} cursorState={cursorState} />
+    </CursorWrapper>
   );
 };
 

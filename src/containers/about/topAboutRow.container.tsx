@@ -151,7 +151,7 @@ const TopAboutRowContainer = (props: NameContainerProps) => {
             <SocialMediaLinks>
               {Object.keys(links).map(key => (
                 <A
-                  className={`shape-${randomNumberInclusive(1,3)} color-${randomNumberInclusive(1,6)}`}
+                  className={`shape-${randomNumberInclusive(1,3)} color-${randomNumberInclusive(1,6)}  rotate-${randomNumberInclusive(1, 6)}`}
                   marginRight="md"
                   marginLeft="md"
                   key={links[key]}

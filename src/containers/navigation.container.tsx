@@ -27,7 +27,7 @@ const Navigation = () => {
           className={`shape-${randomNumberInclusive(
             1,
             3
-          )} color-${randomNumberInclusive(1, 6)}`}
+          )} color-${randomNumberInclusive(1, 6)}  rotate-${randomNumberInclusive(1, 6)}`}
           marginLeft="md"
           key={key}
         >

@@ -4,7 +4,7 @@ import { Flex } from 'components/flex';
 
 import { ThemeProp } from 'theme';
 import { fetchLinks } from '../repositories/link.repository';
-import { A, H4} from 'components/typography';
+import { A, H4 } from 'components/typography';
 import { randomNumberInclusive } from '../utils/random';
 import { Wiggle } from '../components/animations';
 import { SectionWrapper } from '../components/sectionWrapper';
@@ -71,7 +71,13 @@ const FooterContainer = () => {
         <div>
           {Object.keys(links).map(key => (
             <A
-              className={`shape-${randomNumberInclusive(1,3)} color-${randomNumberInclusive(1,6)}`}
+              className={`shape-${randomNumberInclusive(
+                1,
+                3
+              )} color-${randomNumberInclusive(
+                1,
+                6
+              )} rotate-${randomNumberInclusive(1, 6)}`}
               marginRight="md"
               horizontalTransform="xl"
               textAlign="right"
