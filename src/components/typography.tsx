@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Theme, ElementSizesUnion } from 'theme';
+import { ElementSizesUnion, Theme } from 'theme';
 
 export type Color =
   | 'yellow'

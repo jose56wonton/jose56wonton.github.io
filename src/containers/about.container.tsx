@@ -6,6 +6,7 @@ import { Link } from 'models/link.model';
 import TopAboutRowContainer from './about/topAboutRow.container';
 import BottomAboutRowContainer from './about/bottomAboutRow.container';
 import { SectionWrapper } from '../components/sectionWrapper';
+import { Element } from 'react-scroll';
 
 const AboutContainer = () => {
   const [isJokeVisible, setJokeVisible] = useState<boolean>(false);
@@ -33,6 +34,7 @@ const AboutContainer = () => {
 
   return (
     <SectionWrapper>
+      <Element name="about" />
       <TopAboutRowContainer
         links={links}
         isJokeVisible={isJokeVisible}

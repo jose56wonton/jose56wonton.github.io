@@ -1,21 +1,24 @@
 import React from 'react';
-import { Work } from 'models/work.model';
-import { fetchWork } from 'repositories/work.repository';
-
-import WorkRow from './work/workRow';
-import { SectionWrapper } from '../components/sectionWrapper';
+import { fetchExperiences } from 'repositories/experience.repository';
+import { Experience } from 'models/experience.model';
 import { SectionTitle } from '../components/sectionTitle';
+import ExperienceRow from './experience/experienceRow';
+import { SectionWrapper } from '../components/sectionWrapper';
+import { Element } from 'react-scroll';
 
-const WorkSection = () => {
-  const works = fetchWork(); // TODO: this needs be in order
+const ExperienceSection = () => {
+  const experiences = fetchExperiences();
   return (
     <SectionWrapper>
-      <SectionTitle>Projects</SectionTitle>
-      {works.map((work: Work, index: number) => {
-        return <WorkRow key={index} work={work} />;
+      <Element name="work" />
+      <SectionTitle>Work</SectionTitle>
+      {experiences.map((experience: Experience, index: number) => {
+        return (
+          <ExperienceRow key={index} index={index} experience={experience} />
+        );
       })}
     </SectionWrapper>
   );
 };
 
-export default WorkSection;
+export default ExperienceSection;

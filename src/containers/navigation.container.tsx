@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { A } from '../components/typography';
 import { randomInclusive } from '../utils/random';
 
+import { scroller } from 'react-scroll';
+
 const Wrapper = styled.div`
   position: -webkit-sticky;
   position: sticky;
@@ -29,6 +31,14 @@ const Navigation = () => {
             1,
             6
           )}`}
+          onClick={() =>
+            scroller.scrollTo(key, {
+              duration: 500,
+              delay: 100,
+              smooth: true,
+              offset: -150,
+            })
+          }
           marginLeft="md"
           key={key}
         >
