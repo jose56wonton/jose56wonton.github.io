@@ -1,7 +1,7 @@
 import React from 'react';
-import { H1, A } from '../../components/typography';
+import { H1, Link } from '../../components/typography';
 import styled from 'styled-components';
-import { Link } from 'models/link.model';
+import { Link as ModelLink } from 'models/link.model';
 import { Wiggle } from '../../components/animations';
 import { ColorDiv, ColorBlockProps } from '../../components/colorDiv';
 import { Col, Row } from 'styled-bootstrap-grid';
@@ -129,7 +129,7 @@ const GifFromHoveringDescription = styled(Img)`
 `;
 
 interface NameContainerProps {
-  links: Link;
+  links: ModelLink;
   isJokeVisible: boolean;
   fluidGif: FluidObject;
   emoji: string;
@@ -150,7 +150,7 @@ const TopAboutRowContainer = (props: NameContainerProps) => {
           <OrangeColorBlockRelativeReset>
             <SocialMediaLinks>
               {Object.keys(links).map(key => (
-                <A
+                <Link
                   className={`shape-${randomInclusive(1,3)} color-${randomInclusive(1,6)}`}
                   marginRight="md"
                   marginLeft="md"
@@ -158,7 +158,7 @@ const TopAboutRowContainer = (props: NameContainerProps) => {
                   href={links[key]}
                 >
                   {key}
-                </A>
+                </Link>
               ))}
             </SocialMediaLinks>
             {props.isJokeVisible && (

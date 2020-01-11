@@ -4,7 +4,7 @@ import { Flex } from 'components/flex';
 
 import { ThemeProp } from 'theme';
 import { fetchLinks } from '../repositories/link.repository';
-import { A, H4 } from 'components/typography';
+import { Link, H4 } from 'components/typography';
 import { randomInclusive } from '../utils/random';
 import { Wiggle } from '../components/animations';
 import { SectionWrapper } from '../components/sectionWrapper';
@@ -70,7 +70,7 @@ const FooterContainer = () => {
         </H4>
         <div>
           {Object.keys(links).map(key => (
-            <A
+            <Link
               className={`shape-${randomInclusive(
                 1,
                 3
@@ -82,7 +82,7 @@ const FooterContainer = () => {
               href={links[key]}
             >
               {key}
-            </A>
+            </Link>
           ))}
         </div>
       </Wrapper>

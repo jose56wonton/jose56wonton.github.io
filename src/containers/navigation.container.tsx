@@ -25,10 +25,10 @@ const Wrapper = styled.div`
 `;
 
 const Navigation = () => {
-  const aaa = ['about', 'projects', 'work'];
+  const locations = ['about', 'projects', 'work'];
   return (
     <Wrapper>
-      {aaa.map(key => (
+      {locations.map(key => (
         <A
           marginRight="md"
           className={`shape-${randomInclusive(1, 3)} color-${randomInclusive(

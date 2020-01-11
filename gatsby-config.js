@@ -1,6 +1,5 @@
 const path = require('path');
 require('dotenv').config();
-console.log(process.env.GOOGLE_ANALYTICS_TRACKING_ID)
 module.exports = {
   siteMetadata: {
     title: `Joshua Wootonnn`,
@@ -12,6 +11,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+        respectDNT: false
       },
     },
     `gatsby-plugin-react-helmet`,
