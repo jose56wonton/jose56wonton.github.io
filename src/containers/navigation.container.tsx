@@ -18,6 +18,10 @@ const Wrapper = styled.div`
   align-items: center;
   margin: 0;
   z-index: 100000;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 const Navigation = () => {
