@@ -4,11 +4,12 @@ import StylingProvider from 'components/stylingProvider';
 import SEO from 'components/seo';
 
 import AboutSection from 'containers/about.container';
-import WorkSection from 'containers/work.container';
+import ProjectSection from 'containers/projects.container';
 import FooterContainer from 'containers/footer.container';
 import Cursor from 'components/cursor';
 import Hero from '../components/hero';
-import ExperienceSection from '../containers/experience.container';
+import WorkSection from '../containers/work.container';
+import Navigation from '../containers/navigation.container';
 
 const IndexPage = () => (
   <>
@@ -20,9 +21,10 @@ const IndexPage = () => (
     />
 
     <StylingProvider>
+      <Navigation />
       <AboutSection />
+      <ProjectSection />
       <WorkSection />
-      <ExperienceSection />
       <Hero text="WIP" backgroundColor="purple" />
       <FooterContainer />
       <Cursor />

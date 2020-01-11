@@ -1,112 +1,189 @@
-import Img from 'gatsby-image';
 import { H3, H4, MarkdownP, P } from '../../components/typography';
 import ReactMarkdown from 'react-markdown';
 import { Flex } from '../../components/flex';
 import React from 'react';
-import { Work } from '../../models/work.model';
 import styled from 'styled-components';
-import { ThemeProp } from '../../theme';
 import { ColorDiv } from '../../components/colorDiv';
-import { Wiggle } from '../../components/animations';
-import { randomNumberInclusive } from '../../utils/random';
+import { Jiggle } from '../../components/animations';
+import { randomInclusive } from '../../utils/random';
 import { formatDate } from '../../components/datetime';
-import { Row, Col } from '../../components/layout';
+import { Experience } from '../../models/experience.model';
+import { Row as GenericRow, Col } from '../../components/layout';
 
-interface ColorBlockProps {
-  angle: number;
-  animationTime: number;
-}
-
-const ColorBlock = styled(ColorDiv)<ColorBlockProps>`
+const Row = styled(GenericRow)`
   @media (max-width: 1100px) {
-    animation: ${(props: ColorBlockProps) =>
-        Wiggle(Math.floor(props.angle / 2))}
-      ${props => props.animationTime}s infinite;
-  }
-  @media (min-width: 1101px) {
-    animation: ${(props: ColorBlockProps) => Wiggle(props.angle)} ${props => props.animationTime}s infinite;
+    flex-direction: column-reverse;
   }
 `;
 
-const ImageCol = styled(Col)`
-  background-color: ${(props: ThemeProp) => props.theme.color.light};
-  padding: ${(props: ThemeProp) => props.theme.elementSizes.sm}px;
+export interface ColorCircleProps {
+  displacement: number;
+  animationTime: number;
+}
+
+const SmallCircle = styled(ColorDiv)<ColorCircleProps>`
+  animation: ${props => Jiggle(props.displacement / 2)}
+    ${props => props.animationTime}s infinite;
   @media (max-width: 1100px) {
-    margin: 0px 20px 30px 20px;
+    z-index: 4;
   }
   @media (min-width: 1101px) {
-    width: 60%;
-    transform: translateX(
-      -${(props: ThemeProp) => 2 * props.theme.elementSizes.lg}px
-    );
+    animation: ${props => Jiggle(props.displacement)}
+      ${props => props.animationTime}s infinite;
+    border-radius: 50%;
+    height: 0;
+    width: 90%;
+    top: -20%;
+    left: -8%;
+    padding-bottom: 90%;
+  }
+  @media (min-width: 2561px) {
+    width: 110%;
+    top: 0;
+    left: -18%;
+    padding-bottom: 110%;
+  }
+`;
+
+const BigCircle = styled(ColorDiv)<ColorCircleProps>`
+  border-radius: 50%;
+  height: 0;
+  z-index: -1;
+  animation: ${props => Jiggle(props.displacement / 2)}
+    ${props => props.animationTime}s infinite;
+
+  @media (max-width: 400px) {
+    width: 190%;
+    padding-bottom: 190%;
+    right: -50%;
+  }
+  @media (min-width: 401px) and (max-width: 575px) {
+    width: 150%;
+    padding-bottom: 150%;
+    top: -8%;
+    right: -25%;
+  }
+  @media (min-width: 571px) and (max-width: 1100px) {
+    width: 100%;
+    padding-bottom: 100%;
+    top: -8%;
+    right: -10%;
+  }
+  @media (min-width: 1101px) {
+    animation: ${props => Jiggle(props.displacement)}
+      ${props => props.animationTime}s infinite;
+    width: 100%;
+    padding-bottom: 100%;
+    top: -8%;
+    right: -10%;
+  }
+  @media (min-width: 1921px) {
+    width: 120%;
+    padding-bottom: 120%;
+    right: -15%;
+    top: -5%;
+  }
+  @media (min-width: 2561px) {
+    width: 170%;
+    padding-bottom: 170%;
+    right: -35%;
   }
 `;
 
 interface Props {
-  work: Work;
+  experience: Experience;
+  index: number;
 }
 
-const WorkRow = ({ work }: Props) => {
-  return (
-    <Row justify="space-between" align="center" key={work.id}>
-      <ImageCol xs={12} md={7}>
-        <Img fadeIn fluid={work.images[0].fluid} />
-      </ImageCol>
+const WorkRow = ({ experience, index }: Props) => {
+  const version = index % 2;
 
+  return (
+    <Row justify="space-between" align="center" key={experience.id}>
       <Col xs={12} md={5}>
-        <ColorBlock
-          angle={randomNumberInclusive(-10, 10)}
-          animationTime={randomNumberInclusive(2, 4)}
-          backgroundColor="pink"
+        <SmallCircle
+          displacement={randomInclusive(-10, 10)}
+          animationTime={randomInclusive(2, 4)}
+          backgroundColor={version === 1 ? 'purple' : 'green'}
+        />
+        <Flex direction="column" align="center">
+          <Flex
+            isFullWidth={true}
+            wrap="wrap"
+            justify="flex-start"
+            direction="row"
+            align="center"
+            style={{ paddingRight: '30px' }}
+          >
+            <H4 marginBottom="sm">When: </H4>
+            <Flex wrap="wrap" justify="flex-start">
+              <P
+                textAlign="left"
+                marginLeft="sm"
+                marginBottom="sm"
+                color={version === 1 ? 'medium' : 'dark'}
+              >
+                {formatDate(experience.start)} -
+              </P>
+              <P
+                textAlign="left"
+                marginLeft="sm"
+                marginBottom="sm"
+                color={version === 1 ? 'medium' : 'dark'}
+              >
+                {formatDate(experience.end)}
+              </P>
+            </Flex>
+          </Flex>
+          <Flex
+            isFullWidth={true}
+            wrap="wrap"
+            justify="flex-start"
+            direction="row"
+            align="center"
+          >
+            <H4 marginBottom="sm">Stack: </H4>
+            <Flex wrap="wrap" justify="flex-start">
+              {experience.stack.map((stack: string) => (
+                <P
+                  textAlign="left"
+                  marginLeft="sm"
+                  marginBottom="sm"
+                  color={version === 1 ? 'medium' : 'dark'}
+                  key={stack + experience.id}
+                >
+                  {stack}
+                </P>
+              ))}
+            </Flex>
+          </Flex>
+        </Flex>
+      </Col>
+      <Col xs={12} md={7}>
+        <BigCircle
+          displacement={randomInclusive(-10, 10)}
+          animationTime={randomInclusive(2, 4)}
+          backgroundColor={version === 0 ? 'purple' : 'green'}
         />
         <H3 marginBottom="sm" textAlign="right">
-          {work.title}
+          {experience.title}
         </H3>
-        <Flex
-          wrap="wrap"
-          direction="row"
-          justify="space-between"
-          align="center"
-        >
-          <H4 marginBottom="sm">When: </H4>
-          <P textAlign="right" marginLeft="sm" color="medium">
-            {`${formatDate(work.start)} - ${formatDate(work.end)}`}
-          </P>
-        </Flex>
+
+        <H4 marginBottom="sm" textAlign="right">
+          Where: {experience.company}{' '}
+        </H4>
         <Flex
           wrap="wrap"
           direction="row"
           justify="space-between"
           align="flex-start"
         >
-          <H4 marginBottom="sm">What: </H4>
           <ReactMarkdown
             renderers={{
-              paragraph: MarkdownP,
+              listItem: MarkdownP,
             }}
-            source={work.description}
+            source={experience.description}
           />
-        </Flex>
-        <Flex
-          wrap="wrap"
-          justify="space-between"
-          direction="row"
-          align="center"
-        >
-          <H4 marginBottom="sm">How: </H4>
-          <Flex wrap="wrap" justify="flex-end">
-            {work.technologies.map((technology: string) => (
-              <P
-                textAlign="right"
-                marginLeft="sm"
-                marginBottom="sm"
-                color="medium"
-                key={technology + work.id}
-              >
-                {technology}
-              </P>
-            ))}
-          </Flex>
         </Flex>
       </Col>
     </Row>

@@ -6,6 +6,7 @@ import { Wiggle } from '../../components/animations';
 import { ColorDiv, ColorBlockProps } from '../../components/colorDiv';
 import { Col, Row } from 'styled-bootstrap-grid';
 import Img, { FluidObject } from 'gatsby-image';
+import { randomInclusive } from "../../utils/random"
 
 const AboutTopRow = styled(Row)`
   margin-top: 10vh;
@@ -150,6 +151,7 @@ const TopAboutRowContainer = (props: NameContainerProps) => {
             <SocialMediaLinks>
               {Object.keys(links).map(key => (
                 <A
+                  className={`shape-${randomInclusive(1,3)} color-${randomInclusive(1,6)}`}
                   marginRight="md"
                   marginLeft="md"
                   key={links[key]}

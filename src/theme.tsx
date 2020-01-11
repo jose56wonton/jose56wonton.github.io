@@ -4,6 +4,7 @@ export interface Theme {
     green: string;
     orange: string;
     pink: string;
+    purple:string;
     blue: string;
     light: string;
     medium: string;
