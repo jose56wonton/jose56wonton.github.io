@@ -26,3 +26,5 @@ const Scrollbar: React.FC = props => (
   />
 );
 export default Scrollbar;
+
+// TODO: this conflicted with react-scroll so I took it out. looking into soon!
