@@ -5,7 +5,7 @@ import { Flex } from 'components/flex';
 import { ThemeProp } from 'theme';
 import { fetchLinks } from '../repositories/link.repository';
 import { A, H4 } from 'components/typography';
-import { randomNumberInclusive } from '../utils/random';
+import { randomInclusive } from '../utils/random';
 import { Wiggle } from '../components/animations';
 import { SectionWrapper } from '../components/sectionWrapper';
 
@@ -33,17 +33,17 @@ const ColorBlock = styled.div`
   bottom: 0;
   background-color: ${(props: ThemeProp) => props.theme.color.yellow};
   @media (max-width: 575px) {
-    animation: ${Wiggle(randomNumberInclusive(-5, 5))} 4s infinite;
+    animation: ${Wiggle(randomInclusive(-5, 5))} 4s infinite;
     left: 0;
     right: 0;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
-    animation: ${Wiggle(randomNumberInclusive(-5, 5))} 4s infinite;
+    animation: ${Wiggle(randomInclusive(-5, 5))} 4s infinite;
     left: 0;
     right: 0;
   }
   @media (min-width: 1101px) {
-    animation: ${Wiggle(randomNumberInclusive(-5, 5))} 4s infinite;
+    animation: ${Wiggle(randomInclusive(-5, 5))} 4s infinite;
     left: 0;
     right: 0;
   }
@@ -71,13 +71,10 @@ const FooterContainer = () => {
         <div>
           {Object.keys(links).map(key => (
             <A
-              className={`shape-${randomNumberInclusive(
+              className={`shape-${randomInclusive(
                 1,
                 3
-              )} color-${randomNumberInclusive(
-                1,
-                6
-              )} rotate-${randomNumberInclusive(1, 6)}`}
+              )} color-${randomInclusive(1, 5)}`}
               marginRight="md"
               horizontalTransform="xl"
               textAlign="right"

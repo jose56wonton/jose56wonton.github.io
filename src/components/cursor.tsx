@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Theme, ThemeProp } from '../theme';
-import { shape } from 'prop-types';
 
 interface CursorProps extends ThemeProp {
   cursorState: CursorState;
@@ -33,12 +32,10 @@ const StyledCursor = styled.div<CursorProps>`
 
   pointer-events: none;
   transform-origin: center;
-
-  transition: transform 0.0s ease,
-    background-color 0s ease,
-    height 0.2s ease,
-    border-bottom-width 0.2s ease,
-    width 0.2s ease;
+  transform: translate(-50%, -50%)
+    ${props => css`scale(${props.clickState ? 1.5 : 1})`};
+  transition: transform 0.1s ease, background-color 0s ease, height 0.2s ease,
+    border-bottom-width 0.2s ease, width 0.2s ease;
 
   z-index: ${(props: CursorProps) => {
     switch (props.cursorState) {
@@ -80,11 +77,6 @@ const StyledCursor = styled.div<CursorProps>`
   }}
 
   ${(props: CursorProps) => {
-    return css`
-      transform: translate(-50%, -50%) scale(${props.clickState ? 1.5 : 1});
-    `;
-  }}
-  ${(props: CursorProps) => {
     switch (props.cursorState) {
       case 'default':
         return css`
@@ -116,7 +108,6 @@ const StyledCursor = styled.div<CursorProps>`
           height: 0px;
         `;
       default:
-        console.log(props.cursorState);
         switch (props.cursorState.shape) {
           case 'shape-1':
             return css`
@@ -199,44 +190,6 @@ const StyledCursor = styled.div<CursorProps>`
   }}
 `;
 
-const CursorWrapper = styled.div<CursorProps>`
-  transition: all 0s;
-  ${props => {
-    switch (props.cursorState) {
-      case 'none':
-      case 'default':
-        return css``;
-      default:
-        switch (props.cursorState.rotate) {
-          case 'rotate-1':
-            return css`
-              transform: rotate(20deg);
-            `;
-          case 'rotate-2':
-            return css`
-              transform: rotate(45deg);
-            `;
-          case 'rotate-3':
-            return css`
-              transform: rotate(63deg);
-            `;
-          case 'rotate-4':
-            return css`
-              transform: rotate(84deg);
-            `;
-          case 'rotate-5':
-            return css`
-              transform: rotate(11deg);
-            `;
-          case 'rotate-6':
-            return css`
-              transform: rotate(70deg);
-            `;
-        }
-    }
-  }}
-`;
-
 interface CursorLocation {
   top: string;
   left: string;
@@ -249,18 +202,10 @@ type ColorType =
   | 'color-4'
   | 'color-5'
   | 'color-6';
-type RotateType =
-  | 'rotate-1'
-  | 'rotate-2'
-  | 'rotate-3'
-  | 'rotate-4'
-  | 'rotate-5'
-  | 'rotate-6';
 
 interface CursorType {
   shape: ShapeType;
   color: ColorType;
-  rotate: RotateType;
 }
 
 type CursorState = CursorType | 'none' | 'default';
@@ -285,13 +230,11 @@ const Cursor = () => {
       if (target.classList.length === 0) {
         return;
       }
-      const shapeType = target.classList[target.classList.length - 3];
-      const colorType = target.classList[target.classList.length - 2];
-      const rotateType = target.classList[target.classList.length - 1];
+      const shapeType = target.classList[target.classList.length - 2];
+      const colorType = target.classList[target.classList.length - 1];
       setCursorState({
         shape: shapeType as ShapeType,
         color: colorType as ColorType,
-        rotate: rotateType as RotateType,
       });
     } else if (target.nodeName !== 'A') {
       setCursorState('default');
@@ -334,13 +277,11 @@ const Cursor = () => {
   }, []);
 
   return (
-    <CursorWrapper
+    <StyledCursor
       clickState={clickState}
-      cursorState={cursorState}
       style={{ ...cursorLocation }}
-    >
-      <StyledCursor clickState={clickState} cursorState={cursorState} />
-    </CursorWrapper>
+      cursorState={cursorState}
+    />
   );
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { A } from '../components/typography';
-import { randomNumberInclusive } from '../utils/random';
+import { randomInclusive } from '../utils/random';
 
 const Wrapper = styled.div`
   position: -webkit-sticky;
@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0;
+  z-index: 100000;
 `;
 
 const Navigation = () => {
@@ -24,10 +25,10 @@ const Navigation = () => {
       {aaa.map(key => (
         <A
           marginRight="md"
-          className={`shape-${randomNumberInclusive(
+          className={`shape-${randomInclusive(1, 3)} color-${randomInclusive(
             1,
-            3
-          )} color-${randomNumberInclusive(1, 6)}  rotate-${randomNumberInclusive(1, 6)}`}
+            6
+          )}`}
           marginLeft="md"
           key={key}
         >

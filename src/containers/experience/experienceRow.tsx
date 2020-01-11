@@ -5,7 +5,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ColorDiv } from '../../components/colorDiv';
 import { Jiggle } from '../../components/animations';
-import { randomNumberInclusive } from '../../utils/random';
+import { randomInclusive } from '../../utils/random';
 import { formatDate } from '../../components/datetime';
 import { Experience } from '../../models/experience.model';
 import { Row as GenericRow, Col } from '../../components/layout';
@@ -102,8 +102,8 @@ const ExperienceRow = ({ experience, index }: Props) => {
     <Row justify="space-between" align="center" key={experience.id}>
       <Col xs={12} md={5}>
         <SmallCircle
-          displacement={randomNumberInclusive(-10, 10)}
-          animationTime={randomNumberInclusive(2, 4)}
+          displacement={randomInclusive(-10, 10)}
+          animationTime={randomInclusive(2, 4)}
           backgroundColor={version === 1 ? 'purple' : 'green'}
         />
         <Flex direction="column" align="center">
@@ -161,8 +161,8 @@ const ExperienceRow = ({ experience, index }: Props) => {
       </Col>
       <Col xs={12} md={7}>
         <BigCircle
-          displacement={randomNumberInclusive(-10, 10)}
-          animationTime={randomNumberInclusive(2, 4)}
+          displacement={randomInclusive(-10, 10)}
+          animationTime={randomInclusive(2, 4)}
           backgroundColor={version === 0 ? 'purple' : 'green'}
         />
         <H3 marginBottom="sm" textAlign="right">

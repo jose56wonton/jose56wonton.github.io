@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Color, H1 } from './typography';
 import { ColorDiv, ColorBlockProps } from './colorDiv';
 import { Wiggle } from './animations';
-import { randomNumberInclusive } from '../utils/random';
+import { randomInclusive } from '../utils/random';
 
 const Wrapper = styled(Container)`
   height: 100vh;
@@ -21,22 +21,22 @@ const OrangeColorBlock = styled(ColorDiv)<ColorBlockProps>`
   @media (max-width: 575px) {
     height: 40vw;
     width: 60vw;
-    animation: ${Wiggle(randomNumberInclusive(-30, 30))} 4s infinite;
+    animation: ${Wiggle(randomInclusive(-30, 30))} 4s infinite;
   }
   @media (min-width: 571px) and (max-width: 1100px) {
     height: 40vw;
     width: 60vw;
-    animation: ${Wiggle(randomNumberInclusive(-30, 30))} 4s infinite;
+    animation: ${Wiggle(randomInclusive(-30, 30))} 4s infinite;
   }
   @media (min-width: 1101px) {
     height: 20vw;
     width: 30vw;
-    animation: ${Wiggle(randomNumberInclusive(-30, 30))} 4s infinite;
+    animation: ${Wiggle(randomInclusive(-30, 30))} 4s infinite;
   }
   @media (min-width: 1921px) {
     height: 20vw;
     width: 30vw;
-    animation: ${Wiggle(randomNumberInclusive(-30, 30))} 4s infinite;
+    animation: ${Wiggle(randomInclusive(-30, 30))} 4s infinite;
   }
 `;
 

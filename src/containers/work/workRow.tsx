@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { ThemeProp } from '../../theme';
 import { ColorDiv } from '../../components/colorDiv';
 import { Wiggle } from '../../components/animations';
-import { randomNumberInclusive } from '../../utils/random';
+import { randomInclusive } from '../../utils/random';
 import { formatDate } from '../../components/datetime';
 import { Row, Col } from '../../components/layout';
 
@@ -55,8 +55,8 @@ const WorkRow = ({ work }: Props) => {
 
       <Col xs={12} md={5}>
         <ColorBlock
-          angle={randomNumberInclusive(-10, 10)}
-          animationTime={randomNumberInclusive(2, 4)}
+          angle={randomInclusive(-10, 10)}
+          animationTime={randomInclusive(2, 4)}
           backgroundColor="pink"
         />
         <H3 marginBottom="sm" textAlign="right">
