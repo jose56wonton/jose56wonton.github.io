@@ -1,13 +1,13 @@
 export interface ResumeQuery {
-  contentfulFiles: {
-    resume: FileNode;
-  };
+    contentfulFiles: {
+        resume: FileNode;
+    };
 }
 
 export interface FileNode {
-  file: {
-    url: string;
-  };
+    file: {
+        url: string;
+    };
 }
 
 export interface File {

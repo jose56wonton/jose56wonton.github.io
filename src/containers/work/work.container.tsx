@@ -14,7 +14,11 @@ const WorkSection = () => {
             <SectionTitle>Work</SectionTitle>
             {experiences.map((experience: Experience, index: number) => {
                 return (
-                    <WorkRow key={index} index={index} experience={experience} />
+                    <WorkRow
+                        key={index}
+                        index={index}
+                        experience={experience}
+                    />
                 );
             })}
         </SectionWrapper>

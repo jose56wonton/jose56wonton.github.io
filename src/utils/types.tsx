@@ -1,31 +1,31 @@
 import { FluidObject } from 'gatsby-image';
 export interface Fluid extends FluidObject {
-  tracedSVG: string;
-  aspectRatio: number;
-  src: string;
-  srcSet: string;
-  srcWebp: string;
-  srcSetWebp: string;
-  sizes: string;
+    tracedSVG: string;
+    aspectRatio: number;
+    src: string;
+    srcSet: string;
+    srcWebp: string;
+    srcSetWebp: string;
+    sizes: string;
 }
 
 export interface Location {
-  lon: number;
-  lat: number;
+    lon: number;
+    lat: number;
 }
 
 export interface Description {
-  description: string;
+    description: string;
 }
 
 export interface Image {
-  id: string;
-  title: string;
-  description: string;
-  fluid: Fluid;
+    id: string;
+    title: string;
+    description: string;
+    fluid: Fluid;
 }
 
 // TODO: should this be heer???
 export interface IsHovered {
-  isHovered: boolean;
+    isHovered: boolean;
 }
