@@ -12,8 +12,8 @@
     "type-check": "tsc",
     "lint": "./node_modules/.bin/eslint --ignore-path .eslintignore . --ext ts --ext tsx --ext js --ext jsx",
     "lint:fix": "yarn lint --fix",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "set NODE_ENV=production&&start-storybook -p 6006",
+    "build-storybook": "set NODE_ENV=production&&build-storybook"
   },
   "dependencies": {
     "@types/node": "^12.7.8",
@@ -23,7 +23,7 @@
     "@types/react-helmet": "^5.0.10",
     "@types/react-scroll": "^1.5.4",
     "@types/styled-components": "^4.4.2",
-    "babel-plugin-styled-components": "^1.10.6",
+    "babel-preset-react-app": "^9.1.1",
     "cross-env": "^6.0.0",
     "date-fns": "^2.4.1",
     "dotenv": "^8.1.0",
