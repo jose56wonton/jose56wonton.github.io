@@ -1,14 +1,10 @@
 import React, { ReactElement } from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
-import { theme } from 'theme';
+import { theme2 } from '../theme2.js';
 import { GridThemeProvider } from 'styled-bootstrap-grid';
 
-interface LayoutProps {
-  children: ReactElement | ReactElement[];
-}
-
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0px;
     padding: 0px;
@@ -70,10 +66,10 @@ const gridTheme = {
   },
 };
 
-const StylingProvider = ({ children }: LayoutProps) => (
+const StylingProvider = ({ children }) => (
   <>
     <GlobalStyle />
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme2}>
       <GridThemeProvider gridTheme={gridTheme}>
         <Content>{children}</Content>
       </GridThemeProvider>
