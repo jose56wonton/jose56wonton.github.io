@@ -11,7 +11,9 @@
     "serve": "gatsby serve",
     "type-check": "tsc",
     "lint": "./node_modules/.bin/eslint --ignore-path .eslintignore . --ext ts --ext tsx --ext js --ext jsx",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "storybook": "set NODE_ENV=production&&start-storybook -p 6006",
+    "build-storybook": "set NODE_ENV=production&&build-storybook"
   },
   "dependencies": {
     "@types/node": "^12.7.8",
@@ -21,7 +23,7 @@
     "@types/react-helmet": "^5.0.10",
     "@types/react-scroll": "^1.5.4",
     "@types/styled-components": "^4.4.2",
-    "babel-plugin-styled-components": "^1.10.6",
+    "babel-preset-react-app": "^9.1.1",
     "cross-env": "^6.0.0",
     "date-fns": "^2.4.1",
     "dotenv": "^8.1.0",
@@ -50,8 +52,14 @@
     "styled-css-grid": "^1.2.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@storybook/addon-actions": "^5.3.17",
+    "@storybook/addon-links": "^5.3.17",
+    "@storybook/addons": "^5.3.17",
+    "@storybook/react": "^5.3.17",
     "@typescript-eslint/eslint-plugin": "^2.3.1",
     "@typescript-eslint/parser": "^2.3.1",
+    "babel-loader": "^8.0.6",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",

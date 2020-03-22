@@ -11,83 +11,79 @@ import { SectionWrapper } from '../components/sectionWrapper';
 
 // TODO: this naming is garbage
 const FooterBlock = styled(SectionWrapper)`
-  position: relative;
-  width: 100%;
-  margin-bottom: 50px !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  @media (max-width: 575px) {
-    padding: 0;
-  }
-  @media (min-width: 1921px) {
-    height: 300px;
-  }
+    position: relative;
+    width: 100%;
+    margin-bottom: 50px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    @media (max-width: 575px) {
+        padding: 0;
+    }
+    @media (min-width: 1921px) {
+        height: 300px;
+    }
 `;
 
 const ColorBlock = styled.div`
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  background-color: ${(props: ThemeProp) => props.theme.color.yellow};
-  @media (max-width: 575px) {
-    animation: ${Wiggle(randomInclusive(-5, 5))} 4s infinite;
-    left: 0;
-    right: 0;
-  }
-  @media (min-width: 571px) and (max-width: 1100px) {
-    animation: ${Wiggle(randomInclusive(-5, 5))} 4s infinite;
-    left: 0;
-    right: 0;
-  }
-  @media (min-width: 1101px) {
-    animation: ${Wiggle(randomInclusive(-5, 5))} 4s infinite;
-    left: 0;
-    right: 0;
-  }
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    background-color: ${(props: ThemeProp) => props.theme.color.yellow};
+    @media (max-width: 575px) {
+        animation: ${Wiggle(randomInclusive(-5, 5))} 4s infinite;
+        left: 0;
+        right: 0;
+    }
+    @media (min-width: 571px) and (max-width: 1100px) {
+        animation: ${Wiggle(randomInclusive(-5, 5))} 4s infinite;
+        left: 0;
+        right: 0;
+    }
+    @media (min-width: 1101px) {
+        animation: ${Wiggle(randomInclusive(-5, 5))} 4s infinite;
+        left: 0;
+        right: 0;
+    }
 `;
 
 const Wrapper = styled(Flex)`
-  height: 100%;
-  width: 100%;
-  @media (max-width: 575px) {
-    width: 80vw;
-    padding: 0 10vw;
-  }
+    height: 100%;
+    width: 100%;
+    @media (max-width: 575px) {
+        width: 80vw;
+        padding: 0 10vw;
+    }
 `;
 
 const FooterContainer = () => {
-  const links = fetchLinks();
+    const links = fetchLinks();
 
-  return (
-    <FooterBlock>
-      <ColorBlock />
-      <Wrapper justify="space-between" align="center" direction="row">
-        <H4 horizontalTransform="xl">
-          Joshua Wootonn - {new Date().getFullYear()}
-        </H4>
-        <div>
-          {Object.keys(links).map(key => (
-            <Link
-              className={`shape-${randomInclusive(
-                1,
-                3
-              )} color-${randomInclusive(1, 5)}`}
-              marginRight="md"
-              horizontalTransform="xl"
-              textAlign="right"
-              key={links[key]}
-              href={links[key]}
-            >
-              {key}
-            </Link>
-          ))}
-        </div>
-      </Wrapper>
-    </FooterBlock>
-  );
+    return (
+        <FooterBlock>
+            <ColorBlock />
+            <Wrapper justify="space-between" align="center" direction="row">
+                <H4 horizontalTransform="xl">
+                    Joshua Wootonn - {new Date().getFullYear()}
+                </H4>
+                <div>
+                    {Object.keys(links).map(key => (
+                        <Link
+                            marginRight="md"
+                            horizontalTransform="xl"
+                            textAlign="right"
+                            key={links[key]}
+                            href={links[key]}
+                        >
+                            {key}
+                        </Link>
+                    ))}
+                </div>
+            </Wrapper>
+        </FooterBlock>
+    );
 };
 
 export default FooterContainer;
