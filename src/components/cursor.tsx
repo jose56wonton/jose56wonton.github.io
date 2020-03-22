@@ -218,10 +218,9 @@ const Cursor = () => {
     const [cursorState, setCursorState] = useState<CursorState>('default');
     const [clickState, setClickState] = useState(false);
 
-    const handleMouseMovement = (event: MouseEvent) => {
+    const checkHoveredNode = (event: MouseEvent) => {
         const { clientX, clientY } = event;
         const target = event.target as HTMLElement;
-
         /**
          * wish the following could be more optimized. I am not sure why the component would have cursorState === 'link' while
          * this function had cursorState === 'default'
@@ -246,11 +245,16 @@ const Cursor = () => {
         });
     };
 
+    const handleMouseMovement = (event: MouseEvent) => {
+        checkHoveredNode(event);
+    };
+
     const handleMouseDown = (event: MouseEvent) => {
         setClickState(true);
     };
     const handleMouseUp = (event: MouseEvent) => {
         setClickState(false);
+        checkHoveredNode(event);
     };
 
     const handleMouseEnter = (event: MouseEvent) => {

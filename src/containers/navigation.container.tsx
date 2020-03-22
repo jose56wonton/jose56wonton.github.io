@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { A } from '../components/typography';
-import { randomInclusive } from '../utils/random';
 
 import { scroller } from 'react-scroll';
 import { fetchResume } from '../repositories/resume.repository';
@@ -32,25 +31,12 @@ const Navigation = () => {
 
     return (
         <Wrapper>
-            <A
-                marginRight="md"
-                className={`shape-${randomInclusive(
-                    1,
-                    3
-                )} color-${randomInclusive(1, 6)}`}
-                key="resume"
-                marginLeft="md"
-                href={resume.url}
-            >
+            <A marginRight="md" key="resume" marginLeft="md" href={resume.url}>
                 resume
             </A>
             {locations.map(key => (
                 <A
                     marginRight="md"
-                    className={`shape-${randomInclusive(
-                        1,
-                        3
-                    )} color-${randomInclusive(1, 6)}`}
                     onClick={() =>
                         scroller.scrollTo(key, {
                             duration: 500,

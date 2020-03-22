@@ -73,28 +73,8 @@ const ProjectRow = ({ work }: Props) => {
                 </ImageBlock>
 
                 <LinkBlock>
-                    {work.repository && (
-                        <A
-                            className={`shape-${randomInclusive(
-                                1,
-                                3
-                            )} color-${randomInclusive(1, 6)}`}
-                            href={work.repository}
-                        >
-                            Repo
-                        </A>
-                    )}
-                    {work.link && (
-                        <A
-                            className={`shape-${randomInclusive(
-                                1,
-                                3
-                            )} color-${randomInclusive(1, 6)}`}
-                            href={work.link}
-                        >
-                            Live
-                        </A>
-                    )}
+                    {work.repository && <A href={work.repository}>Repo</A>}
+                    {work.link && <A href={work.link}>Live</A>}
                 </LinkBlock>
             </ImageCol>
 

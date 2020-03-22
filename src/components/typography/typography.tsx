@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { ElementSizesUnion, Theme } from 'theme';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
@@ -24,7 +25,7 @@ export interface TypographyProps {
     marginBottom?: ElementSizesUnion;
 }
 
-const getHorizontalTransform = (
+export const getHorizontalTransform = (
     props: TypographyProps,
     defaultProportion: ElementSizesUnion = 'na'
 ): string =>
@@ -34,7 +35,7 @@ const getHorizontalTransform = (
             : props.theme.elementSizes[defaultProportion]
     }px`;
 
-const getColor = (
+export const getColor = (
     props: TypographyProps,
     defaultColor: Color = 'dark'
 ): string => {
@@ -43,7 +44,7 @@ const getColor = (
         : props.theme.color[defaultColor];
 };
 
-const TypographyBase = css`
+export const TypographyBase = css`
     font-family: 'Josefin Sans', sans-serif;
     text-align: ${(props: TypographyProps) =>
         props.textAlign === 'right' ? 'right' : 'left'};
@@ -252,48 +253,6 @@ export const MarkdownP = styled(P)`
 `;
 
 export const Link = styled(OutboundLink)<TypographyProps>`
-    ${TypographyBase};
-    @media (max-width: 575px) {
-        transform: translateX(
-            ${(props: TypographyProps) => getHorizontalTransform(props)}
-        );
-        font-size: ${(props: TypographyProps) =>
-            props.theme.elementSizes.sm * 1.5}px;
-    }
-    @media (min-width: 571px) and (max-width: 1100px) {
-        transform: translateX(
-            ${(props: TypographyProps) => getHorizontalTransform(props)}
-        );
-        font-size: ${(props: TypographyProps) =>
-            props.theme.elementSizes.sm * 1.2}px;
-    }
-    @media (min-width: 1101px) {
-        transform: translateX(
-            ${(props: TypographyProps) => getHorizontalTransform(props)}
-        );
-        font-size: ${(props: TypographyProps) => props.theme.elementSizes.md}px;
-    }
-    @media (min-width: 1921px) {
-        transform: translateX(
-            ${(props: TypographyProps) => getHorizontalTransform(props)}
-        );
-        font-size: ${(props: TypographyProps) => props.theme.elementSizes.lg}px;
-    }
-    @media (min-width: 2561px) {
-        transform: translateX(
-            ${(props: TypographyProps) => getHorizontalTransform(props)}
-        );
-        font-size: ${(props: TypographyProps) => props.theme.elementSizes.xl}px;
-    }
-    color: ${(props: TypographyProps) => getColor(props, 'dark')};
-    font-weight: bold;
-    margin-bottom: 16px;
-    display: inline-block;
-    text-decoration: none;
-    padding: 4px;
-`;
-
-export const A = styled.a<TypographyProps>`
     ${TypographyBase};
     @media (max-width: 575px) {
         transform: translateX(
