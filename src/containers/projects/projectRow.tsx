@@ -1,5 +1,5 @@
 import Img from 'gatsby-image';
-import { H3, H4, MarkdownP, P } from '../../components/typography';
+import { A, H3, H4, MarkdownP, P } from '../../components/typography';
 import ReactMarkdown from 'react-markdown';
 import { Flex } from '../../components/flex';
 import React from 'react';
@@ -29,9 +29,26 @@ const ColorBlock = styled(ColorDiv)<ColorBlockProps>`
     }
 `;
 
-const ImageCol = styled(Col)`
+const ImageBlock = styled.div`
     background-color: ${(props: ThemeProp) => props.theme.color.light};
     padding: ${(props: ThemeProp) => props.theme.elementSizes.sm}px;
+`;
+
+const LinkBlock = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    * {
+        margin-right: 16px;
+    }
+    *:last-child {
+        margin-right: 0;
+    }
+`;
+
+const ImageCol = styled(Col)`
     @media (max-width: 1100px) {
         margin: 0px 20px 30px 20px;
     }
@@ -51,7 +68,34 @@ const ProjectRow = ({ work }: Props) => {
     return (
         <Row justify="space-between" align="center" key={work.id}>
             <ImageCol xs={12} md={7}>
-                <Img fadeIn fluid={work.images[0].fluid} />
+                <ImageBlock>
+                    <Img fadeIn fluid={work.images[0].fluid} />
+                </ImageBlock>
+
+                <LinkBlock>
+                    {work.repository && (
+                        <A
+                            className={`shape-${randomInclusive(
+                                1,
+                                3
+                            )} color-${randomInclusive(1, 6)}`}
+                            href={work.repository}
+                        >
+                            Repo
+                        </A>
+                    )}
+                    {work.link && (
+                        <A
+                            className={`shape-${randomInclusive(
+                                1,
+                                3
+                            )} color-${randomInclusive(1, 6)}`}
+                            href={work.link}
+                        >
+                            Live
+                        </A>
+                    )}
+                </LinkBlock>
             </ImageCol>
 
             <Col xs={12} md={5}>

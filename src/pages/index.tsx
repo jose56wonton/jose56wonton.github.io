@@ -8,7 +8,7 @@ import ProjectSection from 'containers/projects/projects.container';
 import FooterContainer from 'containers/footer.container';
 import Cursor from 'components/cursor';
 import Hero from '../components/hero';
-import WorkSection from '../containers/work.container';
+import WorkSection from '../containers/work/work.container';
 import Navigation from '../containers/navigation.container';
 
 const IndexPage = () => (
