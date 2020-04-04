@@ -4,7 +4,7 @@ import { Flex } from 'components/flex';
 
 import { ThemeProp } from 'theme';
 import { fetchLinks } from '../repositories/link.repository';
-import { Link, H4 } from 'components/typography';
+import { H4, A } from 'components/typography';
 import { randomInclusive } from '../utils/random';
 import { Wiggle } from '../components/animations';
 import { SectionWrapper } from '../components/sectionWrapper';
@@ -70,16 +70,16 @@ const FooterContainer = () => {
                 </H4>
                 <div>
                     {Object.keys(links).map(key => (
-                        <Link
+                        <A
                             marginRight="md"
                             horizontalTransform="xl"
                             textAlign="right"
                             key={links[key]}
                             href={links[key]}
-                            data-footer={key}
+                            data-social={key}
                         >
                             {key}
-                        </Link>
+                        </A>
                     ))}
                 </div>
             </Wrapper>
