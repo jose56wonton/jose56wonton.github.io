@@ -87,7 +87,7 @@ const A: React.FC<any> = props => {
             {...props}
             className={`shape-${state.shape} color-${state.color}`}
             onClick={e => {
-                props.onClick(e);
+                props.onClick && props.onClick(e);
                 randomize();
             }}
         />

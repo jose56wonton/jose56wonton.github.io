@@ -73,8 +73,22 @@ const ProjectRow = ({ work }: Props) => {
                 </ImageBlock>
 
                 <LinkBlock>
-                    {work.repository && <A href={work.repository}>Repo</A>}
-                    {work.link && <A href={work.link}>Live</A>}
+                    {work.repository && (
+                        <A
+                            data-project={`${work.title} - Repo`}
+                            href={work.repository}
+                        >
+                            Repo
+                        </A>
+                    )}
+                    {work.link && (
+                        <A
+                            data-project={`${work.title} - Repo`}
+                            href={work.link}
+                        >
+                            Live
+                        </A>
+                    )}
                 </LinkBlock>
             </ImageCol>
 

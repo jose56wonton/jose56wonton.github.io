@@ -31,7 +31,13 @@ const Navigation = () => {
 
     return (
         <Wrapper>
-            <A marginRight="md" key="resume" marginLeft="md" href={resume.url}>
+            <A
+                marginRight="md"
+                key="resume"
+                marginLeft="md"
+                href={resume.url}
+                data-resume
+            >
                 resume
             </A>
             {locations.map(key => (
@@ -45,6 +51,7 @@ const Navigation = () => {
                             offset: -150,
                         })
                     }
+                    data-navigation={key}
                     marginLeft="md"
                     key={key}
                 >

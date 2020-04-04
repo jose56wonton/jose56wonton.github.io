@@ -76,6 +76,7 @@ const FooterContainer = () => {
                             textAlign="right"
                             key={links[key]}
                             href={links[key]}
+                            data-footer={key}
                         >
                             {key}
                         </Link>

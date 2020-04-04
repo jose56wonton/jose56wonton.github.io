@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { ElementSizesUnion, Theme } from 'theme';
-import { OutboundLink } from 'gatsby-plugin-google-gtag';
 
 export type Color =
     | 'yellow'
@@ -252,7 +251,7 @@ export const MarkdownP = styled(P)`
     text-align: right;
 `;
 
-export const Link = styled(OutboundLink)<TypographyProps>`
+export const Link = styled.a<TypographyProps>`
     ${TypographyBase};
     @media (max-width: 575px) {
         transform: translateX(
