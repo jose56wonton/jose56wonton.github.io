@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, Link } from '../../components/typography';
+import { A, H1 } from '../../components/typography';
 import styled from 'styled-components';
 import { Link as ModelLink } from 'models/link.model';
 import { Wiggle } from '../../components/animations';
@@ -150,18 +150,15 @@ const TopAboutRowContainer = (props: NameContainerProps) => {
                     <OrangeColorBlockRelativeReset>
                         <SocialMediaLinks>
                             {Object.keys(links).map(key => (
-                                <Link
-                                    className={`shape-${randomInclusive(
-                                        1,
-                                        3
-                                    )} color-${randomInclusive(1, 6)}`}
+                                <A
                                     marginRight="md"
                                     marginLeft="md"
                                     key={links[key]}
                                     href={links[key]}
+                                    data-social={key}
                                 >
                                     {key}
-                                </Link>
+                                </A>
                             ))}
                         </SocialMediaLinks>
                         {props.isJokeVisible && (
