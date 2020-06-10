@@ -5,11 +5,8 @@ import SEO from 'components/seo';
 
 import AboutSection from 'containers/about.container';
 import ProjectSection from 'containers/projects/projects.container';
-import FooterContainer from 'containers/footer.container';
+import FooterContainer from 'containers/contact/contact.container';
 import Cursor from 'components/cursor';
-import Hero from '../components/hero';
-import WorkSection from '../containers/work/work.container';
-import Navigation from '../containers/navigation.container';
 
 const IndexPage = () => (
     <>
@@ -21,11 +18,8 @@ const IndexPage = () => (
         />
 
         <StylingProvider>
-            <Navigation />
             <AboutSection />
             <ProjectSection />
-            <WorkSection />
-            <Hero text="WIP" backgroundColor="purple" />
             <FooterContainer />
             <Cursor />
         </StylingProvider>
