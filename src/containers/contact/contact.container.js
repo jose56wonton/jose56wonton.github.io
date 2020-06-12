@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components/macro';
-import { Flex } from 'components/flex';
+import { Flex } from '../../components/flex';
 
 import { fetchLinks } from '../../repositories/link.repository';
-import { H4, A } from 'components/typography';
+import { H4, A } from '../../components/typography';
 import { randomInclusive } from '../../utils/random';
 import { Wiggle } from '../../components/animations';
 

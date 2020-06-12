@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import { GridThemeProvider } from 'styled-bootstrap-grid';
@@ -52,7 +52,7 @@ export const gridTheme = {
     },
 };
 
-const StylingProvider: FC = ({ children }) => (
+const StylingProvider = ({ children }) => (
     <>
         <GlobalStyle />
         <ThemeProvider theme={theme}>

@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     justify-content: center;
 `;
 
-const Decorator = (StoryFn: any) => (
+const Decorator = StoryFn => (
     <Wrapper>
         <GlobalStyle />
         <ThemeProvider theme={theme}>
