@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Col, Row } from 'styled-bootstrap-grid';
 import React from 'react';
-import { H3 } from '../../components/typography';
+import { H3 } from '../../components/typography/index';
 import { IsHovered } from '../../utils/types';
 import { Wiggle } from '../../components/animations';
 import { ColorDiv, ColorBlockProps } from '../../components/colorDiv';

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { A } from '../components/typography';
+import { A } from '../components/typography/index';
 
 import { scroller } from 'react-scroll';
 import { fetchResume } from '../repositories/resume.repository';

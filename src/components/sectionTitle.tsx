@@ -1,4 +1,4 @@
-import { H1, TypographyProps } from './typography';
+import { H1, TypographyProps } from './typography/index';
 import styled from 'styled-components';
 
 const transformTypography = (props: TypographyProps) => {

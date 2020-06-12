@@ -1,7 +1,7 @@
 import { keyframes } from 'styled-components';
 import { randomBoolean } from '../utils/random';
 
-export const Wiggle = (movementOrigin: number) => keyframes`
+export const Wiggle = movementOrigin => keyframes`
   0% { 
     transform:  rotate(${movementOrigin}deg);
   }
@@ -15,7 +15,7 @@ export const Wiggle = (movementOrigin: number) => keyframes`
   }
 `;
 
-export const Jiggle = (movementOrigin: number) => keyframes`
+export const Jiggle = movementOrigin => keyframes`
   0% { 
     transform:  translate(${movementOrigin}px,${movementOrigin}px) ;
   }

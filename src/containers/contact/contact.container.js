@@ -2,10 +2,10 @@ import React from 'react';
 import styled, { css } from 'styled-components/macro';
 import { Flex } from '../../components/flex';
 
-import { fetchLinks } from '../../repositories/link.repository';
 import { H4, A } from '../../components/typography';
 import { randomInclusive } from '../../utils/random';
 import { Wiggle } from '../../components/animations';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const styles = {
     root: css`
@@ -41,7 +41,19 @@ const Wrapper = styled(Flex)`
 `;
 
 const ContactContainer = () => {
-    const links = fetchLinks();
+    const { links } = useStaticQuery(
+        graphql`
+            {
+                contentfulLinks {
+                    github
+                    medium
+                    twitter
+                    linkedIn
+                }
+            }
+        `
+    );
+    // const links = fetchLinks();
 
     return (
         <div css={styles.root}>
