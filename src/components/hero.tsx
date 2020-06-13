@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
-import { Color, H1 } from './typography';
+import { Color, H1 } from './typography/index';
 import { ColorDiv, ColorBlockProps } from './colorDiv';
 import { Wiggle } from './animations';
 import { randomInclusive } from '../utils/random';

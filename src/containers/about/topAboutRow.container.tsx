@@ -1,5 +1,5 @@
 import React from 'react';
-import { A, H1 } from '../../components/typography';
+import { A, H1 } from '../../components/typography/index';
 import styled from 'styled-components';
 import { Link as ModelLink } from 'models/link.model';
 import { Wiggle } from '../../components/animations';

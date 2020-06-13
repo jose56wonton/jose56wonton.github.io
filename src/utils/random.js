@@ -1,4 +1,4 @@
-export const randomInclusive = (min: number, max: number): number => {
+export const randomInclusive = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 };
 

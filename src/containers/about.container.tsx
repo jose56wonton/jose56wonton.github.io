@@ -1,19 +1,32 @@
 import React, { useState } from 'react';
 import { fetchAbout } from 'repositories/about.repository';
 import { About } from 'models/about.model';
-import { fetchLinks } from 'repositories/link.repository';
 import { Link } from 'models/link.model';
 import TopAboutRowContainer from './about/topAboutRow.container';
 import BottomAboutRowContainer from './about/bottomAboutRow.container';
 import { SectionWrapper } from '../components/sectionWrapper';
 import { Element } from 'react-scroll';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const AboutContainer = () => {
     const [isJokeVisible, setJokeVisible] = useState<boolean>(false);
     const [currentJokeIndex, setCurrentJokeIndex] = useState<number>(0);
 
     const aboutVariants: About[] = fetchAbout();
-    const links: Link = fetchLinks();
+
+    const { contentfulLinks } = useStaticQuery(
+        graphql`
+            {
+                contentfulLinks {
+                    github
+                    medium
+                    twitter
+                    linkedIn
+                }
+            }
+        `
+    );
+    const links: Link = contentfulLinks;
 
     const goToNextDescription = () => {
         if (aboutVariants.length === 0) {

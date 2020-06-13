@@ -9,6 +9,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "noUnusedLocals": false,
+    "allowJs": true,
     "baseUrl": "src",
     "rootDirs": ["src", ".storybook"]
   },

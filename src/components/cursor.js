@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { Theme, ThemeProp } from '../theme';
 
-interface CursorProps extends ThemeProp {
-    cursorState: CursorState;
-    clickState: boolean;
-}
-
-function getColor(props: ColorType, theme: Theme) {
+function getColor(props, theme) {
     switch (props) {
         case 'color-1':
             return theme.color.blue;
@@ -26,7 +20,7 @@ function getColor(props: ColorType, theme: Theme) {
     }
 }
 
-const StyledCursor = styled.div<CursorProps>`
+const StyledCursor = styled.div`
     opacity: 0.8;
     position: fixed;
 
@@ -37,18 +31,18 @@ const StyledCursor = styled.div<CursorProps>`
     transition: transform 0.1s ease, background-color 0s ease, height 0.2s ease,
         border-bottom-width 0.2s ease, width 0.2s ease;
 
-    z-index: ${(props: CursorProps) => {
+    z-index: ${props => {
         switch (props.cursorState) {
             case 'default':
                 return 1;
             case 'none':
                 return '';
             default:
-                return -1;
+                return 0;
         }
     }};
 
-    ${(props: CursorProps) => {
+    ${props => {
         switch (props.cursorState) {
             case 'default':
                 return css`
@@ -76,7 +70,7 @@ const StyledCursor = styled.div<CursorProps>`
         }
     }}
 
-    ${(props: CursorProps) => {
+    ${props => {
         switch (props.cursorState) {
             case 'default':
                 return css`
@@ -190,52 +184,32 @@ const StyledCursor = styled.div<CursorProps>`
     }}
 `;
 
-interface CursorLocation {
-    top: string;
-    left: string;
-}
-type ShapeType = 'shape-1' | 'shape-2' | 'shape-3';
-type ColorType =
-    | 'color-1'
-    | 'color-2'
-    | 'color-3'
-    | 'color-4'
-    | 'color-5'
-    | 'color-6';
-
-interface CursorType {
-    shape: ShapeType;
-    color: ColorType;
-}
-
-type CursorState = CursorType | 'none' | 'default';
-
 const Cursor = () => {
-    const [cursorLocation, setCursorLocation] = useState<CursorLocation>({
+    const [cursorLocation, setCursorLocation] = useState({
         top: '0',
         left: '0',
     });
-    const [cursorState, setCursorState] = useState<CursorState>('default');
+    const [cursorState, setCursorState] = useState('default');
     const [clickState, setClickState] = useState(false);
 
-    const checkHoveredNode = (event: MouseEvent) => {
+    const checkHoveredNode = event => {
         const { clientX, clientY } = event;
-        const target = event.target as HTMLElement;
+        const target = event.target;
         /**
          * wish the following could be more optimized. I am not sure why the component would have cursorState === 'link' while
          * this function had cursorState === 'default'
          */
-        if (target.nodeName === 'A') {
+        if (target.nodeName === 'A' || target.nodeName === 'BUTTON') {
             if (target.classList.length === 0) {
                 return;
             }
             const shapeType = target.classList[target.classList.length - 2];
             const colorType = target.classList[target.classList.length - 1];
             setCursorState({
-                shape: shapeType as ShapeType,
-                color: colorType as ColorType,
+                shape: shapeType,
+                color: colorType,
             });
-        } else if (target.nodeName !== 'A') {
+        } else if (target.nodeName !== 'A' && target.nodeName !== 'BUTTON') {
             setCursorState('default');
         }
 
@@ -245,22 +219,22 @@ const Cursor = () => {
         });
     };
 
-    const handleMouseMovement = (event: MouseEvent) => {
+    const handleMouseMovement = event => {
         checkHoveredNode(event);
     };
 
-    const handleMouseDown = (event: MouseEvent) => {
+    const handleMouseDown = event => {
         setClickState(true);
     };
-    const handleMouseUp = (event: MouseEvent) => {
+    const handleMouseUp = event => {
         setClickState(false);
         checkHoveredNode(event);
     };
 
-    const handleMouseEnter = (event: MouseEvent) => {
+    const handleMouseEnter = event => {
         setCursorState('default');
     };
-    const handleMouseLeave = (event: MouseEvent) => {
+    const handleMouseLeave = event => {
         setCursorState('none');
     };
 

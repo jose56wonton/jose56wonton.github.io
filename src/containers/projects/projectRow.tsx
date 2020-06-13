@@ -1,5 +1,5 @@
 import Img from 'gatsby-image';
-import { A, H3, H4, MarkdownP, P } from '../../components/typography';
+import { A, H3, H4, MarkdownP, P } from '../../components/typography/index';
 import ReactMarkdown from 'react-markdown';
 import { Flex } from '../../components/flex';
 import React from 'react';
