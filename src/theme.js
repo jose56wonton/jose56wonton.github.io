@@ -6,6 +6,7 @@ export const theme = {
         pink: '#fe65b7',
         blue: '#446DF6',
         purple: '#AB87FF',
+        white: '#ffffff',
         light: '#EFEFEF',
         medium: '#CFCFCF',
         dark: '#333333',

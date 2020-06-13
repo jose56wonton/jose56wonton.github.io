@@ -3,21 +3,23 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import { GridThemeProvider } from 'styled-bootstrap-grid';
 import { theme } from '../theme';
+import '../normalize.css';
+import '../reset.css';
 
-export const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    cursor: none;
-  }
-  a {
-    cursor: none;
-  }
-  div {
-    box-sizing: border-box;
-  }
-  @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+export const GlobalStyles = createGlobalStyle`
+    ::-moz-selection { 
+        color: ${({ theme }) => theme.color.white};
+        background: ${({ theme }) => theme.color.purple};
+    }    
+    ::selection {
+        color: ${({ theme }) => theme.color.white};
+        background: ${({ theme }) => theme.color.purple};
+    }
+    
+     button:focus, a:focus {
+        outline: 3px solid ${({ theme }) => theme.color.dark};;
+    }
+        
 `;
 
 const Content = styled.div`
@@ -53,14 +55,12 @@ export const gridTheme = {
 };
 
 const StylingProvider = ({ children }) => (
-    <>
-        <GlobalStyle />
-        <ThemeProvider theme={theme}>
-            <GridThemeProvider gridTheme={gridTheme}>
-                <Content>{children}</Content>
-            </GridThemeProvider>
-        </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <GridThemeProvider gridTheme={gridTheme}>
+            <Content>{children}</Content>
+        </GridThemeProvider>
+    </ThemeProvider>
 );
 
 export default StylingProvider;

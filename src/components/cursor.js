@@ -38,7 +38,7 @@ const StyledCursor = styled.div`
             case 'none':
                 return '';
             default:
-                return -1;
+                return 0;
         }
     }};
 
@@ -199,7 +199,7 @@ const Cursor = () => {
          * wish the following could be more optimized. I am not sure why the component would have cursorState === 'link' while
          * this function had cursorState === 'default'
          */
-        if (target.nodeName === 'A') {
+        if (target.nodeName === 'A' || target.nodeName === 'BUTTON') {
             if (target.classList.length === 0) {
                 return;
             }
@@ -209,7 +209,7 @@ const Cursor = () => {
                 shape: shapeType,
                 color: colorType,
             });
-        } else if (target.nodeName !== 'A') {
+        } else if (target.nodeName !== 'A' && target.nodeName !== 'BUTTON') {
             setCursorState('default');
         }
 
