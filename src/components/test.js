@@ -1,8 +1,8 @@
 import React from 'react';
 import ContactContainer from '../containers/contact';
-import StylingProvider from '../components/stylingProvider';
+import StylingProvider from './stylingProvider';
 import { css } from 'styled-components/macro';
-import Cursor from '../components/cursor';
+import Cursor from './cursor';
 
 const styles = {
     root: css`
@@ -14,7 +14,7 @@ const styles = {
     `,
 };
 
-const Test = props => {
+const Test = () => {
     return (
         <StylingProvider>
             <Cursor />

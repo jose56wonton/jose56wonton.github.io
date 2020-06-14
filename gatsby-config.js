@@ -1,12 +1,46 @@
 const path = require('path');
 require('dotenv').config();
+
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://www.joshuawootonn.com',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === 'production';
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+
+
 module.exports = {
   siteMetadata: {
     title: `Joshua Wootonnn`,
-    description: `Cowboy Hacker`,
-    author: `@joshuawootonn`,
+    titleTemplate: "%s - Joshua Wootonnn",
+    description: `frontend engineer by day, freelance web developer by night`,
+    keywords: 'freelancer, web design, web developer, iowa, iowa city, eastern iowa, java script, web designer, seo, branding, frontend , freelance frontend, freelance design',
+    image: "/seo.png",
+    twitterUsername: `JoshWootonn`,
+    siteUrl
   },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    'gatsby-plugin-typescript',
+    `gatsby-plugin-styled-components`,
+
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Joshua Wootonn`,
+        short_name: `JW`,
+        description: 'frontend engineer by day, freelance web developer by night',
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#FBB02D`,
+        display: `standalone`,
+        icon: `static/favicon.png`,
+      },
+    },
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
@@ -15,34 +49,34 @@ module.exports = {
         defaultDataLayer: { platform: "gatsby" },
       },
     },
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-plugin-robots-txt',
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: '*' }]
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          }
+        }
+      }
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Joshua Wootonn`,
-        short_name: `JW`,
-        start_url: `/`,
-        background_color: `#FBB02D`,
-        theme_color: `#FBB02D`,
-        display: `minimal-ui`,
-        icon: `${__dirname}/src/images/logo.png`,
-      },
-    },
-    'gatsby-plugin-typescript',
+
+
     {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
-        // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
       },
     },
@@ -58,10 +92,5 @@ module.exports = {
         images: path.join(__dirname, 'src/images'),
       }
     },
-    `gatsby-plugin-styled-components`
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-
   ],
 };
