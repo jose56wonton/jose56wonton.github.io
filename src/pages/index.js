@@ -10,13 +10,7 @@ import Cursor from 'components/cursor';
 
 const IndexPage = () => (
     <>
-        <SEO
-            title="Home"
-            description="Joshua Wootonn home page"
-            lang="en"
-            meta={{}}
-        />
-
+        <SEO title="Portfolio" />
         <StylingProvider>
             <AboutSection />
             <ProjectSection />
