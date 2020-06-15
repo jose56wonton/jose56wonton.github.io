@@ -15,7 +15,7 @@ module.exports = {
   siteMetadata: {
     title: `Joshua Wootonnn`,
     titleTemplate: "%s - Joshua Wootonnn",
-    description: `frontend engineer by day, freelance web developer by night`,
+    description: `Frontend engineer by day. Freelance web designer by night.`,
     keywords: 'freelancer, web design, web developer, iowa, iowa city, eastern iowa, java script, web designer, seo, branding, frontend , freelance frontend, freelance design',
     image: "/seo.png",
     twitterUsername: `JoshWootonn`,
