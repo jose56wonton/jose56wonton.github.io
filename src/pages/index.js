@@ -1,19 +1,17 @@
 import React from 'react';
-
 import StylingProvider from 'components/stylingProvider';
 import SEO from 'components/seo';
-
 import AboutSection from 'containers/about.container';
-import ProjectSection from 'containers/projects/projects.container';
 import FooterContainer from 'containers/contact/contact.container';
 import Cursor from 'components/cursor';
+import FreelanceContainer from '../containers/freelance';
 
 const IndexPage = () => (
     <>
         <SEO title="Portfolio" />
         <StylingProvider>
             <AboutSection />
-            <ProjectSection />
+            <FreelanceContainer />
             <FooterContainer />
             <Cursor />
         </StylingProvider>
