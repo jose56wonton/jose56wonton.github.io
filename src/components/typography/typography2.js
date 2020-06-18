@@ -2,6 +2,15 @@ import { css } from 'styled-components/macro';
 import { mobile } from '../../mediaQueries';
 
 export const typography2 = {
+    sectionTitle: css`
+        color: ${({ theme }) => theme.color.dark};
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 118px;
+        font-weight: 600;
+        ${mobile(css`
+            font-size: 80px;
+        `)}
+    `,
     title: css`
         color: ${({ theme }) => theme.color.dark};
         font-family: 'Josefin Sans', sans-serif;

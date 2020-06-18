@@ -3,10 +3,10 @@ import ContactContainer from '../containers/contact';
 import StylingProvider from './stylingProvider';
 import { css } from 'styled-components/macro';
 import Cursor from './cursor';
+import FreelanceContainer from '../containers/freelance';
 
 const styles = {
     root: css`
-        height: 100vh;
         width: 100vw;
         display: flex;
         justify-content: center;
@@ -19,7 +19,7 @@ const Test = () => {
         <StylingProvider>
             <Cursor />
             <div css={styles.root}>
-                <ContactContainer />
+                <FreelanceContainer />
             </div>
         </StylingProvider>
     );
