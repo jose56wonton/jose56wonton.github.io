@@ -5,6 +5,7 @@ import { GridThemeProvider } from 'styled-bootstrap-grid';
 import { theme } from '../theme';
 import '../normalize.css';
 import '../reset.css';
+import 'focus-visible';
 
 export const GlobalStyles = createGlobalStyle`
     ::-moz-selection { 
