@@ -147,14 +147,6 @@ const StyledCursor = styled.div`
                                 width: 75px;
                                 height: 75px;
                             }
-                            @media (min-width: 1921px) {
-                                width: 100px;
-                                height: 100px;
-                            }
-                            @media (min-width: 2561px) {
-                                width: 150px;
-                                height: 150px;
-                            }
                         `;
                     case 'shape-3':
                         return css`
