@@ -1,8 +1,8 @@
 import React from 'react';
 import { A, typography2 } from '../../components/typography';
 import { css } from 'styled-components/macro';
-import GreySquare from './shapes/greySquare';
-import GreyTriangle from './shapes/greyTriangle';
+import Logo from './shapes/logo';
+import GreenTriangle from './shapes/greenTriangle';
 import ReactMarkdown from 'react-markdown';
 import { mobile } from 'mediaQueries';
 import { scroller } from 'react-scroll';
@@ -46,8 +46,8 @@ const styles = {
 const TextColumn = ({ primaryText, secondaryText }) => {
     return (
         <div css={styles.root}>
-            <GreySquare />
-            <GreyTriangle />
+            <Logo />
+            <GreenTriangle />
             <h1 css={styles.title2Modifier}>{primaryText}</h1>
             <ReactMarkdown
                 renderers={{

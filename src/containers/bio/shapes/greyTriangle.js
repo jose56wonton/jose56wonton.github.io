@@ -7,26 +7,29 @@ const styles = {
     root: css`
         position: absolute;
         z-index: -1;
-        top: -4%;
-        left: -17%;
+        top: -35%;
+        right: -35%;
 
         width: 0;
         height: 0;
-        border-left: 120px solid transparent;
-        border-right: 120px solid transparent;
+        border-left: 180px solid transparent;
+        border-right: 180px solid transparent;
 
-        transform: rotate(-22deg);
+        transform: rotate(40deg);
 
-        border-bottom: 200px solid ${({ theme }) => theme.color.light};
+        border-bottom: 300px solid ${({ theme }) => theme.color.light};
 
         ${mobile(css`
-            display: none;
+            top: -35%;
+            left: -35%;
+            border-bottom: 300px solid ${({ theme }) => theme.color.light};
         `)};
     `,
 };
 
 const GreyTriangle = () => {
-    const animationId = useWiggle('bio-greenTriangle', { rotation: -22 });
+    const animationId = useWiggle('bio-greyTriangle', { rotation: 40 });
+
     return <div data-animation={animationId} css={styles.root} />;
 };
 
