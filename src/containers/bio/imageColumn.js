@@ -4,7 +4,7 @@ import { css } from 'styled-components/macro';
 import { fetchLinks } from '../../repositories/link.repository';
 import A from '../../components/typography/a';
 import OrangeCircle from './shapes/orangeCircle';
-import GreenTriangle from './shapes/greenTriangle';
+import GreyTriangle from './shapes/greyTriangle';
 import { mobile } from 'mediaQueries';
 
 const styles = {
@@ -42,7 +42,7 @@ const ImageColumn = ({ fluid }) => {
     const links = fetchLinks();
     return (
         <div css={styles.root}>
-            <GreenTriangle />
+            <GreyTriangle />
             <OrangeCircle />
 
             <BackgroundImage fluid={fluid} css={styles.image} />
