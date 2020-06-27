@@ -50,8 +50,8 @@
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
-    "react-markdown": "^4.2.2",
-    "react-scroll": "^1.7.15",
+    "react-markdown": "^4.3.1",
+    "react-scroll": "^1.7.16",
     "styled-bootstrap-grid": "^3.0.5",
     "styled-components": "^4.4.0",
     "styled-css-grid": "^1.2.1"

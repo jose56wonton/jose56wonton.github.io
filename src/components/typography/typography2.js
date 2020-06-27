@@ -20,6 +20,15 @@ export const typography2 = {
             font-size: 45px;
         `)}
     `,
+    title2: css`
+        color: ${({ theme }) => theme.color.dark};
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 48px;
+        font-weight: 600;
+        ${mobile(css`
+            font-size: 36px;
+        `)}
+    `,
     text: css`
         color: ${({ theme }) => theme.color.dark};
         font-family: 'Josefin Sans', sans-serif;
@@ -30,10 +39,11 @@ export const typography2 = {
         color: ${({ theme }) => theme.color.dark};
         font-family: 'Josefin Sans', sans-serif;
         font-size: 28px;
+        line-height: 28px;
         font-weight: 500;
 
         position: relative;
-        padding: 10px;
+        padding: 10px 10px 4px 10px;
     `,
 };
 export default typography2;
