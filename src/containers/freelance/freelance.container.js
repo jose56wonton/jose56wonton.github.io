@@ -4,6 +4,7 @@ import Freelance from './freelance';
 import { typography2 } from '../../components/typography';
 import { css } from 'styled-components/macro';
 import { mobile } from 'mediaQueries';
+import { Element } from 'react-scroll';
 
 const styles = {
     root: css`
@@ -20,10 +21,11 @@ const styles = {
     `,
 };
 
-const FreelanceContainer = props => {
+const FreelanceContainer = () => {
     const { edges } = fetchFreelance();
     return (
         <div css={styles.root}>
+            <Element name="portfolio" />
             <div css={styles.titleContainer}>
                 <h1 css={typography2.sectionTitle}>Portfolio</h1>
             </div>

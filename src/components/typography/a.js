@@ -9,9 +9,15 @@ const styles = {
         text-decoration: none;
         user-select: none;
     `,
+    paragraphVariant: css`
+        ${typography2.text};
+        color: inherit;
+
+        padding: 0;
+    `,
 };
 
-const A = props => {
+const A = ({ inParagraph, ...props }) => {
     const shapeList = [1, 2, 3];
     const colorList = [...shapeList, 4, 5, 6].filter(
         colorIndex => colorIndex !== props.colorToAvoid
@@ -24,7 +30,7 @@ const A = props => {
 
     return (
         <a
-            css={styles.root}
+            css={[styles.root, inParagraph && styles.paragraphVariant]}
             className={`shape-${state.shape} color-${state.color}`}
             target="_blank"
             rel="noopener noreferrer"

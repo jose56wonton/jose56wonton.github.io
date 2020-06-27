@@ -8,7 +8,7 @@ export const theme = {
         purple: '#AB87FF',
         white: '#ffffff',
         light: '#EFEFEF',
-        medium: '#CFCFCF',
+        medium: '#8F8F8F',
         dark: '#333333',
     },
     elementSizes: {
@@ -28,12 +28,4 @@ export const theme = {
         a: 12,
         li: 12,
     },
-};
-
-export const deviceSize = {
-    xs: `(min-width: 575px)`,
-    sm: `(min-width: 571px) and (max-width: 1100px)`,
-    md: `(min-width: 1101px)`,
-    lg: `(min-width: 1921px)`,
-    xl: `(min-width: 2561px)`,
 };
