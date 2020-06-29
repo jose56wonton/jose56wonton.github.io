@@ -52,7 +52,7 @@ const styles = {
     `,
 };
 
-const A = ({ inParagraph, colorsToAvoid, ...props }) => {
+const A = ({ inParagraph, colorsToAvoid, css, ...props }) => {
     const shapeList = ['circle', 'square'];
     const colorList = [
         'blue',
@@ -72,11 +72,11 @@ const A = ({ inParagraph, colorsToAvoid, ...props }) => {
 
     return (
         <a
-            css={[styles.root, inParagraph && styles.paragraphVariant]}
+            css={[styles.root, inParagraph && styles.paragraphVariant, css]}
             target="_blank"
             rel="noopener noreferrer"
-            {...props}
             className={`${state.shape} ${state.color}`}
+            {...props}
         >
             <div
                 css={styles.colorBlock}

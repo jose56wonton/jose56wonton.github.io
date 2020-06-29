@@ -29,6 +29,11 @@ const styles = {
     openModifier: css`
         pointer-events: all;
     `,
+    linkContainer: css`
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+    `,
     link: css`
         color: ${({ theme }) => theme.color.light};
     `,
@@ -39,11 +44,6 @@ const styles = {
         padding: 5px 5px 1px 5px;
         transform: rotate(-8deg);
         ${animations.emailTooltip};
-    `,
-    linkColumn: css`
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
     `,
 };
 
@@ -62,9 +62,14 @@ const Content = props => {
             <CloseButton onClick={props.handleClose} />
             <div data-animation={bodyContentAnimationId}>
                 <p css={typography2.text}>Find me on</p>
-                <div css={styles.linkColumn}>
+                <div css={styles.linkContainer}>
                     {Object.keys(links).map(key => (
-                        <A css={styles.link} key={links[key]} href={links[key]}>
+                        <A
+                            colorsToAvoid={['purple', 'yellow', 'green']}
+                            css={styles.link}
+                            key={links[key]}
+                            href={links[key]}
+                        >
                             {key}
                         </A>
                     ))}
@@ -99,7 +104,11 @@ const Content = props => {
             </div>
             <div data-animation={bodyContentAnimationId}>
                 <p css={typography2.text}>Learn more about me through my</p>
-                <A css={styles.link} colorToAvoid={6} href={resume.url}>
+                <A
+                    css={styles.link}
+                    colorsToAvoid={['purple', 'yellow', 'green']}
+                    href={resume.url}
+                >
                     resume
                 </A>
             </div>

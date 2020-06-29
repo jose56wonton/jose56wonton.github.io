@@ -32,6 +32,7 @@ const styles = {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+        align-items: flex-start;
         width: 100%;
 
         & > div {
@@ -67,14 +68,16 @@ const styles = {
         color: ${({ theme }) => theme.color.dark};
     `,
     linkContainer: css`
-        display: inline-block;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
 
         & > a:not(:last-child) {
             margin-right: 16px;
         }
 
         ${mobile(css`
-            display: block;
+            flex-direction: column;
         `)};
     `,
 };
@@ -133,7 +136,6 @@ const ContactContainer = () => {
                     {Object.keys(links).map(key => (
                         <A
                             colorsToAvoid={['yellow']}
-                            css={styles.link}
                             key={links[key]}
                             href={links[key]}
                         >
