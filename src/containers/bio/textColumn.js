@@ -65,9 +65,8 @@ const TextColumn = ({ primaryText, secondaryText }) => {
                         <A
                             colorsToAvoid={['blue', 'purple', 'pink']}
                             inParagraph={true}
-                        >
-                            {props.children}
-                        </A>
+                            {...props}
+                        />
                     ),
                 }}
                 source={secondaryText}
