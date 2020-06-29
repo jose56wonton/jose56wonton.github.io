@@ -75,8 +75,14 @@ const Freelance = ({
                 <p css={typography2.text}>{description}</p>
             </div>
             <div css={styles.linkRow}>
-                <A href={link}>Demo</A>
-                <A href={repository}>Source</A>
+                {link && (
+                    <A colorsToAvoid={[colorVariant]} href={link}>
+                        Demo
+                    </A>
+                )}
+                <A colorsToAvoid={[colorVariant]} href={repository}>
+                    Source
+                </A>
             </div>
         </div>
     );

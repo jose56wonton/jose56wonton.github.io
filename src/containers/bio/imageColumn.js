@@ -48,7 +48,11 @@ const ImageColumn = ({ fluid }) => {
             <BackgroundImage fluid={fluid} css={styles.image} />
             <div css={styles.linkContainer}>
                 {Object.keys(links).map(key => (
-                    <A key={links[key]} href={links[key]}>
+                    <A
+                        colorsToAvoid={['orange', 'blue']}
+                        key={links[key]}
+                        href={links[key]}
+                    >
                         {key}
                     </A>
                 ))}

@@ -32,6 +32,7 @@ const styles = {
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+        align-items: flex-start;
         width: 100%;
 
         & > div {
@@ -69,7 +70,6 @@ const styles = {
     linkContainer: css`
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
         align-items: flex-start;
 
         & > a:not(:last-child) {
@@ -127,14 +127,18 @@ const ContactContainer = () => {
                         <span css={typography2.text}>
                             Learn more about me through my
                         </span>
-                        <A colorToAvoid={6} href={resume.url}>
+                        <A colorsToAvoid={['yellow']} href={resume.url}>
                             resume
                         </A>
                     </div>
                 </div>
                 <div css={styles.linkContainer}>
                     {Object.keys(links).map(key => (
-                        <A colorToAvoid={6} key={links[key]} href={links[key]}>
+                        <A
+                            colorsToAvoid={['yellow']}
+                            key={links[key]}
+                            href={links[key]}
+                        >
                             {key}
                         </A>
                     ))}
