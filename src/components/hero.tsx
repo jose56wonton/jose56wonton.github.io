@@ -1,12 +1,11 @@
 import React from 'react';
-import { Container } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
 import { Color, H1 } from './typography/index';
 import { ColorDiv, ColorBlockProps } from './colorDiv';
 import { Wiggle } from './animations';
 import { randomInclusive } from '../utils/random';
 
-const Wrapper = styled(Container)`
+const Wrapper = styled.div`
     height: 100vh;
     width: 100vw;
     display: flex;

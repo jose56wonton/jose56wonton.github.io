@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
-import { GridThemeProvider } from 'styled-bootstrap-grid';
 import { theme } from '../theme';
 import '../normalize.css';
 import '../reset.css';
@@ -26,41 +25,19 @@ export const GlobalStyles = createGlobalStyle`
 const Content = styled.div`
     position: relative;
     min-height: 100vh;
-    margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
 `;
-
-export const gridTheme = {
-    breakpoints: {
-        xl: 2561,
-        lg: 1921,
-        md: 1101,
-        sm: 576,
-        xs: 575,
-    },
-    row: {
-        padding: 10,
-    },
-    col: {
-        padding: 5,
-    },
-    container: {
-        padding: 0,
-        maxWidth: {
-            xl: 1500,
-            lg: 1200,
-            md: 900,
-            sm: 640,
-            xs: 540,
-        },
-    },
-};
 
 const StylingProvider = ({ children }) => (
     <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <GridThemeProvider gridTheme={gridTheme}>
-            <Content>{children}</Content>
-        </GridThemeProvider>
+        <meta
+            name="viewport"
+            content="user-scalable=no, width=device-width, initial-scale=1.0"
+        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <Content>{children}</Content>
     </ThemeProvider>
 );
 
