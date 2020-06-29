@@ -75,7 +75,7 @@ const Freelance = ({
                 <p css={typography2.text}>{description}</p>
             </div>
             <div css={styles.linkRow}>
-                <A href={link}>Demo</A>
+                {link && <A href={link}>Demo</A>}
                 <A href={repository}>Source</A>
             </div>
         </div>
