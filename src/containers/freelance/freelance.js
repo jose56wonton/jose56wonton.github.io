@@ -38,6 +38,7 @@ const styles = {
     `,
     descriptionContainer: css`
         padding: 0 15px;
+        margin-bottom: 20px;
     `,
     linkRow: css`
         display: flex;
