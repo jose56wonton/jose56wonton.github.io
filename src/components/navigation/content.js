@@ -11,14 +11,13 @@ import animations from '../../containers/contact/animations';
 const styles = {
     root: css`
         position: fixed;
-
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
         display: flex;
         flex-direction: column;
-        padding: 20px;
+        padding: 15px 20px;
         pointer-events: none;
 
         & > div:not(:first-child) {

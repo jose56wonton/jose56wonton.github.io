@@ -12,15 +12,12 @@ const styles = {
         top: 0;
         transform: translateY(0);
         z-index: 100;
-
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-
         width: 100%;
-
-        padding: 20px 20px 10px 20px;
+        padding: 15px 20px;
 
         ${desktop(css`
             display: none;
