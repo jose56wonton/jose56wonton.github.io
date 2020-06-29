@@ -32,14 +32,20 @@ const styles = {
             margin-top: 20px;
         `)}
     `,
-    linkContainer: css`
+    buttonContainer: css`
         margin-top: 20px;
         display: flex;
         justify-content: flex-end;
         flex-direction: row;
-        a {
-            background-color: ${({ theme }) => theme.color.blue};
-            color: ${({ theme }) => theme.color.light};
+    `,
+    button: css`
+        ${typography2.link};
+        z-index: 0;
+        background-color: ${({ theme }) => theme.color.blue};
+        color: ${({ theme }) => theme.color.light};
+        transition: 200ms;
+        &:active {
+            transform: scale(1.2) rotate(14deg);
         }
     `,
 };
@@ -61,8 +67,9 @@ const TextColumn = ({ primaryText, secondaryText }) => {
                 source={secondaryText}
             />
 
-            <div css={styles.linkContainer}>
-                <A
+            <div css={styles.buttonContainer}>
+                <button
+                    css={styles.button}
                     onClick={() =>
                         scroller.scrollTo('portfolio', {
                             duration: 500,
@@ -73,7 +80,7 @@ const TextColumn = ({ primaryText, secondaryText }) => {
                     }
                 >
                     View Portfolio
-                </A>
+                </button>
             </div>
         </div>
     );
