@@ -67,17 +67,14 @@ const styles = {
         color: ${({ theme }) => theme.color.dark};
     `,
     linkContainer: css`
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: flex-start;
+        display: inline-block;
 
         & > a:not(:last-child) {
             margin-right: 16px;
         }
 
         ${mobile(css`
-            flex-direction: column;
+            display: block;
         `)};
     `,
 };
@@ -127,14 +124,19 @@ const ContactContainer = () => {
                         <span css={typography2.text}>
                             Learn more about me through my
                         </span>
-                        <A colorToAvoid={6} href={resume.url}>
+                        <A colorsToAvoid={['yellow']} href={resume.url}>
                             resume
                         </A>
                     </div>
                 </div>
                 <div css={styles.linkContainer}>
                     {Object.keys(links).map(key => (
-                        <A colorToAvoid={6} key={links[key]} href={links[key]}>
+                        <A
+                            colorsToAvoid={['yellow']}
+                            css={styles.link}
+                            key={links[key]}
+                            href={links[key]}
+                        >
                             {key}
                         </A>
                     ))}

@@ -62,7 +62,14 @@ const TextColumn = ({ primaryText, secondaryText }) => {
                         <p css={styles.markDownContainer}>{props.children}</p>
                     ),
                     // eslint-disable-next-line react/display-name
-                    link: props => <A inParagraph={true}>{props.children}</A>,
+                    link: props => (
+                        <A
+                            colorsToAvoid={['blue', 'purple', 'pink']}
+                            inParagraph={true}
+                        >
+                            {props.children}
+                        </A>
+                    ),
                 }}
                 source={secondaryText}
             />
