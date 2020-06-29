@@ -36,7 +36,6 @@ const styles = {
         margin-top: 20px;
         display: flex;
         justify-content: flex-end;
-        flex-direction: row;
     `,
     button: css`
         ${typography2.link};
@@ -73,10 +72,8 @@ const TextColumn = ({ primaryText, secondaryText }) => {
                 }}
                 source={secondaryText}
             />
-
             <div css={styles.buttonContainer}>
                 <button
-                    css={styles.button}
                     onClick={() =>
                         scroller.scrollTo('portfolio', {
                             duration: 500,
@@ -85,6 +82,7 @@ const TextColumn = ({ primaryText, secondaryText }) => {
                             offset: -100,
                         })
                     }
+                    css={styles.button}
                 >
                     View Portfolio
                 </button>
