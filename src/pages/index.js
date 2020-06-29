@@ -1,18 +1,20 @@
 import React from 'react';
 import StylingProvider from 'components/stylingProvider';
 import SEO from 'components/seo';
-import AboutSection from 'containers/bio';
-import FooterContainer from 'containers/contact';
+import Bio from 'containers/bio';
+import Footer from 'containers/contact';
 import Cursor from 'components/cursor';
-import FreelanceContainer from '../containers/freelance';
+import Freelance from '../containers/freelance';
+import Navigation from '../components/navigation/navigation';
 
 const IndexPage = () => (
     <>
         <SEO title="Portfolio" />
         <StylingProvider>
-            <AboutSection />
-            <FreelanceContainer />
-            <FooterContainer />
+            <Navigation />
+            <Bio />
+            <Freelance />
+            <Footer />
             <Cursor />
         </StylingProvider>
     </>

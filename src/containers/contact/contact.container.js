@@ -58,7 +58,7 @@ const styles = {
         ${typography2.link};
         background-color: ${({ theme }) => theme.color.pink};
         color: ${({ theme }) => theme.color.white};
-        padding: 5px;
+        padding: 5px 5px 1px 5px;
         transform: rotate(-8deg);
         ${animations.emailTooltip};
     `,
@@ -98,7 +98,7 @@ const ContactContainer = () => {
                         <span css={typography2.text}>Contact me at</span>
                         <Tippy
                             trigger="click"
-                            placement="top"
+                            placement="top-end"
                             content="Copied"
                             css={styles.emailTooltip}
                         >
