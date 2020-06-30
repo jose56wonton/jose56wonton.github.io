@@ -15,8 +15,9 @@ module.exports = {
   siteMetadata: {
     title: `Joshua Wootonnn`,
     titleTemplate: "%s - Joshua Wootonnn",
-    description: `Frontend engineer by day. Freelance web designer by night.`,
-    keywords: 'freelancer, web design, web developer, iowa, iowa city, eastern iowa, java script, web designer, seo, branding, frontend , freelance frontend, freelance design',
+    description: `My passion is an intuitive, aesthetic web. My job is to make that a reality for you. I am currently doing this with tools like Gatsby.js and Next.js
+.`,
+    keywords: 'freelancer, creative, web design, web developer, frontend, engineer,  iowa, iowa city, eastern iowa, java script, web designer, seo, branding, frontend , freelance frontend, freelance design',
     image: "/seo.png",
     twitterUsername: `JoshWootonn`,
     siteUrl
@@ -31,9 +32,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Joshua Wootonn`,
-        short_name: `JW`,
-        description: 'frontend engineer by day, freelance web developer by night',
+        name: `Josh Wootonn`,
+        short_name: `Josh`,
+        description: 'My passion is an intuitive, aesthetic web. My job is to make that a reality for you. I am currently doing this with tools like Gatsby.js and Next.js',
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#FBB02D`,
