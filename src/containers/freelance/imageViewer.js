@@ -5,6 +5,7 @@ import { css } from 'styled-components/macro';
 import { mobile } from 'mediaQueries';
 import { uniqueId } from 'lodash';
 import { randomColor } from '../../utils/random';
+import usePointer from '../../components/usePointer';
 
 const styles = {
     image: css`
@@ -14,8 +15,10 @@ const styles = {
             height: calc(calc(100vw - 30px) * 0.5625);
         `)};
 
-        background-position: top center;
-        background-color: ${({ theme }) => theme.color.light};
+        background-position: center;
+        background-size: contain;
+
+        background-color: ${({ theme }) => theme.color.white};
     `,
     imageContainer: css`
         background-color: ${({ theme }) => theme.color.light};
@@ -81,6 +84,8 @@ const ImageViewer = ({ images, colorsToAvoid }) => {
         transitionLock.current = false;
     };
 
+    const { pointerClasses } = usePointer([color]);
+
     return (
         <button css={styles.imageContainer} onClick={switchImage}>
             <div
@@ -92,6 +97,7 @@ const ImageViewer = ({ images, colorsToAvoid }) => {
                 fluid={images[currentImage].fluid}
                 css={styles.image}
                 colorsToAvoid={colorsToAvoid}
+                className={pointerClasses}
             />
         </button>
     );

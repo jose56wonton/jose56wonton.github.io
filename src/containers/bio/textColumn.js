@@ -6,6 +6,7 @@ import GreenTriangle from './shapes/greenTriangle';
 import ReactMarkdown from 'react-markdown';
 import { mobile } from 'mediaQueries';
 import { scroller } from 'react-scroll';
+import usePointer from '../../components/usePointer';
 
 const styles = {
     root: css`
@@ -39,7 +40,7 @@ const styles = {
     `,
     button: css`
         ${typography2.link};
-        z-index: 0;
+        z-index: 5;
         background-color: ${({ theme }) => theme.color.blue};
         color: ${({ theme }) => theme.color.light};
         transition: 200ms;
@@ -49,6 +50,8 @@ const styles = {
     `,
 };
 const TextColumn = ({ primaryText, secondaryText }) => {
+    const { pointerClasses } = usePointer(['blue']);
+
     return (
         <div css={styles.root}>
             <Logo />
@@ -82,6 +85,7 @@ const TextColumn = ({ primaryText, secondaryText }) => {
                         })
                     }
                     css={styles.button}
+                    className={pointerClasses}
                 >
                     View Portfolio
                 </button>

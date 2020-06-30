@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { mobile } from 'mediaQueries';
 
@@ -46,21 +46,27 @@ const Cursor = () => {
     const [cursorState, setCursorState] = useState('default');
     const [clickState, setClickState] = useState(false);
 
-    const checkHoveredNode = ({ clientX, clientY, target }) => {
-        if (target.nodeName === 'A') {
-            if (target.classList.length === 0) {
-                return;
-            }
-            const shapeType = target.classList[target.classList.length - 2];
-            const colorType = target.classList[target.classList.length - 1];
-            setCursorState({
-                shape: shapeType,
-                color: colorType,
-            });
-        } else if (target.nodeName !== 'A') {
-            setCursorState('default');
+    const checkHoveredNode = ({ target }) => {
+        if (!target.classList || target.classList.length === 0) {
+            return setCursorState('default');
         }
 
+        let pointerIndex = -1;
+        target.classList.forEach((value, i) => {
+            if (value === 'pointer') pointerIndex = i;
+        });
+
+        if (pointerIndex === -1 || pointerIndex + 2 > target.classList.length) {
+            return setCursorState('default');
+        }
+
+        setCursorState({
+            shape: target.classList[pointerIndex + 1],
+            color: target.classList[pointerIndex + 2],
+        });
+    };
+
+    const changeLocation = ({ clientX, clientY }) => {
         setCursorLocation({
             left: `${clientX}px`,
             top: `${clientY}px`,
@@ -69,15 +75,18 @@ const Cursor = () => {
 
     const handleMouseMovement = event => {
         checkHoveredNode(event);
+        changeLocation(event);
     };
 
     const handleMouseDown = event => {
         setClickState(true);
         checkHoveredNode(event);
+        changeLocation(event);
     };
     const handleMouseUp = event => {
         setClickState(false);
         checkHoveredNode(event);
+        changeLocation(event);
     };
 
     const handleMouseEnter = event => {
@@ -90,14 +99,12 @@ const Cursor = () => {
     // TODO: check when this is getting called and uncalled
     useEffect(() => {
         document.addEventListener('mousemove', handleMouseMovement);
-        document.addEventListener('scroll', handleMouseMovement);
         document.addEventListener('mousedown', handleMouseDown);
         document.addEventListener('mouseup', handleMouseUp);
         document.addEventListener('mouseenter', handleMouseEnter);
         document.addEventListener('mouseleave', handleMouseLeave);
         return () => {
             document.removeEventListener('mousemove', handleMouseMovement);
-            document.removeEventListener('scroll', handleMouseMovement);
             document.removeEventListener('mousedown', handleMouseDown);
             document.removeEventListener('mouseup', handleMouseUp);
             document.removeEventListener('mouseenter', handleMouseEnter);
