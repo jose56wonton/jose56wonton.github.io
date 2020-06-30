@@ -78,11 +78,11 @@ const Freelance = ({
             <div css={styles.linkRow}>
                 {link && (
                     <A colorsToAvoid={[colorVariant]} href={link}>
-                        Demo
+                        Website
                     </A>
                 )}
                 <A colorsToAvoid={[colorVariant]} href={repository}>
-                    Source
+                    Source Code
                 </A>
             </div>
         </div>

@@ -5,7 +5,6 @@ import { css } from 'styled-components/macro';
 import { mobile } from 'mediaQueries';
 import { uniqueId } from 'lodash';
 import { randomColor } from '../../utils/random';
-import { colorList, shapeList } from '../../utils/elements';
 import usePointer from '../../components/usePointer';
 
 const styles = {
@@ -16,8 +15,10 @@ const styles = {
             height: calc(calc(100vw - 30px) * 0.5625);
         `)};
 
-        background-position: top center;
-        background-color: ${({ theme }) => theme.color.light};
+        background-position: center;
+        background-size: contain;
+
+        background-color: ${({ theme }) => theme.color.white};
     `,
     imageContainer: css`
         background-color: ${({ theme }) => theme.color.light};
