@@ -8,6 +8,7 @@ import { fetchResume } from '../../repositories/resume.repository';
 import { fetchLinks } from '../../repositories/link.repository';
 import animations from './animations';
 import color from './colors';
+import usePointer from '../../components/usePointer';
 
 const styles = {
     root: css`
@@ -86,6 +87,8 @@ const ContactContainer = () => {
     const links = fetchLinks();
     const resume = fetchResume();
 
+    const { pointerClasses } = usePointer(['pink']);
+
     return (
         <div css={styles.root}>
             <div css={color.block} />
@@ -107,7 +110,7 @@ const ContactContainer = () => {
                             {/*didn't propigate up to tippsy*/}
                             <button
                                 css={styles.email}
-                                className={`shape-${1} color-${3}`}
+                                className={pointerClasses}
                                 onClick={e => {
                                     const el = document.createElement(
                                         'textarea'
