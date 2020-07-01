@@ -15,8 +15,7 @@ module.exports = {
   siteMetadata: {
     title: `Joshua Wootonnn`,
     titleTemplate: "%s - Joshua Wootonnn",
-    description: `My passion is an intuitive, aesthetic web. My job is to make that a reality for you. I am currently doing this with tools like Gatsby.js and Next.js
-.`,
+    description: `My passion is an intuitive, aesthetic web. My job is to make that a reality for you. I am currently doing this with tools like Gatsby.js and Next.js.`,
     keywords: 'freelancer, creative, web design, web developer, frontend, engineer,  iowa, iowa city, eastern iowa, java script, web designer, seo, branding, frontend , freelance frontend, freelance design',
     image: "/seo.png",
     twitterUsername: `JoshWootonn`,
@@ -34,7 +33,7 @@ module.exports = {
       options: {
         name: `Josh Wootonn`,
         short_name: `Josh`,
-        description: 'My passion is an intuitive, aesthetic web. My job is to make that a reality for you. I am currently doing this with tools like Gatsby.js and Next.js',
+        description: 'My passion is an intuitive, aesthetic web. My job is to make that a reality for you. I am currently doing this with tools like Gatsby.js and Next.js.',
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#FBB02D`,
