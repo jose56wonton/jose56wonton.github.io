@@ -44,7 +44,7 @@
     "gatsby-source-contentful": "^2.1.44",
     "gatsby-source-filesystem": "^2.1.26",
     "gatsby-transformer-sharp": "^2.5.5",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-custom-scrollbars": "^4.2.1",
