@@ -9,9 +9,11 @@ import { mobile } from 'mediaQueries';
 
 const styles = {
     root: css`
+        position: relative;
+    `,
+    imageContainer: css`
         background-color: ${({ theme }) => theme.color.light};
         padding: 15px;
-        position: relative;
     `,
     image: css`
         height: 500px;
@@ -44,8 +46,9 @@ const ImageColumn = ({ fluid }) => {
         <div css={styles.root}>
             <GreyTriangle />
             <OrangeCircle />
-
-            <BackgroundImage fluid={fluid} css={styles.image} />
+            <div css={styles.imageContainer}>
+                <BackgroundImage fluid={fluid} css={styles.image} />
+            </div>
             <div css={styles.linkContainer}>
                 {Object.keys(links).map(key => (
                     <A

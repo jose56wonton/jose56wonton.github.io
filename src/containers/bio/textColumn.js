@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import { mobile } from 'mediaQueries';
 import { scroller } from 'react-scroll';
 import usePointer from '../../components/usePointer';
+import { fetchResume } from '../../repositories/resume.repository';
 
 const styles = {
     root: css`
@@ -48,10 +49,16 @@ const styles = {
             transform: scale(1.2) rotate(14deg);
         }
     `,
+    buttonVariant: css`
+        &:active {
+            transform: scale(1.2) rotate(-8deg);
+        }
+    `,
 };
 const TextColumn = ({ primaryText, secondaryText }) => {
     const { pointerClasses } = usePointer(['blue']);
 
+    const resume = fetchResume();
     return (
         <div css={styles.root}>
             <Logo />
@@ -75,6 +82,15 @@ const TextColumn = ({ primaryText, secondaryText }) => {
                 source={secondaryText}
             />
             <div css={styles.buttonContainer}>
+                <a
+                    href={resume.url}
+                    css={[styles.button, styles.buttonVariant]}
+                    className={pointerClasses}
+                >
+                    View Resume
+                </a>
+            </div>
+            <div css={styles.buttonContainer}>
                 <button
                     onClick={() =>
                         scroller.scrollTo('portfolio', {
@@ -87,7 +103,7 @@ const TextColumn = ({ primaryText, secondaryText }) => {
                     css={styles.button}
                     className={pointerClasses}
                 >
-                    View Portfolio
+                    View Freelance Portfolio
                 </button>
             </div>
         </div>

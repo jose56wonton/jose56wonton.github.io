@@ -8,7 +8,7 @@ const styles = {
     root: css`
         position: absolute;
         z-index: -1;
-        bottom: -30%;
+        bottom: -40%;
         left: -10%;
 
         width: 300px;
