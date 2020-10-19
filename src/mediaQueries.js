@@ -25,8 +25,15 @@ export const breaks = {
 };
 
 export const mobile = aaa =>
-    css`
+  css`
         @media (min-width: 0px) and (max-width: 800px) {
+            ${aaa};
+        }
+    `;
+
+export const largeMobile = aaa =>
+  css`
+        @media (min-width: 0px) and (max-width: 1300px) {
             ${aaa};
         }
     `;

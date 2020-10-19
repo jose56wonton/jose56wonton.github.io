@@ -3,7 +3,7 @@ import { fetchBio } from '../../repositories/bio.repository';
 import { css } from 'styled-components/macro';
 import TextColumn from './textColumn';
 import ImageColumn from './imageColumn';
-import { mobile } from 'mediaQueries';
+import { mobile, largeMobile } from 'mediaQueries';
 
 const styles = {
     root: css`
@@ -15,11 +15,14 @@ const styles = {
         display: flex;
         flex-direction: row;
 
-        ${mobile(css`
+        ${largeMobile(css`
             flex-direction: column;
             padding: 0 20px;
-
+            max-width: 700px;
             margin: 120px auto 200px auto;
+        `)}
+        ${mobile(css`
+            max-width: 100%;
         `)};
     `,
 };
