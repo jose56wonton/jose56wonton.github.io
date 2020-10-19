@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'styled-components/macro';
 import useWiggle from './useWiggle';
-import { mobile } from 'mediaQueries';
+import { largeMobile } from 'mediaQueries';
 import BaseLogo from '../../../components/logo';
 
 const styles = {
@@ -14,7 +14,7 @@ const styles = {
         width: 300px;
         height: 300px;
 
-        ${mobile(css`
+        ${largeMobile(css`
             display: none;
         `)};
     `,

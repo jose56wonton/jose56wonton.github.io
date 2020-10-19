@@ -4,7 +4,7 @@ import { css } from 'styled-components/macro';
 import Logo from './shapes/logo';
 import GreenTriangle from './shapes/greenTriangle';
 import ReactMarkdown from 'react-markdown';
-import { mobile } from 'mediaQueries';
+import { mobile, largeMobile } from 'mediaQueries';
 import { scroller } from 'react-scroll';
 import usePointer from '../../components/usePointer';
 import { fetchResume } from '../../repositories/resume.repository';
@@ -13,7 +13,7 @@ const styles = {
     root: css`
         width: 100%;
         margin-right: 50px;
-        ${mobile(css`
+        ${largeMobile(css`
             margin-right: 0;
             margin-bottom: 20px;
         `)}
@@ -22,7 +22,7 @@ const styles = {
         ${typography2.title2};
         margin-top: 70px;
 
-        ${mobile(css`
+        ${largeMobile(css`
             margin-top: 0;
         `)};
     `,
@@ -30,7 +30,7 @@ const styles = {
         ${typography2.text};
         margin-top: 30px;
         color: ${({ theme }) => theme.color.medium};
-        ${mobile(css`
+        ${largeMobile(css`
             margin-top: 20px;
         `)}
     `,

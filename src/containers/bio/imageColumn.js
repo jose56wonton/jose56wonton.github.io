@@ -5,7 +5,8 @@ import { fetchLinks } from '../../repositories/link.repository';
 import A from '../../components/typography/a';
 import OrangeCircle from './shapes/orangeCircle';
 import GreyTriangle from './shapes/greyTriangle';
-import { mobile } from 'mediaQueries';
+import { mobile, largeMobile } from 'mediaQueries';
+import GatsbyImage from 'gatsby-image';
 
 const styles = {
     root: css`
@@ -18,6 +19,10 @@ const styles = {
     image: css`
         height: 500px;
         width: 500px;
+        ${largeMobile(css`
+            width: 100%;
+            height: auto;
+        `)};
         ${mobile(css`
             width: calc(100vw - 70px);
             height: calc(100vw - 70px);
@@ -25,7 +30,7 @@ const styles = {
     `,
     linkContainer: css`
         position: absolute;
-        transform: translateY(20px) translateX(-15px);
+        transform: translateY(20px);
         width: 100%;
 
         z-index: 1;
@@ -47,7 +52,7 @@ const ImageColumn = ({ fluid }) => {
             <GreyTriangle />
             <OrangeCircle />
             <div css={styles.imageContainer}>
-                <BackgroundImage fluid={fluid} css={styles.image} />
+                <GatsbyImage fluid={fluid} css={styles.image} />
             </div>
             <div css={styles.linkContainer}>
                 {Object.keys(links).map(key => (
