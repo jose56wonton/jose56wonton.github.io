@@ -103,7 +103,7 @@ const TextColumn = ({ primaryText, secondaryText }) => {
                     css={styles.button}
                     className={pointerClasses}
                 >
-                    View Freelance Portfolio
+                    View Consulting Portfolio
                 </button>
             </div>
         </div>

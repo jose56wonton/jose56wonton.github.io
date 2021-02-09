@@ -16,7 +16,7 @@ const styles = {
         `)};
 
         background-position: center;
-        background-size: contain;
+        background-size: cover;
 
         background-color: ${({ theme }) => theme.color.white};
     `,
