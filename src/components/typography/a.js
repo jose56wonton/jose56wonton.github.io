@@ -36,7 +36,7 @@ const A = ({ inParagraph, colorsToAvoid, ...props }) => {
         <a
             css={[styles.root, inParagraph && styles.paragraphVariant]}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             className={pointerClasses}
             {...props}
         >
